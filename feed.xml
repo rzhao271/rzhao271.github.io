@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ray ZZ</title>
+    <description>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</description>
+    <link>http://www.rayzz.me//</link>
+    <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 26 May 2017 23:23:39 -0400</pubDate>
+    <lastBuildDate>Fri, 26 May 2017 23:23:39 -0400</lastBuildDate>
+    <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>[Algebra] Largest Comfortable Cube Size</title>
+        <description>&lt;p&gt;I am considering buying a gigaminx partly out of boredom and partly
+for the purpose of having something to turn for half an hour straight
+when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&gt;
+
+&lt;p&gt;For reference, here is how the gigaminx looks:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn.shopify.com/s/files/1/0169/0924/products/Shengshou_Gigaminx_White02_1024x1024.jpg?v=1452828270&quot; alt=&quot;picture of a white gigaminx from cubedepotusa&quot; width=&quot;200px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But, being the picky cuber I am, I state that I will only buy the gigaminx if it contains fewer cubies than the 9x9x9 Rubik’s Cube. This is because I’m OK with solving a 9x9x9, but anything above really gets tiring. Thus, let’s first calculate the number of cubies in a 9x9x9:
+&lt;!-- MORE --&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There are 8 vertices so we have at least 8 cubies&lt;/li&gt;
+  &lt;li&gt;There are 12 edges each with 7 cubies so that gives us 84 more cubies&lt;/li&gt;
+  &lt;li&gt;There are 6 centers each with 7*7 = 49 cubies so we add on 294 more cubies&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thus, we have a total of 386 cubies.&lt;/p&gt;
+
+&lt;p&gt;Now, let’s calculate the number of cubies in a gigaminx:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There are 20 vertices so we have at least 20 cubies&lt;/li&gt;
+  &lt;li&gt;There are 30 edges each with 3 cubies so that gives us 90 more cubies&lt;/li&gt;
+  &lt;li&gt;There are 12 centers each with 11 cubies so that gives us 132 more cubies&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Thus, we have a total of just 242 cubies. Now I want a gigaminx more.&lt;/p&gt;
+
+&lt;p&gt;But, what really interests me more than the gigaminx itself would have to be the following question:&lt;/p&gt;
+
+&lt;p&gt;For some integer m &amp;gt;= 2, what is the smallest nxnxn Rubik’s cube such that the number of cubies it contains is greater than the number of cubies the mxmxm megaminx contains?&lt;/p&gt;
+
+&lt;p&gt;Counting the number of cubies the Rubik’s cube contains is not hard – if you think about it as a subtraction problem rather than an addition problem, it’s just n^3 - (n-2)^3 for an nxnxn Rubik’s cube. But, we can simplify it by factoring it as (n-(n-2))(n^2 + n(n-2) + (n-2)^2) = 2(n^2 + n^2 - 2n + n^2 - 4n + 4) = 2(3n^2 - 6n + 4) = 6n^2 - 12n + 8, not bad.&lt;/p&gt;
+
+&lt;p&gt;But, the real question is the number of cubies the mxmxm megaminx contains. We know that there are at least 20 cubies since there are 20 vertices, and we know that there are 30(m-2) edge pieces, so we have a total of at least 20 + 30(m-2) cubies, but it’s the centers that are interesting.&lt;/p&gt;
+
+&lt;p&gt;We consider two cases: m is odd, or m is even.&lt;/p&gt;
+
+&lt;p&gt;If m is odd, we have the megaminx, gigaminx, teraminx, etc. In these cases, the puzzle contains fixed centers, and T-centers exist. The number of cubies
+&lt;em&gt;per center&lt;/em&gt; is then 1 + 5(m-3)/2 + 5((m-3)/2)^2, so we have a total of
+20 + 30(m-2) + [12 + 30(m-3) + 15(m-3)^2] = 20 + 30m - 60 + 12 + 30m - 90 + 15m^2 - 90m + 135 = 15m^2 - 30m + 17 cubies.&lt;/p&gt;
+
+&lt;p&gt;If m is even, we have the kilominx, master kilominx, and I’m not sure what the 6x6x6 minx is called. Anyway, the number of cubies &lt;em&gt;per center&lt;/em&gt; for those is 5((m-2)/2)^2, so we have a total of 20 + 30(m-2) + 15(m-2)^2 = 20 + 30m - 60 + 15m^2 - 60m + 60 = 15m^2 - 30m + 20 cubies.&lt;/p&gt;
+
+&lt;p&gt;This might seem to suggest that the master kilominx has more cubies than the gigaminx, but remember that for the master kilominx, m = 4 so we have 140 cubies, whereas for the gigaminx we must plug in m = 5 to obtain 242 cubies.&lt;/p&gt;
+
+&lt;p&gt;Now comes the inequality, 6n^2-12n+8 &amp;gt; 15m^2-30m+17 for m odd or 6n^2-12n+8 &amp;gt; 15m^2-30m+20 for m even, n &amp;gt; m, m &amp;gt;= 2. We want to find the smallest n for some given m that satisfies these conditions. Since I am too lazy to solve this by hand, I wrote a small Clojure program that solves this for m from 2 to 15 for me. Note that the 15x15x15 minx is the yottaminx, and yotta is the largest prefix on the SI scale so I’m not going to consider any larger sizes.&lt;/p&gt;
+
+&lt;p&gt;I’m too lazy to get the source code up (for now), so I’ll just mention the results from the program, which are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Megaminx of size 2x2x2 has fewer cubies than a cube of size 3x3x3.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 3x3x3 has fewer cubies than a cube of size 5x5x5.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 4x4x4 has fewer cubies than a cube of size 6x6x6.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 5x5x5 has fewer cubies than a cube of size 8x8x8.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 6x6x6 has fewer cubies than a cube of size 9x9x9.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 7x7x7 has fewer cubies than a cube of size 11x11x11.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 8x8x8 has fewer cubies than a cube of size 13x13x13.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 9x9x9 has fewer cubies than a cube of size 14x14x14.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 10x10x10 has fewer cubies than a cube of size 16x16x16.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 11x11x11 has fewer cubies than a cube of size 17x17x17.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 12x12x12 has fewer cubies than a cube of size 19x19x19.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 13x13x13 has fewer cubies than a cube of size 20x20x20.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 14x14x14 has fewer cubies than a cube of size 22x22x22.&lt;/li&gt;
+  &lt;li&gt;Megaminx of size 15x15x15 has fewer cubies than a cube of size 24x24x24.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, not only does the gigaminx have fewer pieces than the 9x9x9 Rubik’s cube, but the 6x6x6 minx &lt;em&gt;also&lt;/em&gt; has fewer pieces than the 9x9x9 Rubik’s cube. Doesn’t mean I’ll buy the latter, though.&lt;/p&gt;
+
+&lt;p&gt;See you next time when we find out how many coin flips or rolls of a single 6-sided die you’ll have to guess correctly to win the lottery.&lt;/p&gt;
+
+</description>
+        <pubDate>Fri, 26 May 2017 00:00:00 -0400</pubDate>
+        <link>http://www.rayzz.me//math/2017/05/26/largest-comfortable-cube-size.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//math/2017/05/26/largest-comfortable-cube-size.html</guid>
+        
+        
+        <category>math</category>
+        
+      </item>
+    
+  </channel>
+</rss>

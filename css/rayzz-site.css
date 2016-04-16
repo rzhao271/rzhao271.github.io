@@ -1,0 +1,60 @@
+body {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 3.0em;
+}
+
+h2 {
+  font-size: 2.0em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+.color-bar-1 {
+  background-color: #00FFFF;
+}
+.color-bar-1-night {
+  background-color: #400080;
+}
+
+.color-bar-2 {
+  background-color: #8EFFA0;
+}
+.color-bar-2-night {
+  background-color: #8000B0;
+}
+
+.color-bar-3 {
+  background-color: #FFFFA0;
+}
+.color-bar-3-night {
+  background-color: #0060CC;
+} 
+
+a {
+  color: #00C0FF;
+}
+a:visited {
+  color: #00A0FF;
+}
+a:hover {
+  color: #5EEF80;
+}
+
+a.link-night {
+  color: #0060CC;
+}
+a.link-night:visited {
+  color: #004899;
+}
+a.link-night:hover {
+  color: #8000B0;
+}
