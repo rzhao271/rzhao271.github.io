@@ -58,3 +58,14 @@ a.link-night:visited {
 a.link-night:hover {
   color: #8000B0;
 }
+figure.highlight {
+  background-color: #202025;
+}
+code {
+  border: none;
+  background-color: transparent;
+}
+.focus {
+  font-size: 1.4em;
+  font-style: italic;
+}

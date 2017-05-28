@@ -6,9 +6,9 @@
 </description>
     <link>http://www.rayzz.me//</link>
     <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 26 May 2017 23:23:39 -0400</pubDate>
-    <lastBuildDate>Fri, 26 May 2017 23:23:39 -0400</lastBuildDate>
-    <generator>Jekyll v3.3.1</generator>
+    <pubDate>Sat, 27 May 2017 21:53:05 -0400</pubDate>
+    <lastBuildDate>Sat, 27 May 2017 21:53:05 -0400</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
     
       <item>
         <title>[Algebra] Largest Comfortable Cube Size</title>
@@ -20,7 +20,7 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
 
 &lt;p&gt;&lt;img src=&quot;https://cdn.shopify.com/s/files/1/0169/0924/products/Shengshou_Gigaminx_White02_1024x1024.jpg?v=1452828270&quot; alt=&quot;picture of a white gigaminx from cubedepotusa&quot; width=&quot;200px&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;But, being the picky cuber I am, I state that I will only buy the gigaminx if it contains fewer cubies than the 9x9x9 Rubik’s Cube. This is because I’m OK with solving a 9x9x9, but anything above really gets tiring. Thus, let’s first calculate the number of cubies in a 9x9x9:
+&lt;p&gt;But, being the picky cuber I am, I state that &lt;strong&gt;I will only buy the gigaminx if it contains fewer cubies than the 9x9x9 Rubik’s Cube&lt;/strong&gt;. This is because I’m OK with solving a 9x9x9, but anything above really gets tiring. Thus, let’s first calculate the number of cubies in a 9x9x9:
 &lt;!-- MORE --&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -39,11 +39,13 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
   &lt;li&gt;There are 12 centers each with 11 cubies so that gives us 132 more cubies&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Thus, we have a total of just 242 cubies. Now I want a gigaminx more.&lt;/p&gt;
+&lt;p&gt;Thus, we have a total of &lt;em&gt;just&lt;/em&gt; 242 cubies. Now I actually want a gigaminx.&lt;/p&gt;
 
-&lt;p&gt;But, what really interests me more than the gigaminx itself would have to be the following question:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;But&lt;/strong&gt;, what really interests me more than the gigaminx itself would have to be the following question:&lt;/p&gt;
 
-&lt;p&gt;For some integer m &amp;gt;= 2, what is the smallest nxnxn Rubik’s cube such that the number of cubies it contains is greater than the number of cubies the mxmxm megaminx contains?&lt;/p&gt;
+&lt;div class=&quot;focus&quot;&gt;
+  &lt;p&gt;For some integer m &amp;gt;= 2, what is the smallest nxnxn Rubik’s cube such that the number of cubies it contains is greater than the number of cubies the mxmxm megaminx contains?&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Counting the number of cubies the Rubik’s cube contains is not hard – if you think about it as a subtraction problem rather than an addition problem, it’s just n^3 - (n-2)^3 for an nxnxn Rubik’s cube. But, we can simplify it by factoring it as (n-(n-2))(n^2 + n(n-2) + (n-2)^2) = 2(n^2 + n^2 - 2n + n^2 - 4n + 4) = 2(3n^2 - 6n + 4) = 6n^2 - 12n + 8, not bad.&lt;/p&gt;
 
@@ -61,7 +63,57 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
 
 &lt;p&gt;Now comes the inequality, 6n^2-12n+8 &amp;gt; 15m^2-30m+17 for m odd or 6n^2-12n+8 &amp;gt; 15m^2-30m+20 for m even, n &amp;gt; m, m &amp;gt;= 2. We want to find the smallest n for some given m that satisfies these conditions. Since I am too lazy to solve this by hand, I wrote a small Clojure program that solves this for m from 2 to 15 for me. Note that the 15x15x15 minx is the yottaminx, and yotta is the largest prefix on the SI scale so I’m not going to consider any larger sizes.&lt;/p&gt;
 
-&lt;p&gt;I’m too lazy to get the source code up (for now), so I’ll just mention the results from the program, which are:&lt;/p&gt;
+&lt;h3 id=&quot;the-program&quot;&gt;The program&lt;/h3&gt;
+
+&lt;p&gt;Note: I’m transferring over to Clojure from Racket and so I don’t know how to use all its idioms yet. Sorry for any eyesores.&lt;/p&gt;
+
+&lt;div background-color=&quot;#000000&quot;&gt;
+
+  &lt;figure class=&quot;highlight&quot;&gt;
+    &lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cube-mega-bounds.core&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;min-mega-size&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;min-cube-size&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;max-mega-size&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;;; We have to assume that n is never already way over&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;-find-first-n-over&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;upper-bound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;&amp;lt;= &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;upper-bound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;-find-first-n-over&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;inc &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;upper-bound&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;solve-ineq&lt;/span&gt; 
+  &lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;min-n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;num-mega-cubies&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;-find-first-n-over&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;min-n&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;num-mega-cubies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;solve-cube-ineq&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fn &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;* &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;* &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-12&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fn &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;zero? &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; 
+                   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;* &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;* &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-30&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;+ &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;* &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;* &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;-30&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;m-values&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;min-mega-size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;inc &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;max-mega-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;solve-ineq&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;min-cube-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;m-values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;pretty-print&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;counters&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;range &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;min-mega-size&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;inc &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;max-mega-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;doseq &lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map list &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;counters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Megaminx of size %dx%dx%d has fewer cubies &amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;than a cube of size %dx%dx%d.\n&amp;quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;defn &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;-main&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;solve-cube-ineq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pretty-print&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/figure&gt;
+
+&lt;/div&gt;
+
+&lt;h3 id=&quot;the-results&quot;&gt;The results&lt;/h3&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Megaminx of size 2x2x2 has fewer cubies than a cube of size 3x3x3.&lt;/li&gt;
@@ -79,6 +131,8 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
   &lt;li&gt;Megaminx of size 14x14x14 has fewer cubies than a cube of size 22x22x22.&lt;/li&gt;
   &lt;li&gt;Megaminx of size 15x15x15 has fewer cubies than a cube of size 24x24x24.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 
 &lt;p&gt;So, not only does the gigaminx have fewer pieces than the 9x9x9 Rubik’s cube, but the 6x6x6 minx &lt;em&gt;also&lt;/em&gt; has fewer pieces than the 9x9x9 Rubik’s cube. Doesn’t mean I’ll buy the latter, though.&lt;/p&gt;
 
