@@ -6,9 +6,98 @@
 </description>
     <link>http://www.rayzz.me//</link>
     <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 27 May 2017 21:53:05 -0400</pubDate>
-    <lastBuildDate>Sat, 27 May 2017 21:53:05 -0400</lastBuildDate>
+    <pubDate>Thu, 01 Jun 2017 22:25:34 -0400</pubDate>
+    <lastBuildDate>Thu, 01 Jun 2017 22:25:34 -0400</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>[Algebra] Lotto 6/49 Odds Represented By Dice Rolls</title>
+        <description>&lt;p&gt;The Lotto 6/49 is a Canadian lottery game where you get to choose 6 of 49 numbers for 3 dollars, and have a chance at winning millions. Now, the chance of choosing all six numbers correctly is 1 in (49 choose 6), or 1 in approximately 13 million, which already sounds low, but is hard to imagine. Hence, it’s easy to forget how small of a chance you really have at this game.&lt;/p&gt;
+
+&lt;p&gt;Thus, here’s a Haskell program fragment that puts things into perspective by first calculating the number of coin tosses that you would need to guess correctly in a row such that the chance of doing so is as low or even lower than winning the lottery…
+&lt;!-- MORE --&gt;
+Then, it gives the same for six-sided dice rolls, and twenty-sided dice rolls respectively. As a bonus, it also considers the equivalents to choosing 4 out of 6 numbers correctly, which still gives you a few thousand dollars as a reward.&lt;/p&gt;
+
+&lt;p&gt;Note I left out the main method since it just prints out a bunch of stats that you’ll see later anyway. Also, the recursive choose method is comfy.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;kr&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;where&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;choose&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;choose&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Invalid param&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;otherwise&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;choose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;choose&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;ceil_log&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;ceil_log&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Invalid param&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;otherwise&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ceiling&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logBase&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromIntegral&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromIntegral&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;And the output?&lt;/p&gt;
+
+&lt;pre&gt;
+You need to correctly guess 24 coin tosses  
+OR 10 6-sided dice rolls  
+OR 6 20-sided dice rolls to win the 6/49 lottery.  
+  
+You need to correctly guess 18 coin tosses  
+OR 7 6-sided dice rolls  
+OR 5 20-sided dice rolls to win the 4/49 lottery.  
+
+Good Luck!
+
+&lt;/pre&gt;
+
+&lt;p&gt;Ok sure, but what if one or more of these numbers are overestimated by several degrees of magnitude, especially since we always round up the number of coin flips or dice rolls to make them integers? Well, there’s only one way to find out. Let’s add a function that calculates how off an estimate is, and get the main method to print some new numbers.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-haskell&quot; data-lang=&quot;haskell&quot;&gt;&lt;span class=&quot;nf&quot;&gt;get_magnitudes_off&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;::&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Float&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;get_magnitudes_off&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;estimate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual_num&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;estimate&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ne&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Invalid params&amp;quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;otherwise&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logBase&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fromIntegral&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fromIntegral&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;estimate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;And the new output is:&lt;/p&gt;
+
+&lt;pre&gt;
+Lotto 6/49 estimation results for 6 numbers:
+Coin flips: 12.643154 magnitudes off.
+Six-sided die rolls: 1.5726068 magnitudes off.
+20-sided die rolls: 1.5138803 magnitudes off.
+
+Lotto 6/49 estimation results for 4 numbers:
+Coin flips: 10.815703 magnitudes off.
+Six-sided die rolls: 8.266034 magnitudes off.
+20-sided die rolls: 0.8481274 magnitudes off.
+
+&lt;/pre&gt;
+
+&lt;h3 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h3&gt;
+
+&lt;p&gt;Do NOT use coin flips to estimate your chances at winning four or six numbers of Lotto 6-49 for you’ll be at least ten orders of magnitude off. This means your estimated probability at winning the lottery is at least 10 billion times smaller than the actual probability.&lt;/p&gt;
+
+&lt;p&gt;Do use 20-sided dice to estimate your chances at winning four or six numbers of Lotto 6-49 for you’ll be at most just two orders of magnitude off.&lt;/p&gt;
+
+&lt;p&gt;Thus, remember that if you can often guess five or six rolls of a 20-sided die correctly in a row, you can win the Lotto.&lt;/p&gt;
+
+&lt;p&gt;For people who are only familiar with cubic six-sided dice,&lt;br /&gt;
+&lt;strong&gt;If you can often guess 10 rolls of the 6-sided die correctly in a row (I doubt it), you can win the jackpot&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Have fun playing now that you know this, and see you next time when we find out how long it should take to learn French according to the Foreign Service Institute, and how the Ontario Core French curriculum does in comparison!&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 31 May 2017 00:00:00 -0400</pubDate>
+        <link>http://www.rayzz.me//math/2017/05/31/lottery-dice.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//math/2017/05/31/lottery-dice.html</guid>
+        
+        
+        <category>math</category>
+        
+      </item>
     
       <item>
         <title>[Algebra] Largest Comfortable Cube Size</title>
@@ -67,10 +156,8 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
 
 &lt;p&gt;Note: I’m transferring over to Clojure from Racket and so I don’t know how to use all its idioms yet. Sorry for any eyesores.&lt;/p&gt;
 
-&lt;div background-color=&quot;#000000&quot;&gt;
-
-  &lt;figure class=&quot;highlight&quot;&gt;
-    &lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cube-mega-bounds.core&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;
+  &lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;ns &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;cube-mega-bounds.core&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;min-mega-size&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;min-cube-size&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -109,9 +196,7 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
   &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;def &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;solve-cube-ineq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pretty-print&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-  &lt;/figure&gt;
-
-&lt;/div&gt;
+&lt;/figure&gt;
 
 &lt;h3 id=&quot;the-results&quot;&gt;The results&lt;/h3&gt;
 
