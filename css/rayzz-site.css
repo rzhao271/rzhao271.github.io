@@ -19,14 +19,14 @@ h4 {
 }
 
 .color-bar-1 {
-  background-color: #00FFFF;
+  background-color: #00EBEB;
 }
 .color-bar-1-night {
   background-color: #400080;
 }
 
 .color-bar-2 {
-  background-color: #8EFFA0;
+  background-color: #87F298;
 }
 .color-bar-2-night {
   background-color: #8000B0;
@@ -40,7 +40,7 @@ h4 {
 } 
 
 a {
-  color: #00C0FF;
+  color: #009ACC;
 }
 a:visited {
   color: #00A0FF;
