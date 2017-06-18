@@ -6,9 +6,51 @@
 </description>
     <link>http://www.rayzz.me//</link>
     <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 12 Jun 2017 22:43:27 -0400</pubDate>
-    <lastBuildDate>Mon, 12 Jun 2017 22:43:27 -0400</lastBuildDate>
+    <pubDate>Sun, 18 Jun 2017 15:44:19 -0400</pubDate>
+    <lastBuildDate>Sun, 18 Jun 2017 15:44:19 -0400</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>[Languages] Analysis of FSI learning times for French and Japanese</title>
+        <description>&lt;p&gt;For the last three weeks I have been working mainly on three things: side projects, professional development coursework, and preparation for Newmarket Open 2017, a Rubik’s cube competition. Anyway, the last item is out of the way and the second-last item is nearly out of the way, so let’s continue with the posts.&lt;/p&gt;
+
+&lt;p&gt;I recall that last time I said that I would take the Foreign Service Institute’s language learning times list and compare it to the Core French curriculum. For fun, I’ll also examine how long Japanese could take to learn for my friends, but first let’s find out what the Foreign Service Institute (FSI) has for us…&lt;!-- MORE --&gt;&lt;a href=&quot;https://en.wikibooks.org/wiki/Wikibooks:Language_Learning_Difficulty_for_English_Speakers&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, for people who only speak English, we can learn French up to some “general professional proficiency” in 600 hours. This means that one hour of learning a day extends to knowing French very well in under two years, but would this mean that four hours of studying French a day allows us to gain a “professional level” of proficiency in under half a year?&lt;/p&gt;
+
+&lt;p&gt;Not really. According to the Wikibooks article, we already know some reasons why these learners can learn so quickly:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Those working in the FSI already have a knack for picking up languages quickly as they serve as professional translators&lt;/li&gt;
+  &lt;li&gt;The listed hours are only for class hours, meaning each learner must study the language for three to four additional hours per day on their own.&lt;/li&gt;
+  &lt;li&gt;The self-study hours are directed, so it’s probably not as simple as just picking their favourite song in their target language and listening to it on repeat.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, with this in mind, let’s first increase the time by 25% so that we require 750 class hours. Meanwhile, I took Core French from grades 4 to 11 but was a complete disaster in Montreal, so something must have went wrong…let’s see how many class hours I got.&lt;/p&gt;
+
+&lt;p&gt;A school year in Ontario requires &lt;a href=&quot;http://www.edu.gov.on.ca/eng/general/list/calendar/holidaye.html&quot;&gt;at least 194 days&lt;/a&gt;. Then, there are 8 years from grades 4 to 11 so I had 1552 class hours of French right? Well, I forgot how often I had French in School, but it definitely wasn’t every day. Firstly, let’s cancel out grades 4 to 6 since during those grades I learned nothing. From grades 7 to 9, I had 50 minutes a day and 2.5 days/5 days a week. From grades 10 to 12, I had 75 minutes a day and also 2.5 days/5 days a week since French only took up one semester per year. By my calculations, this results in 29100 minutes in total, which sounds impressive until you realize it’s 485 hours. We’re still missing at least 265 hours.&lt;/p&gt;
+
+&lt;p&gt;To make this slightly more interesting, let’s consider taking grade 12 French. Then, the estimate goes up to 606 hours. Also, in university, there’s only 3 hours of class a week per subject and 12 weeks per term, so every term if I keep taking French I would have 36 hours of class hours, meaning to reach 750 hours from 606 hours would require me to take exactly 4 more French courses in university, which is actually what I expected for the amount of time required to reach a professional level of speaking and reading in French.&lt;/p&gt;
+
+&lt;p&gt;Thus, the FSI does not seem too far-fetched here. Furthermore, taking more French courses in university might not be the worst idea, but I already have other electives planned and I already lost most if not all of my motivation after failing so hard in Montreal, so I’ll blame the Core French curriculum for making me feel so competent before working there and move on to learning other languages, such as Japanese…&lt;/p&gt;
+
+&lt;p&gt;…This isn’t the smartest idea. Wikibooks lists it as requiring 2200 class hours, along with a warning that it would be slightly more difficult than other languages such as Mandarin or Arabic. Note that since we are talking about native English speakers, it makes some sense. But, I already know some Mandarin, so I shouldn’t need that many hours.&lt;/p&gt;
+
+&lt;p&gt;Meanwhile, my friends who are taking Japaense courses watch &lt;del&gt;too much&lt;/del&gt; anime, so they also shouldn’t need that many hours…in theory.&lt;/p&gt;
+
+&lt;p&gt;Either way, let’s see what Waterloo provides – JAPAN 101 is a 12-week course with 3 hours per week of lecture and tutorial combined. Then, we have 36 hours. To get 2200 class hours we will need 61 courses. That’s more courses than I’ll take in my undergraduate career, so good luck to my friends I guess. But, let’s say somehow anime actually works as class hours and that my friends consistently watch 5 hours of anime a day on weekdays and 9 hours a day on weekends. This hypothesis is almost as ridiculous as &lt;a href=&quot;https://en.wikipedia.org/wiki/Spherical_cow&quot;&gt;spherical cows&lt;/a&gt;, but it’ll do to prevent both blog-reader and blog-writer from falling asleep. Then, we have that my friends would watch 2236 hours of anime a year, so they’re done after just 1 year! Clearly, they haven’t achieved this in reality yet…must be the fact that they’re watching with English subtitles.&lt;/p&gt;
+
+&lt;p&gt;See you next time when we check out the expected rate of toilet paper usage within a dorm of 4, and compare it to the amount of toilet paper I had to supply last term!&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 18 Jun 2017 00:00:00 -0400</pubDate>
+        <link>http://www.rayzz.me//languages/2017/06/18/fsi-analysis.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//languages/2017/06/18/fsi-analysis.html</guid>
+        
+        
+        <category>languages</category>
+        
+      </item>
     
       <item>
         <title>[Math] Lotto 6/49 Odds Represented By Dice Rolls</title>
