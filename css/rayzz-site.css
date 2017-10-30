@@ -19,44 +19,44 @@ h4 {
 }
 
 .color-bar-1 {
-  background-color: #00EBEB;
+  background-color: #40C4FF;
 }
 .color-bar-1-night {
-  background-color: #400080;
+  background-color: #4A148C;
 }
 
 .color-bar-2 {
-  background-color: #87F298;
+  background-color: #64FFDA;
 }
 .color-bar-2-night {
-  background-color: #8000B0;
+  background-color: #673AB7;
 }
 
 .color-bar-3 {
-  background-color: #FFFFA0;
+  background-color: #FFF59D;
 }
 .color-bar-3-night {
-  background-color: #0060CC;
+  background-color: #9FA8DA;
 } 
 
 a {
-  color: #009ACC;
+  color: #00B0FF;
 }
 a:visited {
-  color: #00A0FF;
+  color: #7C44DF;
 }
 a:hover {
-  color: #5EEF80;
+  color: #80D8FF;
 }
 
 a.link-night {
-  color: #0060CC;
+  color: #673AB7;
 }
 a.link-night:visited {
-  color: #004899;
+  color: #C2185D;
 }
 a.link-night:hover {
-  color: #8000B0;
+  color: #00E676;
 }
 figure.highlight {
   background-color: #202025;
