@@ -2,9 +2,10 @@
 $(document).ready(function() {
   var curDate = new Date();
   var curHour = curDate.getHours();
-  prepareColors(curHour);
+  // prepareColors(curHour);
 });
 
+/*
 function prepareColors(hour) {
   var numColorBars = 3;
   if (hour <= 7 || hour >= 17) {
@@ -14,3 +15,4 @@ function prepareColors(hour) {
     }
   }
 }
+*/

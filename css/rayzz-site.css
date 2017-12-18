@@ -18,27 +18,36 @@ h4 {
   font-size: 1.5em;
 }
 
-.color-bar-1 {
+/*.color-bar-1 {
   background-color: #40C4FF;
 }
-.color-bar-1-night {
+*/
+
+.color-bar-1 {
   background-color: #4A148C;
 }
 
+/*
 .color-bar-2 {
   background-color: #64FFDA;
 }
-.color-bar-2-night {
+*/
+
+.color-bar-2 {
   background-color: #673AB7;
 }
 
+/*
 .color-bar-3 {
   background-color: #FFF59D;
 }
-.color-bar-3-night {
+*/
+
+.color-bar-3 {
   background-color: #9FA8DA;
 } 
 
+/*
 a {
   color: #00B0FF;
 }
@@ -48,14 +57,15 @@ a:visited {
 a:hover {
   color: #80D8FF;
 }
+*/
 
-a.link-night {
+a {
   color: #673AB7;
 }
-a.link-night:visited {
+a:visited {
   color: #C2185D;
 }
-a.link-night:hover {
+a:hover {
   color: #00E676;
 }
 figure.highlight {
