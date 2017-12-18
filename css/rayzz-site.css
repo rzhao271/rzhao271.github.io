@@ -24,6 +24,7 @@ h4 {
 */
 
 .color-bar-1 {
+/* Purple 900 */
   background-color: #4A148C;
 }
 
@@ -34,6 +35,7 @@ h4 {
 */
 
 .color-bar-2 {
+/* Deep Purple 500 */
   background-color: #673AB7;
 }
 
@@ -44,6 +46,7 @@ h4 {
 */
 
 .color-bar-3 {
+/* Indigo #200 */
   background-color: #9FA8DA;
 } 
 
@@ -60,7 +63,8 @@ a:hover {
 */
 
 a {
-  color: #673AB7;
+/* Deep Purple A200 */
+  color: #7C4DFF;
 }
 a:visited {
   color: #C2185D;

@@ -1,4 +1,4 @@
-span { color: #FFFFFF }
+span { color: #000000 }
 .hll { background-color: #ffffcc }
 .c { color: #008000; font-style: italic } /* Comment */
 .err { border: 1px solid #FF0000 } /* Error */
@@ -26,6 +26,7 @@ span { color: #FFFFFF }
 .kp { color: #00C000 } /* Keyword.Pseudo */
 .kr { color: #00C000 } /* Keyword.Reserved */
 .kt { color: #B00040 } /* Keyword.Type */
+.n { color: #FFFFFF }
 .m { color: #666666 } /* Literal.Number */
 .s { color: #BA2121 } /* Literal.String */
 .na { color: #7D9029 } /* Name.Attribute */
@@ -45,6 +46,11 @@ span { color: #FFFFFF }
 .mb { color: #DDDDDD } /* Literal.Number.Bin */
 .mf { color: #DDDDDD } /* Literal.Number.Float */
 .mh { color: #DDDDDD } /* Literal.Number.Hex */
+
+.MathJax .mi { color: #000000 }
+.MathJax .mo { color: #000000 }
+.MathJax .mn { color: #000000 }
+
 .mi { color: #DDDDDD } /* Literal.Number.Integer */
 .mo { color: #DDDDDD } /* Literal.Number.Oct */
 .s { color: #FF1919 }

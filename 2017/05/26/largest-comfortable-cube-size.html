@@ -116,7 +116,10 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>I am considering buying a gigaminx partly out of boredom and partly
+    <script type="text/javascript" async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+<p>I am considering buying a gigaminx partly out of boredom and partly
 for the purpose of having something to turn for half an hour straight
 when there’s nothing else to do, such as when waiting for MiWay buses.</p>
 
@@ -148,24 +151,24 @@ when there’s nothing else to do, such as when waiting for MiWay buses.</p>
 <p><strong>But</strong>, what really interests me more than the gigaminx itself would have to be the following question:</p>
 
 <div class="focus">
-  <p>For some integer m &gt;= 2, what is the smallest nxnxn Rubik’s cube such that the number of cubies it contains is greater than the number of cubies the mxmxm megaminx contains?</p>
+  <p>For some integer <script type="math/tex">m \ge 2</script>, what is the smallest <script type="math/tex">n</script>x<script type="math/tex">n</script>x<script type="math/tex">n</script> Rubik’s cube such that the number of cubies it contains is greater than the number of cubies the <script type="math/tex">m</script>x<script type="math/tex">m</script>x<script type="math/tex">m</script> megaminx contains?</p>
 </div>
 
-<p>Counting the number of cubies the Rubik’s cube contains is not hard – if you think about it as a subtraction problem rather than an addition problem, it’s just n^3 - (n-2)^3 for an nxnxn Rubik’s cube. But, we can simplify it by factoring it as (n-(n-2))(n^2 + n(n-2) + (n-2)^2) = 2(n^2 + n^2 - 2n + n^2 - 4n + 4) = 2(3n^2 - 6n + 4) = 6n^2 - 12n + 8, not bad.</p>
+<p>Counting the number of cubies the Rubik’s cube contains is not hard – if you think about it as a subtraction problem rather than an addition problem, it’s just <script type="math/tex">n^3 - (n-2)^3</script> for an <script type="math/tex">n</script>x<script type="math/tex">n</script>x<script type="math/tex">n</script> Rubik’s cube. But, we can simplify it by factoring it as <script type="math/tex">(n-(n-2))(n^2 + n(n-2) + (n-2)^2) = 6n^2 - 12n + 8</script>, not bad.</p>
 
-<p>But, the real question is the number of cubies the mxmxm megaminx contains. We know that there are at least 20 cubies since there are 20 vertices, and we know that there are 30(m-2) edge pieces, so we have a total of at least 20 + 30(m-2) cubies, but it’s the centers that are interesting.</p>
+<p>But, the real question is the number of cubies the <script type="math/tex">m</script>x<script type="math/tex">m</script>x<script type="math/tex">m</script> megaminx contains. We know that there are at least 20 cubies since there are 20 vertices, and we know that there are <script type="math/tex">30(m-2)</script> edge pieces, so we have a total of at least <script type="math/tex">20 + 30(m-2)</script> cubies, but it’s the centers that are interesting.</p>
 
-<p>We consider two cases: m is odd, or m is even.</p>
+<p>We consider two cases: <script type="math/tex">m</script> is odd, or <script type="math/tex">m</script> is even.</p>
 
-<p>If m is odd, we have the megaminx, gigaminx, teraminx, etc. In these cases, the puzzle contains fixed centers, and T-centers exist. The number of cubies
-<em>per center</em> is then 1 + 5(m-3)/2 + 5((m-3)/2)^2, so we have a total of
-20 + 30(m-2) + [12 + 30(m-3) + 15(m-3)^2] = 20 + 30m - 60 + 12 + 30m - 90 + 15m^2 - 90m + 135 = 15m^2 - 30m + 17 cubies.</p>
+<p>If <script type="math/tex">m</script> is odd, we have the megaminx, gigaminx, teraminx, etc. In these cases, the puzzle contains fixed centers, and T-centers exist. The number of cubies
+<em>per center</em> is then <script type="math/tex">1 + 5(m-3)/2 + 5((m-3)/2)^2</script>, so we have a total of
+<script type="math/tex">20 + 30(m-2) + [12 + 30(m-3) + 15(m-3)^2] = 15m^2 - 30m + 17</script> cubies.</p>
 
-<p>If m is even, we have the kilominx, master kilominx, and I’m not sure what the 6x6x6 minx is called. Anyway, the number of cubies <em>per center</em> for those is 5((m-2)/2)^2, so we have a total of 20 + 30(m-2) + 15(m-2)^2 = 20 + 30m - 60 + 15m^2 - 60m + 60 = 15m^2 - 30m + 20 cubies.</p>
+<p>If <script type="math/tex">m</script> is even, we have the kilominx, master kilominx, and I’m not sure what the 6x6x6 minx is called <em>(edit: it’s called the elite kilominx)</em>. Anyway, the number of cubies <em>per center</em> for those is <script type="math/tex">5((m-2)/2)^2</script>, so we have a total of <script type="math/tex">20 + 30(m-2) + 15(m-2)^2 = 15m^2 - 30m + 20</script> cubies.</p>
 
-<p>This might seem to suggest that the master kilominx has more cubies than the gigaminx, but remember that for the master kilominx, m = 4 so we have 140 cubies, whereas for the gigaminx we must plug in m = 5 to obtain 242 cubies.</p>
+<p>This might seem to suggest that the master kilominx has more cubies than the gigaminx, but remember that for the master kilominx, <script type="math/tex">m = 4</script>, so we have 140 cubies, whereas for the gigaminx we must plug in <script type="math/tex">m = 5</script> to obtain 242 cubies.</p>
 
-<p>Now comes the inequality, 6n^2-12n+8 &gt; 15m^2-30m+17 for m odd or 6n^2-12n+8 &gt; 15m^2-30m+20 for m even, n &gt; m, m &gt;= 2. We want to find the smallest n for some given m that satisfies these conditions. Since I am too lazy to solve this by hand, I wrote a small Clojure program that solves this for m from 2 to 15 for me. Note that the 15x15x15 minx is the yottaminx, and yotta is the largest prefix on the SI scale so I’m not going to consider any larger sizes.</p>
+<p>Now comes the inequality, <script type="math/tex">6n^2-12n+8 > 15m^2-30m+17</script> for <script type="math/tex">m</script> odd or <script type="math/tex">6n^2-12n+8 > 15m^2-30m+20</script> for <script type="math/tex">m</script> even, <script type="math/tex">n > m, m \ge 2</script>. We want to find the smallest <script type="math/tex">n</script> for some given <script type="math/tex">m</script> that satisfies these conditions. Since I am too lazy to solve this by hand, I wrote a small Clojure program that solves this for <script type="math/tex">m</script> from 2 to 15 for me. Note that the 15x15x15 minx is the yottaminx, and yotta is the largest prefix on the SI scale, so I’m not going to consider any larger sizes.</p>
 
 <h3 id="the-program">The program</h3>
 

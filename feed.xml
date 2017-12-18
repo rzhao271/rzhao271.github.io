@@ -6,8 +6,8 @@
 </description>
     <link>http://www.rayzz.me//</link>
     <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Dec 2017 00:28:12 -0500</pubDate>
-    <lastBuildDate>Mon, 18 Dec 2017 00:28:12 -0500</lastBuildDate>
+    <pubDate>Mon, 18 Dec 2017 01:54:13 -0500</pubDate>
+    <lastBuildDate>Mon, 18 Dec 2017 01:54:13 -0500</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
@@ -54,7 +54,7 @@
     
       <item>
         <title>Lotto 6/49 Odds Represented By Dice Rolls</title>
-        <description>&lt;p&gt;The Lotto 6/49 is a Canadian lottery game where you get to choose 6 of 49 numbers for 3 dollars, and have a chance at winning millions. Now, the chance of choosing all six numbers correctly is 1 in (49 choose 6), or 1 in approximately 13 million, which already sounds low, but is hard to imagine. Hence, it’s easy to forget how small of a chance you really have at this game.&lt;/p&gt;
+        <description>&lt;p&gt;The Lotto 6/49 is a Canadian lottery game where you get to choose 6 of 49 numbers for 3 dollars, and have a chance at winning millions. Now, the chance of choosing all six numbers correctly is 1 in &lt;script type=&quot;math/tex&quot;&gt;49 \choose 6&lt;/script&gt;, or 1 in approximately 13 million, which already sounds low. Hence, it’s easy to forget how small of a chance you really have at this game.&lt;/p&gt;
 
 &lt;p&gt;Thus, here’s a Haskell program fragment that puts things into perspective by first calculating the number of coin tosses that you would need to guess correctly in a row such that the chance of doing so is as low or even lower than winning the lottery…
 &lt;!-- MORE --&gt;
@@ -141,7 +141,10 @@ Six-sided die rolls: 8.266034 magnitudes off.
     
       <item>
         <title>Largest Comfortable Cube Size and the Decision To Buy A Gigaminx</title>
-        <description>&lt;p&gt;I am considering buying a gigaminx partly out of boredom and partly
+        <description>&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML&quot;&gt;
+&lt;/script&gt;
+
+&lt;p&gt;I am considering buying a gigaminx partly out of boredom and partly
 for the purpose of having something to turn for half an hour straight
 when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&gt;
 
@@ -173,24 +176,24 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
 &lt;p&gt;&lt;strong&gt;But&lt;/strong&gt;, what really interests me more than the gigaminx itself would have to be the following question:&lt;/p&gt;
 
 &lt;div class=&quot;focus&quot;&gt;
-  &lt;p&gt;For some integer m &amp;gt;= 2, what is the smallest nxnxn Rubik’s cube such that the number of cubies it contains is greater than the number of cubies the mxmxm megaminx contains?&lt;/p&gt;
+  &lt;p&gt;For some integer &lt;script type=&quot;math/tex&quot;&gt;m \ge 2&lt;/script&gt;, what is the smallest &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; Rubik’s cube such that the number of cubies it contains is greater than the number of cubies the &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; megaminx contains?&lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Counting the number of cubies the Rubik’s cube contains is not hard – if you think about it as a subtraction problem rather than an addition problem, it’s just n^3 - (n-2)^3 for an nxnxn Rubik’s cube. But, we can simplify it by factoring it as (n-(n-2))(n^2 + n(n-2) + (n-2)^2) = 2(n^2 + n^2 - 2n + n^2 - 4n + 4) = 2(3n^2 - 6n + 4) = 6n^2 - 12n + 8, not bad.&lt;/p&gt;
+&lt;p&gt;Counting the number of cubies the Rubik’s cube contains is not hard – if you think about it as a subtraction problem rather than an addition problem, it’s just &lt;script type=&quot;math/tex&quot;&gt;n^3 - (n-2)^3&lt;/script&gt; for an &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; Rubik’s cube. But, we can simplify it by factoring it as &lt;script type=&quot;math/tex&quot;&gt;(n-(n-2))(n^2 + n(n-2) + (n-2)^2) = 6n^2 - 12n + 8&lt;/script&gt;, not bad.&lt;/p&gt;
 
-&lt;p&gt;But, the real question is the number of cubies the mxmxm megaminx contains. We know that there are at least 20 cubies since there are 20 vertices, and we know that there are 30(m-2) edge pieces, so we have a total of at least 20 + 30(m-2) cubies, but it’s the centers that are interesting.&lt;/p&gt;
+&lt;p&gt;But, the real question is the number of cubies the &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt;x&lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; megaminx contains. We know that there are at least 20 cubies since there are 20 vertices, and we know that there are &lt;script type=&quot;math/tex&quot;&gt;30(m-2)&lt;/script&gt; edge pieces, so we have a total of at least &lt;script type=&quot;math/tex&quot;&gt;20 + 30(m-2)&lt;/script&gt; cubies, but it’s the centers that are interesting.&lt;/p&gt;
 
-&lt;p&gt;We consider two cases: m is odd, or m is even.&lt;/p&gt;
+&lt;p&gt;We consider two cases: &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; is odd, or &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; is even.&lt;/p&gt;
 
-&lt;p&gt;If m is odd, we have the megaminx, gigaminx, teraminx, etc. In these cases, the puzzle contains fixed centers, and T-centers exist. The number of cubies
-&lt;em&gt;per center&lt;/em&gt; is then 1 + 5(m-3)/2 + 5((m-3)/2)^2, so we have a total of
-20 + 30(m-2) + [12 + 30(m-3) + 15(m-3)^2] = 20 + 30m - 60 + 12 + 30m - 90 + 15m^2 - 90m + 135 = 15m^2 - 30m + 17 cubies.&lt;/p&gt;
+&lt;p&gt;If &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; is odd, we have the megaminx, gigaminx, teraminx, etc. In these cases, the puzzle contains fixed centers, and T-centers exist. The number of cubies
+&lt;em&gt;per center&lt;/em&gt; is then &lt;script type=&quot;math/tex&quot;&gt;1 + 5(m-3)/2 + 5((m-3)/2)^2&lt;/script&gt;, so we have a total of
+&lt;script type=&quot;math/tex&quot;&gt;20 + 30(m-2) + [12 + 30(m-3) + 15(m-3)^2] = 15m^2 - 30m + 17&lt;/script&gt; cubies.&lt;/p&gt;
 
-&lt;p&gt;If m is even, we have the kilominx, master kilominx, and I’m not sure what the 6x6x6 minx is called. Anyway, the number of cubies &lt;em&gt;per center&lt;/em&gt; for those is 5((m-2)/2)^2, so we have a total of 20 + 30(m-2) + 15(m-2)^2 = 20 + 30m - 60 + 15m^2 - 60m + 60 = 15m^2 - 30m + 20 cubies.&lt;/p&gt;
+&lt;p&gt;If &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; is even, we have the kilominx, master kilominx, and I’m not sure what the 6x6x6 minx is called &lt;em&gt;(edit: it’s called the elite kilominx)&lt;/em&gt;. Anyway, the number of cubies &lt;em&gt;per center&lt;/em&gt; for those is &lt;script type=&quot;math/tex&quot;&gt;5((m-2)/2)^2&lt;/script&gt;, so we have a total of &lt;script type=&quot;math/tex&quot;&gt;20 + 30(m-2) + 15(m-2)^2 = 15m^2 - 30m + 20&lt;/script&gt; cubies.&lt;/p&gt;
 
-&lt;p&gt;This might seem to suggest that the master kilominx has more cubies than the gigaminx, but remember that for the master kilominx, m = 4 so we have 140 cubies, whereas for the gigaminx we must plug in m = 5 to obtain 242 cubies.&lt;/p&gt;
+&lt;p&gt;This might seem to suggest that the master kilominx has more cubies than the gigaminx, but remember that for the master kilominx, &lt;script type=&quot;math/tex&quot;&gt;m = 4&lt;/script&gt;, so we have 140 cubies, whereas for the gigaminx we must plug in &lt;script type=&quot;math/tex&quot;&gt;m = 5&lt;/script&gt; to obtain 242 cubies.&lt;/p&gt;
 
-&lt;p&gt;Now comes the inequality, 6n^2-12n+8 &amp;gt; 15m^2-30m+17 for m odd or 6n^2-12n+8 &amp;gt; 15m^2-30m+20 for m even, n &amp;gt; m, m &amp;gt;= 2. We want to find the smallest n for some given m that satisfies these conditions. Since I am too lazy to solve this by hand, I wrote a small Clojure program that solves this for m from 2 to 15 for me. Note that the 15x15x15 minx is the yottaminx, and yotta is the largest prefix on the SI scale so I’m not going to consider any larger sizes.&lt;/p&gt;
+&lt;p&gt;Now comes the inequality, &lt;script type=&quot;math/tex&quot;&gt;6n^2-12n+8 &gt; 15m^2-30m+17&lt;/script&gt; for &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; odd or &lt;script type=&quot;math/tex&quot;&gt;6n^2-12n+8 &gt; 15m^2-30m+20&lt;/script&gt; for &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; even, &lt;script type=&quot;math/tex&quot;&gt;n &gt; m, m \ge 2&lt;/script&gt;. We want to find the smallest &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; for some given &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; that satisfies these conditions. Since I am too lazy to solve this by hand, I wrote a small Clojure program that solves this for &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; from 2 to 15 for me. Note that the 15x15x15 minx is the yottaminx, and yotta is the largest prefix on the SI scale, so I’m not going to consider any larger sizes.&lt;/p&gt;
 
 &lt;h3 id=&quot;the-program&quot;&gt;The program&lt;/h3&gt;
 
