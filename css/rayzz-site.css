@@ -83,3 +83,11 @@ code {
   font-size: 1.4em;
   font-style: italic;
 }
+::-moz-selection {
+    color: #000000;
+    background: #D1C4E9;
+}
+::selection {
+    color: #000000; 
+    background: #D1C4E9;
+}
