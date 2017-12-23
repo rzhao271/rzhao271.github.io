@@ -6,9 +6,217 @@
 </description>
     <link>http://www.rayzz.me//</link>
     <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Dec 2017 23:42:34 -0500</pubDate>
-    <lastBuildDate>Mon, 18 Dec 2017 23:42:34 -0500</lastBuildDate>
+    <pubDate>Sat, 23 Dec 2017 11:46:20 -0500</pubDate>
+    <lastBuildDate>Sat, 23 Dec 2017 11:46:20 -0500</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
+    
+      <item>
+        <title>Excerpts from The Handbook of Cubik Math (Chapter 4)</title>
+        <description>&lt;p&gt;Put simply, &lt;em&gt;The Handbook of Cubik Math&lt;/em&gt; is an outdated reference on solving the Rubik’s cube,
+where the text seems to be read in through a 1980s OCR device, and left unedited afterwards.&lt;/p&gt;
+
+&lt;p&gt;The notation is old (&lt;script type=&quot;math/tex&quot;&gt;R^{-1}&lt;/script&gt; anyone?), and of course, some of the content seems outright irrelevant,
+such as the chapter on antislice moves. But then again, it could just be the fact that I’m not into
+studying antislice moves.&lt;/p&gt;
+
+&lt;p&gt;For these reasons, I have copied the parts of the book that I found interesting to serve as a reference
+for other cubing nerds out there. Note that the wording has been changed in multiple places to suit more 
+modern readers.&lt;/p&gt;
+
+&lt;!-- MORE --&gt;
+
+&lt;h3 id=&quot;chapter-4-the-what-why-and-how-of-cube-movements&quot;&gt;Chapter 4: The What, Why, and How of Cube Movements&lt;/h3&gt;
+
+&lt;p&gt;To avoid confusion, processes have been renamed algorithms, and there is not as much distinguishing
+an algorithm and a permutation.&lt;/p&gt;
+
+&lt;h4 id=&quot;41-algorithms&quot;&gt;4.1 Algorithms&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: Any rearrangement of a finite set of objects is called a &lt;em&gt;permutation&lt;/em&gt; of those objects.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: &lt;script type=&quot;math/tex&quot;&gt;(x_1, x_2, \ldots, x_n)&lt;/script&gt; indicates an &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;-&lt;em&gt;cycle&lt;/em&gt; where cubie &lt;script type=&quot;math/tex&quot;&gt;x_i&lt;/script&gt; goes to the 
+location of cubie &lt;script type=&quot;math/tex&quot;&gt;x_{i+1}&lt;/script&gt; for &lt;script type=&quot;math/tex&quot;&gt;1 \le i \le n-1&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;x_n&lt;/script&gt; goes to the location of &lt;script type=&quot;math/tex&quot;&gt;x_1&lt;/script&gt;. 
+We denote &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; as the &lt;em&gt;length&lt;/em&gt; of the cycle.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: Given an algorithm &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; and a piece &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;, let &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; denote the cycle &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;
+forms upon repeating &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; multiple times. Then, &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; is the &lt;em&gt;cycle determined by&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt;: &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; is well-defined. That is, the length of &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; is finite.&lt;br /&gt;
+&lt;em&gt;Proof&lt;/em&gt;: See Chapter 6. In particular, the theorem that the order of an algorithm must be finite.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: The &lt;em&gt;cycle representation&lt;/em&gt; of an algorithm &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;, where &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; influences pieces
+&lt;script type=&quot;math/tex&quot;&gt;x_1, x_2, \ldots, x_k&lt;/script&gt;, is the union of the cycles determined by each &lt;script type=&quot;math/tex&quot;&gt;x_i&lt;/script&gt;,
+where duplicate cycles are removed.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Example&lt;/em&gt;: The cycle representation of U is {(UFL, ULB, UBR, URF), (UF, UL, UB, UR)}, more simply
+written as (UFL, ULB, UBR, URF)(UF, UL, UB, UR)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: &lt;script type=&quot;math/tex&quot;&gt;(x)_+&lt;/script&gt; where &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; is a corner denotes a clockwise corner twist of cubie 
+&lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;. Similarly, &lt;script type=&quot;math/tex&quot;&gt;(x)_-&lt;/script&gt; denotes a counterclockwise corner twist of cubie &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.1-4&lt;/em&gt;: Find algorithms with the following cycle representations:&lt;br /&gt;
+a) (FUR, LUF, BUL, RUB)(UR, UF, UL, UB)&lt;br /&gt;
+b) (ULB, FLU, DRB)&lt;br /&gt;
+c) (UFL)+ (DRB)-&lt;/p&gt;
+
+&lt;h4 id=&quot;42-equivalent-algorithms&quot;&gt;4.2 Equivalent Algorithms&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: Two algorithms are &lt;em&gt;equivalent&lt;/em&gt; if and only if they have the same cycle
+representation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.2-1&lt;/em&gt;: Show that the following pairs of algorithms are equivalent:&lt;br /&gt;
+a) F2 B2 L2 and R2 L2 B2 F2 R2&lt;br /&gt;
+b) (F2 R2)2 and (R2 F2)4&lt;br /&gt;
+c) F’ D2 F U F’ D2 F U2 and U2 R D R’ U2 R D’ R’&lt;br /&gt;
+d) F R’ F’ R and U’ R U R’ F’ U F U’&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.2-2&lt;/em&gt;: Show that F R is &lt;em&gt;not&lt;/em&gt; equivalent to R F&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.3-3&lt;/em&gt;: Show that the definition of equivalent processes given in this section
+forms an equivalence relation. That is, it is reflexive, symmetric, and transitive.&lt;/p&gt;
+
+&lt;h4 id=&quot;43-identities-and-inverses&quot;&gt;4.3 Identities and Inverses&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: The &lt;em&gt;identity algorithm&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;I&lt;/script&gt; is an algorithm &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; such that its cycle representation is the empty set. In other words, it is an algorithm that does nothing.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: For two algorithms &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;X = Y&lt;/script&gt; means &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; is equivalent to &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: The &lt;em&gt;inverse&lt;/em&gt; of an algorithm &lt;script type=&quot;math/tex&quot;&gt;S = m_1m_2 \ldots m_n&lt;/script&gt; is
+&lt;script type=&quot;math/tex&quot;&gt;S' = m_n' m_{n-1}' \ldots m_1'&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.3-2&lt;/em&gt;: True or false:&lt;br /&gt;
+a) For each algorithm &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; there is exactly one algorithm &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; such that &lt;script type=&quot;math/tex&quot;&gt;T = P'&lt;/script&gt;.&lt;br /&gt;
+b) &lt;script type=&quot;math/tex&quot;&gt;PP' = I&lt;/script&gt; for all algorithms &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;.&lt;br /&gt;
+c) &lt;script type=&quot;math/tex&quot;&gt;P = P'&lt;/script&gt; for all algorithms &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt;.&lt;br /&gt;
+d) Let &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; be the permutation obtained by applying algorithm &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; to a solved cube.
+   Then, there exists exactly one permutation that represents applying algorithm &lt;script type=&quot;math/tex&quot;&gt;A'&lt;/script&gt; to a solved cube.&lt;br /&gt;
+e) The inverse of U R is U’ R’.&lt;br /&gt;
+f) For algorithms &lt;script type=&quot;math/tex&quot;&gt;X, Y&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Z&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;YX = ZX&lt;/script&gt; implies &lt;script type=&quot;math/tex&quot;&gt;Y = Z&lt;/script&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;44-cyclic-order-of-an-algorithm&quot;&gt;4.4 Cyclic Order of an Algorithm&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: The &lt;em&gt;order&lt;/em&gt; of algorithm &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; is the number of times &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; needed to repeat 
+&lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; such that &lt;script type=&quot;math/tex&quot;&gt;A^n = I&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt;: The &lt;em&gt;order&lt;/em&gt; of algorithm &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; with a cycle representation &lt;script type=&quot;math/tex&quot;&gt;R = C_1C_2 \ldots C_n&lt;/script&gt;
+is &lt;script type=&quot;math/tex&quot;&gt;LCM(|C_1|, |C_2|, \ldots, |C_n|)&lt;/script&gt;, where &lt;script type=&quot;math/tex&quot;&gt;|C_i|&lt;/script&gt; denotes the length of cycle &lt;script type=&quot;math/tex&quot;&gt;C_i&lt;/script&gt;.&lt;br /&gt;
+&lt;em&gt;Proof&lt;/em&gt;: Let &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; be the order of algorithm &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; with cycle representation &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; as given.
+Then, &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; must divide &lt;script type=&quot;math/tex&quot;&gt;|C_i|&lt;/script&gt; for all &lt;script type=&quot;math/tex&quot;&gt;1 \le i \le n&lt;/script&gt; since otherwise &lt;script type=&quot;math/tex&quot;&gt;A^n&lt;/script&gt; will leave
+some cycle &lt;script type=&quot;math/tex&quot;&gt;C_i&lt;/script&gt; unsolved, a contradiction. Thus, &lt;script type=&quot;math/tex&quot;&gt;n = LCM(|C_1|, |C_2|, \ldots, |C_n|)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.4-1&lt;/em&gt;: What is the order of each of the following?&lt;br /&gt;
+a) U&lt;br /&gt;
+b) F R&lt;br /&gt;
+c) F R’&lt;br /&gt;
+d) F R F’ R’&lt;br /&gt;
+e) L D2 L’&lt;br /&gt;
+f) U2 L B’ D2 B L’&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.4-2&lt;/em&gt;: Find an order-3 algorithm that only moves edge pieces.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.4-3 (harder)&lt;/em&gt;: What is the largest order that any algorithm on the cube can have?
+Give an example of such an algorithm.&lt;/p&gt;
+
+&lt;h4 id=&quot;45-finding-useful-algorithms&quot;&gt;4.5 Finding Useful Algorithms&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.5-1&lt;/em&gt;: Find an algorithm which only cycles seven edge pieces.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.5-2&lt;/em&gt;: What is the smallest number of times needed to repeat each algorithm
+such that all edges are solved?&lt;br /&gt;
+a) F R’&lt;br /&gt;
+b) F2 U’ D R2 U D’&lt;br /&gt;
+c) L F2 L’&lt;br /&gt;
+d) U F R F’ R’ U’&lt;br /&gt;
+e) F R’ F’ R F’ U’ F&lt;br /&gt;
+f) R’ F R F’ U&lt;br /&gt;
+g) R2 U2 F2&lt;/p&gt;
+
+&lt;h4 id=&quot;46-commutativity-and-commutators&quot;&gt;4.6 Commutativity and Commutators&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: Any algorithm &lt;script type=&quot;math/tex&quot;&gt;A = XYX'Y'&lt;/script&gt; for two smaller algorithms &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; is
+a &lt;em&gt;commutator&lt;/em&gt;, and can be expressed as &lt;script type=&quot;math/tex&quot;&gt;A = [X, Y]&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: Two algorithms &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; &lt;em&gt;commute&lt;/em&gt; if &lt;script type=&quot;math/tex&quot;&gt;XY = YX&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt;: &lt;script type=&quot;math/tex&quot;&gt;XYX'Y' = I&lt;/script&gt; if and only if &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; commute.&lt;br /&gt;
+&lt;em&gt;Proof&lt;/em&gt;: Assume &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; commute. Then, &lt;script type=&quot;math/tex&quot;&gt;XY = YX&lt;/script&gt; so &lt;script type=&quot;math/tex&quot;&gt;XYX'Y' = XY(YX)'
+= XY(XY)' = I&lt;/script&gt;. Likewise, assume &lt;script type=&quot;math/tex&quot;&gt;XYX'Y' = I&lt;/script&gt;. Then, &lt;script type=&quot;math/tex&quot;&gt;XYX'Y'YX = IYX&lt;/script&gt; implies &lt;script type=&quot;math/tex&quot;&gt;XY = YX&lt;/script&gt;,
+meaning &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; commute.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.6-1&lt;/em&gt;: Find an algorithm &lt;script type=&quot;math/tex&quot;&gt;Q \ne I&lt;/script&gt; such that &lt;script type=&quot;math/tex&quot;&gt;QX = XQ&lt;/script&gt; for every algorithm &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.6-2&lt;/em&gt;: Let &lt;script type=&quot;math/tex&quot;&gt;S_A&lt;/script&gt; denote the set of locations affected by an algorithm &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt;,
+and assume we are given algorithms &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;.&lt;br /&gt;
+a) If &lt;script type=&quot;math/tex&quot;&gt;S_X \cap S_Y = \emptyset&lt;/script&gt;, what is the cycle representation of &lt;script type=&quot;math/tex&quot;&gt;[X, Y]&lt;/script&gt;?&lt;br /&gt;
+b) If &lt;script type=&quot;math/tex&quot;&gt;S_X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;S_Y&lt;/script&gt; have two locations in common, what is the largest number
+   of locations that can be in &lt;script type=&quot;math/tex&quot;&gt;S_Z&lt;/script&gt; for &lt;script type=&quot;math/tex&quot;&gt;Z = [X, Y]&lt;/script&gt;?&lt;br /&gt;
+c) If &lt;script type=&quot;math/tex&quot;&gt;S_X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;S_Y&lt;/script&gt; have two locations in common, what are all the possible sizes of
+   &lt;script type=&quot;math/tex&quot;&gt;S_Z&lt;/script&gt;?&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.6-3&lt;/em&gt;: Simplify [F, R’][R, U’][U, F’], then derive its cycle representation.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.6-4&lt;/em&gt;: Show that&lt;br /&gt;
+a) [F, R]’ = [R, F]&lt;br /&gt;
+b) [F, R’]5 = R’ [F, R] R&lt;br /&gt;
+c) [F’, R’] = R’ F’ [F, R] F R&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.6-5&lt;/em&gt;: Repeat &lt;em&gt;4.6-3&lt;/em&gt; but for [(R2 U2 F2)3, U2].&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.6-6&lt;/em&gt;: What is the inverse of &lt;script type=&quot;math/tex&quot;&gt;[X, Y]&lt;/script&gt;?&lt;/p&gt;
+
+&lt;h4 id=&quot;47-conjugates-building-new-processes-from-old&quot;&gt;4.7 Conjugates: Building New Processes From Old&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: Any algorithm &lt;script type=&quot;math/tex&quot;&gt;A = XYX'&lt;/script&gt; for two smaller algorithms &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; is
+a &lt;em&gt;conjugate of&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; &lt;em&gt;by&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt;, and can be expressed as &lt;script type=&quot;math/tex&quot;&gt;A = [X: Y]&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Definition&lt;/strong&gt;: The cycle structure of a cycle representation &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; is the number of cycles
+contained in &lt;script type=&quot;math/tex&quot;&gt;R&lt;/script&gt; and the length of each cycle.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Theorem&lt;/strong&gt;: Conjugates preserve cycle structures. That is, the cycle representation of &lt;script type=&quot;math/tex&quot;&gt;XYX'&lt;/script&gt; is
+isomorphic to that of &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; for any two algorithms &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;.&lt;br /&gt;
+&lt;em&gt;Proof&lt;/em&gt;: If &lt;script type=&quot;math/tex&quot;&gt;X = I&lt;/script&gt; then &lt;script type=&quot;math/tex&quot;&gt;XYX' = Y&lt;/script&gt; and so the proof is trivial. Likewise, if &lt;script type=&quot;math/tex&quot;&gt;Y = I&lt;/script&gt; then
+&lt;script type=&quot;math/tex&quot;&gt;XYX' = XIX' = I&lt;/script&gt; and again the proof is trivial.&lt;br /&gt;
+Thus, let &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; be any two algorithms 
+that are not identity. Then, &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; must move some cubie &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; to location &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt;, and we denote
+this by &lt;script type=&quot;math/tex&quot;&gt;Y(a) = b&lt;/script&gt;.
+Let &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; represent cubies such that &lt;script type=&quot;math/tex&quot;&gt;X(c) = a&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;X(d) = b&lt;/script&gt;. 
+Then, &lt;script type=&quot;math/tex&quot;&gt;XYX'(c) = d&lt;/script&gt;, and by substitution, &lt;script type=&quot;math/tex&quot;&gt;XYX'(X'(a)) = X'(b)&lt;/script&gt;, whereas &lt;script type=&quot;math/tex&quot;&gt;Y(a) = b&lt;/script&gt;,
+so for all &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;XYX'&lt;/script&gt; has the same behaviour on location &lt;script type=&quot;math/tex&quot;&gt;X'(a)&lt;/script&gt; that &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; has on location
+&lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;. By extension, the cycle representation of &lt;script type=&quot;math/tex&quot;&gt;XYX'&lt;/script&gt; contains an &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;-cycle if and only if
+the cycle representation of &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; contains an &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;-cycle, so the cycle representation of &lt;script type=&quot;math/tex&quot;&gt;XYX'&lt;/script&gt; is 
+isomorphic to that of &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt;.
+(Credits to Matthew Sheerin for helping me understand this proof given in the book).&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.7-2&lt;/em&gt;: Show that [X: Y]3 = X Y3 X’.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.7-3&lt;/em&gt;: Given process Y = (F2 R2)3, find X such that the cycle representation of
+[X: Y] is:&lt;br /&gt;
+a) (UF, DF)(RF, RB)&lt;br /&gt;
+b) (FU, FD)(FR, FL)&lt;br /&gt;
+c) (FU, FR)(FD, FL)&lt;br /&gt;
+d) (UF, RF)(UB, RB)&lt;br /&gt;
+Given process Y = F2 R L’ U2 R’ L, find X such that the cycle representation of [X: Y] is:&lt;br /&gt;
+e) (FU, RU, BU)&lt;br /&gt;
+f) (FU, UR, RF)&lt;br /&gt;
+g) (FU, RB, DL)&lt;br /&gt;
+Given process Y = [U, R]3, find X such that the cycle representation of [X: Y] is:&lt;br /&gt;
+h) (ULB, BRU)(UFL, FUR)&lt;br /&gt;
+i) (ULB, URF)(UFL, BRU)&lt;br /&gt;
+j) (ULB, URF, DLF, DRB)&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Exercise 4.7-4&lt;/em&gt;: Find an algorithm with the cycle representation
+(LF, BL, RB, FR)(DLF, DBL, DRB, DFR)&lt;/p&gt;
+
+&lt;p&gt;And that’s it for this chapter.&lt;/p&gt;
+
+&lt;p&gt;Up next: Chapter 6, where we &lt;em&gt;finally&lt;/em&gt; start group theory!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 23 Dec 2017 00:00:00 -0500</pubDate>
+        <link>http://www.rayzz.me//2017/12/23/handbook-cubik-1.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//2017/12/23/handbook-cubik-1.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>The Numbers Game, and how to fail at all your New Years' resolutions</title>
