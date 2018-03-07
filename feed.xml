@@ -6,12 +6,12 @@
 </description>
     <link>http://www.rayzz.me//</link>
     <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 30 Dec 2017 23:34:41 -0500</pubDate>
-    <lastBuildDate>Sat, 30 Dec 2017 23:34:41 -0500</lastBuildDate>
+    <pubDate>Tue, 06 Mar 2018 23:19:18 -0800</pubDate>
+    <lastBuildDate>Tue, 06 Mar 2018 23:19:18 -0800</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
       <item>
-        <title>Excerpts from The Handbook of Cubik Math (Chapter 6)</title>
+        <title>[Math] Excerpts from The Handbook of Cubik Math (Chapter 6)</title>
         <description>&lt;p&gt;As promised, here is the second blog post on excerpts from &lt;em&gt;The Handbook of Cubik Math&lt;/em&gt;, an outdated reference on solving the Rubik’s cube, where the text seems to be read in through a 
 1980s OCR device, and left unedited afterwards.&lt;/p&gt;
 
@@ -153,15 +153,17 @@ or I’ll upload an article on another topic in the meantime. Honestly, probably
 &lt;p&gt;Happy New Year, by the way.&lt;/p&gt;
 
 </description>
-        <pubDate>Sat, 30 Dec 2017 00:00:00 -0500</pubDate>
-        <link>http://www.rayzz.me//2017/12/30/handbook-cubik-2.html</link>
-        <guid isPermaLink="true">http://www.rayzz.me//2017/12/30/handbook-cubik-2.html</guid>
+        <pubDate>Sat, 30 Dec 2017 00:00:00 -0800</pubDate>
+        <link>http://www.rayzz.me//math/2017/12/30/handbook-cubik-2.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//math/2017/12/30/handbook-cubik-2.html</guid>
         
+        
+        <category>math</category>
         
       </item>
     
       <item>
-        <title>Excerpts from The Handbook of Cubik Math (Chapter 4)</title>
+        <title>[Math] Excerpts from The Handbook of Cubik Math (Chapter 4)</title>
         <description>&lt;p&gt;Put simply, &lt;em&gt;The Handbook of Cubik Math&lt;/em&gt; is an outdated reference on solving the Rubik’s cube,
 where the text seems to be read in through a 1980s OCR device, and left unedited afterwards.&lt;/p&gt;
 
@@ -361,15 +363,17 @@ j) (ULB, URF, DLF, DRB)&lt;/p&gt;
 
 &lt;p&gt;Up next: Chapter 6, where we &lt;em&gt;finally&lt;/em&gt; start group theory!&lt;/p&gt;
 </description>
-        <pubDate>Sat, 23 Dec 2017 00:00:00 -0500</pubDate>
-        <link>http://www.rayzz.me//2017/12/23/handbook-cubik-1.html</link>
-        <guid isPermaLink="true">http://www.rayzz.me//2017/12/23/handbook-cubik-1.html</guid>
+        <pubDate>Sat, 23 Dec 2017 00:00:00 -0800</pubDate>
+        <link>http://www.rayzz.me//math/2017/12/23/handbook-cubik-1.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//math/2017/12/23/handbook-cubik-1.html</guid>
         
+        
+        <category>math</category>
         
       </item>
     
       <item>
-        <title>The Numbers Game, and how to fail at all your New Years' resolutions</title>
+        <title>[Life] The Numbers Game, and how to fail at all your New Years' resolutions</title>
         <description>&lt;p&gt;(Last time I said I was going to talk about toilet paper usage rates in my dorm…let’s not, 
 since there’s too many variables to consider.)&lt;/p&gt;
 
@@ -516,15 +520,17 @@ and hopefully next year I’ll get (an admittedly smaller list of planned things
 &lt;p&gt;Up next: a sample of relevant definitions, theorems, and exercises from &lt;em&gt;The Handbook of Cubik Math&lt;/em&gt;!&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 18 Dec 2017 00:00:00 -0500</pubDate>
-        <link>http://www.rayzz.me//2017/12/18/resolutions-fail.html</link>
-        <guid isPermaLink="true">http://www.rayzz.me//2017/12/18/resolutions-fail.html</guid>
+        <pubDate>Mon, 18 Dec 2017 00:00:00 -0800</pubDate>
+        <link>http://www.rayzz.me//life/2017/12/18/resolutions-fail.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//life/2017/12/18/resolutions-fail.html</guid>
         
+        
+        <category>life</category>
         
       </item>
     
       <item>
-        <title>Analysis of FSI learning times for French and Japanese</title>
+        <title>[Language] Analysis of FSI learning times for French and Japanese</title>
         <description>&lt;p&gt;For the last three weeks I have been working mainly on three things: side projects, professional development coursework, and preparation for Newmarket Open 2017, a Rubik’s cube competition. Anyway, the last item is out of the way and the second-last item is nearly out of the way, so let’s continue with the posts.&lt;/p&gt;
 
 &lt;p&gt;I recall that last time I said that I would take the Foreign Service Institute’s language learning times list and compare it to the Core French curriculum. For fun, I’ll also examine how long Japanese could take to learn for my friends, but first let’s find out what the Foreign Service Institute (FSI) has for us…&lt;!-- MORE --&gt;&lt;a href=&quot;https://en.wikibooks.org/wiki/Wikibooks:Language_Learning_Difficulty_for_English_Speakers&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -558,15 +564,17 @@ and hopefully next year I’ll get (an admittedly smaller list of planned things
 &lt;p&gt;See you next time when we check out the expected rate of toilet paper usage within a dorm of 4, and compare it to the amount of toilet paper I had to supply last term!&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 18 Jun 2017 00:00:00 -0400</pubDate>
-        <link>http://www.rayzz.me//2017/06/18/fsi-analysis.html</link>
-        <guid isPermaLink="true">http://www.rayzz.me//2017/06/18/fsi-analysis.html</guid>
+        <pubDate>Sun, 18 Jun 2017 00:00:00 -0700</pubDate>
+        <link>http://www.rayzz.me//language/2017/06/18/fsi-analysis.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//language/2017/06/18/fsi-analysis.html</guid>
         
+        
+        <category>language</category>
         
       </item>
     
       <item>
-        <title>Lotto 6/49 Odds Represented By Dice Rolls</title>
+        <title>[Math] Lotto 6/49 Odds Represented By Dice Rolls</title>
         <description>&lt;p&gt;The Lotto 6/49 is a Canadian lottery game where you get to choose 6 of 49 numbers for 3 dollars, and have a chance at winning millions. Now, the chance of choosing all six numbers correctly is 1 in &lt;script type=&quot;math/tex&quot;&gt;49 \choose 6&lt;/script&gt;, or 1 in approximately 13 million, which already sounds low. Hence, it’s easy to forget how small of a chance you really have at this game.&lt;/p&gt;
 
 &lt;p&gt;Thus, here’s a Haskell program fragment that puts things into perspective by first calculating the number of coin tosses that you would need to guess correctly in a row such that the chance of doing so is as low or even lower than winning the lottery…
@@ -645,15 +653,17 @@ Six-sided die rolls: 8.266034 magnitudes off.
 &lt;p&gt;Have fun playing now that you know this, and see you next time when we find out how long it should take to learn French according to the Foreign Service Institute, and how the Ontario Core French curriculum does in comparison!&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 31 May 2017 00:00:00 -0400</pubDate>
-        <link>http://www.rayzz.me//2017/05/31/lottery-dice.html</link>
-        <guid isPermaLink="true">http://www.rayzz.me//2017/05/31/lottery-dice.html</guid>
+        <pubDate>Wed, 31 May 2017 00:00:00 -0700</pubDate>
+        <link>http://www.rayzz.me//math/2017/05/31/lottery-dice.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//math/2017/05/31/lottery-dice.html</guid>
         
+        
+        <category>math</category>
         
       </item>
     
       <item>
-        <title>Largest Comfortable Cube Size and the Decision To Buy A Gigaminx</title>
+        <title>[Math] Largest Comfortable Cube Size and the Decision To Buy A Gigaminx</title>
         <description>&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML&quot;&gt;
 &lt;/script&gt;
 
@@ -780,10 +790,12 @@ when there’s nothing else to do, such as when waiting for MiWay buses.&lt;/p&g
 &lt;p&gt;See you next time when we find out how many coin flips or rolls of a single 6-sided die you’ll have to guess correctly to win the lottery.&lt;/p&gt;
 
 </description>
-        <pubDate>Fri, 26 May 2017 00:00:00 -0400</pubDate>
-        <link>http://www.rayzz.me//2017/05/26/largest-comfortable-cube-size.html</link>
-        <guid isPermaLink="true">http://www.rayzz.me//2017/05/26/largest-comfortable-cube-size.html</guid>
+        <pubDate>Fri, 26 May 2017 00:00:00 -0700</pubDate>
+        <link>http://www.rayzz.me//math/2017/05/26/largest-comfortable-cube-size.html</link>
+        <guid isPermaLink="true">http://www.rayzz.me//math/2017/05/26/largest-comfortable-cube-size.html</guid>
         
+        
+        <category>math</category>
         
       </item>
     
