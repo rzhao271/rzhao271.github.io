@@ -3,19 +3,19 @@ body {
 }
 
 h1 {
-  font-size: 3.0em;
+  font-size: 2.2em;
 }
 
 h2 {
-  font-size: 2.1em;
-}
-
-h3 {
   font-size: 1.75em;
 }
 
+h3 {
+  font-size: 1.4em;
+}
+
 h4 {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 /*.color-bar-1 {
@@ -24,8 +24,8 @@ h4 {
 */
 
 .color-bar-1 {
-/* Purple 900 */
-  background-color: #4A148C;
+/* Indigo 800 */
+  background-color: #283593;
 }
 
 /*
@@ -35,8 +35,8 @@ h4 {
 */
 
 .color-bar-2 {
-/* Deep Purple 500 */
-  background-color: #673AB7;
+/* Indigo 500 */
+  background-color: #3F51B5;
 }
 
 /*
@@ -63,14 +63,16 @@ a:hover {
 */
 
 a {
-/* Deep Purple A200 */
-  color: #7C4DFF;
+/* Indigo A200 */
+  color: #536DFE;
 }
-a:visited {
-  color: #C2185D;
+a:visited, a:focus {
+/* Indigo A700 */
+  color: #304FFE;
 }
 a:hover {
-  color: #00E676;
+/* Teal A700 */
+  color: #00BFA5;
 }
 figure.highlight {
   background-color: #202025;
@@ -84,10 +86,11 @@ code {
   font-style: italic;
 }
 ::-moz-selection {
+    /* Indigo 50 */
     color: #000000;
-    background: #D1C4E9;
+    background: #E8EAF6;
 }
 ::selection {
     color: #000000; 
-    background: #D1C4E9;
+    background: #E8EAF6;
 }
