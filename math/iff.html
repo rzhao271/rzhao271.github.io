@@ -67,6 +67,19 @@
     </ul>
   </li>
   <li>
+    <a href="#">Math</a>
+    <ul class="menu vertical nested">
+      <li><a href="../math/introduction-to-proofs.html">Introduction to proofs</a></li>
+      <li><a href="../math/boolean-algebra.html">Boolean algebra</a></li>
+      <li><a href="../math/implications.html">Implications</a></li>
+      <li><a href="../math/proof-by-definition.html">Proof by definition</a></li>
+      <li><a href="../math/iff.html">Biconditionals</a></li>
+      <li><a href="../math/proof-by-contrapositive.html">Proof by contrapositive</a></li>
+      <li><a href="../math/proof-by-contradiction.html">Proof by contradiction</a></li>
+      <li><a href="../math/quantifiers.html">Quantifiers</a></li>
+    </ul>
+  </li>
+  <li>
     <a href="#">Miscellaneous</a>
     <ul class="menu vertical nested">
       <li><a href="../misc/course-plan.html">My Course Plan</a></li>
@@ -104,7 +117,7 @@ We could explain our results as follows: “If <script type="math/tex">x</script
 
 <p>What if in some cases, the converse does hold? For example, let <script type="math/tex">A</script> be the statement “<script type="math/tex">x</script> is 2” and <script type="math/tex">B</script> also be the statement “<script type="math/tex">x</script> is 2”. Then, <script type="math/tex">A \Rightarrow B</script> and its converse trivially hold. In these cases, we say <script type="math/tex">A</script> <em>if and only if</em> <script type="math/tex">B</script>, or <script type="math/tex">A</script> <em>iff</em> <script type="math/tex">B</script>. In notation, we write <script type="math/tex">A \Leftrightarrow B</script>.
 It turns out that if <script type="math/tex">A \Leftrightarrow B</script>, then if <script type="math/tex">A</script> is true, <script type="math/tex">B</script> is true, and vice versa. It also turns out that if <script type="math/tex">A</script> is false, then <script type="math/tex">B</script> is false, then vice versa.
-Thus, <script type="math/tex">A</script> is true if and only if <script type="math/tex">B</script> is true, so we say the two statements are <em>equivalent</em>. Note that <script type="math/tex">\equiv</script> also represents equivalence, but it represents equivalence of boolean expressions (in Boolean algebra) rather than of two statements.</p>
+Thus, <script type="math/tex">A</script> is true if and only if <script type="math/tex">B</script> is true, so we say the two statements are <em>equivalent</em>. Note that <script type="math/tex">\equiv</script> also represents equivalence, but it represents equivalence of boolean expressions (in Boolean algebra). In proofs, we use <script type="math/tex">\Leftrightarrow</script> instead to denote that two statements imply each other.</p>
 
 <h3 id="proving-biconditionals">Proving biconditionals</h3>
 
@@ -121,6 +134,15 @@ Therefore, <script type="math/tex">A = B</script>. <em>QED</em>.</p>
 
 <p>For example, consider the statement “<script type="math/tex">G</script> is a <a href="https://en.wikipedia.org/wiki/Platonic_solid">platonic solid</a> iff <script type="math/tex">G</script> is either a tetrahedron, a cube, an octahedron, a dodecahedron, or an icosahedron”. 
 It is much easier to show the backwards direction than the forwards direction, in this case, because for the backward direction, we can explain how each shape satisfies the requirements for being a platonic solid. However, for the forwards direction, we must show that those platonic solids are the <em>only</em> possibilities, and that more do not exist (in 3 dimensions, anyway).</p>
+
+<p>Biconditionals also lead to statements that can be proven by reducing them to axioms, or simpler statements, too. 
+Any implications that arise can then lead from a known fact to the simpler statement, which leads to the original statement by the biconditionals.
+(Note: Axioms are statements that must be true). As an example of this technique:</p>
+
+<p><strong>Theorem</strong>: <script type="math/tex">x^2 + 4x + 5 \ge 0</script> for all <script type="math/tex">x \in \mathbb{R}</script><br />
+<strong>Proof</strong>: <script type="math/tex">x^2 + 4x + 5 \ge 0 \Leftrightarrow (x + 2)^2 + 1 \ge 0 \Leftrightarrow (x + 2)^2 \ge -1</script>. Let <script type="math/tex">s = x + 2</script>. Then, <script type="math/tex">x^2 + 4x + 5 \ge 0 \Leftrightarrow s^2 \ge -1</script>. 
+We know that for any choice of <script type="math/tex">y \in \mathbb{R}</script>, <script type="math/tex">y^2 \ge 0</script>, which implies <script type="math/tex">y^2 \ge -1</script>. <script type="math/tex">s = x + 2 \in \mathbb{R}</script>, so we obtain <script type="math/tex">s^2 \ge 0 \Rightarrow s^2 \ge -1</script>. 
+By the biconditionals, <script type="math/tex">x \in \mathbb{R} \Rightarrow s = x + 2 \in \mathbb{R} \Rightarrow s^2 \ge -1 \Rightarrow x^2 + 4x + 5 \ge 0</script>. <em>QED</em>.</p>
 
 <h3 id="disproving-biconditionals">Disproving biconditionals</h3>
 
@@ -141,9 +163,9 @@ Since one set can be larger than another, showing only one direction is often a 
 An example of where saying the expression works fairly well, though, is in phrases such as “We will add you to the <a href="http://gravitation3d.com/magiccube5d/hallofinsanity.html">Hall of Insanity</a> if and only if you submit your solution to the 5D Rubik’s cube”. 
 One might try to simplify, and instead say “If you have submitted your 5D Rubik’s cube solution, we will add you to the Hall of Insanity”.
 However, with this statement, it is now theoretically possible to be added to the list without submitting the solution, since the hypothesis is false in that case, meaning we cannot conclude whether the user will be added to the Hall of Insanity or not (since the statement is vacuously true in either case), so it is technically possible that they will be added, still.
-Thus, one might instead try to change the statement to “If we added you to the Hall of Insanity, then you have submitted your 5D Rubik’s cube solution”. Yet, this change makes it possible to submit a 5D Rubik’s cube solution without being added to the Hall of Insanity, for the same reason! (I guess that for privacy reasons, that might be preferable, actually…) Thus, the biconditional statement accurately reflects that submitting your 5D Rubik’s cube solution is one way, and the only way, to be guaranteed to be added to the Hall of Insanity.</p>
+Thus, one might instead try to change the statement to “If we added you to the Hall of Insanity, then you have submitted your 5D Rubik’s cube solution”. Yet, this change makes it possible to submit a 5D Rubik’s cube solution without being added to the Hall of Insanity, for the same reason! (I guess that for privacy reasons, that might be preferable, actually…) Thus, the biconditional statement reflects that submitting your 5D Rubik’s cube solution is guaranteed to get you into the Hall of Insanity, and that it is the only way to be added to the Hall of Insanity.</p>
 
-<p>Now, before checking every previous instance of “if” you have uttered, deciding whether or not it should be turned into an “if and only if”, focus on the <a href="contrapositive.html">proof by contrapositive</a> technique instead.</p>
+<p>Now, before checking every previous instance of “if” you have uttered, and deciding whether or not it should be turned into an “if and only if”, focus on the <a href="proof-by-contrapositive.html">proof by contrapositive</a> technique instead, first.</p>
 
       </div>
       <div class="columns show-for-large-up large-2">&nbsp;</div>

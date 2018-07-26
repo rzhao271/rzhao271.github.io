@@ -67,6 +67,19 @@
     </ul>
   </li>
   <li>
+    <a href="#">Math</a>
+    <ul class="menu vertical nested">
+      <li><a href="../math/introduction-to-proofs.html">Introduction to proofs</a></li>
+      <li><a href="../math/boolean-algebra.html">Boolean algebra</a></li>
+      <li><a href="../math/implications.html">Implications</a></li>
+      <li><a href="../math/proof-by-definition.html">Proof by definition</a></li>
+      <li><a href="../math/iff.html">Biconditionals</a></li>
+      <li><a href="../math/proof-by-contrapositive.html">Proof by contrapositive</a></li>
+      <li><a href="../math/proof-by-contradiction.html">Proof by contradiction</a></li>
+      <li><a href="../math/quantifiers.html">Quantifiers</a></li>
+    </ul>
+  </li>
+  <li>
     <a href="#">Miscellaneous</a>
     <ul class="menu vertical nested">
       <li><a href="../misc/course-plan.html">My Course Plan</a></li>
@@ -84,7 +97,7 @@
         <h2 id="implications">Implications</h2>
 
 <p>Implications are the bread and butter of proofs. Given two statements <script type="math/tex">A</script> and <script type="math/tex">B</script>, an implication, denoted <script type="math/tex">A \Rightarrow B</script>, means that “<script type="math/tex">A</script> implies <script type="math/tex">B</script>”,
-or equivalently, “If <script type="math/tex">A</script>, then <script type="math/tex">B</script>”. To see applications of implications, especially to critical thinking, scroll down to the bottom of the page. 
+or equivalently, “If <script type="math/tex">A</script>, then <script type="math/tex">B</script>”. To see applications of implications, especially to reality and/or self-analysis, scroll down to the bottom of the page. 
 However, it might be better just to skim the rest of the page first.</p>
 
 <p>We often call <script type="math/tex">A</script> the hypothesis, and <script type="math/tex">B</script> the conclusion. Many theorems are in the form of an implication. For example, “If <script type="math/tex">x</script> is negative, then <script type="math/tex">-x</script> is positive” is a theorem of this form. For these types of theorems, we do two things:</p>
@@ -119,6 +132,8 @@ along with a “good copy” of the proof:</p>
 <p><strong>Theorem</strong>: If <script type="math/tex">x</script> is a negative integer, then <script type="math/tex">-x</script> is positive.<br />
 <strong>Proof</strong>: Assume <script type="math/tex">x</script> is a negative integer. Then, <script type="math/tex">x \lt 0 \Rightarrow -x \gt -0 \Rightarrow -x \gt 0</script>, so <script type="math/tex">-x</script> is positive. QED.</p>
 
+<p>(Note: if this proof looks a bit odd, wait until the <a href="proof-by-definition.html">next page</a> that explains how we make these logical jumps).</p>
+
 <h3 id="disproving-implications">Disproving implications</h3>
 
 <p>We have shown that there is only one case when an implication is false. To disprove an implication, we only need to show a situation where the hypothesis holds, but the conclusion does not.
@@ -138,29 +153,29 @@ me prove yet another implication or statement on a later assignment. Thus, impli
 <h3 id="implications-in-everyday-life">Implications in everyday life</h3>
 
 <p>In real life, implications demonstrate actions that could happen, given that a hypothesis turns out to be true. For example, “if it rains, then I will not go outside” is such an implication.
-Implications can also eliminate possibilities. For example, “if the notebook is red, it is the one I want for this course” helps when you see two notebooks, one red, and one green, in your backpack, and need to know which one to pull out.</p>
+“If you lift every other day and eat at a Calorie surplus, then you will develop more muscles” is another such implication, although, this implication is true “to more people” than the previous one, because the hypothesis in this case usually causes the conclusion, whereas the previous implication indicates a decision that someone else might not make. 
+Notice that for these examples, we cannot say that the hypothesis will lead to the conclusion anymore, because everyone is different, and so an implication that applies to one person might not apply to another. This discrepancy between math and “reality” is explained on the <a href="proof-by-definition.html">next page</a>.</p>
 
-<p>Another great use of implications is to analyze thoughts from a negative inner critical voice. For example, take the statement “I’m a loser because I didn’t get wasted last weekend.”
-Now, an initial reaction might be “yeah, that’s right you are”, or “no way <em>that’s</em> right”, depending on the reader. But, now that we know implications, we can rephrase the self-accusation as follows:</p>
+<p>Implications can also eliminate possibilities. For example, “if the notebook is red, then it is the one I want for this course” helps when you see two notebooks, one red, and one green, in your backpack, and need to know which one to pull out. Notice that technically, the green notebook makes the hypothesis false, which makes the statement vacuously true, meaning that the conclusion becomes inconclusive; the green notebook might also be the notebook that you want for this course. To toughen up the statement, add another implication: “if the notebook is not red, then it is not the one I want for this course.”</p>
+
+<h3 id="implications-in-self-analysis">Implications in self-analysis</h3>
+
+<p>One way I use implications, is to analyze thoughts from a negative inner critical voice. For example, take the statement “I’m a loser because I didn’t get wasted last weekend.”
+Now that we know implications, we can rephrase the self-accusation as follows:</p>
 
 <ul>
   <li>If I did not get wasted last weekend, then I am a loser.</li>
 </ul>
 
-<p>Then, we have the following “proof” that I am a loser:</p>
+<p>Since a negative thought like this doesn’t exactly help me out, I can either try to “disprove” the implication by finding a counterexample, or try to “prove” it within my point of view, and see where the proof falls apart by going into <em>someone else’s point of view</em>. To disprove it, I must find a counterexample to the implication; I need to find someone who does not go and get wasted on weekends, but who is not a loser from <em>their point of view</em>. Disproving this implication then equates to finding someone who shares a similar opinion – the implication is false within their frame of reference, too. In effect, if you use this trick, you might just end up finding someone supportive of your thought, which is comfy.</p>
 
-<ul>
-  <li>I did not get wasted last weekend</li>
-  <li>I am thus a loser, by the implication above. <em>QED :c</em>.</li>
-</ul>
+<p>To “prove” the implication, I have to show that not getting wasted leads to having some other personality trait, or doing some other action instead, that leads me to being a loser in my frame of reference. I lead on the reasoning with implications, and assuming that the hypothesis is true, attempt to derive the conclusion.</p>
 
-<p>Since a negative thought like this doesn’t exactly help me out, I can either try to “disprove” the implication <em>within my frame of reference</em>, or try to “prove” it within my frame of reference and see where the self-critical thought comes from. To disprove it, I must find a counterexample to the implication; I need to find someone who does not go and get wasted on weekends, but who is not a loser. Disproving this implication then equates to finding someone who shares a similar opinion – the implication is false within their frame of reference, too. In effect, if you use this trick, you might just end up finding someone supportive of your thought, which is comfy.</p>
+<p>For example, I can write “I did not get wasted last weekend” <script type="math/tex">\Rightarrow</script> “I decided not to go to any parties that weekend” <script type="math/tex">\Rightarrow</script> “I finished some assignments instead” <script type="math/tex">\Rightarrow</script> “I was a loser”.</p>
 
-<p>To “prove” the implication, I have to show that not getting wasted leads to having some other personality trait, or doing some other action instead, that leads me to being a loser in my frame of reference.
-For example, I can write “I did not get wasted last weekend” <script type="math/tex">\Rightarrow</script> “I decided not to go to any parties that weekend” <script type="math/tex">\Rightarrow</script> “I finished some assignments instead” <script type="math/tex">\Rightarrow</script> “I was a loser”.
-From this line of reasoning, we notice that the last jump seems unwarranted, and that the opinion expressed by the inner critical voice seems to come from people in the past <em>other than myself</em>. Realizing the source of the implication, I can then think about who suggested (either verbally or non-verbally) this implication to me, and whether or not I should consider taking it seriously in the future.</p>
+<p>From this line of reasoning, we notice that the last jump seems unwarranted, and that the opinion expressed by the inner critical voice seems to come from people in the past <em>other than myself</em>. Realizing the source of the implication, I can then think about who suggested (either verbally or non-verbally) this implication to me, and whether or not I should consider taking it seriously in the future.</p>
 
-<p>Anyway, while I go and contact a few people, ask them whether or not they got wasted last weekend, and whether or not they are losers, continue onwards to learning about the seemingly pretentious phrase <a href="iff.html">if and only if</a>!</p>
+<p>Anyway, while I go and contact a few people, and ask them whether or not they got wasted last weekend, and whether or not they consider themselves a loser, continue onwards to learning about the importance of <a href="proof-by-definition.html">definitions</a>.</p>
 
       </div>
       <div class="columns show-for-large-up large-2">&nbsp;</div>
