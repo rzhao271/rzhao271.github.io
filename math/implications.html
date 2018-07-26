@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//math/implications.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//math/implications.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/pygments/default.css">
+  <link rel="stylesheet" href="../css/rayzz-site.css">
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <h1>Ray Zhao</h1>
+    <div id="subtitle">Software developer &#9830; Mathemusician &#9830; Minimalist</div>
+</div>
+
+<!-- COLOURS FOR DAYS! -->
+<div class="expanded row">
+    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
+    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
+    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
+</div>
+
+
+    <div class="expanded row">
+      <div class="columns small-12 medium-3 large-2">
+        <div style="width: 100%;">
+            <ul class="vertical menu" data-accordion-menu>
+  <li>
+    <a href="../index.html">Home</a>
+  </li>
+  <li>
+    <a href="#">Cubing</a>
+    <ul class="menu vertical nested">
+      <li><a href="../cubing/hypercubing.html">About Hypercubing</a></li>
+      <li>
+      <a href="#">Solutions</a>
+        <ul class="menu vertical nested">
+          <li><a href="../cubing/solutions/FTO.html">Face-Turning Octahedron</a></li>
+          <li><a href="../cubing/solutions/4-cube.html">4D Rubik's Cube</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Miscellaneous</a>
+    <ul class="menu vertical nested">
+      <li><a href="../misc/course-plan.html">My Course Plan</a></li>
+      <li><a href="../misc/extern.html">Site Recommendations</a></li>
+    </ul>
+  </li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="columns show-for-large-up large-1">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="implications">Implications</h2>
+
+<p>Implications are the bread and butter of proofs. Given two statements <script type="math/tex">A</script> and <script type="math/tex">B</script>, an implication, denoted <script type="math/tex">A \Rightarrow B</script>, means that “<script type="math/tex">A</script> implies <script type="math/tex">B</script>”,
+or equivalently, “If <script type="math/tex">A</script>, then <script type="math/tex">B</script>”. To see applications of implications, especially to critical thinking, scroll down to the bottom of the page. 
+However, it might be better just to skim the rest of the page first.</p>
+
+<p>We often call <script type="math/tex">A</script> the hypothesis, and <script type="math/tex">B</script> the conclusion. Many theorems are in the form of an implication. For example, “If <script type="math/tex">x</script> is negative, then <script type="math/tex">-x</script> is positive” is a theorem of this form. For these types of theorems, we do two things:</p>
+
+<ul>
+  <li>We assume the hypothesis, <script type="math/tex">A</script>, is true</li>
+  <li>We attempt to show the conclusion, <script type="math/tex">B</script>, is true</li>
+</ul>
+
+<p>The implication works as follows: If <script type="math/tex">A</script> is true, and <script type="math/tex">B</script> is false, then <script type="math/tex">A \Rightarrow B</script> is false. Otherwise, <script type="math/tex">A \Rightarrow B</script> is true.
+In other words, if <script type="math/tex">A</script> and <script type="math/tex">B</script> are both true, then <script type="math/tex">A \Rightarrow B</script> is true, and if <script type="math/tex">A</script> is false, then <script type="math/tex">A \Rightarrow B</script> is still true.</p>
+
+<h3 id="what-does-it-mean-for-an-implication-to-be-true">What does it mean for an implication to be true?</h3>
+
+<p>The implication is true as long as it doesn’t “lie”. That is, if the implication is truthful, then if the hypothesis is true, the conclusion <em>must</em> follow.
+However, if the hypothesis is not true, the implication does not give us any conclusion. However, this does not mean that the implication “lied” to us, and so we say the implication is
+<em>vacuously true</em>. The concept of “vacuous truth” seems incredibly arbitrary, and so we ignore the problem by assuming in future examples that the hypothesis must be true.</p>
+
+<h3 id="what-does-it-mean-for-an-implication-to-be-false">What does it mean for an implication to be false?</h3>
+
+<p>By the section above, an implication is false when the hypothesis is true but the conclusion is false. In this case, the hypothesis does not imply the conclusion, and so the implication is false. That is, <script type="math/tex">\neg (A \Rightarrow B) \equiv A \wedge (\neg B)</script> and <script type="math/tex">A \Rightarrow B \equiv (\neg A) \vee B</script>, by De Morgan’s Law.</p>
+
+<h3 id="proving-implications">Proving implications</h3>
+
+<p>We use the example given at the beginning: “If <script type="math/tex">x</script> is a negative integer, then <script type="math/tex">-x</script> is positive”.</p>
+
+<p>The proof works by assuming the hypothesis, and then attempting to reach the conclusion. The hypothesis is “<script type="math/tex">x</script> is a negative integer”, so we assume <script type="math/tex">x</script> is a negative integer.
+Then, <script type="math/tex">-x</script> is clearly positive, or is it? What does it mean for <script type="math/tex">x</script> to be negative? Well, it means <script type="math/tex">x \lt 0</script>. We want to show <script type="math/tex">-x \gt 0</script>.
+Since <script type="math/tex">-1 \lt 0</script>, we can multiply both sides by <script type="math/tex">-1</script> to obtain <script type="math/tex">x \lt 0 \Rightarrow -x \gt -0 = 0</script>, meaning yes, <script type="math/tex">-x</script> <em>is</em> positive. What follows is the statement presented as a theorem
+along with a “good copy” of the proof:</p>
+
+<p><strong>Theorem</strong>: If <script type="math/tex">x</script> is a negative integer, then <script type="math/tex">-x</script> is positive.<br />
+<strong>Proof</strong>: Assume <script type="math/tex">x</script> is a negative integer. Then, <script type="math/tex">x \lt 0 \Rightarrow -x \gt -0 \Rightarrow -x \gt 0</script>, so <script type="math/tex">-x</script> is positive. QED.</p>
+
+<h3 id="disproving-implications">Disproving implications</h3>
+
+<p>We have shown that there is only one case when an implication is false. To disprove an implication, we only need to show a situation where the hypothesis holds, but the conclusion does not.
+For example, we give a counterexample to the following theorem:</p>
+
+<p><strong>Theorem</strong>: If <script type="math/tex">x</script> is a non-positive integer, then <script type="math/tex">-x</script> is positive.<br />
+<strong>Counterexample</strong>: Choose <script type="math/tex">x = 0</script>. Then, <script type="math/tex">x</script> is a non-positive integer, since <script type="math/tex">x = 0 \le 0</script>, but <script type="math/tex">-x = -0 = 0</script> is not positive. Thus, the theorem does not hold.</p>
+
+<h3 id="the-purpose-of-implications-in-math">The purpose of implications in math</h3>
+
+<p>Implications are pipes that the plumber, I mean mathematician, uses to show one truth leads to another. In math, the way to obtain new results is to build on old results. Thus, instead of showing something is true starting from nothing every time, the mathematician can take results from previous papers, and fuse the results into a proof for a new result.</p>
+
+<p>Likewise, undergraduate students studying mathematics are often given a set of powerful theorems in class, which they then use to prove more theorems that appear on assignments.
+In my PMATH 336 course (group theory for non-pure-math majors), I even had to look back at previous assignment questions from time to time to use those theorems, that I proved, to help
+me prove yet another implication or statement on a later assignment. Thus, implications really do become building blocks of mathematical truth.</p>
+
+<h3 id="implications-in-everyday-life">Implications in everyday life</h3>
+
+<p>In real life, implications demonstrate actions that could happen, given that a hypothesis turns out to be true. For example, “if it rains, then I will not go outside” is such an implication.
+Implications can also eliminate possibilities. For example, “if the notebook is red, it is the one I want for this course” helps when you see two notebooks, one red, and one green, in your backpack, and need to know which one to pull out.</p>
+
+<p>Another great use of implications is to analyze thoughts from a negative inner critical voice. For example, take the statement “I’m a loser because I didn’t get wasted last weekend.”
+Now, an initial reaction might be “yeah, that’s right you are”, or “no way <em>that’s</em> right”, depending on the reader. But, now that we know implications, we can rephrase the self-accusation as follows:</p>
+
+<ul>
+  <li>If I did not get wasted last weekend, then I am a loser.</li>
+</ul>
+
+<p>Then, we have the following “proof” that I am a loser:</p>
+
+<ul>
+  <li>I did not get wasted last weekend</li>
+  <li>I am thus a loser, by the implication above. <em>QED :c</em>.</li>
+</ul>
+
+<p>Since a negative thought like this doesn’t exactly help me out, I can either try to “disprove” the implication <em>within my frame of reference</em>, or try to “prove” it within my frame of reference and see where the self-critical thought comes from. To disprove it, I must find a counterexample to the implication; I need to find someone who does not go and get wasted on weekends, but who is not a loser. Disproving this implication then equates to finding someone who shares a similar opinion – the implication is false within their frame of reference, too. In effect, if you use this trick, you might just end up finding someone supportive of your thought, which is comfy.</p>
+
+<p>To “prove” the implication, I have to show that not getting wasted leads to having some other personality trait, or doing some other action instead, that leads me to being a loser in my frame of reference.
+For example, I can write “I did not get wasted last weekend” <script type="math/tex">\Rightarrow</script> “I decided not to go to any parties that weekend” <script type="math/tex">\Rightarrow</script> “I finished some assignments instead” <script type="math/tex">\Rightarrow</script> “I was a loser”.
+From this line of reasoning, we notice that the last jump seems unwarranted, and that the opinion expressed by the inner critical voice seems to come from people in the past <em>other than myself</em>. Realizing the source of the implication, I can then think about who suggested (either verbally or non-verbally) this implication to me, and whether or not I should consider taking it seriously in the future.</p>
+
+<p>Anyway, while I go and contact a few people, ask them whether or not they got wasted last weekend, and whether or not they are losers, continue onwards to learning about the seemingly pretentious phrase <a href="iff.html">if and only if</a>!</p>
+
+      </div>
+      <div class="columns show-for-large-up large-2">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer" style="float: bottom;">
+  <!--
+  <p>Ray ZZ</p>
+  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</p>
+  -->
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../js/foundation.min.js"></script>
+  <script src="../js/rayzz-colors.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</footer>
+
+  </body>
+</html>

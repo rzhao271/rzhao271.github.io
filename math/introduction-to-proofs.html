@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//math/introduction-to-proofs.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//math/introduction-to-proofs.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/pygments/default.css">
+  <link rel="stylesheet" href="../css/rayzz-site.css">
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <h1>Ray Zhao</h1>
+    <div id="subtitle">Software developer &#9830; Mathemusician &#9830; Minimalist</div>
+</div>
+
+<!-- COLOURS FOR DAYS! -->
+<div class="expanded row">
+    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
+    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
+    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
+</div>
+
+
+    <div class="expanded row">
+      <div class="columns small-12 medium-3 large-2">
+        <div style="width: 100%;">
+            <ul class="vertical menu" data-accordion-menu>
+  <li>
+    <a href="../index.html">Home</a>
+  </li>
+  <li>
+    <a href="#">Cubing</a>
+    <ul class="menu vertical nested">
+      <li><a href="../cubing/hypercubing.html">About Hypercubing</a></li>
+      <li>
+      <a href="#">Solutions</a>
+        <ul class="menu vertical nested">
+          <li><a href="../cubing/solutions/FTO.html">Face-Turning Octahedron</a></li>
+          <li><a href="../cubing/solutions/4-cube.html">4D Rubik's Cube</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Miscellaneous</a>
+    <ul class="menu vertical nested">
+      <li><a href="../misc/course-plan.html">My Course Plan</a></li>
+      <li><a href="../misc/extern.html">Site Recommendations</a></li>
+    </ul>
+  </li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="columns show-for-large-up large-1">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="introduction-to-proofs">Introduction to proofs</h2>
+
+<p>This section of the site introduces theorem-proving techniques to high school students and curious non-math majors.
+Immediately, a question that comes to mind is:</p>
+
+<p><big><em>Why would you ever need proofs?</em></big></p>
+
+<p>Well,</p>
+
+<ul>
+  <li>If you are a high-school student planning to go into math or computer science (CS), then expect at least one proof to show up in every math course you take.</li>
+  <li>If you are a high-school student planning to go into computer or software engineering, then expect at least one course involving proofs to show up (probably in linear algebra).</li>
+</ul>
+
+<p>These reasons are more of an application of scare tactics though, so here’s a “better” one:</p>
+
+<ul>
+  <li><strong>Proofs certify the validity of a theorem</strong>. In a non-mathematical context, proofs help you think more critically about your ideas and thoughts.</li>
+</ul>
+
+<p>Mathematicians come up with and prove theorems. These theorems then make their way through other sciences, and eventually go into industry in the form of goods and services.
+For example, <a href="https://arstechnica.com/information-technology/2012/06/inside-the-ssd-revolution-how-solid-state-disks-really-work/2/">SSDs wouldn’t exist if it weren’t for quantum tunneling</a>.
+Yet, quantum theory wouldn’t work as reliably if it weren’t for calculus, followed by advancements in differential equations and group theory.</p>
+
+<h3 id="proofs-for-self-reflection-and-self-analysis">Proofs for self-reflection and self-analysis</h3>
+
+<p>Later on, we will see that many proofs rely on “if-then” statements, called <a href="implications.html">implications</a>. 
+When attempting to trace trains of thought, implications can help make clear the cause of a problem or opinion.
+Re-phrasing opinions in the form of implications might also help catch logical fallacies that others, or you yourself, commit.</p>
+
+<p>Personally, I have used implications before to trace some self-critical thoughts to sources of external pressure with success.</p>
+
+<p>(<em>Note</em>: if you’re here to learn proofs in a context outside of mathematics, proceed to <a href="boolean-algebra.html">Boolean algebra</a>, which introduces the concept of a logical statement, and a few ways to manipulate them.)</p>
+
+<h3 id="proofs-for-correctness-in-math-and-software">Proofs for correctness in math and software</h3>
+
+<h4 id="a-slightly-sneaky-example">A slightly sneaky example</h4>
+
+<p>There remains the question of why proofs, rather than just theorems, are needed in math.</p>
+
+<p>To answer this question, firstly note that things that might seem true at first glance could turn out to be false. Thinking about counterexamples encourages those in research and industry to think about edge conditions while they are working on a paper or developing a product. For example, consider the following problem: is <script type="math/tex">0 \le x \le x^2</script> true for all <script type="math/tex">x \ge 0, x \in \mathbb{R}</script>? (<script type="math/tex">x \in \mathbb{R}</script> means that <script type="math/tex">x</script> is a real number. If you’re not sure what a real number is, think decimal numbers).</p>
+
+<p>One might start off by saying “Well, probably, because it works when I plug in <script type="math/tex">x = 5</script> and <script type="math/tex">x = 3</script>”, but the answer is “<strong>No</strong>, because it doesn’t hold for <script type="math/tex">x = 1/2</script>”.
+Thus, mathematicians have to be a bit more careful, and consider whether anything breaks the validity of the statement.</p>
+
+<p>Cynically, given that such a simple inequality above turned out to be false, mathematicians must be sure that any theorem they use actually holds for the given situation.
+The proof thus acts as a certificate, which first lists a bunch of assumptions, and then shows that the conclusion <em>must</em> hold under those assumptions.</p>
+
+<p>For example, if we assume <script type="math/tex">x \ge 1, x \in \mathbb{R}</script>, we can now guarantee that <script type="math/tex">0 \le x \le x^2</script>.</p>
+
+<p><strong>Proof</strong>: Assume <script type="math/tex">x \ge 1</script>. Then, <script type="math/tex">x \ge 1</script>, so <script type="math/tex">x - 1 \ge 0</script>. Thus, <script type="math/tex">x(x - 1) \ge 0</script>, so <script type="math/tex">x^2 - x \ge 0</script>, so <script type="math/tex">x^2 \ge x</script>, meaning <script type="math/tex">x \le x^2</script>. Since <script type="math/tex">x \ge 1</script>, <script type="math/tex">x \ge 0</script>,
+so <script type="math/tex">0 \le x \le x^2</script>. <em>QED.</em> (<a href="https://en.wikipedia.org/wiki/Q.E.D.">QED</a> is one of the ways to mark the end of a proof.)</p>
+
+<p>Thus, we have concluded that the inequality holds for an uncountably infinite number of <script type="math/tex">x</script>, without having to explicitly check every single one of them!</p>
+
+<h4 id="aside-proving-vs-testing-in-software-development">Aside: proving vs testing in software development</h4>
+
+<p>Software developers often test their code, rather than prove that it works. Why? Well, testing is much easier. 
+Consider this inequality, which we have shown is true: for <script type="math/tex">x \ge 1, x \in \mathbb{R}, 0 \le x \le x^2</script>. 
+A software developer can look at this inequality, plug in numbers such as 1, 5, and 7, and confirm that it “seems to hold, for it passed 3 tests”.
+Such a statement might seem naive, considering how we disproved the inequality above for a slightly larger interval of <script type="math/tex">x</script>, but for larger, real-world programs, correctness proofs become incredibly difficult, or even impossible to write. 
+Thus, even though testing cannot cover all cases (otherwise the product would probably not be delivered on time), testing dilligently is better than not testing at all.</p>
+
+<p>At least for math and computer science, researchers must prove all of their original results, since any engineer or developer who uses said result must know exactly when it works and when it doesn’t. Meanwhile in software development, the developer usually considers a sample of all possible cases that a user may encounter, and that’s about it.</p>
+
+<p>However, that doesn’t mean developers necessarily get a free pass. Firstly, testing can be quite tedious at times, for developers must still consider as many edge cases as they can think up.</p>
+
+<p>Secondly, <em>there are consequences for not testing thoroughly enough</em>. For example, computers often, but not always, store numbers in a fixed number of bits.
+Thus, if I used 64 bits of storage to store a large decimal number, and then tried to convert it into an integer that only has 16 bits of storage, then something will probably go wrong, due to the 48-bit reduction in storage space.
+Yet, instructions to do exactly that within the software of the Ariane 5 rocket are what <a href="http://www-users.math.umn.edu/~arnold/disasters/ariane.html">caused it to explode</a>.</p>
+
+<h3 id="read-on">Read on</h3>
+
+<p>To learn more about proofs, continue on to <a href="boolean-algebra.html">Boolean algebra</a>.</p>
+
+      </div>
+      <div class="columns show-for-large-up large-2">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer" style="float: bottom;">
+  <!--
+  <p>Ray ZZ</p>
+  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</p>
+  -->
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../js/foundation.min.js"></script>
+  <script src="../js/rayzz-colors.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</footer>
+
+  </body>
+</html>
