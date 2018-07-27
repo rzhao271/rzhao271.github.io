@@ -130,14 +130,16 @@ Now, let <script type="math/tex">y \in B</script>. Then, <script type="math/tex"
 Thus, <script type="math/tex">y \in A</script>. Since <script type="math/tex">y \in B \Rightarrow y \in A</script> for all <script type="math/tex">y \in B</script>, <script type="math/tex">B \subseteq A</script>.<br />
 Therefore, <script type="math/tex">A = B</script>. <em>QED</em>.</p>
 
+<p>(Note: <script type="math/tex">A \subseteq B</script> means <script type="math/tex">A</script> is a subset of <script type="math/tex">B</script>, where <script type="math/tex">A</script> and <script type="math/tex">B</script> are sets.)</p>
+
 <p>In this case, the forward and backward directions involved very similar steps, if not the same steps. In other cases, one direction is much easier to prove than the other.</p>
 
 <p>For example, consider the statement “<script type="math/tex">G</script> is a <a href="https://en.wikipedia.org/wiki/Platonic_solid">platonic solid</a> iff <script type="math/tex">G</script> is either a tetrahedron, a cube, an octahedron, a dodecahedron, or an icosahedron”. 
 It is much easier to show the backwards direction than the forwards direction, in this case, because for the backward direction, we can explain how each shape satisfies the requirements for being a platonic solid. However, for the forwards direction, we must show that those platonic solids are the <em>only</em> possibilities, and that more do not exist (in 3 dimensions, anyway).</p>
 
-<p>Biconditionals also lead to statements that can be proven by reducing them to axioms, or simpler statements, too. 
+<p>Biconditionals also lead to statements that can be proven by reducing them to simpler statements.
 Any implications that arise can then lead from a known fact to the simpler statement, which leads to the original statement by the biconditionals.
-(Note: Axioms are statements that must be true). As an example of this technique:</p>
+As an example of this technique:</p>
 
 <p><strong>Theorem</strong>: <script type="math/tex">x^2 + 4x + 5 \ge 0</script> for all <script type="math/tex">x \in \mathbb{R}</script><br />
 <strong>Proof</strong>: <script type="math/tex">x^2 + 4x + 5 \ge 0 \Leftrightarrow (x + 2)^2 + 1 \ge 0 \Leftrightarrow (x + 2)^2 \ge -1</script>. Let <script type="math/tex">s = x + 2</script>. Then, <script type="math/tex">x^2 + 4x + 5 \ge 0 \Leftrightarrow s^2 \ge -1</script>. 
@@ -159,11 +161,13 @@ Since one set can be larger than another, showing only one direction is often a 
 
 <h3 id="biconditionals-in-real-life">Biconditionals in real life</h3>
 
-<p>People rarely say “if and only if” in real life, unless they are either lecturing a math course, or showing off.
-An example of where saying the expression works fairly well, though, is in phrases such as “We will add you to the <a href="http://gravitation3d.com/magiccube5d/hallofinsanity.html">Hall of Insanity</a> if and only if you submit your solution to the 5D Rubik’s cube”. 
+<p>People rarely say “if and only if” in real life, unless they are either lecturing a math course, or showing off.</p>
+
+<p>An example of where saying the expression works fairly well, though, is in phrases such as “We will add you to the <a href="http://gravitation3d.com/magiccube5d/hallofinsanity.html">Hall of Insanity</a> if and only if you submit your solution to the 5D Rubik’s cube”. 
 One might try to simplify, and instead say “If you have submitted your 5D Rubik’s cube solution, we will add you to the Hall of Insanity”.
-However, with this statement, it is now theoretically possible to be added to the list without submitting the solution, since the hypothesis is false in that case, meaning we cannot conclude whether the user will be added to the Hall of Insanity or not (since the statement is vacuously true in either case), so it is technically possible that they will be added, still.
-Thus, one might instead try to change the statement to “If we added you to the Hall of Insanity, then you have submitted your 5D Rubik’s cube solution”. Yet, this change makes it possible to submit a 5D Rubik’s cube solution without being added to the Hall of Insanity, for the same reason! (I guess that for privacy reasons, that might be preferable, actually…) Thus, the biconditional statement reflects that submitting your 5D Rubik’s cube solution is guaranteed to get you into the Hall of Insanity, and that it is the only way to be added to the Hall of Insanity.</p>
+However, with this statement, it is now theoretically possible to be added to the list without submitting the solution. Because the hypothesis is false in that case, the statement is vacuously true, and we cannot conclude whether or not the user will be added to the Hall of Insanity or not. Therefore, it is technically possible that they will be added, still.</p>
+
+<p>Thus, one might instead try to change the statement to “If we added you to the Hall of Insanity, then you have submitted your 5D Rubik’s cube solution”. Yet, this change makes it possible to submit a 5D Rubik’s cube solution without being added to the Hall of Insanity, for the same reason! (I guess that for privacy reasons, that might be preferable, actually…) Thus, the biconditional statement reflects that submitting your 5D Rubik’s cube solution is guaranteed to get you into the Hall of Insanity, and that it is the only way to get into the Hall of Insanity.</p>
 
 <p>Now, before checking every previous instance of “if” you have uttered, and deciding whether or not it should be turned into an “if and only if”, focus on the <a href="proof-by-contrapositive.html">proof by contrapositive</a> technique instead, first.</p>
 

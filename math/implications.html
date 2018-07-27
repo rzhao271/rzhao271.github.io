@@ -107,18 +107,32 @@ However, it might be better just to skim the rest of the page first.</p>
   <li>We attempt to show the conclusion, <script type="math/tex">B</script>, is true</li>
 </ul>
 
-<p>The implication works as follows: If <script type="math/tex">A</script> is true, and <script type="math/tex">B</script> is false, then <script type="math/tex">A \Rightarrow B</script> is false. Otherwise, <script type="math/tex">A \Rightarrow B</script> is true.
-In other words, if <script type="math/tex">A</script> and <script type="math/tex">B</script> are both true, then <script type="math/tex">A \Rightarrow B</script> is true, and if <script type="math/tex">A</script> is false, then <script type="math/tex">A \Rightarrow B</script> is still true.</p>
+<p>The implication works as follows: If <script type="math/tex">A</script> is true, and <script type="math/tex">B</script> is false, then <script type="math/tex">A \Rightarrow B</script> is false. Otherwise, <script type="math/tex">A \Rightarrow B</script> is true.</p>
+
+<p>In other words, if <script type="math/tex">A</script> and <script type="math/tex">B</script> are both true, then <script type="math/tex">A \Rightarrow B</script> is true. If <script type="math/tex">A</script> is false, then it does not matter whether <script type="math/tex">B</script> is true or not – <script type="math/tex">A \Rightarrow B</script> is still true.</p>
 
 <h3 id="what-does-it-mean-for-an-implication-to-be-true">What does it mean for an implication to be true?</h3>
 
 <p>The implication is true as long as it doesn’t “lie”. That is, if the implication is truthful, then if the hypothesis is true, the conclusion <em>must</em> follow.
 However, if the hypothesis is not true, the implication does not give us any conclusion. However, this does not mean that the implication “lied” to us, and so we say the implication is
-<em>vacuously true</em>. The concept of “vacuous truth” seems incredibly arbitrary, and so we ignore the problem by assuming in future examples that the hypothesis must be true.</p>
+<em>vacuously true</em>.</p>
+
+<p>The concept of “vacuous truth” seems incredibly arbitrary, and usually, we can assume that the hypothesis must be true. 
+However, we will see some implications later on where we can check for this case, and reflect on how it changes the meaning of the statement, especially in the <a href="iff.html">biconditionals</a> section.</p>
 
 <h3 id="what-does-it-mean-for-an-implication-to-be-false">What does it mean for an implication to be false?</h3>
 
-<p>By the section above, an implication is false when the hypothesis is true but the conclusion is false. In this case, the hypothesis does not imply the conclusion, and so the implication is false. That is, <script type="math/tex">\neg (A \Rightarrow B) \equiv A \wedge (\neg B)</script> and <script type="math/tex">A \Rightarrow B \equiv (\neg A) \vee B</script>, by De Morgan’s Law.</p>
+<p>By the section above, an implication is false when the hypothesis is true but the conclusion is false. In this case, the hypothesis does not imply the conclusion, and so the implication is false.</p>
+
+<h3 id="relating-implications-back-to-and-and-or">Relating implications back to AND and OR</h3>
+<p>It turns out that implications are logically equivalent to statements that can be expressed using what we learned in the <a href="boolean-algebra.html">Boolean algebra</a> section.</p>
+
+<div style="text-align:center;">
+  <p><script type="math/tex">\neg (A \Rightarrow B) \equiv A \wedge (\neg B)</script><br />
+<script type="math/tex">A \Rightarrow B \equiv (\neg A) \vee B</script></p>
+</div>
+
+<p>Note that negation changed the <script type="math/tex">\wedge</script> to a <script type="math/tex">\vee</script> due to De Morgan’s Law.</p>
 
 <h3 id="proving-implications">Proving implications</h3>
 
