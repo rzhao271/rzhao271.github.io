@@ -67,9 +67,9 @@
     </ul>
   </li>
   <li>
-    <a href="#">Math</a>
+    <a href="#">A Primer on Proofs</a>
     <ul class="menu vertical nested">
-      <li><a href="../math/introduction-to-proofs.html">Introduction to proofs</a></li>
+      <li><a href="../math/introduction-to-proofs.html">Introduction</a></li>
       <li><a href="../math/boolean-algebra.html">Boolean algebra</a></li>
       <li><a href="../math/implications.html">Implications</a></li>
       <li><a href="../math/proof-by-definition.html">Proof by definition</a></li>
@@ -132,7 +132,7 @@ Now, let <script type="math/tex">y \in B</script>. Then, <script type="math/tex"
 Thus, <script type="math/tex">y \in A</script>. Since <script type="math/tex">y \in B \Rightarrow y \in A</script> for all <script type="math/tex">y \in B</script>, <script type="math/tex">B \subseteq A</script>.<br />
 Therefore, <script type="math/tex">A = B</script>. <em>QED</em>.</p>
 
-<p>(Note: <script type="math/tex">A \subseteq B</script> means <script type="math/tex">A</script> is a subset of <script type="math/tex">B</script>, where <script type="math/tex">A</script> and <script type="math/tex">B</script> are sets.)</p>
+<p>(Note: <script type="math/tex">A \subseteq B</script> means <script type="math/tex">A</script> is a subset of <script type="math/tex">B</script>, where <script type="math/tex">A</script> and <script type="math/tex">B</script> are sets. The form of this proof is explained below in the section “Biconditionals in math”.)</p>
 
 <p>In this case, the forward and backward directions involved very similar steps, if not the same steps. In other cases, one direction is much easier to prove than the other.</p>
 
@@ -157,7 +157,8 @@ By the biconditionals, <script type="math/tex">x \in \mathbb{R} \Rightarrow s = 
 <p>The first example of a biconditional in math is when showing two sets, <script type="math/tex">A</script> and <script type="math/tex">B</script>, are equal. An example is given above.
 The approach taken is to often to show that <script type="math/tex">A \subseteq B</script>, and <script type="math/tex">B \subseteq A</script>.
 These two statements then get broken down into the implications: “If <script type="math/tex">x \in A</script>, then <script type="math/tex">x \in B</script>”, and “If <script type="math/tex">x \in B</script>, then <script type="math/tex">x \in A</script>”.
-Since one set can be larger than another, showing only one direction is often a recipe for disaster, for it is easy to construct an example where <script type="math/tex">A \subseteq B</script> but the converse fails, or <script type="math/tex">B \subseteq A</script> but the converse fails.</p>
+The point here is that both directions <em>must</em> be shown in order to conclude that <script type="math/tex">A = B</script>. 
+Indeed, since one set can be larger than another, showing only one direction is often a recipe for disaster, for it is easy to construct an example where <script type="math/tex">A \subseteq B</script> but the converse fails, or <script type="math/tex">B \subseteq A</script> but the converse fails.</p>
 
 <p>Biconditionals also help mathematicians understand when two ideas are equivalent. For example, in formal languages, there are machines called deterministic finite automata (DFAs). There are also strings (of symbols) called regular expressions. It turns out that for every regular expression, there exists a DFA that yields the same language as that of the regular expression, and for every DFA, there exists a regular expression that yields the same language as that of the DFA. Theoretical computer scientists, when trying to prove a theorem about a regular language (a language that can be represented as a regular expression), can thus use regular expressions, or DFAs, or even both, to consider the problem of proving the theorem from multiple directions.</p>
 
