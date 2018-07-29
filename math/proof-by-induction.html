@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//math/proof-by-induction.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//math/proof-by-induction.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/pygments/default.css">
+  <link rel="stylesheet" href="../css/rayzz-site.css">
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <h1>Ray Zhao</h1>
+    <div id="subtitle">Software developer &#9830; Mathemusician &#9830; Minimalist</div>
+</div>
+
+<!-- COLOURS FOR DAYS! -->
+<div class="expanded row">
+    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
+    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
+    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
+</div>
+
+
+    <div class="expanded row">
+      <div class="columns small-12 medium-3 large-2">
+        <div style="width: 100%;">
+            <ul class="vertical menu" data-accordion-menu>
+  <li>
+    <a href="../index.html">Home</a>
+  </li>
+  <li>
+    <a href="#">Cubing</a>
+    <ul class="menu vertical nested">
+      <li><a href="../cubing/hypercubing.html">About Hypercubing</a></li>
+      <li>
+      <a href="#">Solutions</a>
+        <ul class="menu vertical nested">
+          <li><a href="../cubing/solutions/FTO.html">Face-Turning Octahedron</a></li>
+          <li><a href="../cubing/solutions/4-cube.html">4D Rubik's Cube</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Math</a>
+    <ul class="menu vertical nested">
+      <li><a href="../math/introduction-to-proofs.html">Introduction to proofs</a></li>
+      <li><a href="../math/boolean-algebra.html">Boolean algebra</a></li>
+      <li><a href="../math/implications.html">Implications</a></li>
+      <li><a href="../math/proof-by-definition.html">Proof by definition</a></li>
+      <li><a href="../math/iff.html">Biconditionals</a></li>
+      <li><a href="../math/proof-by-contrapositive.html">Proof by contrapositive</a></li>
+      <li><a href="../math/proof-by-contradiction.html">Proof by contradiction</a></li>
+      <li><a href="../math/quantifiers.html">Quantifiers</a></li>
+      <li><a href="../math/proof-by-induction.html">Proof by induction</a></li>
+      <li><a href="../math/basic-set-theory.html">Basic set theory</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Miscellaneous</a>
+    <ul class="menu vertical nested">
+      <li><a href="../misc/course-plan.html">My Course Plan</a></li>
+      <li><a href="../misc/extern.html">Site Recommendations</a></li>
+    </ul>
+  </li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="columns show-for-large-up large-1">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="proof-by-induction">Proof by induction</h2>
+
+<p>Consider a statement of the form <script type="math/tex">\forall n \in \mathbb{N}, P(n)</script>, where <script type="math/tex">P</script> is a statement that has something to do with <script type="math/tex">n</script>.
+For example, <script type="math/tex">P(n)</script> could be the statement <script type="math/tex">n + 1 \gt n</script>.</p>
+
+<p>To prove such statements, we cannot directly analyze when <script type="math/tex">n = 1</script>, <script type="math/tex">n = 2</script>, and so on, since there an infinite number of such <script type="math/tex">n</script>,
+and we have to show the statement holds for all of them (notice the <script type="math/tex">\forall</script> in front of the statement).</p>
+
+<p>Thus, without knowing induction, the proof would start with a statement of the form “Let <script type="math/tex">n \in \mathbb{N}</script>”. Then, the proof would attempt to derive the rest of the statement.
+Here is an example where such a strategy does not work well:</p>
+
+<p><strong>Theorem</strong>: Show <script type="math/tex">\forall n \in \mathbb{N}, \sum_{i=1}^n i = \frac{n(n+1)}{2}</script>.</p>
+
+<h3 id="a-line-of-dominos">A line of dominos</h3>
+
+<p>Suppose on your table, you set up a line of fifty standing dominos. What does it take for all of them to tip over, assuming you don’t just flip the table?
+There are two requirements:</p>
+
+<ul>
+  <li>There exists an initial domino that tips over. In other words, you have a “starting domino” that you can push over.</li>
+  <li>For every domino that tips over (including the initial domino), the next domino must also tip over.</li>
+</ul>
+
+<p>With these two requirements satisfied, we can push a domino on one end of the line (the initial domino), and that domino must push over the next domino in line, by the second requirement.
+However, the second requirement now repeats on the second domino, and so the second domino must push over the third domino, and this continues until the last domino tips over.</p>
+
+<p>Notice that no end point is specified. We do not actually need the “line” of dominos to have an ending point, but rather just a starting point. 
+As long as the second property holds, after the first domino is tipped, any domino in line will fall.</p>
+
+<p>Now, let the <script type="math/tex">n</script>-th domino represent <script type="math/tex">P(n)</script>, where <script type="math/tex">n</script> starts from <script type="math/tex">1</script>. Technically, <script type="math/tex">n</script> does not have to start from <script type="math/tex">1</script>, but for proving the theorems on this page, we start from <script type="math/tex">n = 1</script>. In computer science, do not be surprised if the lecturer or textbook starts <script type="math/tex">n</script> from <script type="math/tex">0</script>.</p>
+
+<p>Assume <script type="math/tex">P(n)</script> is true if and only if the <script type="math/tex">n</script>-th domino falls. 
+What does it take for <script type="math/tex">P(n)</script> to hold for all <script type="math/tex">n \in \mathbb{N}</script>? Well, we use the if and only if along with the requirements for the dominos to fall to our advantage, and state:</p>
+
+<ul>
+  <li><script type="math/tex">P(1)</script> must hold. In other words, <script type="math/tex">P(1)</script> is true.</li>
+  <li>For all <script type="math/tex">k \in \mathbb{N}</script>, <script type="math/tex">P(k)</script> holds implies <script type="math/tex">P(k + 1)</script> holds.</li>
+</ul>
+
+<p>We can state these requirements in one line, using mathematical notation from previous pages:
+<script type="math/tex">(P(1) \wedge \forall k \in \mathbb{N}, P(k) \Rightarrow P(k+1)) \Rightarrow \forall n \in \mathbb{N}, P(n)</script>.</p>
+
+<h3 id="some-definitions">Some definitions</h3>
+
+<p>Consider the implication above.</p>
+
+<p>The technique of considering the two requirements, instead of arbitrarily selecting <script type="math/tex">n \in \mathbb{N}</script> and attempting to prove the rest of the statement, is called <em>proof by induction</em>.</p>
+
+<p><script type="math/tex">P(1)</script> is called the base case, and in the statement above, <script type="math/tex">P(k)</script> is called the inductive hypothesis, and <script type="math/tex">P(k+1)</script> is called the inductive conclusion.</p>
+
+<p>In some later courses, the statement may be re-written as<br />
+<script type="math/tex">(P(1) \wedge \forall k \in \mathbb{N}</script> such that <script type="math/tex">k > 1, P(k - 1) \Rightarrow P(k)) \Rightarrow \forall n \in \mathbb{N}, P(n)</script>.</p>
+
+<h3 id="back-to-the-theorem">Back to the theorem</h3>
+
+<p><strong>Theorem</strong>: <script type="math/tex">\forall n \in \mathbb{N}, \sum_{i=1}^n i = \frac{n(n+1)}{2}</script>.</p>
+
+<p>If you have seen this theorem along with its proof before, then try showing <script type="math/tex">\forall n \in \mathbb{N}, \sum_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}</script>.
+If you have done that before too, then you probably know induction. See a section or two below for debugging tough induction homework questions.</p>
+
+<p>Proof: First consider <script type="math/tex">n = 1</script>. Then, <script type="math/tex">\sum_{i=1}^1 i = 1 = \frac{1(2)}{2}</script>, so the base case holds.<br />
+Assume for some <script type="math/tex">k \ge 1</script> that <script type="math/tex">\sum_{i=1}^k i = \frac{k(k+1)}{2}</script>. Then, we must show <script type="math/tex">\sum_{i=1}^{k+1} i = \frac{(k+1)(k+2)}{2}</script>.
+We have <script type="math/tex">\sum_{i=1}^{k+1} i = \sum_{i=1}^k i + (k + 1) = \frac{k(k+1)}{2} + (k + 1)</script>, by the inductive hypothesis. Thus,
+<script type="math/tex">\sum_{i=1}^{k+1} i = \frac{k(k+1)}{2} + (k + 1) = \frac{k(k+1) + 2(k+1)}{2} = \frac{(k+1)(k+2)}{2}</script>. Since this holds for any <script type="math/tex">k \ge 1</script>,
+<script type="math/tex">\sum_{i=1}^n i = \frac{n(n+1)}{2}</script> for all <script type="math/tex">n \in \mathbb{N}</script> by induction. <em>QED</em>.</p>
+
+<p>For reference:</p>
+<ul>
+  <li>The base case was showing <script type="math/tex">\sum_{i=1}^1 i = 1 = \frac{1(1+1)}{2}</script>.</li>
+  <li>The inductive hypothesis was assuming for some <script type="math/tex">k \ge 1</script> that <script type="math/tex">\sum_{i=1}^k i = \frac{k(k+1)}{2}</script>.</li>
+  <li>The inductive conclusion that we had to show, using the help of the inductive hypothesis, was <script type="math/tex">\sum_{i=1}^{k+1} i = \frac{(k+1)(k+2)}{2}</script>.</li>
+</ul>
+
+<h3 id="induction-on-false-statements">Induction on false statements</h3>
+
+<p>Attempting to use induction on false statements is dangerous. If you attempt to prove a false statement by induction, then one or more of the following might happen:</p>
+
+<ul>
+  <li>The base case does not hold</li>
+  <li>The inductive hypothesis does not always imply the inductive conclusion (this is especially an issue for small <script type="math/tex">n</script>, such as <a href="https://en.wikipedia.org/wiki/All_horses_are_the_same_color">this case</a>)</li>
+</ul>
+
+<h3 id="debugging-induction">Debugging induction</h3>
+
+<p>Most induction questions are fairly simple, because they follow the pattern above. Just set up the base case, and make sure the inductive hypothesis implies the inductive conclusion.
+If the induction question is difficult, it could be for the following reasons:</p>
+
+<ul>
+  <li>The question is not meant to be solved by induction. Try using another proof method that is more direct.</li>
+  <li>The statement might be true only for odd or even numbers. Try showing <script type="math/tex">P(k) \Rightarrow P(k+2)</script> instead.</li>
+  <li>The statement might be true only for powers of two. Rewrite <script type="math/tex">n</script> as <script type="math/tex">2^w</script> and use induction on <script type="math/tex">w \in \mathbb{N}</script>. This is a common pattern in CS.</li>
+  <li>The inductive conclusion might need more information than just the inductive hypothesis. Consider splitting this part of the proof into cases, and analyzing each case.</li>
+</ul>
+
+<p>If none of this advice helped, then attempt to speak with a professor, classmate, or friend about your induction issues.
+(If you got here while trying to search up how to fix an induction cooktop, you’re on the wrong site.)</p>
+
+<p>Now that you know a bit more on mathematical induction, which is a very important technique for proving certain forms of statements, proceed onwards to <a href="basic-set-theory.md">basic set theory</a>.</p>
+
+      </div>
+      <div class="columns show-for-large-up large-2">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer" style="float: bottom;">
+  <!--
+  <p>Ray ZZ</p>
+  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</p>
+  -->
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../js/foundation.min.js"></script>
+  <script src="../js/rayzz-colors.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</footer>
+
+  </body>
+</html>
