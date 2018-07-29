@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//proofs-primer/iff.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//proofs-primer/iff.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/pygments/default.css">
+  <link rel="stylesheet" href="../css/rayzz-site.css">
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <h1>Ray Zhao</h1>
+    <div id="subtitle">Software developer &#9830; Mathemusician &#9830; Minimalist</div>
+</div>
+
+<!-- COLOURS FOR DAYS! -->
+<div class="expanded row">
+    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
+    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
+    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
+</div>
+
+
+    <div class="expanded row">
+      <div class="columns small-12 medium-3 large-2">
+        <div style="width: 100%;">
+            <ul class="vertical menu" data-accordion-menu>
+  <li>
+    <a href="../index.html">Home</a>
+  </li>
+  <li>
+    <a href="#">Cubing</a>
+    <ul class="menu vertical nested">
+      <li><a href="../cubing/hypercubing.html">About Hypercubing</a></li>
+      <li>
+      <a href="#">Solutions</a>
+        <ul class="menu vertical nested">
+          <li><a href="../cubing/solutions/FTO.html">Face-Turning Octahedron</a></li>
+          <li><a href="../cubing/solutions/4-cube.html">4D Rubik's Cube</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">A Primer on Proofs</a>
+    <ul class="menu vertical nested">
+      <li><a href="../proofs-primer/introduction-to-proofs.html">Introduction</a></li>
+      <li><a href="../proofs-primer/boolean-algebra.html">Boolean algebra</a></li>
+      <li><a href="../proofs-primer/implications.html">Implications</a></li>
+      <li><a href="../proofs-primer/proof-by-definition.html">Proof by definition</a></li>
+      <li><a href="../proofs-primer/iff.html">Biconditionals</a></li>
+      <li><a href="../proofs-primer/proof-by-contrapositive.html">Proof by contrapositive</a></li>
+      <li><a href="../proofs-primer/proof-by-contradiction.html">Proof by contradiction</a></li>
+      <li><a href="../proofs-primer/quantifiers.html">Quantifiers</a></li>
+      <li><a href="../proofs-primer/proof-by-induction.html">Proof by induction</a></li>
+      <li><a href="../proofs-primer/basic-set-theory.html">Basic set theory</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Miscellaneous</a>
+    <ul class="menu vertical nested">
+      <li><a href="../misc/course-plan.html">My Course Plan</a></li>
+      <li><a href="../misc/extern.html">Site Recommendations</a></li>
+    </ul>
+  </li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="columns show-for-large-up large-1">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="if-and-only-if">If and only if</h2>
+
+<p>If and only if, at first glance, is the type of phrase someone would say while wearing fashion of the Victorian era.
+Yet, the concept behind such a phrase, biconditionals, serve an incredibly important purpose in mathematics, and can technically show up at times in reality.</p>
+
+<p>Once again, scroll to the bottom for applications, but the tedious mathematical details come first.</p>
+
+<h3 id="converses">Converses</h3>
+
+<p>If you think I’m talking about the sneakers, you’re on the wrong site.</p>
+
+<p>Given <script type="math/tex">A</script> or <script type="math/tex">B</script>, where <script type="math/tex">A</script> and <script type="math/tex">B</script> are <del>sneakers I MEAN</del> <ins>statements</ins>, we say <script type="math/tex">B \Rightarrow A</script> is the <em>converse</em> of <script type="math/tex">A \Rightarrow B</script>.
+Note that even if the original statement, <script type="math/tex">A \Rightarrow B</script>, holds, the converse might not hold. We give an example below:</p>
+
+<p>Consider <script type="math/tex">A</script> to be the statement “<script type="math/tex">x</script> is 2”, and <script type="math/tex">B</script> to be the statement “<script type="math/tex">x</script> is an even integer”.
+<script type="math/tex">A \Rightarrow B</script>, because by <script type="math/tex">x</script> being 2, <script type="math/tex">x</script> turns out to be an even integer.
+Yet, <script type="math/tex">B \Rightarrow A</script> is false: just because <script type="math/tex">x</script> is an even integer, does not mean it is necessarily 2. It could be 4, 8, or even <script type="math/tex">-10^{100}</script>.
+We could explain our results as follows: “If <script type="math/tex">x</script> is 2, then <script type="math/tex">x</script> is an even integer, <em>but the converse does not hold</em>”.</p>
+
+<h3 id="biconditionals">Biconditionals</h3>
+
+<p>What if in some cases, the converse does hold? For example, let <script type="math/tex">A</script> be the statement “<script type="math/tex">x</script> is 2” and <script type="math/tex">B</script> also be the statement “<script type="math/tex">x</script> is 2”. Then, <script type="math/tex">A \Rightarrow B</script> and its converse trivially hold. In these cases, we say <script type="math/tex">A</script> <em>if and only if</em> <script type="math/tex">B</script>, or <script type="math/tex">A</script> <em>iff</em> <script type="math/tex">B</script>. In notation, we write <script type="math/tex">A \Leftrightarrow B</script>.
+It turns out that if <script type="math/tex">A \Leftrightarrow B</script>, then if <script type="math/tex">A</script> is true, <script type="math/tex">B</script> is true, and vice versa. It also turns out that if <script type="math/tex">A</script> is false, then <script type="math/tex">B</script> is false, then vice versa.
+Thus, <script type="math/tex">A</script> is true if and only if <script type="math/tex">B</script> is true, so we say the two statements are <em>equivalent</em>. Note that <script type="math/tex">\equiv</script> also represents equivalence, but it represents equivalence of boolean expressions (in Boolean algebra). In proofs, we use <script type="math/tex">\Leftrightarrow</script> instead to denote that two statements imply each other.</p>
+
+<h3 id="proving-biconditionals">Proving biconditionals</h3>
+
+<p>To prove a biconditional, we have to show <script type="math/tex">A \Rightarrow B</script> is true <em>and</em> <script type="math/tex">B \Rightarrow A</script> is true. An example is as follows:</p>
+
+<p><strong>Theorem</strong>: Let <script type="math/tex">A = \{x \text{ is an odd integer}\}</script>, <script type="math/tex">B = \{y = 2m - 1 \text{ such that } m \in \mathbb{Z}\}</script>. Then, <script type="math/tex">A = B</script>.<br />
+<strong>Proof</strong>: First, let <script type="math/tex">x \in A</script>. Then, <script type="math/tex">x</script> is an odd integer, so <script type="math/tex">x + 1</script> is even, meaning <script type="math/tex">x + 1</script> is divisible by 2. Thus, <script type="math/tex">x + 1 = 2m</script> for some <script type="math/tex">m \in \mathbb{Z}</script>,
+so <script type="math/tex">x = 2m - 1</script>, so <script type="math/tex">x \in B</script>. Since <script type="math/tex">x \in A \Rightarrow x \in B</script> for all <script type="math/tex">x \in A</script>, <script type="math/tex">A \subseteq B</script>.<br />
+Now, let <script type="math/tex">y \in B</script>. Then, <script type="math/tex">y = 2m - 1</script> for some <script type="math/tex">m \in \mathbb{Z}</script>. Then, <script type="math/tex">y + 1 = 2m</script>, meaning <script type="math/tex">y + 1</script> is divisible by 2, so <script type="math/tex">y + 1</script> is even, and so <script type="math/tex">y</script> is odd.
+Thus, <script type="math/tex">y \in A</script>. Since <script type="math/tex">y \in B \Rightarrow y \in A</script> for all <script type="math/tex">y \in B</script>, <script type="math/tex">B \subseteq A</script>.<br />
+Therefore, <script type="math/tex">A = B</script>. <em>QED</em>.</p>
+
+<p>(Note: <script type="math/tex">A \subseteq B</script> means <script type="math/tex">A</script> is a subset of <script type="math/tex">B</script>, where <script type="math/tex">A</script> and <script type="math/tex">B</script> are sets. The form of this proof is explained below in the section “Biconditionals in math”.)</p>
+
+<p>In this case, the forward and backward directions involved very similar steps, if not the same steps. In other cases, one direction is much easier to prove than the other.</p>
+
+<p>For example, consider the statement “<script type="math/tex">G</script> is a <a href="https://en.wikipedia.org/wiki/Platonic_solid">platonic solid</a> iff <script type="math/tex">G</script> is either a tetrahedron, a cube, an octahedron, a dodecahedron, or an icosahedron”. 
+It is much easier to show the backwards direction than the forwards direction, in this case, because for the backward direction, we can explain how each shape satisfies the requirements for being a platonic solid. However, for the forwards direction, we must show that those platonic solids are the <em>only</em> possibilities, and that more do not exist (in 3 dimensions, anyway).</p>
+
+<p>Biconditionals also lead to statements that can be proven by reducing them to simpler statements.
+Any implications that arise can then lead from a known fact to the simpler statement, which leads to the original statement by the biconditionals.
+As an example of this technique:</p>
+
+<p><strong>Theorem</strong>: <script type="math/tex">x^2 + 4x + 5 \ge 0</script> for all <script type="math/tex">x \in \mathbb{R}</script><br />
+<strong>Proof</strong>: <script type="math/tex">x^2 + 4x + 5 \ge 0 \Leftrightarrow (x + 2)^2 + 1 \ge 0 \Leftrightarrow (x + 2)^2 \ge -1</script>. Let <script type="math/tex">s = x + 2</script>. Then, <script type="math/tex">x^2 + 4x + 5 \ge 0 \Leftrightarrow s^2 \ge -1</script>. 
+We know that for any choice of <script type="math/tex">y \in \mathbb{R}</script>, <script type="math/tex">y^2 \ge 0</script>, which implies <script type="math/tex">y^2 \ge -1</script>. <script type="math/tex">s = x + 2 \in \mathbb{R}</script>, so we obtain <script type="math/tex">s^2 \ge 0 \Rightarrow s^2 \ge -1</script>. 
+By the biconditionals, <script type="math/tex">x \in \mathbb{R} \Rightarrow s = x + 2 \in \mathbb{R} \Rightarrow s^2 \ge -1 \Rightarrow x^2 + 4x + 5 \ge 0</script>. <em>QED</em>.</p>
+
+<h3 id="disproving-biconditionals">Disproving biconditionals</h3>
+
+<p>To disprove a biconditional, we only have to show <script type="math/tex">A \Rightarrow B</script> is false, or <script type="math/tex">B \Rightarrow A</script> is false. We covered this <a href="implications.html">last section</a>.</p>
+
+<h3 id="biconditionals-in-math">Biconditionals in math</h3>
+
+<p>The first example of a biconditional in math is when showing two sets, <script type="math/tex">A</script> and <script type="math/tex">B</script>, are equal. An example is given above.
+The approach taken is to often to show that <script type="math/tex">A \subseteq B</script>, and <script type="math/tex">B \subseteq A</script>.
+These two statements then get broken down into the implications: “If <script type="math/tex">x \in A</script>, then <script type="math/tex">x \in B</script>”, and “If <script type="math/tex">x \in B</script>, then <script type="math/tex">x \in A</script>”.
+The point here is that both directions <em>must</em> be shown in order to conclude that <script type="math/tex">A = B</script>. 
+Indeed, since one set can be larger than another, showing only one direction is often a recipe for disaster, for it is easy to construct an example where <script type="math/tex">A \subseteq B</script> but the converse fails, or <script type="math/tex">B \subseteq A</script> but the converse fails.</p>
+
+<p>Biconditionals also help mathematicians understand when two ideas are equivalent. For example, in formal languages, there are machines called deterministic finite automata (DFAs). There are also strings (of symbols) called regular expressions. It turns out that for every regular expression, there exists a DFA that yields the same language as that of the regular expression, and for every DFA, there exists a regular expression that yields the same language as that of the DFA. Theoretical computer scientists, when trying to prove a theorem about a regular language (a language that can be represented as a regular expression), can thus use regular expressions, or DFAs, or even both, to consider the problem of proving the theorem from multiple directions.</p>
+
+<h3 id="biconditionals-in-real-life">Biconditionals in real life</h3>
+
+<p>People rarely say “if and only if” in real life, unless they are either lecturing a math course, or showing off.</p>
+
+<p>An example of where saying the expression works fairly well, though, is in phrases such as “We will add you to the <a href="http://gravitation3d.com/magiccube5d/hallofinsanity.html">Hall of Insanity</a> if and only if you submit your solution to the 5D Rubik’s cube”. 
+One might try to simplify, and instead say “If you have submitted your 5D Rubik’s cube solution, we will add you to the Hall of Insanity”.
+However, with this statement, it is now theoretically possible to be added to the list without submitting the solution. Because the hypothesis is false in that case, the statement is vacuously true, and we cannot conclude whether or not the user will be added to the Hall of Insanity or not. Therefore, it is technically possible that they will be added, still.</p>
+
+<p>Thus, one might instead try to change the statement to “If we added you to the Hall of Insanity, then you have submitted your 5D Rubik’s cube solution”. Yet, this change makes it possible to submit a 5D Rubik’s cube solution without being added to the Hall of Insanity, for the same reason! (I guess that for privacy reasons, that might be preferable, actually…) Thus, the biconditional statement reflects that submitting your 5D Rubik’s cube solution is guaranteed to get you into the Hall of Insanity, and that it is the only way to get into the Hall of Insanity.</p>
+
+<p>Now, before checking every previous instance of “if” you have uttered, and deciding whether or not it should be turned into an “if and only if”, focus on the <a href="proof-by-contrapositive.html">proof by contrapositive</a> technique instead, first.</p>
+
+      </div>
+      <div class="columns show-for-large-up large-2">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer" style="float: bottom;">
+  <!--
+  <p>Ray ZZ</p>
+  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</p>
+  -->
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../js/foundation.min.js"></script>
+  <script src="../js/rayzz-colors.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</footer>
+
+  </body>
+</html>
