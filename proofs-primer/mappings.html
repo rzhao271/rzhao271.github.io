@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//proofs-primer/mappings.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//proofs-primer/mappings.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/pygments/default.css">
+  <link rel="stylesheet" href="../css/rayzz-site.css">
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <h1>Ray Zhao</h1>
+    <div id="subtitle">Software developer &#9830; Mathemusician &#9830; Minimalist</div>
+</div>
+
+<!-- COLOURS FOR DAYS! -->
+<div class="expanded row">
+    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
+    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
+    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
+</div>
+
+
+    <div class="expanded row">
+      <div class="columns small-12 medium-3 large-2">
+        <div style="width: 100%;">
+            <ul class="vertical menu" data-accordion-menu>
+  <li>
+    <a href="../index.html">Home</a>
+  </li>
+  <li>
+    <a href="#">Cubing</a>
+    <ul class="menu vertical nested">
+      <li><a href="../cubing/hypercubing.html">About Hypercubing</a></li>
+      <li>
+      <a href="#">Solutions</a>
+        <ul class="menu vertical nested">
+          <li><a href="../cubing/solutions/FTO.html">Face-Turning Octahedron</a></li>
+          <li><a href="../cubing/solutions/4-cube.html">4D Rubik's Cube</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">A Primer on Proofs</a>
+    <ul class="menu vertical nested">
+      <li><a href="../proofs-primer/introduction-to-proofs.html">Introduction</a></li>
+      <li><a href="../proofs-primer/boolean-algebra.html">Boolean algebra</a></li>
+      <li><a href="../proofs-primer/implications.html">Implications</a></li>
+      <li><a href="../proofs-primer/proof-by-definition.html">Proof by definition</a></li>
+      <li><a href="../proofs-primer/iff.html">Biconditionals</a></li>
+      <li><a href="../proofs-primer/proof-by-contrapositive.html">Proof by contrapositive</a></li>
+      <li><a href="../proofs-primer/proof-by-contradiction.html">Proof by contradiction</a></li>
+      <li><a href="../proofs-primer/quantifiers.html">Quantifiers</a></li>
+      <li><a href="../proofs-primer/proof-by-induction.html">Proof by induction</a></li>
+      <li><a href="../proofs-primer/basic-set-theory.html">Basic set theory</a></li>
+      <li><a href="../proofs-primer/mappings.html">Mappings (conclusion)</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Miscellaneous</a>
+    <ul class="menu vertical nested">
+      <li><a href="../misc/course-plan.html">My Course Plan</a></li>
+      <li><a href="../misc/extern.html">Site Recommendations</a></li>
+    </ul>
+  </li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="columns show-for-large-up large-1">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="mappings-and-conclusion">Mappings and conclusion</h2>
+
+<p>In this section, we take a look at how to relate two sets <script type="math/tex">A</script> and <script type="math/tex">B</script> to each other.</p>
+
+<h3 id="a-quick-remark-about-the-format-of-this-page">A quick remark about the format of this page</h3>
+
+<p>The next section takes on the style of my lecture notes, with the exception that I will not emphasize examples.
+For example, I define what a bijection is, but I do not give an example of one immediately after (which would usually occur in my notes). One does show up, however, in one of the proofs.
+Thus, other than providing evidence that a statement is true, proofs sometimes provide actual examples and/or constructions of certain mathematical objects.</p>
+
+<h3 id="functions">Functions</h3>
+
+<p><strong>Definition</strong>: A <em>function</em> <script type="math/tex">f: A \to B</script> (read “a function from A to B”) is a mapping, or an assignment of pairings between (sets) <script type="math/tex">A</script> and <script type="math/tex">B</script>,
+such that for all <script type="math/tex">a \in A</script>, if <script type="math/tex">f(a)</script> takes on a value,
+then it takes on exactly one value in <script type="math/tex">B</script>. We call <script type="math/tex">A</script> the <em>domain</em> and <script type="math/tex">B</script> the <em>codomain</em>.</p>
+
+<p><strong>Note</strong>: We only consider <em>total functions</em> for this page, meaning we require that <script type="math/tex">f(a)</script> takes on a value for all <script type="math/tex">a \in A</script>.</p>
+
+<p><strong>Definition</strong>: A function <script type="math/tex">f: A \to B</script> is <em>injective</em> if for all <script type="math/tex">a \in A, b \in B, f(a) = f(b)</script> implies <script type="math/tex">a = b</script>.</p>
+
+<p>In other words, a function is injective if no two points in its domain map to the same range. Some courses may use the term “one-to-one”.</p>
+
+<p><strong>Definition</strong>: A function <script type="math/tex">f: A \to B</script> is <em>surjective</em> if for all <script type="math/tex">b \in B</script> there exists some <script type="math/tex">a \in A</script> such that <script type="math/tex">f(a) = b</script>.</p>
+
+<p>In other words, a function is surjective if every point in the codomain is mapped to by some point in the domain. Some courses may use the term “onto”</p>
+
+<p><strong>Definition</strong>: A function <script type="math/tex">f: A \to B</script> is <em>bijective</em> if <script type="math/tex">f</script> is both injective and surjective, or in other words, one-to-one and onto.</p>
+
+<p>What we usually try to achieve is a bijection, because bijections allow for us to define an inverse function.
+However, we first state the identity function:</p>
+
+<p><strong>Definition</strong>: The <em>identity</em> function <script type="math/tex">id_X: X \to X</script> is defined as follows: for all <script type="math/tex">x \in X, id(x) = x</script>.</p>
+
+<p>Now, we talk about inverses:</p>
+
+<p><strong>Definition</strong>: A function <script type="math/tex">g: B \to A</script> is an <em>inverse</em> of <script type="math/tex">f: A \to B</script> if <script type="math/tex">f \circ g = id_B</script>, and <script type="math/tex">g \circ f = id_A</script>, where <script type="math/tex">f \circ g</script> is function composition.
+That is, for all <script type="math/tex">b \in B, (f \circ g)(b) = f(g(b)) = id_B(b) = b</script>, and for all <script type="math/tex">a \in A, (g \circ f)(a) = g(f(a)) = id(a) = a</script>.</p>
+
+<p><strong>Definition</strong>: A function <script type="math/tex">f: A \to B</script> is <em>invertible</em> if there exists an inverse for <script type="math/tex">f</script>.</p>
+
+<p>Now, you may be wondering what the point of these definitions is. In math, if you receive a bunch of definitions, expect to receive at least a few theorems.</p>
+
+<p><strong>Theorem</strong>: Inverses are unique. That is, if <script type="math/tex">g: B \to A</script> is an inverse of <script type="math/tex">f: A \to B</script>, then <script type="math/tex">g</script> is the only such inverse,
+which implies that we can say <script type="math/tex">f^{-1} = g</script> is <em>the</em> inverse of <script type="math/tex">f</script>. Note: <script type="math/tex">f^{-1}</script> is a function from <script type="math/tex">B</script> to <script type="math/tex">A</script>.<br />
+<em>Proof</em>: Assume <script type="math/tex">g_1</script> and <script type="math/tex">g_2</script> are both inverses of <script type="math/tex">f</script>. Then, for <script type="math/tex">b \in B</script>,
+<script type="math/tex">g_1(b) = id_A(g_1(b)) = g_2(f(g_1(b))) = g_2(b)</script>. <em>QED</em>.</p>
+
+<p><strong>Theorem</strong>: <script type="math/tex">f: A \to B</script> is a bijection (a bijective function) <em>iff</em> <script type="math/tex">f</script> is invertible.<br />
+<em>Proof</em>:<br />
+<em>Forwards</em>: Assume <script type="math/tex">f: A \to B</script> is a bijection. Then, construct <script type="math/tex">g: B \to A</script> as follows: for <script type="math/tex">b \in B</script>, write <script type="math/tex">g(b) = a</script> where <script type="math/tex">a \in A</script> is chosen such that <script type="math/tex">f(a) = b</script>. 
+Since <script type="math/tex">f</script> is a bijection, <script type="math/tex">f</script> is surjective, and so such an <script type="math/tex">a</script> must exist for any <script type="math/tex">b \in B</script>. Since <script type="math/tex">f</script> is injective, no two elements in <script type="math/tex">A</script> are mapped to the same element
+in <script type="math/tex">B</script>, meaning for <script type="math/tex">b \in B</script>, there is a <em>unique</em> <script type="math/tex">a \in A</script> such that <script type="math/tex">g(b) = a</script>. Thus, <script type="math/tex">f(g(b)) = f(a) = b</script>, and <script type="math/tex">g(f(a)) = g(b) = a</script>, so <script type="math/tex">g = f^{-1}</script>, so <script type="math/tex">f</script> is invertible.</p>
+
+<p><em>Backwards</em>: Now, assume <script type="math/tex">f</script> is invertible, so <script type="math/tex">g = f^{-1}</script> exists. We want to show <script type="math/tex">f</script> is bijective. Consider <script type="math/tex">b \in B</script>. Then, <script type="math/tex">g(b) = a \in A</script>, so <script type="math/tex">f(a) = f(g(b)) = b</script>, 
+so for all <script type="math/tex">b \in B</script>, there exists some <script type="math/tex">a \in A</script> such that <script type="math/tex">f(a) = b</script>. Thus, <script type="math/tex">f</script> is surjective. Now, let <script type="math/tex">f(a_1) = f(a_2)</script> for <script type="math/tex">a_1, a_2 \in A</script>. Then,
+<script type="math/tex">g(f(a_1)) = g(f(a_2))</script>, which implies <script type="math/tex">a_1 = a_2</script>. Thus, <script type="math/tex">f</script> is injective. Since <script type="math/tex">f</script> is injective and surjective, <script type="math/tex">f</script> is bijective.</p>
+
+<p>Thus, <script type="math/tex">f: A \to B</script> is a bijection iff <script type="math/tex">f</script> is invertible. <em>QED</em>.</p>
+
+<p><strong>Theorem</strong>: If there exists <script type="math/tex">f: A \to B</script> such that <script type="math/tex">f</script> is bijective, then <script type="math/tex">\|A\| = \|B\|</script>.<br />
+<em>Proof</em>: Assume <script type="math/tex">f</script> is bijective. Then, <script type="math/tex">f</script> is injective and surjective. Since <script type="math/tex">f</script> is surjective, for all <script type="math/tex">b \in B</script>, there exists <script type="math/tex">a \in A</script> such that <script type="math/tex">f(a) = b</script>.
+Thus, there must be at least <script type="math/tex">\|B\|</script> elements in <script type="math/tex">A</script>, so <script type="math/tex">\|A\| \ge \|B\|</script>.
+But, <script type="math/tex">f</script> is injective, so no two elements <script type="math/tex">a_1, a_2 \in A</script> are mapped to the same element in <script type="math/tex">B</script>. Since we assumed all elements <script type="math/tex">a \in A</script> must map to some element in <script type="math/tex">B</script>,
+the <script type="math/tex">\|A\|</script> elements in <script type="math/tex">A</script> must map to exactly <script type="math/tex">\|A\|</script> distinct elements of <script type="math/tex">\|B\|</script>, so <script type="math/tex">\|A\| \le \|B\|</script>. Thus, <script type="math/tex">\|A\| = \|B\|</script>. <em>QED</em>.</p>
+
+<p><strong>Note</strong>: We did not directly attempt to show <script type="math/tex">\|A\| = \|B\|</script>. Rather, we proved both inequalities, and then concluded the quantities had to be equal. This is a common
+technique used to prove equalities.</p>
+
+<p><strong>Theorem</strong>: If there exists <script type="math/tex">f: A \to B</script> such that <script type="math/tex">f</script> is surjective, and <script type="math/tex">\|A\| = \|B\| = n</script>, then <script type="math/tex">f</script> is bijective.<br />
+<em>Proof</em>: Assume <script type="math/tex">f</script> is surjective and <script type="math/tex">A</script> and <script type="math/tex">B</script> are both of size <script type="math/tex">n</script>. Then, we show <script type="math/tex">f</script> is injective to conclude that <script type="math/tex">f</script> is bijective.
+Consider <script type="math/tex">a_1, a_2 \in A</script>. Assume for a contradiction that <script type="math/tex">f</script> is not injective, so that <script type="math/tex">a_1 \ne a_2</script>, but <script type="math/tex">f(a_1) = f(a_2) = b \in B</script>.
+That is, we mapped two elements in <script type="math/tex">A</script> to the same element in <script type="math/tex">B</script>.
+In turn, there are <script type="math/tex">n - 2</script> remaining elements in <script type="math/tex">A</script> that must map to the <script type="math/tex">n - 1</script> elements remaining in <script type="math/tex">B</script>, since <script type="math/tex">A</script> and <script type="math/tex">B</script> are equal in size.
+But, since each element in <script type="math/tex">A</script> can only map to one element in <script type="math/tex">B</script>, one element in <script type="math/tex">B</script> must remain such that there is no element in <script type="math/tex">A</script> that maps to it.
+In turn, <script type="math/tex">f</script> is not surjective, a contradiction. Thus, <script type="math/tex">f</script> must be injective. Since <script type="math/tex">f</script> is both injective and surjective, <script type="math/tex">f</script> is bijective. <em>QED</em>.</p>
+
+<p><strong>Theorem</strong>: If there exists <script type="math/tex">f: A \to B</script> such that <script type="math/tex">f</script> is injective, and <script type="math/tex">\|A\| = \|B\| = n</script>, then <script type="math/tex">f</script> is bijective.<br />
+<em>Proof</em>: Assume <script type="math/tex">f</script> is injective and <script type="math/tex">A</script> and <script type="math/tex">B</script> are both of size <script type="math/tex">n</script>. Then, we show <script type="math/tex">f</script> is surjective to conclude that <script type="math/tex">f</script> is bijective.
+Assume for a contradiction that <script type="math/tex">f</script> is not surjective, meaning there exists <script type="math/tex">b \in B</script> such that for every <script type="math/tex">a \in A</script>, <script type="math/tex">f(a) \ne b</script>. Since <script type="math/tex">f</script> must map each element in <script type="math/tex">A</script> to
+some element in <script type="math/tex">B</script>, but there are <script type="math/tex">n</script> elements to map, and one element <script type="math/tex">b \in B</script> was not mapped to, there must be two elements <script type="math/tex">a_1, a_2 \in A</script> such that <script type="math/tex">f(a_1) = f(a_2)</script> but
+<script type="math/tex">a_1 \ne a_2</script>. In turn, this implies <script type="math/tex">f</script> is not injective, a contradiction. Thus, <script type="math/tex">f</script> must be surjective. Since <script type="math/tex">f</script> is both injective and surjective,
+<script type="math/tex">f</script> is bijective. <em>QED</em>.</p>
+
+<p><strong>Theorem</strong>: <script type="math/tex">\|\mathbb{N}\| = \|\mathbb{Z}\|</script>. That is, the set of natural numbers and the set of integers have the same cardinality.
+Recall that in math, the natural numbers start from <script type="math/tex">1</script>.<br />
+(<em>Note</em>: Since these sets are infinite, instead of saying “size of set <script type="math/tex">X</script>”, we say “cardinality of set <script type="math/tex">X</script>”.)<br />
+<em>Proof</em>: We construct a bijection between these two sets. Let <script type="math/tex">f: \mathbb{N} \to \mathbb{Z}</script> be defined as follows:
+If <script type="math/tex">n = 1</script>, <script type="math/tex">f(n) = 0</script>. Otherwise, if <script type="math/tex">n</script> is even, <script type="math/tex">f(n) = \frac{n}{2}</script>, and if <script type="math/tex">n</script> is odd and <script type="math/tex">n \gt 1</script>, <script type="math/tex">f(n) = \frac{-n + 1}{2}</script>. 
+We find an inverse to <script type="math/tex">f</script>. Define <script type="math/tex">g: \mathbb{Z} \to \mathbb{N}</script> as follows:
+If <script type="math/tex">m = 0</script>, <script type="math/tex">g(m) = 1</script>. Otherwise, if <script type="math/tex">m \lt 0</script>, <script type="math/tex">g(m) = -2m + 1</script>, and if <script type="math/tex">m \gt 0</script>, <script type="math/tex">g(m) = 2m</script>. We claim <script type="math/tex">g</script> is the inverse of <script type="math/tex">f</script>:</p>
+
+<p>First, consider these three cases for <script type="math/tex">n \in \mathbb{N}</script>:<br />
+Case 1: <script type="math/tex">n = 1</script>. Then, <script type="math/tex">g(f(n)) = g(f(1)) = g(0) = 1 = n</script>.<br />
+Case 2: <script type="math/tex">n</script> is even. Then, <script type="math/tex">g(f(n)) = g(\frac{n}{2}) = n</script>, because <script type="math/tex">\frac{n}{2} \gt 0</script>.<br />
+Case 3: <script type="math/tex">n</script> is odd, <script type="math/tex">n \gt 1</script>. Then, <script type="math/tex">g(f(n)) = g(\frac{-n + 1}{2}) = -2(\frac{-n+1}{2}) + 1 = n - 1 + 1 = n</script>, since <script type="math/tex">\frac{-n + 1}{2} \lt 0</script>.</p>
+
+<p>Now, consider these three cases for <script type="math/tex">m \in \mathbb{Z}</script>:<br />
+Case 1: <script type="math/tex">m = 0</script>. Then, <script type="math/tex">f(g(m)) = f(g(0)) = f(1) = 0 = m</script>.<br />
+Case 2: <script type="math/tex">m \lt 0</script>. Then, <script type="math/tex">f(g(m)) = f(-2m + 1) = \frac{-(-2m + 1) + 1}{2} = \frac{2m}{2} = m</script>, since <script type="math/tex">-2m + 1 \gt 1</script> is an odd natural number greater than <script type="math/tex">1</script>.<br />
+Case 3: <script type="math/tex">m \gt 0</script>. Then, <script type="math/tex">f(g(m)) = f(2m) = \frac{2m}{2} = m</script>, since <script type="math/tex">2m \gt 1</script> is an even natural number.</p>
+
+<p>Thus, we confirmed <script type="math/tex">g</script> is the inverse of <script type="math/tex">f</script>. Thus, <script type="math/tex">f</script> is invertible, and so <script type="math/tex">f</script> is bijective, by theorem above, and so the set of natural numbers and the set of integers
+have the same cardinality, by another theorem above. <em>QED</em>.</p>
+
+<p><strong>Theorem</strong>: <script type="math/tex">\|\mathbb{N}\| \lt \|\mathbb{R}\|</script>.<br />
+<em>Proof</em>: I’m not good at explaining this, so see <a href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument">Cantor’s diagonal argument</a>. 
+This result was controversial when it first came out, and it takes a while to get used to for people who have not seen it before (including when I first saw it), but it is correct.
+A key point is that the strings are all infinite in length, which leads eventually to the contradiction that the proof attempts to find.</p>
+
+<p><strong>Definition</strong>: If there exists a bijection <script type="math/tex">f: A \to \mathbb{N}</script>, then <script type="math/tex">A</script> is a <em>countably infinite</em> set. If there does not exist such a bijection, and <script type="math/tex">A</script> is an infinite set, then
+<script type="math/tex">A</script> is an <em>uncountably infinite</em> set.</p>
+
+<p>If <script type="math/tex">A</script> is finite, then we do not need to think about the madness of whether there exists a bijection from it to <script type="math/tex">\mathbb{N}</script> or not; 
+there will exist an injective but not surjective function from it to <script type="math/tex">\mathbb{N}</script>. In particular, assign the first element the value 1, the second element the value 2, and so on.</p>
+
+<h3 id="bijections-in-math">Bijections in math</h3>
+
+<p>Bijections between sets is not the most useful thing. However, after adding on some structure to the sets, i.e. extra requirements that the set must satisfy, the concept of bijections
+transforms into the idea of <em>isomorphisms</em>. For example, in group theory, instead of considering bijections between two groups, 
+we consider <a href="https://en.wikipedia.org/wiki/Group_homomorphism">homomorphisms</a> <script type="math/tex">\varphi</script>, which must satisfy the constraint that <script type="math/tex">\forall u, v \in G, \varphi(uv) = \varphi(u)\varphi(v)</script>. 
+In turn, two groups are isomorphic <a href="iff.html">iff</a> there exists a bijective homomorphism between them. 
+Similarly, in linear algebra, two <a href="https://en.wikipedia.org/wiki/Vector_space#Definition">vectorspaces</a> are isomorphic iff there exists a bijective linear mapping between them. 
+The point to note here is that not all functions are linear mappings, and not all functions are homomorphisms, and so it is harder to construct these functions.</p>
+
+<p>Yet, due to these additional restrictions required to confirm isomorphisms between vectorspaces and groups, isomorphisms allow one to think of a vectorspace in terms of another,
+or a group in terms of another.
+In fact, linear algebra is powerful because of its use of isomorphisms to represent many abstract vectorspaces <script type="math/tex">V</script> by vectors or matrices of real numbers. For an example,
+<a href="https://math.dartmouth.edu/archive/m24w07/public_html/Lecture12.pdf">see here</a> (the slides assume you already know quite a few things about linear algebra, though).</p>
+
+<h3 id="bijections-in-organizing-thoughts">Bijections in organizing thoughts</h3>
+
+<p>Consider having two lists. If every element on one list corresponds with exactly one on another, and the lists are the same size, and every element on the second list is mapped to, then there is a bijection between the lists.</p>
+
+<p>In general, mappings sometimes unravel thought patterns. For example, listing thoughts on one side, moods on another side, and drawing lines to connect them may establish what moods you experience often. However, the thoughts on the left side could vary depending on the moment, so the mapping might also vary depending on the moment.</p>
+
+<h3 id="the-end">The end</h3>
+
+<p>This is the end of the primer. What comes next depends on your goals:</p>
+
+<ul>
+  <li>If you are working on self-analysis, then journalling more often helps. Use implications to help identify thought patterns.</li>
+  <li>If you are going into math, then read up a basic linear algebra textbook. It will likely start immediately with proofs, but since you have an idea of the types of proofs now, you won’t get as lost.</li>
+  <li>If you are going into pure math, then after revising on linear algebra, consider reading up on abstract algebra and analysis.</li>
+</ul>
+
+<p>Good luck. But more importantly, <em>never</em> prove <script type="math/tex">A \Rightarrow B</script> by assuming <script type="math/tex">B</script> and showing <script type="math/tex">A</script> follows from that assumption!</p>
+
+
+      </div>
+      <div class="columns show-for-large-up large-2">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer" style="float: bottom;">
+  <!--
+  <p>Ray ZZ</p>
+  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</p>
+  -->
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../js/foundation.min.js"></script>
+  <script src="../js/rayzz-colors.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</footer>
+
+  </body>
+</html>

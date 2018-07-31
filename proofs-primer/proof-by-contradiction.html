@@ -79,6 +79,7 @@
       <li><a href="../proofs-primer/quantifiers.html">Quantifiers</a></li>
       <li><a href="../proofs-primer/proof-by-induction.html">Proof by induction</a></li>
       <li><a href="../proofs-primer/basic-set-theory.html">Basic set theory</a></li>
+      <li><a href="../proofs-primer/mappings.html">Mappings (conclusion)</a></li>
     </ul>
   </li>
   <li>
@@ -152,9 +153,9 @@ assuming the negation of the theorem was true. To do this, we declared that the 
 <p>Another fun example of proving by contradiction comes up in group theory. Since I do not want to explain group theory, we consider the Rubik’s cube, instead.
 A regular 3x3x3 Rubik’s cube has exactly <script type="math/tex">P = 2^{11}3^{7}\frac{12!}{2}8!</script> <a href="https://en.wikipedia.org/wiki/Rubik%27s_Cube#Permutations">permutations</a>.
 By Lagrange’s Theorem, if we start with a solved cube, consider any sequence of moves <script type="math/tex">A</script>, and execute such sequence repeatedly until the cube is solved again, 
-the number of times we execute the sequence must divide <script type="math/tex">P</script>. Thus, no algorithm can possibly leave a solve cube solved upon being executed 17 times.
+the number of times we execute the sequence must divide <script type="math/tex">P</script>. Thus, no algorithm can possibly leave a solved cube still solved upon being executed 17 times.
 Assume for a contradiction that such an algorithm existed. Then, by Lagrange’s theorem, 17 divides <script type="math/tex">P = 2^{11}3^{7}\frac{12!}{2}8!</script>, which is absurd, 
-because there is no prime factor of 17 in <script type="math/tex">P</script>. Thus, no such algorithm can exist.</p>
+because there is no prime factor of 17 in <script type="math/tex">P</script> (17 is a prime number). Thus, no such algorithm can exist.</p>
 
 <h3 id="proving-by-contradiction-in-real-life">Proving by contradiction in real life</h3>
 
