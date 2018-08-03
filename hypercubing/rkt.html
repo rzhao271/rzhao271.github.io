@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//hypercubing/rkt.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//hypercubing/rkt.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/pygments/default.css">
+  <link rel="stylesheet" href="../css/rayzz-site.css">
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <h1>Ray Zhao</h1>
+    <div id="subtitle">Software developer &#9830; Mathemusician &#9830; Minimalist</div>
+</div>
+
+<!-- COLOURS FOR DAYS! -->
+<div class="expanded row">
+    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
+    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
+    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
+</div>
+
+
+    <div class="expanded row">
+      <div class="columns small-12 medium-3 large-2">
+        <div style="width: 100%;">
+            <ul class="vertical menu" data-accordion-menu>
+  <li>
+    <a href="../index.html">Home</a>
+  </li>
+  <li>
+    <a href="#">4D+ Cubing</a>
+    <ul class="menu vertical nested">
+      <li><a href="../hypercubing/about.html">About Hypercubing</a></li>
+      <li><a href="../hypercubing/rkt.html">The RKT Trick</a></li>
+      <li><a href="../hypercubing/4-cube-solution.html">4D Rubik's Cube Solution</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">A Primer on Proofs</a>
+    <ul class="menu vertical nested">
+      <li><a href="../proofs-primer/introduction-to-proofs.html">Introduction</a></li>
+      <li><a href="../proofs-primer/boolean-algebra.html">Boolean Algebra</a></li>
+      <li><a href="../proofs-primer/implications.html">Implications</a></li>
+      <li><a href="../proofs-primer/proof-by-definition.html">Proof by Definition</a></li>
+      <li><a href="../proofs-primer/iff.html">If and Only If</a></li>
+      <li><a href="../proofs-primer/proof-by-contrapositive.html">Proof by Contrapositive</a></li>
+      <li><a href="../proofs-primer/proof-by-contradiction.html">Proof by Contradiction</a></li>
+      <li><a href="../proofs-primer/quantifiers.html">Quantifiers</a></li>
+      <li><a href="../proofs-primer/proof-by-induction.html">Proof by Induction</a></li>
+      <li><a href="../proofs-primer/basic-set-theory.html">Basic Set Theory</a></li>
+      <li><a href="../proofs-primer/mappings.html">Mappings and Conclusion</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Miscellaneous</a>
+    <ul class="menu vertical nested">
+      <li><a href="../misc/course-plans.html">My Course Plans</a></li>
+      <li><a href="../misc/FTO.html">Face-Turning Octahedron Solution</a></li>
+      <li><a href="../misc/numbers-game.html">The Numbers Game</a></li>
+      <li><a href="../misc/extern.html">Site Recommendations</a></li>
+    </ul>
+  </li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="columns show-for-large-up large-1">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="the-rkt-trick">The RKT Trick</h2>
+
+<p>RKT, formerly (and formally) written out as &lt;RK, T-&gt;, is a 2-gen approach to solving cell-turning puzzles with regular cells.
+A regular cell is a vertex-transitive cell that is comprised of regular facets. For example, a tetrahedron, cube, and hexagonal tiling are all examples of a regular cell.</p>
+
+<h3 id="the-notation">The notation</h3>
+
+<p>On the four-dimensional Rubik’s cube, turns are described using pieces with two colours, called 2c pieces.
+I decided to label the cells U, R, L, F, B, D, T, and K, where T stood for <em>top</em>, and K stood for <em>kata</em>. I would’ve named the T cell A instead for <em>ana</em>, but I kept getting A and K confused, so
+I kept the naming scheme as is. Below is an image of the scheme:</p>
+
+<p><img src="/img/scheme.png" alt="Image of the naming scheme. The cell at the centre is T and the cell not shown is K." width="300px" /></p>
+
+<p>Notice that the K cell is not visible. The developers of MagicCube4D intentionally decided to keep the K cell from showing up, since otherwise, due to projection (in other words, <em>math</em>), 
+the view of the rest of the puzzle would be blocked by the K cell alone.
+Fortunately, the cell is still accessible by 4D rotations, and so the puzzle is still fully functional.</p>
+
+<p>Then, Given two adjacent cells X and Y, XY means to turn the X cell clockwise 90 degrees along the axis of the 2c piece between X and Y.
+Thus, RK describes the following turn:</p>
+
+<p><img src="/img/RK.png" alt="An RK turn executed on the 4D Rubik's cube. The R cell stickers stay on the R cell." width="300px" /></p>
+
+<p>T- then stands for the set of all turns of the form TX, where X is a cell adjacent to T.
+Similarly, -T stands for the set of all turns of the form XT, where X is a cell adjacent to T.</p>
+
+<p>Thus, RKT essentially stands for the use of the RK and T- turns.</p>
+
+<h3 id="the-goal-of-rkt">The goal of RKT</h3>
+
+<p>RKT allows the solver to move around pieces on the T cell without disturbing other cells. That is, the T cell essentially becomes a 3D face-turning puzzle.
+Thus, for the 4D Rubik’s cube, RKT allows the solver to treat the T cell like a 3D Rubik’s cube.</p>
+
+<p>Consider a clockwise A Perm. On the 3D Rubik’s cube, an algorithm is x’ R’ D R’ U2 R D’ R’ U2 R2 x. We want to transform this to the RKT equivalent. However, we can only use RK and T- turns.
+The trick is to first consider how the A perm would be executed if only the move R, along with any rotation, could be used.
+x’ R’ D R’ U2 R D’ R’ U2 R2 x then becomes x’ R’ z’ R z R’ z R2 z’ R z’ R’ z R’ z R2 z’ R2 x.</p>
+
+<p>Now, to translate this into RKT, replace R with RK, and z with TF, since z is equivalent to rotating the entire cube in the same direction as an F turn.
+The x rotations can technically be replaced with TRs, too, though they serve more as decoration to get the next two images in a better view, so I’ll leave them as is.
+Thus, the RKT A Perm is x’ RK’ TF’ RK TF RK’ TF RK2 TF’ RK TF’ RK’ TF RK’ TF RK2 TF’ RK2 x.</p>
+
+<p>A picture of executing the regular A perm on a 4D Rubik’s cube is as follows, where R=RK, D=DK, and U=UK:</p>
+
+<p><img src="/img/A3.png" alt="A regular A perm executed on the 4D Rubik's cube. There are three 3x1x1 strips permuted" width="300px" /></p>
+
+<p>A picture of executing the RKT A perm on a 4D Rubik’s cube is as follows:</p>
+
+<p><img src="/img/A4.png" alt="An RKT A perm executed on the 4D Rubik's cube. There are only three 4c pieces permuted." width="300px" /></p>
+
+<p>Thus, RKT has only modified the T-cell pieces.</p>
+
+<p>As another example, one can use the RKT version of (R U R’ U)5 with some extra moves after to induce a 180-degree turn of the UT ridge:</p>
+
+<p><img src="/img/UT-ridge.png" alt="180-degree turn of the UT ridge using RKT." width="300px" /></p>
+
+<h3 id="generalizing-rkt-by-varying-face-turns">Generalizing RKT by varying face turns</h3>
+
+<p>There is no requirement that the T cell is the one being treated as a 3D Rubik’s cube. 
+In fact, by using TU and D- instead of RK and T-, one can solve 3c/4c pairs using “RKT” versions of F2L inserts.
+For example, consider the insertion of the 3c/4c pair on the DRT edge by “RKT” U R U’ R’, where instead of RK, we use TU, and instead of T-, we use D-:</p>
+
+<p>Before:</p>
+
+<p><img src="/img/s2l-insert-1.png" alt="An S2L (3c/4c) slot before insertion." width="300px" /></p>
+
+<p>After:</p>
+
+<p><img src="/img/s2l-insert-2.png" alt="An S2L slot after insertion." width="300px" /></p>
+
+<p>Notice that even though TU and D- are the turns being used, the algorithm is still considered an “RKT” version of the U R U’ R’. The reasoning behind such naming is because RKT is not
+just a set of turns, but a general strategy to treat one cell as though it were its own 3D puzzle.</p>
+
+<p>In fact, RKT can also be used on the 4D pyraminx – the pictures below show an “RKT” edge flip applied onto a 4D pyraminx:</p>
+
+<p><img src="/img/rkt-pyra-edge-twist.png" alt="An RKT edge twist executed on the 4D pyraminx. There are only two 3c pieces flipped." width="300px" /></p>
+
+<h3 id="generalizing-rkt-to-higher-dimensions">Generalizing RKT to higher dimensions</h3>
+
+<p>Generalizing RKT to higher dimensions is what leads to both the recursive N-D A perm and the recursive N-D monoflip.
+However, considering how ugly the transformation is for the RKT A perm on the 4D Rubik’s cube, the transformation needed for the 5D Rubik’s cube only gets worse.
+In fact, the number of moves ends up growing exponentially, and what used to take just 1 move on the 3D Rubik’s cube now takes 16 on the 7D Rubik’s cube when permuting 7c pieces.</p>
+
+<p>Thus, RKT should be used sparingly, especially for 5c and up pieces on 5D+ Rubik’s cubes.</p>
+
+      </div>
+      <div class="columns show-for-large-up large-2">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer" style="float: bottom;">
+  <!--
+  <p>Ray ZZ</p>
+  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</p>
+  -->
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../js/foundation.min.js"></script>
+  <script src="../js/rayzz-colors.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</footer>
+
+  </body>
+</html>
