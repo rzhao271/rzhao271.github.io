@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//hypercubing/4-simplex-solution.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//hypercubing/4-simplex-solution.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/pygments/default.css">
+  <link rel="stylesheet" href="../css/rayzz-site.css">
+  <script src="../js/jquery.min.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <h1>Ray Zhao</h1>
+    <div id="subtitle">Software developer &#9830; Mathemusician &#9830; Minimalist</div>
+</div>
+
+<!-- COLOURS FOR DAYS! -->
+<div class="expanded row">
+    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
+    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
+    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
+</div>
+
+
+    <div class="expanded row">
+      <div class="columns small-12 medium-3 large-2">
+        <div style="width: 100%;">
+            <ul class="vertical menu" data-accordion-menu>
+  <li>
+    <a href="../index.html">Home</a>
+  </li>
+  <li>
+    <a href="#">4D+ Cubing</a>
+    <ul class="menu vertical nested">
+      <li><a href="../hypercubing/about.html">About Hypercubing</a></li>
+      <li><a href="../hypercubing/rkt.html">The RKT Trick</a></li>
+      <li><a href="../hypercubing/4-simplex-solution.html">4D Pyraminx Solution</a></li>
+      <li><a href="../hypercubing/4-cube-solution.html">4D Rubik's Cube Solution</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">A Primer on Proofs</a>
+    <ul class="menu vertical nested">
+      <li><a href="../proofs-primer/introduction-to-proofs.html">Introduction</a></li>
+      <li><a href="../proofs-primer/boolean-algebra.html">Boolean Algebra</a></li>
+      <li><a href="../proofs-primer/implications.html">Implications</a></li>
+      <li><a href="../proofs-primer/proof-by-definition.html">Proof by Definition</a></li>
+      <li><a href="../proofs-primer/iff.html">If and Only If</a></li>
+      <li><a href="../proofs-primer/proof-by-contrapositive.html">Proof by Contrapositive</a></li>
+      <li><a href="../proofs-primer/proof-by-contradiction.html">Proof by Contradiction</a></li>
+      <li><a href="../proofs-primer/quantifiers.html">Quantifiers</a></li>
+      <li><a href="../proofs-primer/proof-by-induction.html">Proof by Induction</a></li>
+      <li><a href="../proofs-primer/basic-set-theory.html">Basic Set Theory</a></li>
+      <li><a href="../proofs-primer/mappings.html">Mappings and Conclusion</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Miscellaneous</a>
+    <ul class="menu vertical nested">
+      <li><a href="../misc/course-plans.html">My Course Plans</a></li>
+      <li><a href="../misc/FTO.html">Face-Turning Octahedron Solution</a></li>
+      <li><a href="../misc/numbers-game.html">The Numbers Game</a></li>
+      <li><a href="../misc/extern.html">Site Recommendations</a></li>
+    </ul>
+  </li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="columns show-for-large-up large-1">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="4d-pyraminx-solution">4D Pyraminx Solution</h2>
+
+<p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
+
+<p>The 4D pyraminx is the four-dimensional analog of the regular WCA-approved 3D pyraminx.
+Surprisingly, not much changes even though we have moved up a dimension.
+ <em>This tutorial assumes you already know how to solve a 3D pyraminx.</em></p>
+
+<h3 id="the-strategy">The strategy</h3>
+
+<p>The strategy I’ll show to solve the 4D pyraminx is very similar to that a beginner uses to solve the regular 3D pyraminx.</p>
+
+<ol>
+  <li>Solve the tips and centers</li>
+  <li>Solve the edges of the first layer</li>
+  <li>Solve the edges of the last layer</li>
+</ol>
+
+<p>Using this method, a solution of under 100 moves is achievable with not much effort.</p>
+
+<h3 id="navigation-and-turning">Navigation and turning</h3>
+
+<p>The puzzle can be found in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, under the puzzle “{3,3,3} Simplex” with option 3, which means “3 layers”.</p>
+
+<p>To rotate the puzzle in 4D, change the rotation style to “rotate by cubie”, and then control click a cubie to rotate that cubie to the centre.
+Also, drag the “Eye W Scale” slider all the way to the left, or one or two increments off from the leftmost setting. With this setting, centering the puzzle on a cell will reveal all five
+cells, as we will see later.</p>
+
+<p>To turn a cell, right click on a cell’s sticker. The cell clicked then turns clockwise around a plane whose normal vector goes outward through the clicked sticker.
+If that description sounds convoluted, then the best thing to do to get used to the way the puzzle rotates is to solve one-move scrambles and become more comfortable with the way the puzzle
+is represented by the program.
+Also, left-clicking a cell makes it turn counterclockwise by the same plane.</p>
+
+<p>The main difference between the 4D pyraminx (within MC4D), and a regular pyraminx, is that the former is cell-turning, whereas the latter is vertex-turning.
+Since the former is cell-turning, we need a way to turn the tips instead.</p>
+
+<p>Luckily, every vertex is opposite to some cell, and so we can click on a sticker on that cell while holding 2 and/or 3 on the keyboard to turn the vertex opposite to that cell.
+However, the way the vertex turns is not the most predictable, and so practicing on one-move scrambles, or just turning the puzzle while it is solved, is still the recommended advice here.</p>
+
+<p>There are two views that we consider for this puzzle: vertex-first, and cell-first.</p>
+
+<p>The vertex-first view places a vertex in the middle, as follows:</p>
+
+<p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
+
+<p>The cell-first view places a cell in the middle, as follows:</p>
+
+<p><img src="/img/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
+
+<p>If you do not see all 5 cells, then drag the “Eye W Scale” slider all the way to the left, or one or two increments off from the leftmost setting.</p>
+
+<h3 id="the-tips-and-centers">The tips and centers</h3>
+
+<p>Place the puzzle in a vertex-centered view so that one of the vertices is facing upwards (rather than downwards).</p>
+
+<p>To solve the vertex that is facing up, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center,
+the 4D pyraminx provides us with one “true center” per cell, which gives an indication as to how the tips and centers should be oriented. The next picture highlights 4 of the 5 true centers:</p>
+
+<p><img src="/img/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
+
+<p>The next picture highlights which pieces we should consider if we want to turn the vertex that is facing upwards:</p>
+
+<p><img src="/img/4d-pyra-turning-pieces.png" alt="A 4D pyraminx with the up-most center and tip, as well as stickers that the the solver should click to twist them, all highlighted" width="300px" /></p>
+
+<p>The center piece is in lime, the vertex is in periwinkle blue, and the <em>stickers</em> (not pieces) to adjust the vertex and/or center are in pink, because why not.</p>
+
+<p>To turn the lime center, hold 2 on the keyboard while clicking on one of the pink stickers. To turn the periwinkle blue vertex, hold 3 instead of 2.
+Holding both 2 and 3 at the same time results in turning both vertex and center in the same direction. However, all vertices/centers can be solved in at most one turn, considering how
+there are 13 possible stickers to click on to adjust each upwards-facing tip/center. Experimentation is key to finishing this step efficiently.</p>
+
+<p>For example, if one of the tips or centers seems to be in a double swap, clicking on one of the pink edge stickers has the potential to fix it in one turn, granted it is the correct edge
+out of three.</p>
+
+<p>Also, remember that there are five, not four, vertices. To access the last vertex in the middle of the puzzle, 
+rotate the puzzle in 4D by control-clicking the top vertex.
+That vertex will then go to the middle of the puzzle, pushing the last vertex to the bottom. Then, we can rotate the puzzle in 3D so that vertex now faces up, and solve it as before.</p>
+
+<p>When all the centers and tips are solved, the puzzle should look like the following:</p>
+
+<p><img src="/img/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
+
+<h3 id="the-first-layer-edges">The first layer edges</h3>
+
+<p>To solve the edges, it turns out we can just use regular pyraminx algorithms without using <a href="rkt.html">RKT</a>!</p>
+
+<p>Most of the time, we do not even need to use an actual algorithm beyond the sledgehammer or sexy move. The point here is to pick a cell to use as the first layer, and then find edges
+to insert into it. Whereas a regular pyraminx requires 3 edges to be inserted, the 4D pyraminx requires 6 edges to be inserted, which are highlighted in one colour each, here:</p>
+
+<p><img src="/img/4d-pyra-first-layer-goals.png" alt="A 4D pyraminx with first layer edges highlighted" width="300px" /></p>
+
+<p>This step is intuitive and usually involves applications of four-move sexy-move-like algorithms. 
+Figuring out those algorithms is left as an exercise to the reader.
+A trick is to rotate the puzzle if one insertion strategy does not work. Other than setup moves, the only turns used here should be performed while holding down 2 (and optionally, 3) on the keyboard.</p>
+
+<p>For pieces that are already on the first layer and oriented correctly, but permuted wrong, one can switch the view to cell-first:</p>
+
+<p><img src="/img/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
+
+<p>In this case, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly;
+rather than resting between the green, red, and orange centers, it rests between the green, red, and yellow centers.</p>
+
+<p>An anti-sune algorithm will move the edge as follows, which is what we want:</p>
+
+<p><img src="/img/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
+
+<p>In fact, using the cell-first view allows one to permute pieces on the centered cell as though they were on a pyraminx, but with the caveat that stickers on the centered cell cannot be moved off of that cell without using setup moves.
+Thus, the sune, flip, and other LBL or Keyhole LL algorithms can be used.</p>
+
+<p>After finishing the first layer edges, the puzzle will look something like the following:</p>
+
+<p><img src="/img/4d-pyra-first-layer-done.png" alt="4D pyraminx with first layer solved" width="300px" /></p>
+
+<p>Note that the top corner is misoriented due to setup moves used while inserting the edges.
+This implies that not all corners need to be solved beforehand, but doing so helps pick which first layer to solve more easily.
+Also, note that I ended with the puzzle oriented in this view, so that is why the orange cell shows up, but not the yellow cell.</p>
+
+<p>For (mostly my own) reference, I have used 37 moves so far.</p>
+
+<h3 id="the-last-layer-edges">The last layer edges</h3>
+
+<p>The strategy is the same as the first layer edges, although here, using a cell-first view along with setup moves will usually be more efficient, considering how the first layer cannot
+be disturbed after cycling edges of the last layer. There are only four more edges to solve. After this step, you will have finished solving the puzzle!</p>
+
+<p>For (mostly my own) reference, I used 61 moves to solve the scramble that I used for this tutorial.
+This number is much lower than the 600-something moves I need to solve the 4D Rubik’s cube.</p>
+
+<p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.</p>
+
+<h3 id="the-last-edge">The last edge</h3>
+
+<p>Unlike the regular pyraminx, it is possible for one edge to remain unsolved before the end of the solve. 
+The hint here is to flip two edges, use some setup moves to set up the two unsolved edges properly, and then flip the two edges again, solving both of them after undoing the setup moves.
+Here is a picture of the case for those interested:</p>
+
+<p><img src="/img/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
+
+<p>To avoid this case, consider not leaving singly-twisted edges to the very end. Another approach is to set up the last three edges properly, so that after the 3-cycle, two edges
+end up with two stickers flipped each. Then, the algorithm that flips two edges can be used. This approach saves some moves because the flipping algorithm only has to be performed once,
+not twice.</p>
+
+
+      </div>
+      <div class="columns show-for-large-up large-2">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer" style="float: bottom;">
+  <!--
+  <p>Ray ZZ</p>
+  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+</p>
+  -->
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../js/foundation.min.js"></script>
+  <script src="../js/rayzz-colors.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</footer>
+
+  </body>
+</html>
