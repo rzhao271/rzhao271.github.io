@@ -76,9 +76,6 @@ code {
 .nav-option a:hover, .mobile-nav-menu a:hover {
   background: #289350;
 }
-.nav-option a:visited, .mobile-nav-menu a:visited {
-  background: #93286B;
-}
 
 .footer-bar {
   padding: 1px 0px;
