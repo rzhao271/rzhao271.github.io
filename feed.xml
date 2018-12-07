@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ray ZZ</title>
-    <description>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+    <description>Software developer, mathematician, minimalist, but still doesn't use the ZZ method.
 </description>
     <link>http://www.rayzz.me//</link>
     <atom:link href="http://www.rayzz.me//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 19 Oct 2018 22:46:32 -0400</pubDate>
-    <lastBuildDate>Fri, 19 Oct 2018 22:46:32 -0400</lastBuildDate>
+    <pubDate>Fri, 07 Dec 2018 00:09:25 -0500</pubDate>
+    <lastBuildDate>Fri, 07 Dec 2018 00:09:25 -0500</lastBuildDate>
     <generator>Jekyll v3.6.2</generator>
     
   </channel>

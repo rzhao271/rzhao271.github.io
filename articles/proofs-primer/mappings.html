@@ -12,88 +12,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ray ZZ</title>
-  <meta name="description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+  <meta name="description" content="Software developer, mathematician, minimalist, but still doesn't use the ZZ method.
 " />
   <meta property="og:title" content="Ray ZZ" />
   <meta property="og:type" content="profile" />
-  <meta property="og:url"content="http://www.rayzz.me//proofs-primer/mappings.html" />
+  <meta property="og:url"content="http://www.rayzz.me//articles/proofs-primer/mappings.html" />
   <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
-  <meta property="og:description" content="Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
+  <meta property="og:description" content="Software developer, mathematician, minimalist, but still doesn't use the ZZ method.
 " />
 
-  <link rel="canonical" href="http://www.rayzz.me//proofs-primer/mappings.html">
+  <link rel="canonical" href="http://www.rayzz.me//articles/proofs-primer/mappings.html">
   <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
   
-  <link rel="stylesheet" href="../css/foundation.css">
-  <link rel="stylesheet" href="../css/pygments/default.css">
-  <link rel="stylesheet" href="../css/rayzz-site.css">
-  <script src="../js/jquery.min.js"></script>
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+  <script src="../../js/jquery.js"></script>
   <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 
   <body>
     <!-- Header, then another div with expanded row class for the sidebar-->
-    <div class="top-bar" style="background: #000000; color: #F5F5FF; text-align: center;">
+    <div class="show-for-medium">
+  <header class="top-bar">
     <h1>Raymond Zhao</h1>
-    <div id="subtitle">Software developer &#9830; Mathematician &#9830; Minimalist</div>
+    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns show-for-medium medium-2 large-7">
+    &nbsp;
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../index.html">About</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../resume.html">Resume</a>
+  </div>
+  <!--<div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../portfolio.html">Portfolio</a>
+  </div>-->
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../contact.html">
+      Contact
+    </a>
+  </div>
+  <div class="columns show-for-medium medium-2 large-1">
+    &nbsp;
+  </div>
+</nav>
+</div>
+<div class="show-for-small-only">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+  <ul class="menu vertical mobile-nav-menu">
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <li><a href="../../index.html">About</a></li>
+    <li><a href="../../resume.html">Resume</a></li>
+    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
 </div>
 
-<!-- COLOURS FOR DAYS! -->
-<div class="expanded row">
-    <div class="columns small-12 medium-9 large-8 color-bar-1">&nbsp;</div>
-    <div class="columns show-for-medium medium-3 large-2 color-bar-2">&nbsp;</div>
-    <div class="columns show-for-large large-2 color-bar-3">&nbsp;</div>
-</div>
-
-
-    <div class="expanded row">
-      <div class="columns small-12 medium-3 large-2">
-        <div style="width: 100%;">
-            <ul class="vertical menu" data-accordion-menu>
-  <li>
-    <a href="../index.html">Home</a>
-  </li>
-  <li>
-    <a href="#">4D+ Cubing</a>
-    <ul class="menu vertical nested">
-      <li><a href="../hypercubing/about.html">About Hypercubing</a></li>
-      <li><a href="../hypercubing/rkt.html">The RKT Trick</a></li>
-      <li><a href="../hypercubing/4-simplex-solution.html">4D Pyraminx Solution</a></li>
-      <li><a href="../hypercubing/4-cube-solution.html">4D Rubik's Cube Solution</a></li>
-      <li><a href="../hypercubing/a-perms.html">N-dimensional A Permutations</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#">A Primer on Proofs</a>
-    <ul class="menu vertical nested">
-      <li><a href="../proofs-primer/introduction-to-proofs.html">Introduction</a></li>
-      <li><a href="../proofs-primer/boolean-algebra.html">Boolean Algebra</a></li>
-      <li><a href="../proofs-primer/implications.html">Implications</a></li>
-      <li><a href="../proofs-primer/proof-by-definition.html">Proof by Definition</a></li>
-      <li><a href="../proofs-primer/iff.html">If and Only If</a></li>
-      <li><a href="../proofs-primer/proof-by-contrapositive.html">Proof by Contrapositive</a></li>
-      <li><a href="../proofs-primer/proof-by-contradiction.html">Proof by Contradiction</a></li>
-      <li><a href="../proofs-primer/quantifiers.html">Quantifiers</a></li>
-      <li><a href="../proofs-primer/proof-by-induction.html">Proof by Induction</a></li>
-      <li><a href="../proofs-primer/basic-set-theory.html">Basic Set Theory</a></li>
-      <li><a href="../proofs-primer/mappings.html">Mappings and Conclusion</a></li>
-    </ul>
-  </li>
-  <li>
-    <a href="#">Miscellaneous</a>
-    <ul class="menu vertical nested">
-      <li><a href="../misc/course-plans.html">My Course Plans</a></li>
-      <li><a href="../misc/FTO.html">Face-Turning Octahedron Solution</a></li>
-      <li><a href="../misc/numbers-game.html">The Numbers Game</a></li>
-      <li><a href="../misc/extern.html">Site Recommendations</a></li>
-    </ul>
-  </li>
-</ul>
-
-        </div>
+  </div>
+  <header class="title-bar">
+    <div class="title-bar-left">
+      <div class="title-bar-title">
+        <h1>Raymond Zhao</h1>
+        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
       </div>
+    </div>
+    <div class="title-bar-right">
+      <button type="button" class="menu-icon" data-open="offCanvas"></button>
+    </div>
+  </header>
+  <div class="expanded row">
+    <div class="columns small-12 color-bar-1">&nbsp;</div>
+  </div>
+</div>
 
-      <div class="columns show-for-large-up large-1">&nbsp;</div>
+
+    <div class="expanded row off-canvas-content" data-off-canvas-content>
+      <div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
       
       <div class="columns small-12 medium-9 large-7" id="main">
         <h2 id="mappings-and-conclusion">Mappings and Conclusion</h2>
@@ -244,28 +251,27 @@ In fact, linear algebra is powerful because of its use of isomorphisms to repres
 <p>Good luck. But more importantly, <em>never</em> prove <script type="math/tex">A \Rightarrow B</script> by assuming <script type="math/tex">B</script> and showing <script type="math/tex">A</script> follows from that assumption!</p>
 
 
+
+        <hr />
+        <a href="../../articles.html">Go back to Articles</a><br /><br />
       </div>
-      <div class="columns show-for-large-up large-2">&nbsp;</div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>
     </div>
     
-    <footer class="site-footer" style="float: bottom;">
-  <!--
-  <p>Ray ZZ</p>
-  <p>Your destination for solving hyper-dimensional Rubik's Cubes, experimenting with microtonality, and stalking my course plans. Also, I don't even know ZZ.
-</p>
-  -->
+    <footer class="site-footer">
   <!-- COLOURS FOR DAYS! -->
   <div class="expanded row">
-      <div class="columns small-12 medium-10 medium-push-2 large-2 large-push-0 color-bar-3">&nbsp;</div>
-      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2">&nbsp;</div>
-      <div class="columns show-for-large large-9 color-bar-1">&nbsp;</div>
+      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
+      <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
   </div>
 
   <div class="expanded row" style="margin-top: 10px;">
     <div class="column small-12">
-      <a href="https://github.com/SharkRetriever"><img src="../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <a href="https://github.com/SharkRetriever"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
       <span style="margin-right: 22px;"></span>
-      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
     </div>
   </div>
   <div class="expanded row">
@@ -274,11 +280,9 @@ In fact, linear algebra is powerful because of its use of isomorphisms to repres
     </div>
   </div>
   
-  <script src="../js/foundation.min.js"></script>
-  <script src="../js/rayzz-colors.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
+  <script src="../../js/foundation.min.js"></script>
+  <script src="../../js/rayzz-colors.js"></script>
+  <script src="../../js/app.js"></script>
 </footer>
 
   </body>

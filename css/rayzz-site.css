@@ -1,5 +1,6 @@
 body {
   font-size: 16px;
+  background: #FFF;
 }
 
 h1 {
@@ -18,62 +19,32 @@ h4 {
   font-size: 1.15em;
 }
 
-/*.color-bar-1 {
-  background-color: #40C4FF;
-}
-*/
-
 .color-bar-1 {
-/* Indigo 800 */
-  background-color: #283593;
+  /* Indigo 800 */
+  background: #283593;
 }
-
-/*
-.color-bar-2 {
-  background-color: #64FFDA;
-}
-*/
 
 .color-bar-2 {
-/* Indigo 500 */
-  background-color: #3F51B5;
+  /* Indigo 500 */
+  background: #3F51B5;
 }
-
-/*
-.color-bar-3 {
-  background-color: #FFF59D;
-}
-*/
 
 .color-bar-3 {
-/* Indigo #200 */
-  background-color: #9FA8DA;
-} 
-
-/*
-a {
-  color: #00B0FF;
+  /* Indigo 200 */
+  background: #9FA8DA;
 }
-a:visited {
-  color: #7C44DF;
-}
-a:hover {
-  color: #80D8FF;
-}
-*/
 
 a {
-/* Indigo A200 */
-  color: #536DFE;
+  /* Indigo 500 */
+  color: #3F51B5;
 }
 a:visited, a:focus {
-/* Indigo A700 */
-  color: #304FFE;
+  color: #B53F8C;
 }
 a:hover {
-/* Teal A700 */
-  color: #00BFA5;
+  color: #3FB568;
 }
+
 figure.highlight {
   background-color: #202025;
 }
@@ -85,12 +56,114 @@ code {
   font-size: 1.4em;
   font-style: italic;
 }
-::-moz-selection {
-    /* Indigo 50 */
-    color: #000000;
-    background: #E8EAF6;
+
+.off-canvas-content ::-moz-selection, .off-canvas-content ::selection {
+  /* Indigo 50 */
+  color: #000000;
+  background: #E8EAF6;
 }
-::selection {
-    color: #000000; 
-    background: #E8EAF6;
+
+.nav-option {
+  background: #283593;
+  text-align: center;
+  padding: 0px;
+}
+.nav-option a {
+  display: block;
+  padding: 2px 0px 3px 0px;
+}
+
+.nav-option a:hover, .mobile-nav-menu a:hover {
+  background: #289350;
+}
+.nav-option a:visited, .mobile-nav-menu a:visited {
+  background: #93286B;
+}
+
+.footer-bar {
+  padding: 1px 0px;
+}
+
+.topnav, .off-canvas {
+  background: #283593;
+}
+.topnav a, .off-canvas a {
+  color: #F5F5FF;
+}
+
+.top-bar {
+  background: #000000;
+  color: #F5F5FF;
+  text-align: center;
+}
+
+.title-bar {
+  background: #000000;
+  color: #F5F5FF;
+  text-align: left;
+}
+
+footer {
+  background: #EEE;
+}
+
+/* https://stackoverflow.com/a/39509165 */
+.off-canvas-content ul {
+	position: relative;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 1.2em;
+}
+.off-canvas-content ul li:before {
+	content: "‣";
+	position: absolute;
+	left: 0;
+}
+.off-canvas-content ul li ul li:before {
+	content: "•";
+	position: absolute;
+	left: 0;
+}
+
+/* Referenced from https://stackoverflow.com/a/12856368 */
+.site-pre-footer {
+  min-height: 100%;
+  height: 100%;
+  height: 100vh;
+}
+
+footer {
+  clear: both;
+  position: relative;
+  height: 8em;
+  margin-top: -8em;
+}
+
+.resume-heading {
+}
+
+.resume-section {
+  border-bottom: 1px solid;
+  width: 100%;
+  display: block;
+}
+
+.resume-subsection div p, .resume-project-name p {
+  margin-bottom: 0px;
+}
+
+.resume-subsection div {
+  padding: 0px;
+}
+
+.resume-company-location-dates p, .resume-project-date p {
+  margin-bottom: 0.3em;
+}
+
+.resume-left, .resume-right, .resume-project-name, .resume-project-date {
+  padding-left: 0px;
+}
+
+.resume-project-name, .resume-company-name {
+  font-weight: bold;
 }
