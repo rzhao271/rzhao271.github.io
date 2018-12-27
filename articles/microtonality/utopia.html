@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist, but still doesn't use the ZZ method.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//articles/microtonality/utopia.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Software developer, mathematician, minimalist, but still doesn't use the ZZ method.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//articles/microtonality/utopia.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+  <script src="../../js/jquery.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="show-for-medium">
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns show-for-medium medium-2 large-7">
+    &nbsp;
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../index.html">About</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../resume.html">Resume</a>
+  </div>
+  <!--<div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../portfolio.html">Portfolio</a>
+  </div>-->
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../contact.html">
+      Contact
+    </a>
+  </div>
+  <div class="columns show-for-medium medium-2 large-1">
+    &nbsp;
+  </div>
+</nav>
+</div>
+<div class="show-for-small-only">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+  <ul class="menu vertical mobile-nav-menu">
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <li><a href="../../index.html">About</a></li>
+    <li><a href="../../resume.html">Resume</a></li>
+    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+  <header class="title-bar">
+    <div class="title-bar-left">
+      <div class="title-bar-title">
+        <h1>Raymond Zhao</h1>
+        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+      </div>
+    </div>
+    <div class="title-bar-right">
+      <button type="button" class="menu-icon" data-open="offCanvas"></button>
+    </div>
+  </header>
+  <div class="expanded row">
+    <div class="columns small-12 color-bar-1">&nbsp;</div>
+  </div>
+</div>
+
+
+    <div class="expanded row off-canvas-content" data-off-canvas-content>
+      <div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="the-impossibility-of-a-perfect-tuning">The Impossibility of a Perfect Tuning</h2>
+
+<p><em>December 27, 2018</em></p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>There is no mathematically perfect tuning.</p>
+
+<p>Different tunings have different use cases, and there is not one tuning that works perfectly for all musical use cases.
+In fact, the most popular tunings are temperaments, mathematically imprecise compromises where every interval is adjusted slightly out of tune for the music, overall, to paradoxically stay in tune.</p>
+
+<p>In this article, we discuss the purity and unusability of just intonation and Pythagorean tuning. We then briefly describe meantone, well, and (12-tone) equal temperaments, the last-named being the ubiquitous tuning system of Western music today.</p>
+
+<h3 id="just-intonation-and-harmony">Just Intonation and Harmony</h3>
+
+<p>The just intonation (JI) tuning system consists of a base note, along with all rational multiples of that base note. For example, a JI tuning system could start off with a 440Hz base note, followed by other notes with frequencies such as (5/4)*440Hz, (6/5)*440Hz, and so on. Since a base note usually isn’t specified, all that start to matter are the intervals themselves, which are represented by the rational number multiples. For example, the octave is represented as 2/1, the perfect fifth by 3/2, the major third by 5/4, and the minor third by 6/5.</p>
+
+<p>Those intervals, in particular, are perfect for tertiary harmony, for they contain no beat frequencies. In fact, when choirs sing locked-in chords, they are singing in just intonation.
+Likewise, when performers pitch-bend down a minor seventh slightly to lock it in with a triad (and form a consonant seventh chord), they are playing a 7/4 harmonic seventh rather than approximating the more dissonant 16/9 minor seventh.</p>
+
+<p>Yet, there are an infinite number of rational numbers, and so JI provides the composer with an infinite number of intervals to use, even within a single octave.
+Thus, composers who use this system usually only pick a handful of relatively consonant intervals to use in their compositions.</p>
+
+<p>Unfortunately, even this handful of intervals still presents a huge problem. Three major thirds (each 5/4) do not equate to an octave (2/1), but undershoot it by 128/125. Likewise, four minor thirds do not equate to an octave, seven octaves do not equate to twelve fifths, and worst of all, three fifths and a minor third do not equate to two octaves. The last comparison, in particular, forms a gap of 81/80, called the syntonic comma. Many pop chord progressions, if they were to be played in just intonation, would actually drift up or down by a syntonic comma per repetition. In other words, the guitarist would have to detune their guitar continuously while strumming the same four chords, and the audience would perceive this drift as the band going more and more out of tune. Moreover, the syntonic comma is not the only musical comma (the 128/125 above is a comma called the <em>lesser diesis</em>), and any chord progression unlucky enough to drift by any comma will end up sounding out of tune after a few repetitions.</p>
+
+<p>Thus, just intonation is a tuning system that paradoxically offers the purest and most consonant chords in exchange for music that slowly drifts out of tune.</p>
+
+<h3 id="pythagorean-tuning-and-melody">Pythagorean Tuning and Melody</h3>
+
+<p>Pythagorean tuning is a tuning based on stacking JI fifths. Since C goes to E on the circle of fifths via C-G-D-A-E, the major third is represented by the dissonant <script type="math/tex">(3/2)^4(1/2)^2 = 81/64</script> interval, rather than the 5/4 JI major third. It is probably due to the 81/64 that the third used to be considered a dissonance rather than a consonance.</p>
+
+<p>Pythagorean tuning is also inconsistent for any music that switches between multiple keys. Play in B major, and assuming the circle of fifths includes Eb, it suddenly takes a journey of fifths (Eb-Bb-F-C-G-D-A-E-B) just to represent a major third from B to D# (assuming D# = Eb). Yet, this major third isn’t even 81/64, it’s 8192/6561 (which is surprisingly closer to the most consonant 5/4 major third). Thus, chord progressions in different keys start to sound different, and not only due to the differing tonics.</p>
+
+<p>But, even with these limitations, Pythagorean tuning is still incredibly useful. The tuning is perfect for major scales and their various modes, since the whole steps are all relatively consonant 9/8 intervals, and the fifth is a perfect 3/2 ratio. The half steps are even equal in size, too. Though scales are not played too often in most non-technical works, melodies are often very scale-like, in the sense that they usually move from note to neighbouring note, and do not usually go over an octave in range.</p>
+
+<p>Thus, Pythagorean tuning is a tuning system that is amazing for major scales and melodic lines, but nothing much else.</p>
+
+<h3 id="temperaments-are-compromises">Temperaments are Compromises</h3>
+
+<p>It’s fortunate that most human ears do not distinguish intervals within 1/240 of an octave. Otherwise, based on the analyses above, nothing would sound in tune. Melodies would need to be played in Pythagorean tuning, whereas tertiary harmonies would need to be performed using justly intoned chords, offsetting the tonic at any moment. The 5/4 and 81/64 major thirds would clash with each other, too. There needs to be compromises, and these compromises are called <em>temperaments</em>.</p>
+
+<p>Musical temperaments are tunings that slightly detune the pure JI ratios to enable modulation into multiple keys, and balance the ability to sound both consonant melodies and harmonies.
+As examples, we briefly mention meantone temperaments, well temperaments, and equal temperaments.</p>
+
+<p>Meantone temperaments are based on having augmented unisons and minor seconds represent two separate intervals. More importantly, they sacrifice the purity of the 3/2 fifth to greatly improve the thirds, ending up with a single perfect fifth so out of tune (due to the circle of fifths actually not being a circle, see the <a href="https://en.wikipedia.org/wiki/Pythagorean_comma#Circle_of_fifths_and_enharmonic_change">Pythagorean comma</a>) that composers usually avoided modulating to keys that contained it. At least the thirds here were much more forgiving on the ears than in Pythagorean tuning.</p>
+
+<p>Well temperaments, which existed at least during Bach’s time (how else would he have written the Well-Tempered Clavier?) were better than meantone temperaments, because they at least allowed for modulating into various key centres, and did not contain any intervals that were too out of tune. Yet, different key centres still had different colours and moods, due to the half steps varying in size. Thus, composers could not just choose keys at random for their compositions.</p>
+
+<p>To fix this issue, pianos use 12-tone equal temperament (12-TET) today. Since the half steps are all spaced equally, anyone can carelessly modulate between keys and/or transpose their music, all without having to worry about different moods, or dissonant perfect fifths. Yet, 12-TET, too, made sacrifices. Though its perfect fifth is actually pretty close to 3/2, its major third is noticeably off from 5/4, and the minor third is noticeably off from 6/5. As a result, tertiary chords never quite sound in tune on a modern piano.</p>
+
+<p>Another argument I’ve heard against 12-TET is that by getting rid of the unequal half steps, the previous emotions of the works of the baroque, classical, and romantic eras are not expressed as well anymore. In turn, the audience cannot appreciate the composers’ music as much. Though I agree with this argument, the fault here is more that switching to a new temperament is a breaking change, rather than the fact that the new temperament itself is worse (though I can see how the equality of 12-TET’s half steps makes it seem plainer). In the end, even the music of those eras was composed with tempered tunings, and so most of that music is, on a microtonal level, out of tune anyway.</p>
+
+<p>In the end, musical temperaments are compromises that shift notes, intervals, and entire chords slightly out of tune to make the music, overall, more in tune. If there’s anything to take away from the fact that such things exist, it’s that tuning’s a nightmare. More seriously, though, it seems that one must choose between having pure intervals and chords, having pure melodies, and being able to modulate into different key centers, or else face a compromise that does a somewhat mediocre job at all three.</p>
+
+<p>Even in tuning theory, you can’t have everything.</p>
+
+
+
+        <hr />
+        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+      </div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer">
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
+      <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../../js/foundation.min.js"></script>
+  <script src="../../js/rayzz-colors.js"></script>
+  <script src="../../js/app.js"></script>
+</footer>
+
+  </body>
+</html>
