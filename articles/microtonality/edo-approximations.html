@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist, but still doesn't use the ZZ method.
+" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url"content="http://www.rayzz.me//articles/microtonality/edo-approximations.html" />
+  <meta property="og:image" content="http://rayzz.me/img/24-cell.jpg" /> <!-- depends on the domain name... -->
+  <meta property="og:description" content="Software developer, mathematician, minimalist, but still doesn't use the ZZ method.
+" />
+
+  <link rel="canonical" href="http://www.rayzz.me//articles/microtonality/edo-approximations.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="http://www.rayzz.me//feed.xml">
+  
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+  <script src="../../js/jquery.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="show-for-medium">
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns show-for-medium medium-2 large-7">
+    &nbsp;
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../index.html">About</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../resume.html">Resume</a>
+  </div>
+  <!--<div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../portfolio.html">Portfolio</a>
+  </div>-->
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../contact.html">
+      Contact
+    </a>
+  </div>
+  <div class="columns show-for-medium medium-2 large-1">
+    &nbsp;
+  </div>
+</nav>
+</div>
+<div class="show-for-small-only">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+  <ul class="menu vertical mobile-nav-menu">
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <li><a href="../../index.html">About</a></li>
+    <li><a href="../../resume.html">Resume</a></li>
+    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+  <header class="title-bar">
+    <div class="title-bar-left">
+      <div class="title-bar-title">
+        <h1>Raymond Zhao</h1>
+        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+      </div>
+    </div>
+    <div class="title-bar-right">
+      <button type="button" class="menu-icon" data-open="offCanvas"></button>
+    </div>
+  </header>
+  <div class="expanded row">
+    <div class="columns small-12 color-bar-1">&nbsp;</div>
+  </div>
+</div>
+
+
+    <div class="expanded row off-canvas-content" data-off-canvas-content>
+      <div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="approximating-just-intonation-with-equal-temperament">Approximating Just Intonation with Equal Temperament</h2>
+
+<p><em>Written March 9, 2019.</em></p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>Just intonation (JI) and equal temperament (ET) are two different tuning systems.
+JI tuning systems use the overtone series to generate intervals to use in musical composition, whereas ET tunings start with a single interval (we only consider the octave in this article) and then divide it into n equal pieces, which we then write as n-ET. For example, 12-ET is the ubiquitous tuning system used in western music,
+with twelve semitones/steps per octave.</p>
+
+<p>This article first extracts the more consonant 5-limit and 7-limit JI intervals, which can be used for tertiary and septimal harmonies, respectively. It then finds which n-ETs give the best approximation for those sets of intervals, and their approximation errors.</p>
+
+<p>In the appendix, we repeat this process, but with 11/8 and 11/9 added, for anyone who wants to tack on some 11-limit xenharmonic intervals in their compositions.</p>
+
+<h3 id="ji-limits">JI Limits</h3>
+
+<p>Considering that JI intervals can all be expressed as reduced fractions, the concept of a limit <script type="math/tex">p</script>, where <script type="math/tex">p</script> is prime, falls naturally into place.
+We say an interval is in <script type="math/tex">p</script>-limit JI if it can be expressed as the fraction <script type="math/tex">n/d</script> where the highest prime in the prime factorizations of both <script type="math/tex">n</script> and <script type="math/tex">d</script> is at most <script type="math/tex">p</script>. Thus, 3-limit JI contains all intervals of the form <script type="math/tex">2^a3^b</script> for all integers <script type="math/tex">a, b</script>.</p>
+
+<p>In a sense, the primes are independent – prime factorizations are unique modulo the order in which the factors are listed, so every prime adds a new “dimension” in a sense. Thus, 3-limit corresponds to a two-dimensional space with an octave and fifth forming its basis, 5-limit corresponds to a three-dimensional space with an octave, fifth, and major third forming its basis, and so on.</p>
+
+<h3 id="relating-limits-back-to-western-music">Relating limits back to Western music</h3>
+
+<p>It turns out that Pythagorean tuning was formed by 3-limit JI – all the intervals are just produced by stacking 3/2 perfect fifths on top of each other until once again
+nearly reaching the original note and being off by a Pythagorean comma (the difference between twelve 3/2 fifths and seven 2/1 octaves).</p>
+
+<p>Eventually, meantone temperament, well temperament, and then equal temperament followed along, but there were still only 12 notes, with the consonances approximating the following JI intervals:<br />
+unison: 1/1, major second: 9/8 or 10/9, minor third: 6/5, major third: 5/4, perfect fifth: 3/2.
+(Note: inverting the fraction and then multiplying the numerator by 2’s until it exceeds the denominator gives the inverted interval, so we don’t need to list all of the intervals.)
+Meanwhile, the tritone and minor second are both more dissonant, and cannot be approximated by fractions with such small numerators and denominators.
+For the purposes of just getting JI consonances in tune though, we can conclude that 12-ET is a good approximation of 5-limit JI, and based on the intervals given above, is fairly nice for writing tertian harmonies.</p>
+
+<p>But, why 5-limit rather than 7-limit? Because 12-ET does not give a good approximation to 7/4 (harmonic seventh), only offering much better approximations to the 5-limit 16/9 (minor seventh) and 15/8 (major seventh) instead, 12-ET is not a good approximation of 7-limit JI. Yet, 7-limit JI is still worth considering, because barbershop quartets sing the harmonic seventh all the time, and blues musicians often flatten sevenths to approximate septimal harmonies anyway!</p>
+
+<h3 id="finding-better-equal-tempered-5-limit-and-7-limit-ji-approximations">Finding better equal-tempered 5-limit and 7-limit JI approximations</h3>
+
+<p>From the previous section, we concluded 12-ET is a good approximator to 5-limit JI, or at least, the more consonant intervals of 5-limit JI, because every JI system contains a countably infinite number of intervals.</p>
+
+<p>However, 12-ET’s major third is around 14 cents sharper than the 5/4 major third of 5-limit JI, leading to the former’s major triad sounding slightly more dissonant than that of the latter. In fact, when choirs “lock in” on a major triad in a 12-ET piece, they’re probably singing it with a slightly flattened major third to push the triad into a JI tuning. As a violinist, when playing major third scales, I also end up adjusting the thirds to be in JI, otherwise they just sound more dissonant.</p>
+
+<p>Considering that most people can tell the difference between notes spaced over 5 cents apart (which is 5/1200th of an Octave), I’ll consider an equal-temperated approximation of the 5-limit <em>amazing</em> if it approximates 3/2, 5/4, 6/5, and 9/8 all within 5 cents, each. Likewise, I’ll consider an equal-tempered approximation of the 7-limit <em>amazing</em> if it approximates 3/2, 5/4, 6/5, 9/8, 7/4, 9/7 (septimal major third), 7/6 (septimal minor third), 8/7 (septimal major second), and 7/5 (septimal tritone) all within 5 cents, each. Note that my definition of <em>amazing</em> here is completely subjective – feel free to call it <em>precise</em> or even just <em>passable</em>.</p>
+
+<p>Using a Python script (<a href="https://github.com/SharkRetriever/microtonal">source here</a>), we get the following results:</p>
+
+<pre>
+12 EDO (3/2: note 7 with error -1.96 cents, 5/4: note 4 with error +13.69 cents, 6/5: note 3 with error -15.64 cents, 9/8: note 2 with error -3.91 cents)
+24 EDO (3/2: note 14 with error -1.96 cents, 5/4: note 8 with error +13.69 cents, 6/5: note 6 with error -15.64 cents, 9/8: note 4 with error -3.91 cents)
+36 EDO (3/2: note 21 with error -1.96 cents, 5/4: note 12 with error +13.69 cents, 6/5: note 9 with error -15.64 cents, 9/8: note 6 with error -3.91 cents)
+41 EDO (3/2: note 24 with error +0.48 cents, 5/4: note 13 with error -5.83 cents, 6/5: note 11 with error +6.31 cents, 9/8: note 7 with error +0.97 cents)
+53 EDO (3/2: note 31 with error -0.07 cents, 5/4: note 17 with error -1.41 cents, 6/5: note 14 with error +1.34 cents, 9/8: note 9 with error -0.14 cents)
+106 EDO (3/2: note 62 with error -0.07 cents, 5/4: note 34 with error -1.41 cents, 6/5: note 28 with error +1.34 cents, 9/8: note 18 with error -0.14 cents)
+159 EDO (3/2: note 93 with error -0.07 cents, 5/4: note 51 with error -1.41 cents, 6/5: note 42 with error +1.34 cents, 9/8: note 27 with error -0.14 cents)
+
+12 EDO (3/2: note 7 with error -1.96 cents, 5/4: note 4 with error +13.69 cents, 6/5: note 3 with error -15.64 cents, 9/8: note 2 with error -3.91 cents, 7/4: note 10 with error +31.17 cents, 9/7: note 4 with error -35.08 cents, 7/6: note 3 with error +33.13 cents, 7/5: note 6 with error +17.49 cents)
+24 EDO (3/2: note 14 with error -1.96 cents, 5/4: note 8 with error +13.69 cents, 6/5: note 6 with error -15.64 cents, 9/8: note 4 with error -3.91 cents, 7/4: note 19 with error -18.83 cents, 9/7: note 9 with error +14.92 cents, 7/6: note 5 with error -16.87 cents, 7/5: note 12 with error +17.49 cents)
+36 EDO (3/2: note 21 with error -1.96 cents, 5/4: note 12 with error +13.69 cents, 6/5: note 9 with error -15.64 cents, 9/8: note 6 with error -3.91 cents, 7/4: note 29 with error -2.16 cents, 9/7: note 13 with error -1.75 cents, 7/6: note 8 with error -0.20 cents, 7/5: note 17 with error -15.85 cents)
+72 EDO (3/2: note 42 with error -1.96 cents, 5/4: note 23 with error -2.98 cents, 6/5: note 19 with error +1.03 cents, 9/8: note 12 with error -3.91 cents, 7/4: note 58 with error -2.16 cents, 9/7: note 26 with error -1.75 cents, 7/6: note 16 with error -0.20 cents, 7/5: note 35 with error +0.82 cents)
+99 EDO (3/2: note 58 with error +1.08 cents, 5/4: note 32 with error +1.57 cents, 6/5: note 26 with error -0.49 cents, 9/8: note 17 with error +2.15 cents, 7/4: note 80 with error +0.87 cents, 9/7: note 36 with error +1.28 cents, 7/6: note 22 with error -0.20 cents, 7/5: note 48 with error -0.69 cents)
+171 EDO (3/2: note 100 with error -0.20 cents, 5/4: note 55 with error -0.35 cents, 6/5: note 45 with error +0.15 cents, 9/8: note 29 with error -0.40 cents, 7/4: note 138 with error -0.40 cents, 9/7: note 62 with error +0.00 cents, 7/6: note 38 with error -0.20 cents, 7/5: note 83 with error -0.06 cents)
+</pre>
+
+<p>Note that it uses the term EDO (equal divison of the octave) instead of ET, because firstly, the script only considers equal divisions of the octave, and secondly,
+EDOs are slightly more general than ETs. For the purposes of this article, the difference is negligible.</p>
+
+<h3 id="analysis-and-conclusions">Analysis and Conclusions</h3>
+
+<p>53-ET is the lowest amazing ET for 5-limit JI, and 72-ET is the lowest amazing ET for 7-limit JI, and is also amazing for 5-limit JI.
+However, these temperaments approximate the just intonation systems so well that they introduce commas (small intervals such as 256/243) back into the music.
+Thus, compositions in 53-ET and 72-ET must watch out for accidental comma drift, where the entire piece unintentionally starts to slide down by a comma every repetition of a chord progression.</p>
+
+<p>As a compromise, we can instead pick lower temperaments such as 36-ET or 41-ET, which I unfortunately don’t know nearly as much about.
+However, I have noticed others choosing the much more manageable 19-ET or 31-ET instead, which are both meantone temperaments. In this case, there are no comma drifts,
+but there is still an uneven alternating step size – anyone who wants to play a 12-note chromatic scale on these temperaments will quickly realize that half steps come in two sizes. For example, some half steps in 19-ET could take two keys, whereas others take just one.</p>
+
+<p>Thus, for anyone willing to explore beyond just 12-ET, but also wanting to keep their consonances in tune, there are 
+19, 24, 31, 36, 41, 53, 72, 99, and 171-ETs to consider.
+More specifically, 41-ET and 53-ET are strictly better 5-limit approximations than 12-ET, and 36-ET, 72-ET, 99-ET, and 171-ET are strictly better 7-limit approximations than 12-ET.</p>
+
+<h3 id="appendix-for-11-limit-more-specifically-118-and-119-fanatics">Appendix: For 11-limit (more specifically: 11/8 and 11/9) fanatics</h3>
+
+<p>11-limit JI is the first JI system with xenharmonic intervals, or intervals completely foreign to Western music. 
+Whereas many 11-limit intervals sound very close to the 7-limit or 5-limit seconds, thirds, fifths, and so on (at least to me), the 11/8 and 11/9 are distinct from all of them.</p>
+
+<p>11/8 is a superfourth, residing between the 4/3 perfect fourth and the 7/5 tritone. I’ve heard it being called the Alphorn fa, so it must be special. 
+More seriously though, it’s a fairly dissonant fourth, but when used as an eleventh (11/4), sounds brighter than 8/3, and not as dissonant.
+Meanwhile, 11/9 is a neutral third, residing between the 6/5 minor third and 5/4 major third. Thus, we add 11/8 and 11/9 into the Python script and see what shows up:</p>
+
+<pre>
+12 EDO (3/2: note 7 with error -1.96 cents, 5/4: note 4 with error +13.69 cents, 6/5: note 3 with error -15.64 cents, 9/8: note 2 with error -3.91 cents, 7/4: note 10 with error +31.17 cents, 9/7: note 4 with error -35.08 cents, 7/6: note 3 with error +33.13 cents, 7/5: note 6 with error +17.49 cents, 11/8: note 6 with error +48.68 cents, 11/9: note 3 with error -47.41 cents)
+24 EDO (3/2: note 14 with error -1.96 cents, 5/4: note 8 with error +13.69 cents, 6/5: note 6 with error -15.64 cents, 9/8: note 4 with error -3.91 cents, 7/4: note 19 with error -18.83 cents, 9/7: note 9 with error +14.92 cents, 7/6: note 5 with error -16.87 cents, 7/5: note 12 with error +17.49 cents, 11/8: note 11 with error -1.32 cents, 11/9: note 7 with error +2.59 cents)
+48 EDO (3/2: note 28 with error -1.96 cents, 5/4: note 15 with error -11.31 cents, 6/5: note 13 with error +9.36 cents, 9/8: note 8 with error -3.91 cents, 7/4: note 39 with error +6.17 cents, 9/7: note 17 with error -10.08 cents, 7/6: note 11 with error +8.13 cents, 7/5: note 23 with error -7.51 cents, 11/8: note 22 with error -1.32 cents, 11/9: note 14 with error +2.59 cents)
+72 EDO (3/2: note 42 with error -1.96 cents, 5/4: note 23 with error -2.98 cents, 6/5: note 19 with error +1.03 cents, 9/8: note 12 with error -3.91 cents, 7/4: note 58 with error -2.16 cents, 9/7: note 26 with error -1.75 cents, 7/6: note 16 with error -0.20 cents, 7/5: note 35 with error +0.82 cents, 11/8: note 33 with error -1.32 cents, 11/9: note 21 with error +2.59 cents)
+144 EDO (3/2: note 84 with error -1.96 cents, 5/4: note 46 with error -2.98 cents, 6/5: note 38 with error +1.03 cents, 9/8: note 24 with error -3.91 cents, 7/4: note 116 with error -2.16 cents, 9/7: note 52 with error -1.75 cents, 7/6: note 32 with error -0.20 cents, 7/5: note 70 with error +0.82 cents, 11/8: note 66 with error -1.32 cents, 11/9: note 42 with error +2.59 cents)
+198 EDO (3/2: note 116 with error +1.08 cents, 5/4: note 64 with error +1.57 cents, 6/5: note 52 with error -0.49 cents, 9/8: note 34 with error +2.15 cents, 7/4: note 160 with error +0.87 cents, 9/7: note 72 with error +1.28 cents, 7/6: note 44 with error -0.20 cents, 7/5: note 96 with error -0.69 cents, 11/8: note 91 with error +0.20 cents, 11/9: note 57 with error -1.95 cents)
+</pre>
+
+<p>72-ET thus shows up as the first amazing approximation of these intervals, with 48-ET or even 24-ET as simpler (but not as amazing) alternatives.</p>
+
+<p>However, whereas the pattern for 7-limit JI (strictly better) approximations was 72 to 99 to 171, here it is 72 to 144 to 198, which means that 99-ET and 171-ET are better for people working only with 7-limit intervals, but 144-ET and 198-ET are better for those also adding in 11/8 and 11/9 along with those seventh intervals. Due to how small the errors are by 72-ET though, I’d say 72-ET is amazing enough for both 7-limit and 11-limit (or more specifically 7-limit plus 11/8 and 11/9) JI.</p>
+
+
+        <hr />
+        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+      </div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>
+    </div>
+    
+    <footer class="site-footer">
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
+      <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/SharkRetriever"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: SharkRetriever" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Raymond Zhao, 2015&ndash;2018</span>
+    </div>
+  </div>
+  
+  <script src="../../js/foundation.min.js"></script>
+  <script src="../../js/rayzz-colors.js"></script>
+  <script src="../../js/app.js"></script>
+</footer>
+
+  </body>
+</html>
