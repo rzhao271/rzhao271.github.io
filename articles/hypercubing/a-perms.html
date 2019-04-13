@@ -186,15 +186,16 @@ blocks. However, considering how the algorithms all use y rotations, and are rec
 
 <h3 id="movecount-analysis">Movecount analysis</h3>
 
+<p><em>(Last revised April 13, 2019)</em></p>
+
 <p>The regular A-perm takes 12 moves using a quarter-turn metric (QTM). The A4-CW then takes 12(2) + 1(2) = 26 turns, and the
-A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">n \ge 5</script>.
-Therefore, the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Theta(2^n)</script>. In particular, the A6-CW takes 122 moves, and the A7-CW takes exactly 250 moves!</p>
+A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">5 \le n \le 7</script>. For <script type="math/tex">n \ge 8</script>, the recurrence holds if the setup moves between the <script type="math/tex">A_{n-1}</script>-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the <script type="math/tex">A_n</script>-CW is at least double of that required for the <script type="math/tex">A_{n-1}</script>-CW, and so the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Omega(2^n)</script>.</p>
 
-<p>In other words, the move count of the <script type="math/tex">A_n</script>-CW grows exponentially with respect to <script type="math/tex">n</script>.
-Considering that the number of <script type="math/tex">n</script>-c pieces is exactly <script type="math/tex">2^n</script>, the number of moves needed to solve the Rubik’s cube thus grows exponentially, too.</p>
+<p>In other words, the move count of the <script type="math/tex">A_n</script>-CW grows (at best) exponentially with respect to <script type="math/tex">n</script>. In particular, the A6-CW takes 122 moves, and the A7-CW takes exactly 250 moves!</p>
 
-<p>Therefore, though the N-dimensional A-perm provides a solution to the N-dimensional Rubik’s cube by slowly permuting <script type="math/tex">n</script>-c pieces of increasing <script type="math/tex">n</script>, the solution becomes
-exponentially more tedious as N increases, disincentivizing some hypercubers (such as me) from actually attempting these puzzles in full.</p>
+<p>Recall a piece is an <script type="math/tex">n</script>-c piece (e.g. a 3c piece) if it contains <script type="math/tex">n</script> stickers on it. Considering that the number of <script type="math/tex">n</script>-c pieces in an <script type="math/tex">n</script>-dimensional Rubik’s cube is exactly <script type="math/tex">2^n</script>, the number of moves needed to solve the <script type="math/tex">n</script>-dimensional Rubik’s cube using commutators likely grows at best exponentially, too.</p>
+
+<p>Therefore, though the <script type="math/tex">n</script>-dimensional A-perms do provide a solution to the <script type="math/tex">N</script>-dimensional Rubik’s cube by slowly permuting <script type="math/tex">n</script>-c pieces of increasing <script type="math/tex">n</script> where <script type="math/tex">3 \le n \le N</script>, the solution becomes exponentially more tedious as <script type="math/tex">N</script> increases, serving as a disincentive to those wanting to attempt these higher-dimensional puzzles.</p>
 
 
 
