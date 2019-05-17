@@ -100,7 +100,95 @@
 
 
     <div class="expanded row off-canvas-content" data-off-canvas-content>
-      <div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
+      <div class="columns small-12 content-wrapper">
+        <section class="main-content">
+          <h2 id="the-rkt-trick">The RKT Trick</h2>
+
+<p>RKT, formerly (and formally) written out as &lt;RK, T-&gt;, is a 2-gen approach to solving cell-turning puzzles with regular cells.
+A regular cell is a vertex-transitive cell that is comprised of regular facets. For example, a tetrahedron, cube, and hexagonal tiling are all examples of a regular cell.</p>
+
+<h3 id="the-notation">The notation</h3>
+
+<p>On the four-dimensional Rubik’s cube, turns are described using pieces with two colours, called 2c pieces.
+I decided to label the cells U, R, L, F, B, D, T, and K, where T stood for <em>top</em>, and K stood for <em>kata</em>. I would’ve named the T cell A instead for <em>ana</em>, but I kept getting A and K confused, so
+I kept the naming scheme as is. Below is an image of the hypercube.</p>
+
+<p><img src="/img/scheme.png" alt="Image of the naming scheme. The cell at the centre is T and the cell not shown is K." width="300px" /></p>
+
+<p>The yellow cell is U, the green cell is F, the orange cell is R, the red cell is L, the blue cell is B, the white cell is D, and the violet cell is T.</p>
+
+<p>Notice that the K cell (which should be cyan) is not visible. 
+The developers of MagicCube4D intentionally decided to keep the K cell from showing up, since otherwise, due to projection (in other words, <em>math</em>), 
+the view of the rest of the puzzle would be blocked by the K cell alone.
+Fortunately, the cell is still accessible by 4D rotations, and so the puzzle is still fully functional.</p>
+
+<p>Then, Given two adjacent cells X and Y, XY means to turn the X cell clockwise 90 degrees along the axis of the 2c piece between X and Y.
+Thus, RK describes the following turn:</p>
+
+<p><img src="/img/RK.png" alt="An RK turn executed on the 4D Rubik's cube. The R cell stickers stay on the R cell." width="300px" /></p>
+
+<p>T- then stands for the set of all turns of the form TX, where X is a cell adjacent to T.
+Similarly, -T stands for the set of all turns of the form XT, where X is a cell adjacent to T.</p>
+
+<p>Thus, RKT essentially stands for the use of the RK and T- turns.</p>
+
+<h3 id="the-goal-of-rkt">The goal of RKT</h3>
+
+<p>RKT allows the solver to move around pieces on the T cell without disturbing other cells. That is, the T cell essentially becomes a 3D face-turning puzzle.
+Thus, for the 4D Rubik’s cube, RKT allows the solver to treat the T cell like a 3D Rubik’s cube.</p>
+
+<p>Consider a clockwise A Perm. On the 3D Rubik’s cube, an algorithm is x’ R’ D R’ U2 R D’ R’ U2 R2 x. We want to transform this to the RKT equivalent. However, we can only use RK and T- turns.
+The trick is to first consider how the A perm would be executed if only the move R, along with any rotation, could be used.
+x’ R’ D R’ U2 R D’ R’ U2 R2 x then becomes x’ R’ z’ R z R’ z R2 z’ R z’ R’ z R’ z R2 z’ R2 x.</p>
+
+<p>Now, to translate this into RKT, replace R with RK, and z with TF, since z is equivalent to rotating the entire cube in the same direction as an F turn.
+The x rotations can technically be replaced with TRs, too, though they serve more as decoration to get the next two images in a better view, so I’ll leave them as is.
+Thus, the RKT A Perm is x’ RK’ TF’ RK TF RK’ TF RK2 TF’ RK TF’ RK’ TF RK’ TF RK2 TF’ RK2 x.</p>
+
+<p>A picture of executing the regular A perm on a 4D Rubik’s cube is as follows, where R=RK, D=DK, and U=UK:</p>
+
+<p><img src="/img/A3.png" alt="A regular A perm executed on the 4D Rubik's cube. There are three 3x1x1 strips permuted" width="300px" /></p>
+
+<p>A picture of executing the RKT A perm on a 4D Rubik’s cube is as follows:</p>
+
+<p><img src="/img/A4.png" alt="An RKT A perm executed on the 4D Rubik's cube. There are only three 4c pieces permuted." width="300px" /></p>
+
+<p>Thus, RKT has only modified the T-cell pieces, as desired. Thus, RKT is especially good for algorithms that only need to affect 4c pieces.</p>
+
+<h3 id="generalizing-rkt-by-varying-face-turns">Generalizing RKT by varying face turns</h3>
+
+<p>There is no requirement that the T cell is the one being treated as a 3D Rubik’s cube. 
+In fact, by using TU and D- instead of RK and T-, one can solve 3c/4c pairs using “RKT” versions of F2L inserts.
+For example, consider the insertion of the 3c/4c pair on the DRT edge by “RKT” U R U’ R’, where instead of RK, we use TU, and instead of T-, we use D-:</p>
+
+<p>Before:</p>
+
+<p><img src="/img/s2l-insert-1.png" alt="An S2L (3c/4c) slot before insertion." width="300px" /></p>
+
+<p>After:</p>
+
+<p><img src="/img/s2l-insert-2.png" alt="An S2L slot after insertion." width="300px" /></p>
+
+<p>Notice that even though TU and D- are the turns being used, the algorithm is still considered an “RKT” version of the U R U’ R’. The reasoning behind such naming is because RKT is not
+just a set of turns, but a general strategy to treat one cell as though it were its own 3D puzzle.</p>
+
+<p>In fact, RKT can also be used on the 4D pyraminx – the pictures below show an “RKT” edge flip applied onto a 4D pyraminx:</p>
+
+<p><img src="/img/rkt-pyra-edge-twist.png" alt="An RKT edge twist executed on the 4D pyraminx. There are only two 3c pieces flipped." width="300px" /></p>
+
+<p>However, it turns out RKT is actually not necessary for the 4D pyraminx – the regular edge flip achieves the exact same result from that angle.</p>
+
+<h3 id="generalizing-rkt-to-higher-dimensions">Generalizing RKT to higher dimensions</h3>
+
+<p>Generalizing RKT to higher dimensions allows one to treat the inner 3x3x3 block of a hypercell on the 3^5 as its own 3x3x3 Rubik’s cube.
+However, considering how ugly the transformation is for the RKT A perm on the 4D Rubik’s cube, the transformation needed for the 5D Rubik’s cube only gets worse.
+In fact, the number of moves ends up growing exponentially. Thus, RKT should be used sparingly, especially for 5c and up pieces on 5D+ Rubik’s cubes.</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
       
       <div class="columns small-12 medium-9 large-7" id="main">
         <h2 id="the-rkt-trick">The RKT Trick</h2>
@@ -189,7 +277,7 @@ In fact, the number of moves ends up growing exponentially. Thus, RKT should be 
         <hr />
         <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
       </div>
-      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
     </div>
     
     <footer class="site-footer">

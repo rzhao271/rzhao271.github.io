@@ -1,5 +1,5 @@
 body {
-  font-size: 16px;
+  font-size: 18px;
   background: #FFF;
 }
 
@@ -17,6 +17,10 @@ h3 {
 
 h4 {
   font-size: 1.15em;
+}
+
+p {
+  font-size: 1em;
 }
 
 .color-bar-1 {
@@ -100,10 +104,6 @@ code {
   text-align: left;
 }
 
-footer {
-  background: #EEE;
-}
-
 /* https://stackoverflow.com/a/39509165 */
 .off-canvas-content ul {
 	position: relative;
@@ -129,11 +129,15 @@ footer {
   height: 100vh;
 }
 
-footer {
+.site-footer {
   clear: both;
   position: relative;
   height: 10em;
   margin-top: -10em;
+}
+
+.site-footer, .site-footer > div {
+  background: #EEE;
 }
 
 .resume-heading {
@@ -163,4 +167,16 @@ footer {
 
 .resume-project-name, .resume-company-name {
   font-weight: bold;
+}
+
+.main-content {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-content-resume {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
 }
