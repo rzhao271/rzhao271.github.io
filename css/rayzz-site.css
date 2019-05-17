@@ -1,6 +1,19 @@
 body {
-  font-size: 18px;
   background: #FFF;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+  body {
+    font-size: 18px;
+  }
 }
 
 h1 {
@@ -176,7 +189,7 @@ code {
 }
 
 .main-content-resume {
-  max-width: 900px;
+  max-width: 700px;
   width: 100%;
   margin: 0 auto;
 }
