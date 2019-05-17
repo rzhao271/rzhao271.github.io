@@ -132,8 +132,8 @@ footer {
 footer {
   clear: both;
   position: relative;
-  height: 8em;
-  margin-top: -8em;
+  height: 10em;
+  margin-top: -10em;
 }
 
 .resume-heading {
