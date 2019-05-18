@@ -145,8 +145,8 @@ code {
 .site-footer {
   clear: both;
   position: relative;
-  height: 10em;
-  margin-top: -10em;
+  height: 12em;
+  margin-top: -12em;
 }
 
 .site-footer, .site-footer > div {
