@@ -104,6 +104,8 @@
         <section class="main-content">
           <h2 id="n-dimensional-a-permutations">N-Dimensional A Permutations</h2>
 
+<p><em>Last modified April 13, 2019</em>.</p>
+
 <p>The A permutation (A-perm) is an algorithm on the 3x3x3 Rubik’s cube that switches around 3 corner pieces.
 When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ B2 R2) on the solved Rubik’s cube, it changes three corner pieces as follows:<br />
 <img src="/img/A-perm.jpg" alt="A regular A-perm on a 3x3x3 Rubik's cube" width="400px" /></p>
@@ -184,8 +186,6 @@ Knowing which U* to use on each step to obtain a desired <script type="math/tex"
 blocks. However, considering how the algorithms all use y rotations, and are recursive, this task is non-trivial.</p>
 
 <h3 id="movecount-analysis">Movecount analysis</h3>
-
-<p><em>(Last revised April 13, 2019)</em></p>
 
 <p>The regular A-perm takes 12 moves using a quarter-turn metric (QTM). The A4-CW then takes 12(2) + 1(2) = 26 turns, and the
 A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">5 \le n \le 7</script>. For <script type="math/tex">n \ge 8</script>, the recurrence holds if the setup moves between the <script type="math/tex">A_{n-1}</script>-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the <script type="math/tex">A_n</script>-CW is at least double of that required for the <script type="math/tex">A_{n-1}</script>-CW, and so the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Omega(2^n)</script>.</p>
@@ -206,6 +206,8 @@ A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex"
       <div class="columns small-12 medium-9 large-7" id="main">
         <h2 id="n-dimensional-a-permutations">N-Dimensional A Permutations</h2>
 
+<p><em>Last modified April 13, 2019</em>.</p>
+
 <p>The A permutation (A-perm) is an algorithm on the 3x3x3 Rubik’s cube that switches around 3 corner pieces.
 When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ B2 R2) on the solved Rubik’s cube, it changes three corner pieces as follows:<br />
 <img src="/img/A-perm.jpg" alt="A regular A-perm on a 3x3x3 Rubik's cube" width="400px" /></p>
@@ -286,8 +288,6 @@ Knowing which U* to use on each step to obtain a desired <script type="math/tex"
 blocks. However, considering how the algorithms all use y rotations, and are recursive, this task is non-trivial.</p>
 
 <h3 id="movecount-analysis">Movecount analysis</h3>
-
-<p><em>(Last revised April 13, 2019)</em></p>
 
 <p>The regular A-perm takes 12 moves using a quarter-turn metric (QTM). The A4-CW then takes 12(2) + 1(2) = 26 turns, and the
 A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">5 \le n \le 7</script>. For <script type="math/tex">n \ge 8</script>, the recurrence holds if the setup moves between the <script type="math/tex">A_{n-1}</script>-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the <script type="math/tex">A_n</script>-CW is at least double of that required for the <script type="math/tex">A_{n-1}</script>-CW, and so the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Omega(2^n)</script>.</p>
