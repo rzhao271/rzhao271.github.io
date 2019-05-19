@@ -36,6 +36,11 @@ p {
   font-size: 1em;
 }
 
+.site-footer {
+  font-size: 0.8em;
+  text-align: center;
+}
+
 .color-bar-1 {
   /* Indigo 800 */
   background: #283593;
