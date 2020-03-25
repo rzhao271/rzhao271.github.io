@@ -111,46 +111,36 @@
         <section class="main-content">
           <h2 id="4d-pyraminx-solution">4D Pyraminx Solution</h2>
 
+<p><em>Article last modified on March 25, 2020.</em></p>
+
 <p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The 4D pyraminx is the four-dimensional analog of the regular WCA-approved 3D pyraminx.
-Surprisingly, not much changes even though we have moved up a dimension.
  <em>This tutorial assumes you already know how to solve a 3D pyraminx.</em></p>
 
 <h3 id="the-strategy">The strategy</h3>
 
-<p>The strategy I’ll show to solve the 4D pyraminx is very similar to that a beginner uses to solve the regular 3D pyraminx.</p>
+<p>The 4D pyraminx can be solved in a way similar to the 3D pyraminx:</p>
 
 <ol>
-  <li>Solve the tips and centers</li>
-  <li>Solve the edges of the first layer</li>
-  <li>Solve the edges of the last layer</li>
+  <li>Solve the trivial tips and centers</li>
+  <li>Solve the edges</li>
 </ol>
 
-<p>Using this method, a solution of under 100 moves is achievable with not much effort.</p>
+<p>Using this approach, a solution of under 100 moves is easily achievable.</p>
 
 <h3 id="navigation-and-turning">Navigation and turning</h3>
 
-<p>The puzzle can be found in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, under the puzzle “{3,3,3} Simplex” with option 3, which means “3 layers”.</p>
+<p>The puzzle is in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, and can be accessed under “Puzzle” » “{3,3,3} Simplex” » “3”.</p>
 
-<p>To rotate the puzzle in 4D, change the rotation style to “rotate by cubie”, and then control click a cubie to rotate that cubie to the centre.
-Also, drag the “Eye W Scale” slider all the way to the left, or one or two increments off from the leftmost setting. With this setting, centering the puzzle on a cell will reveal all five
-cells, as we will see later.</p>
+<p>To rotate the puzzle in 4D, change the rotation style to “rotate by cubie”, and then control-click a cubie to rotate that cubie to the center.
+Also, drag the “Eye W Scale” slider all the way to the left. With this setting, centering the puzzle on a cell will reveal all five cells.</p>
 
-<p>To turn a cell, right click on a cell’s sticker. The cell clicked then turns clockwise around a plane whose normal vector goes outward through the clicked sticker.
-If that description sounds convoluted, then the best thing to do to get used to the way the puzzle rotates is to solve one-move scrambles and become more comfortable with the way the puzzle
-is represented by the program.
-Also, left-clicking a cell makes it turn counterclockwise by the same plane.</p>
+<p>To turn a cell, left-click or right-click a cell’s sticker. 
+For this puzzle, every vertex is opposite to some cell. Thus, to turn a vertex, we can click on a sticker on the opposite cell while holding down the “2” and/or “3” keys on the keyboard.</p>
 
-<p>The main difference between the 4D pyraminx (within MC4D), and a regular pyraminx, is that the former is cell-turning, whereas the latter is vertex-turning.
-Since the former is cell-turning, we need a way to turn the tips instead.</p>
-
-<p>Luckily, every vertex is opposite to some cell, and so we can click on a sticker on that cell while holding 2 and/or 3 on the keyboard to turn the vertex opposite to that cell.
-However, the way the vertex turns is not the most predictable, and so practicing on one-move scrambles, or just turning the puzzle while it is solved, is still the recommended advice here.</p>
-
-<p>There are two views that we consider for this puzzle: vertex-first, and cell-first.</p>
-
-<p>The vertex-first view places a vertex in the middle, as follows:</p>
+<p>There are two views that we can use for this puzzle: vertex-first, and cell-first.
+The vertex-first view places a vertex in the middle, as follows:</p>
 
 <p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
@@ -158,96 +148,52 @@ However, the way the vertex turns is not the most predictable, and so practicing
 
 <p><img src="/img/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
 
-<p>If you do not see all 5 cells, then drag the “Eye W Scale” slider all the way to the left, or one or two increments off from the leftmost setting.</p>
+<p>The cell-first view is more confusing, due to the outer cells being inverted. This view does not have to be used for the solve.</p>
 
 <h3 id="the-tips-and-centers">The tips and centers</h3>
 
-<p>Place the puzzle in a vertex-centered view so that one of the vertices is facing upwards (rather than downwards).</p>
-
-<p>To solve the vertex that is facing up, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center,
-the 4D pyraminx provides us with one “true center” per cell, which gives an indication as to how the tips and centers should be oriented. The next picture highlights 4 of the 5 true centers:</p>
+<p>To solve a tip or center, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center, the 4D pyraminx provides us with one “true center” per cell, which indicates the orientation of the tips and centers. The next picture highlights 4 of the 5 true centers:</p>
 
 <p><img src="/img/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
 
-<p>The next picture highlights which pieces we should consider if we want to turn the vertex that is facing upwards:</p>
+<p>Note that all four outer tips can be solved in at most one turn, each. All four outer centers can also be solved in at most one turn, each.</p>
 
-<p><img src="/img/4d-pyra-turning-pieces.png" alt="A 4D pyraminx with the up-most center and tip, as well as stickers that the the solver should click to twist them, all highlighted" width="300px" /></p>
+<p>For any outer vertex, any clickable sticker on the cell opposite to that vertex can be clicked while holding down the “3” and/or “2” keys, in order to turn the tip and/or center, respectively.</p>
 
-<p>The center piece is in lime, the vertex is in periwinkle blue, and the <em>stickers</em> (not pieces) to adjust the vertex and/or center are in pink, because why not.</p>
+<p>Since there are five vertices, after solving the outer four vertices, we can rotate the puzzle in 4D to displace the central vertex. Control-clicking any outer vertex works, since that vertex goes to the center of the puzzle, displacing the central vertex. The central vertex then displaces a former outer vertex, and can now be solved.</p>
 
-<p>To turn the lime center, hold 2 on the keyboard while clicking on one of the pink stickers. To turn the periwinkle blue vertex, hold 3 instead of 2.
-Holding both 2 and 3 at the same time results in turning both vertex and center in the same direction. However, all vertices/centers can be solved in at most one turn, considering how
-there are 13 possible stickers to click on to adjust each upwards-facing tip/center. Experimentation is key to finishing this step efficiently.</p>
-
-<p>For example, if one of the tips or centers seems to be in a double swap, clicking on one of the pink edge stickers has the potential to fix it in one turn, granted it is the correct edge
-out of three.</p>
-
-<p>Also, remember that there are five, not four, vertices. To access the last vertex in the middle of the puzzle, 
-rotate the puzzle in 4D by control-clicking the top vertex.
-That vertex will then go to the middle of the puzzle, pushing the last vertex to the bottom. Then, we can rotate the puzzle in 3D so that vertex now faces up, and solve it as before.</p>
-
-<p>When all the centers and tips are solved, the puzzle should look like the following:</p>
+<p>When all the tips and centers are solved, the puzzle should look like the following:</p>
 
 <p><img src="/img/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
 
-<h3 id="the-first-layer-edges">The first layer edges</h3>
+<h3 id="the-edges">The edges</h3>
 
-<p>To solve the edges, it turns out we can just use regular pyraminx algorithms without using <a href="rkt.html">RKT</a>!</p>
+<p>To solve the edges, it turns out we can just use regular pyraminx algorithms such as the sledgehammer (R’ L R L’) or sexy move (R U R’ U’), along with their mirrors and inverses. There are 10 edges to solve in total, rather than 6.</p>
 
-<p>Most of the time, we do not even need to use an actual algorithm beyond the sledgehammer or sexy move. The point here is to pick a cell to use as the first layer, and then find edges
-to insert into it. Whereas a regular pyraminx requires 3 edges to be inserted, the 4D pyraminx requires 6 edges to be inserted, which are highlighted in one colour each, here:</p>
+<p>To help speed up this step, setup moves and/or rotations can be used to place pieces more efficiently. The first layer does <em>not</em> have to be solved first. This step can be completed using just the vertex-first view.</p>
 
-<p><img src="/img/4d-pyra-first-layer-goals.png" alt="A 4D pyraminx with first layer edges highlighted" width="300px" /></p>
-
-<p>This step is intuitive and usually involves applications of four-move sexy-move-like algorithms. 
-Figuring out those algorithms is left as an exercise to the reader.
-A trick is to rotate the puzzle if one insertion strategy does not work. Other than setup moves, the only turns used here should be performed while holding down 2 (and optionally, 3) on the keyboard.</p>
-
-<p>For pieces that are already on the first layer and oriented correctly, but permuted wrong, one can switch the view to cell-first:</p>
+<p>However, we can opt to switch to a cell-first view for pieces that are already on a cell and oriented correctly, but permuted incorrectly:</p>
 
 <p><img src="/img/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
 
-<p>In this case, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly;
-rather than resting between the green, red, and orange centers, it rests between the green, red, and yellow centers.</p>
+<p>In this example, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly. Rather than resting between the green, red, and orange centers, the edge rests between the green, red, and yellow centers.</p>
 
-<p>An anti-sune algorithm will move the edge as follows, which is what we want:</p>
+<p>An anti-sune algorithm will solve the edge, as demonstrated by the arrows:</p>
 
 <p><img src="/img/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
 
-<p>In fact, using the cell-first view allows one to permute pieces on the centered cell as though they were on a pyraminx, but with the caveat that stickers on the centered cell cannot be moved off of that cell without using setup moves.
-Thus, the sune, flip, and other LBL or Keyhole LL algorithms can be used.</p>
-
-<p>After finishing the first layer edges, the puzzle will look something like the following:</p>
-
-<p><img src="/img/4d-pyra-first-layer-done.png" alt="4D pyraminx with first layer solved" width="300px" /></p>
-
-<p>Note that the top corner is misoriented due to setup moves used while inserting the edges.
-This implies that not all corners need to be solved beforehand, but doing so helps pick which first layer to solve more easily.
-Also, note that I ended with the puzzle oriented in this view, so that is why the orange cell shows up, but not the red cell.</p>
-
-<p>For (mostly my own) reference, I have used 37 moves so far.</p>
-
-<h3 id="the-last-layer-edges">The last layer edges</h3>
-
-<p>The strategy is the same as the first layer edges, although here, using a cell-first view along with setup moves will usually be more efficient, considering how the first layer cannot
-be disturbed after cycling edges of the last layer. There are only four more edges to solve. After this step, you will have finished solving the puzzle!</p>
-
-<p>For (mostly my own) reference, I used 61 moves to solve the scramble that I used for this tutorial.
-This number is much lower than the 600-something moves I need to solve the 4D Rubik’s cube.</p>
-
-<p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.</p>
-
 <h3 id="the-last-edge">The last edge</h3>
 
-<p>Unlike the regular pyraminx, it is possible for one edge to remain unsolved before the end of the solve. 
-The hint here is to flip two edges, use some setup moves to set up the two unsolved edges properly, and then flip the two edges again, solving both of them after undoing the setup moves.
-Here is a picture of the case for those interested:</p>
+<p>Unlike the 3D pyraminx, it is possible for one edge to remain unsolved.</p>
 
 <p><img src="/img/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
 
-<p>To avoid this case, consider not leaving singly-twisted edges to the very end. Another approach is to set up the last three edges properly, so that after the 3-cycle, two edges
-end up with two stickers flipped each. Then, the algorithm that flips two edges can be used. This approach saves some moves because the flipping algorithm only has to be performed once,
-not twice.</p>
+<p>A hint is that doing the following algorithm: 1. sledgehammer, 2. edge twist, 3. inverse sledgehammer, 4. inverse edge twist, flips two edges. With commutator notation, we can express that algorithm as [sledgehammer, edge twist] or [[R’, L], edge twist].</p>
+
+<p>Thus, one can use this algorithm to first flip the twisted edge and a solved edge, resulting in a case where two edges are permuted correctly, but have only 1 of 3 stickers solved. Then, the puzzle can be solved using that algorithm again, along with some setup moves.</p>
+
+<p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.
+If the wiki is down, feel free to make a post in the <a href="https://groups.google.com/forum/#!forum/hypercubing">hypercubing</a> Google group about your solve instead.</p>
 
 
           <hr />
@@ -259,46 +205,36 @@ not twice.</p>
       <div class="columns small-12 medium-9 large-7" id="main">
         <h2 id="4d-pyraminx-solution">4D Pyraminx Solution</h2>
 
+<p><em>Article last modified on March 25, 2020.</em></p>
+
 <p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The 4D pyraminx is the four-dimensional analog of the regular WCA-approved 3D pyraminx.
-Surprisingly, not much changes even though we have moved up a dimension.
  <em>This tutorial assumes you already know how to solve a 3D pyraminx.</em></p>
 
 <h3 id="the-strategy">The strategy</h3>
 
-<p>The strategy I’ll show to solve the 4D pyraminx is very similar to that a beginner uses to solve the regular 3D pyraminx.</p>
+<p>The 4D pyraminx can be solved in a way similar to the 3D pyraminx:</p>
 
 <ol>
-  <li>Solve the tips and centers</li>
-  <li>Solve the edges of the first layer</li>
-  <li>Solve the edges of the last layer</li>
+  <li>Solve the trivial tips and centers</li>
+  <li>Solve the edges</li>
 </ol>
 
-<p>Using this method, a solution of under 100 moves is achievable with not much effort.</p>
+<p>Using this approach, a solution of under 100 moves is easily achievable.</p>
 
 <h3 id="navigation-and-turning">Navigation and turning</h3>
 
-<p>The puzzle can be found in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, under the puzzle “{3,3,3} Simplex” with option 3, which means “3 layers”.</p>
+<p>The puzzle is in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, and can be accessed under “Puzzle” » “{3,3,3} Simplex” » “3”.</p>
 
-<p>To rotate the puzzle in 4D, change the rotation style to “rotate by cubie”, and then control click a cubie to rotate that cubie to the centre.
-Also, drag the “Eye W Scale” slider all the way to the left, or one or two increments off from the leftmost setting. With this setting, centering the puzzle on a cell will reveal all five
-cells, as we will see later.</p>
+<p>To rotate the puzzle in 4D, change the rotation style to “rotate by cubie”, and then control-click a cubie to rotate that cubie to the center.
+Also, drag the “Eye W Scale” slider all the way to the left. With this setting, centering the puzzle on a cell will reveal all five cells.</p>
 
-<p>To turn a cell, right click on a cell’s sticker. The cell clicked then turns clockwise around a plane whose normal vector goes outward through the clicked sticker.
-If that description sounds convoluted, then the best thing to do to get used to the way the puzzle rotates is to solve one-move scrambles and become more comfortable with the way the puzzle
-is represented by the program.
-Also, left-clicking a cell makes it turn counterclockwise by the same plane.</p>
+<p>To turn a cell, left-click or right-click a cell’s sticker. 
+For this puzzle, every vertex is opposite to some cell. Thus, to turn a vertex, we can click on a sticker on the opposite cell while holding down the “2” and/or “3” keys on the keyboard.</p>
 
-<p>The main difference between the 4D pyraminx (within MC4D), and a regular pyraminx, is that the former is cell-turning, whereas the latter is vertex-turning.
-Since the former is cell-turning, we need a way to turn the tips instead.</p>
-
-<p>Luckily, every vertex is opposite to some cell, and so we can click on a sticker on that cell while holding 2 and/or 3 on the keyboard to turn the vertex opposite to that cell.
-However, the way the vertex turns is not the most predictable, and so practicing on one-move scrambles, or just turning the puzzle while it is solved, is still the recommended advice here.</p>
-
-<p>There are two views that we consider for this puzzle: vertex-first, and cell-first.</p>
-
-<p>The vertex-first view places a vertex in the middle, as follows:</p>
+<p>There are two views that we can use for this puzzle: vertex-first, and cell-first.
+The vertex-first view places a vertex in the middle, as follows:</p>
 
 <p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
@@ -306,96 +242,52 @@ However, the way the vertex turns is not the most predictable, and so practicing
 
 <p><img src="/img/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
 
-<p>If you do not see all 5 cells, then drag the “Eye W Scale” slider all the way to the left, or one or two increments off from the leftmost setting.</p>
+<p>The cell-first view is more confusing, due to the outer cells being inverted. This view does not have to be used for the solve.</p>
 
 <h3 id="the-tips-and-centers">The tips and centers</h3>
 
-<p>Place the puzzle in a vertex-centered view so that one of the vertices is facing upwards (rather than downwards).</p>
-
-<p>To solve the vertex that is facing up, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center,
-the 4D pyraminx provides us with one “true center” per cell, which gives an indication as to how the tips and centers should be oriented. The next picture highlights 4 of the 5 true centers:</p>
+<p>To solve a tip or center, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center, the 4D pyraminx provides us with one “true center” per cell, which indicates the orientation of the tips and centers. The next picture highlights 4 of the 5 true centers:</p>
 
 <p><img src="/img/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
 
-<p>The next picture highlights which pieces we should consider if we want to turn the vertex that is facing upwards:</p>
+<p>Note that all four outer tips can be solved in at most one turn, each. All four outer centers can also be solved in at most one turn, each.</p>
 
-<p><img src="/img/4d-pyra-turning-pieces.png" alt="A 4D pyraminx with the up-most center and tip, as well as stickers that the the solver should click to twist them, all highlighted" width="300px" /></p>
+<p>For any outer vertex, any clickable sticker on the cell opposite to that vertex can be clicked while holding down the “3” and/or “2” keys, in order to turn the tip and/or center, respectively.</p>
 
-<p>The center piece is in lime, the vertex is in periwinkle blue, and the <em>stickers</em> (not pieces) to adjust the vertex and/or center are in pink, because why not.</p>
+<p>Since there are five vertices, after solving the outer four vertices, we can rotate the puzzle in 4D to displace the central vertex. Control-clicking any outer vertex works, since that vertex goes to the center of the puzzle, displacing the central vertex. The central vertex then displaces a former outer vertex, and can now be solved.</p>
 
-<p>To turn the lime center, hold 2 on the keyboard while clicking on one of the pink stickers. To turn the periwinkle blue vertex, hold 3 instead of 2.
-Holding both 2 and 3 at the same time results in turning both vertex and center in the same direction. However, all vertices/centers can be solved in at most one turn, considering how
-there are 13 possible stickers to click on to adjust each upwards-facing tip/center. Experimentation is key to finishing this step efficiently.</p>
-
-<p>For example, if one of the tips or centers seems to be in a double swap, clicking on one of the pink edge stickers has the potential to fix it in one turn, granted it is the correct edge
-out of three.</p>
-
-<p>Also, remember that there are five, not four, vertices. To access the last vertex in the middle of the puzzle, 
-rotate the puzzle in 4D by control-clicking the top vertex.
-That vertex will then go to the middle of the puzzle, pushing the last vertex to the bottom. Then, we can rotate the puzzle in 3D so that vertex now faces up, and solve it as before.</p>
-
-<p>When all the centers and tips are solved, the puzzle should look like the following:</p>
+<p>When all the tips and centers are solved, the puzzle should look like the following:</p>
 
 <p><img src="/img/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
 
-<h3 id="the-first-layer-edges">The first layer edges</h3>
+<h3 id="the-edges">The edges</h3>
 
-<p>To solve the edges, it turns out we can just use regular pyraminx algorithms without using <a href="rkt.html">RKT</a>!</p>
+<p>To solve the edges, it turns out we can just use regular pyraminx algorithms such as the sledgehammer (R’ L R L’) or sexy move (R U R’ U’), along with their mirrors and inverses. There are 10 edges to solve in total, rather than 6.</p>
 
-<p>Most of the time, we do not even need to use an actual algorithm beyond the sledgehammer or sexy move. The point here is to pick a cell to use as the first layer, and then find edges
-to insert into it. Whereas a regular pyraminx requires 3 edges to be inserted, the 4D pyraminx requires 6 edges to be inserted, which are highlighted in one colour each, here:</p>
+<p>To help speed up this step, setup moves and/or rotations can be used to place pieces more efficiently. The first layer does <em>not</em> have to be solved first. This step can be completed using just the vertex-first view.</p>
 
-<p><img src="/img/4d-pyra-first-layer-goals.png" alt="A 4D pyraminx with first layer edges highlighted" width="300px" /></p>
-
-<p>This step is intuitive and usually involves applications of four-move sexy-move-like algorithms. 
-Figuring out those algorithms is left as an exercise to the reader.
-A trick is to rotate the puzzle if one insertion strategy does not work. Other than setup moves, the only turns used here should be performed while holding down 2 (and optionally, 3) on the keyboard.</p>
-
-<p>For pieces that are already on the first layer and oriented correctly, but permuted wrong, one can switch the view to cell-first:</p>
+<p>However, we can opt to switch to a cell-first view for pieces that are already on a cell and oriented correctly, but permuted incorrectly:</p>
 
 <p><img src="/img/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
 
-<p>In this case, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly;
-rather than resting between the green, red, and orange centers, it rests between the green, red, and yellow centers.</p>
+<p>In this example, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly. Rather than resting between the green, red, and orange centers, the edge rests between the green, red, and yellow centers.</p>
 
-<p>An anti-sune algorithm will move the edge as follows, which is what we want:</p>
+<p>An anti-sune algorithm will solve the edge, as demonstrated by the arrows:</p>
 
 <p><img src="/img/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
 
-<p>In fact, using the cell-first view allows one to permute pieces on the centered cell as though they were on a pyraminx, but with the caveat that stickers on the centered cell cannot be moved off of that cell without using setup moves.
-Thus, the sune, flip, and other LBL or Keyhole LL algorithms can be used.</p>
-
-<p>After finishing the first layer edges, the puzzle will look something like the following:</p>
-
-<p><img src="/img/4d-pyra-first-layer-done.png" alt="4D pyraminx with first layer solved" width="300px" /></p>
-
-<p>Note that the top corner is misoriented due to setup moves used while inserting the edges.
-This implies that not all corners need to be solved beforehand, but doing so helps pick which first layer to solve more easily.
-Also, note that I ended with the puzzle oriented in this view, so that is why the orange cell shows up, but not the red cell.</p>
-
-<p>For (mostly my own) reference, I have used 37 moves so far.</p>
-
-<h3 id="the-last-layer-edges">The last layer edges</h3>
-
-<p>The strategy is the same as the first layer edges, although here, using a cell-first view along with setup moves will usually be more efficient, considering how the first layer cannot
-be disturbed after cycling edges of the last layer. There are only four more edges to solve. After this step, you will have finished solving the puzzle!</p>
-
-<p>For (mostly my own) reference, I used 61 moves to solve the scramble that I used for this tutorial.
-This number is much lower than the 600-something moves I need to solve the 4D Rubik’s cube.</p>
-
-<p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.</p>
-
 <h3 id="the-last-edge">The last edge</h3>
 
-<p>Unlike the regular pyraminx, it is possible for one edge to remain unsolved before the end of the solve. 
-The hint here is to flip two edges, use some setup moves to set up the two unsolved edges properly, and then flip the two edges again, solving both of them after undoing the setup moves.
-Here is a picture of the case for those interested:</p>
+<p>Unlike the 3D pyraminx, it is possible for one edge to remain unsolved.</p>
 
 <p><img src="/img/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
 
-<p>To avoid this case, consider not leaving singly-twisted edges to the very end. Another approach is to set up the last three edges properly, so that after the 3-cycle, two edges
-end up with two stickers flipped each. Then, the algorithm that flips two edges can be used. This approach saves some moves because the flipping algorithm only has to be performed once,
-not twice.</p>
+<p>A hint is that doing the following algorithm: 1. sledgehammer, 2. edge twist, 3. inverse sledgehammer, 4. inverse edge twist, flips two edges. With commutator notation, we can express that algorithm as [sledgehammer, edge twist] or [[R’, L], edge twist].</p>
+
+<p>Thus, one can use this algorithm to first flip the twisted edge and a solved edge, resulting in a case where two edges are permuted correctly, but have only 1 of 3 stickers solved. Then, the puzzle can be solved using that algorithm again, along with some setup moves.</p>
+
+<p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.
+If the wiki is down, feel free to make a post in the <a href="https://groups.google.com/forum/#!forum/hypercubing">hypercubing</a> Google group about your solve instead.</p>
 
 
 
