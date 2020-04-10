@@ -120,14 +120,14 @@
 <p>On the four-dimensional Rubik’s cube, turns are described using two-colour (2c) pieces.
 We label the cells U, R, L, F, B, D, T, and K, where T stands for <em>top</em>, and K stands for <em>kata</em>. Below is an image of the 3x3x3x3:</p>
 
-<p><img src="/img/scheme.png" alt="Image of the naming scheme. The cell at the centre is T and the cell not shown is K." width="300px" /></p>
+<p><img src="/img/rkt/scheme.png" alt="Image of the naming scheme. The cell at the centre is T and the cell not shown is K." width="300px" /></p>
 
 <p>The yellow cell is U, the green cell is F, the orange cell is R, the red cell is L, the blue cell is B, the white cell is D, and the violet cell is T. Notice that the cyan K cell is not rendered due to <a href="https://en.wikipedia.org/wiki/Schlegel_diagram">projection</a>. If it were rendered, the rest of the puzzle would be hidden by that cell alone. Since the puzzle is fully functional, 4D rotations allow solvers to access the cyan cell during the solve.</p>
 
 <p>Now, given two adjacent cells X and Y, XY means to turn the X cell clockwise 90 degrees along the axis of the 2c piece between X and Y.
 Thus, RK describes the following turn:</p>
 
-<p><img src="/img/RK.png" alt="An RK turn executed on the 4D Rubik's cube. The R cell stickers stay on the R cell." width="300px" /></p>
+<p><img src="/img/rkt/RK.png" alt="An RK turn executed on the 4D Rubik's cube. The R cell stickers stay on the R cell." width="300px" /></p>
 
 <p>T- then stands for the set of all turns of the form TX, where X is a cell adjacent to T.
 Similarly, -T stands for the set of all turns of the form XT.</p>
@@ -151,11 +151,11 @@ Thus, the RKT A-perm is <code>x' RK' TF' RK TF RK' TF RK2 TF' RK TF' RK' TF RK' 
 
 <p>A picture of executing the regular A-perm on a 4D Rubik’s cube is as follows, where R=RK, D=DK, and U=UK:</p>
 
-<p><img src="/img/A3.png" alt="A regular A-perm executed on the 4D Rubik's cube. There are three 3x1x1 strips permuted" width="300px" /></p>
+<p><img src="/img/rkt/A3.png" alt="A regular A-perm executed on the 4D Rubik's cube. There are three 3x1x1 strips permuted" width="300px" /></p>
 
 <p>A picture of executing the RKT A-perm on a 4D Rubik’s cube is as follows:</p>
 
-<p><img src="/img/A4.png" alt="An RKT A-perm executed on the 4D Rubik's cube. There are only three 4c pieces permuted." width="300px" /></p>
+<p><img src="/img/rkt/A4.png" alt="An RKT A-perm executed on the 4D Rubik's cube. There are only three 4c pieces permuted." width="300px" /></p>
 
 <p>We see that RKT has only modified the T-cell pieces, as desired. We can also note that RKT is especially good for algorithms that only need to affect 4c pieces, such as this one.</p>
 
@@ -167,11 +167,11 @@ For example, consider the insertion of the 3c/4c pair on the DTR edge using an �
 
 <p>Before:</p>
 
-<p><img src="/img/s2l-insert-1.png" alt="An S2L (3c/4c) slot before insertion." width="300px" /></p>
+<p><img src="/img/rkt/s2l-insert-1.png" alt="An S2L (3c/4c) slot before insertion." width="300px" /></p>
 
 <p>After:</p>
 
-<p><img src="/img/s2l-insert-2.png" alt="An S2L slot after insertion." width="300px" /></p>
+<p><img src="/img/rkt/s2l-insert-2.png" alt="An S2L slot after insertion." width="300px" /></p>
 
 <p>Notice that even though TU and D- are the turns being used, the algorithm is still considered an “RKT” version of the U R U’ R’. Thus, RKT is not just a set of turns, but a general strategy to treat one cell as though it were its own 3D puzzle.</p>
 
@@ -202,14 +202,14 @@ For example, consider the insertion of the 3c/4c pair on the DTR edge using an �
 <p>On the four-dimensional Rubik’s cube, turns are described using two-colour (2c) pieces.
 We label the cells U, R, L, F, B, D, T, and K, where T stands for <em>top</em>, and K stands for <em>kata</em>. Below is an image of the 3x3x3x3:</p>
 
-<p><img src="/img/scheme.png" alt="Image of the naming scheme. The cell at the centre is T and the cell not shown is K." width="300px" /></p>
+<p><img src="/img/rkt/scheme.png" alt="Image of the naming scheme. The cell at the centre is T and the cell not shown is K." width="300px" /></p>
 
 <p>The yellow cell is U, the green cell is F, the orange cell is R, the red cell is L, the blue cell is B, the white cell is D, and the violet cell is T. Notice that the cyan K cell is not rendered due to <a href="https://en.wikipedia.org/wiki/Schlegel_diagram">projection</a>. If it were rendered, the rest of the puzzle would be hidden by that cell alone. Since the puzzle is fully functional, 4D rotations allow solvers to access the cyan cell during the solve.</p>
 
 <p>Now, given two adjacent cells X and Y, XY means to turn the X cell clockwise 90 degrees along the axis of the 2c piece between X and Y.
 Thus, RK describes the following turn:</p>
 
-<p><img src="/img/RK.png" alt="An RK turn executed on the 4D Rubik's cube. The R cell stickers stay on the R cell." width="300px" /></p>
+<p><img src="/img/rkt/RK.png" alt="An RK turn executed on the 4D Rubik's cube. The R cell stickers stay on the R cell." width="300px" /></p>
 
 <p>T- then stands for the set of all turns of the form TX, where X is a cell adjacent to T.
 Similarly, -T stands for the set of all turns of the form XT.</p>
@@ -233,11 +233,11 @@ Thus, the RKT A-perm is <code>x' RK' TF' RK TF RK' TF RK2 TF' RK TF' RK' TF RK' 
 
 <p>A picture of executing the regular A-perm on a 4D Rubik’s cube is as follows, where R=RK, D=DK, and U=UK:</p>
 
-<p><img src="/img/A3.png" alt="A regular A-perm executed on the 4D Rubik's cube. There are three 3x1x1 strips permuted" width="300px" /></p>
+<p><img src="/img/rkt/A3.png" alt="A regular A-perm executed on the 4D Rubik's cube. There are three 3x1x1 strips permuted" width="300px" /></p>
 
 <p>A picture of executing the RKT A-perm on a 4D Rubik’s cube is as follows:</p>
 
-<p><img src="/img/A4.png" alt="An RKT A-perm executed on the 4D Rubik's cube. There are only three 4c pieces permuted." width="300px" /></p>
+<p><img src="/img/rkt/A4.png" alt="An RKT A-perm executed on the 4D Rubik's cube. There are only three 4c pieces permuted." width="300px" /></p>
 
 <p>We see that RKT has only modified the T-cell pieces, as desired. We can also note that RKT is especially good for algorithms that only need to affect 4c pieces, such as this one.</p>
 
@@ -249,11 +249,11 @@ For example, consider the insertion of the 3c/4c pair on the DTR edge using an �
 
 <p>Before:</p>
 
-<p><img src="/img/s2l-insert-1.png" alt="An S2L (3c/4c) slot before insertion." width="300px" /></p>
+<p><img src="/img/rkt/s2l-insert-1.png" alt="An S2L (3c/4c) slot before insertion." width="300px" /></p>
 
 <p>After:</p>
 
-<p><img src="/img/s2l-insert-2.png" alt="An S2L slot after insertion." width="300px" /></p>
+<p><img src="/img/rkt/s2l-insert-2.png" alt="An S2L slot after insertion." width="300px" /></p>
 
 <p>Notice that even though TU and D- are the turns being used, the algorithm is still considered an “RKT” version of the U R U’ R’. Thus, RKT is not just a set of turns, but a general strategy to treat one cell as though it were its own 3D puzzle.</p>
 

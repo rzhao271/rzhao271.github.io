@@ -111,11 +111,11 @@
         <section class="main-content">
           <h2 id="n-dimensional-a-permutations-a-generalized-solution-to-n-dimensional-rubiks-cubes">N-dimensional A Permutations: A Generalized Solution to N-dimensional Rubik’s Cubes</h2>
 
-<p><em>Last modified March 25, 2020</em>.</p>
+<p><em>Last modified April 9, 2020</em>.</p>
 
 <p>The A permutation (A-perm) is an algorithm on the 3x3x3 Rubik’s cube that switches around 3 corner pieces.
 When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ B2 R2) on the solved Rubik’s cube, it changes three corner pieces as follows:<br />
-<img src="/img/A-perm.jpg" alt="A regular A-perm on a 3x3x3 Rubik's cube" width="400px" /></p>
+<img src="/img/aperm/A-perm.jpg" alt="A regular A-perm on a 3x3x3 Rubik's cube" width="350px" /></p>
 
 <p>(Note: the third corner piece affected is the ULB piece, or the one with the yellow sticker that is opposite to the one closest to the camera.)</p>
 
@@ -123,13 +123,13 @@ When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ 
 to perform N-dimensional “monoflips” and “corner twists”. When combined with the N-dimensional A-perm, these algorithms altogether allow for solving a <script type="math/tex">3^n</script> puzzle of
 arbitrary dimension <script type="math/tex">n</script>.</p>
 
-<h3 id="a-seven-dimensional-example">A seven-dimensional example</h3>
+<h3 id="a-seven-dimensional-example">A Seven-Dimensional Example</h3>
 
 <p>In particular, we demonstrate how the algorithm can be generalized to perform permutations of specific pieces on the seven-dimensional Rubik’s cube, or <script type="math/tex">3^7</script> for short.
 The software used in this article is written by the late Andrey Astrelin, and can be found <a href="http://superliminal.com/andrey/mc7d/">here</a>.</p>
 
 <p>Firstly, we translate the regular A-perm onto the <script type="math/tex">3^7</script> Rubik’s cube by turning it as a <script type="math/tex">3^4</script> Rubik’s cube, with B, F, and R replaced with BU, FU, and RU, respectively:<br />
-<img src="/img/37-A3-CW.png" alt="An A-perm that operates on 3c pieces desmontrated on the 3^7" width="600px" /></p>
+<img src="/img/aperm/37-A3-CW.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>(Note: for help on the “BU, FU, RU” notation, check the page on <a href="rkt.html">RKT</a>)</p>
 
@@ -137,35 +137,35 @@ The software used in this article is written by the late Andrey Astrelin, and ca
 each with a different amount of stickers. We say a piece is an <script type="math/tex">n</script>-c piece (e.g. a 3c piece) if it contains <script type="math/tex">n</script> stickers on it.</p>
 
 <p>It turns out that with the regular A-perm, only three 3c pieces have moved. We see this by isolating the 3c-and-below (meaning 3c, 2c, and 1c) pieces:<br />
-<img src="/img/37-A3-CW-3Conly-arrows.png" alt="An A-perm that operates on 3c pieces desmontrated on the 3^7, 3c pieces and below only" width="600px" /></p>
+<img src="/img/aperm/37-A3-CW-3Conly-arrows.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7, 3c pieces and below only" width="350px" /></p>
 
 <p>Thus, we call this A-perm the A3-CW, or clockwise 3c A-perm. In general, when it comes to solving N-dimensional Rubik’s cubes, a strategy is to solve all the 2c pieces first, followed by all the
 3c pieces, and so on. For reference, the 2c pieces can be solved intuitively with commutators such as the sledgehammer, sexy move, and sune, at most.
 We can then use these A-perms to solve the 3c-and-up pieces.</p>
 
-<p>Next, if we do the moves “y A3-CW UU A3-CW’ UU’ y’”, we end up with the A4-CW, or clockwise 4c A-perm, as follows:<br />
-<img src="/img/37-A4-CW.png" alt="An A-perm that operates on 4c pieces desmontrated on the 3^7" width="600px" /></p>
+<p>Next, if we do the moves “y A3-CW UK A3-CW’ UK’ y’”, we end up with the A4-CW, or clockwise 4c A-perm, as follows:<br />
+<img src="/img/aperm/37-A4-CW.jpg" alt="An A-perm that operates on 4c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>Fewer pieces moved this time. In fact, none of the 3c pieces moved. If we isolate the 4c-and-below pieces, we see that only three 4c pieces moved, as desired:<br />
-<img src="/img/37-A4-CW-4Conly-arrows.png" alt="An A-perm that operates on 4c pieces desmontrated on the 3^7, 4c pieces and below only" width="600px" /></p>
+<img src="/img/aperm/37-A4-CW-4Conly-arrows.jpg" alt="An A-perm that operates on 4c pieces demonstrated on the 3^7, 4c pieces and below only" width="350px" /></p>
 
-<p>For A5-CW, a UU move does not suffice, and we instead have to rotate the T cell out to a <a href="http://superliminal.com/andrey/mc7d/instr.html">secondary face</a> 
+<p>For A5-CW, a UK move does not suffice, and we instead have to rotate the T cell out to a <a href="http://superliminal.com/andrey/mc7d/instr.html">secondary face</a> 
 (which is possible in five dimensions and higher, using this program), do a “U turn”, and then rotate the T cell back in.
 The instructions are vague because we have six choices for rotating out the T cell in this case, each of which results in a variant of the A5-CW.
 Below is an example of one of the moves, which takes two clicks to execute:<br />
-<img src="/img/37-example-TD-move.png" alt="A move on the 3^7 that rotates out the T cell to the D secondary face" width="600px" /></p>
+<img src="/img/aperm/37-example-TD-move.jpg" alt="A move on the 3^7 that rotates out the T cell to the D secondary face" width="350px" /></p>
 
 <p>Because the second sticker clicked seems to be on the D face of that 3x3x3 block, we call the move T-&gt;D. Hence, there exist five more moves T-&gt;U, T-&gt;F, T-&gt;B, T-&gt;R, and T-&gt;L.
 We also note T-&gt;U’ = T-&gt;D, and so on. In fact, it is easier to execute T-&gt;D than T-&gt;U’, for the latter can only be executed in the program in 3-click mode.</p>
 
 <p>We will also need a move of the form XU-shallow, where X is a side face L, R, F, or B. For reference, RU-shallow on a solved 3^7 does the following:<br />
-<img src="/img/37-RU-shallow.png" alt="A shallow RU move on the 3^7 that rotates out the R secondary face of the R cell to the FR ridge" width="600px" /></p>
+<img src="/img/aperm/37-RU-shallow.jpg" alt="A shallow RU move on the 3^7 that rotates out the R secondary face of the R cell to the FR ridge" width="350px" /></p>
 
-<p>It then follows that instead of UU, we do the following algorithm U*, which we customize depending on which 3x1 face of pieces we want to influence with the A5-CW:</p>
+<p>It then follows that instead of UK, we do the following algorithm U*, which we customize depending on which 3x1 face of pieces we want to influence with the A5-CW:</p>
 
 <ul>
-  <li>U* = T-&gt;U UU T-&gt;D results in an A5-CW on the D blocks</li>
-  <li>U* = T-&gt;D UU T-&gt;U results in an A5-CW on the U blocks</li>
+  <li>U* = T-&gt;U UK T-&gt;D results in an A5-CW on the D blocks</li>
+  <li>U* = T-&gt;D UK T-&gt;U results in an A5-CW on the U blocks</li>
   <li>U* = T-&gt;R RU-shallow T-&gt;L results in an A5-CW on the F blocks</li>
   <li>U* = T-&gt;L RU-shallow T-&gt;R results in an A5-CW on the B blocks</li>
   <li>U* = T-&gt;F FU-shallow T-&gt;B results in an A5-CW on the L blocks</li>
@@ -174,25 +174,25 @@ We also note T-&gt;U’ = T-&gt;D, and so on. In fact, it is easier to execute T
 
 <p>Then, “y A4-CW U* A4-CW’ U*’ y’” gives us the A5-CW on a block that depends on the choice of U*.
 For example, if we choose U* = T-&gt;F FU-shallow T-&gt;B, then by the list above, we obtain an A5-CW on the L 3x1 blocks, as follows:<br />
-<img src="/img/37-A5-CW.png" alt="An A-perm that operates on 5c pieces desmontrated on the 3^7" width="600px" /></p>
+<img src="/img/aperm/37-A5-CW.jpg" alt="An A-perm that operates on 5c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>Note that technically, we do some 3-cycle on the B blocks, but due to the y’ rotation at the end, we consider this A5-CW to be one that moves around the L blocks, instead.</p>
 
 <p>In a similar fashion as the A5-CW, the A6-CW (on the LF edge) and A7-CW (on the URF corner) are attained, respectively:<br />
-<img src="/img/37-A6-CW.png" alt="An A-perm that operates on 6c pieces desmontrated on the 3^7" width="600px" /><br />
-<img src="/img/37-A7-CW.png" alt="An A-perm that operates on 7c pieces desmontrated on the 3^7" width="600px" /></p>
+<img src="/img/aperm/37-A6-CW.jpg" alt="An A-perm that operates on 6c pieces demonstrated on the 3^7" width="350px" /><br />
+<img src="/img/aperm/37-A7-CW.jpg" alt="An A-perm that operates on 7c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>And of course, here again are the A5-CW, A6-CW, and A7-CW, respectively, with arrows to indicate which 5c, 6c, and 7c pieces actually moved:<br />
-<img src="/img/37-A5-CW-5Conly-arrows.png" alt="An A-perm that operates on 5c pieces desmontrated on the 3^7, 5c pieces and below only" width="600px" /><br />
-<img src="/img/37-A6-CW-6Conly-arrows.png" alt="An A-perm that operates on 6c pieces desmontrated on the 3^7, 6c pieces and below only" width="600px" /><br />
-<img src="/img/37-A7-CW-7Conly-arrows.png" alt="An A-perm that operates on 7c pieces desmontrated on the 3^7, 7c pieces and below only" width="600px" /></p>
+<img src="/img/aperm/37-A5-CW-5Conly-arrows.jpg" alt="An A-perm that operates on 5c pieces demonstrated on the 3^7, 5c pieces and below only" width="350px" /><br />
+<img src="/img/aperm/37-A6-CW-6Conly-arrows.jpg" alt="An A-perm that operates on 6c pieces demonstrated on the 3^7, 6c pieces and below only" width="350px" /><br />
+<img src="/img/aperm/37-A7-CW-7Conly-arrows.jpg" alt="An A-perm that operates on 7c pieces demonstrated on the 3^7, 7c pieces and below only" width="350px" /></p>
 
 <p>Due to all the options of U*, there are 6 possible A5-CWs, 12 possible A6-CWs, and 8 possible A7-CWs based on varying the choices for U* alone.
 I have only shown one of each.
 Knowing which U* to use on each step to obtain a desired <script type="math/tex">A_n</script>-CW is important, for the N-dimensional monoflip and N-dimensional corner twists rely on executing <script type="math/tex">A_n</script>-CW’s on different
 blocks. However, considering how the algorithms all use y rotations, and are recursive, this task is non-trivial.</p>
 
-<h3 id="movecount-analysis">Movecount analysis</h3>
+<h3 id="movecount-analysis">Movecount Analysis</h3>
 
 <p>The regular A-perm takes 12 moves using a quarter-turn metric (QTM). The A4-CW then takes 12(2) + 1(2) = 26 turns, and the
 A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">5 \le n \le 7</script>. For <script type="math/tex">n \ge 8</script>, the recurrence holds if the setup moves between the <script type="math/tex">A_{n-1}</script>-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the <script type="math/tex">A_n</script>-CW is at least double of that required for the <script type="math/tex">A_{n-1}</script>-CW, and so the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Omega(2^n)</script>.</p>
@@ -213,11 +213,11 @@ A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex"
       <div class="columns small-12 medium-9 large-7" id="main">
         <h2 id="n-dimensional-a-permutations-a-generalized-solution-to-n-dimensional-rubiks-cubes">N-dimensional A Permutations: A Generalized Solution to N-dimensional Rubik’s Cubes</h2>
 
-<p><em>Last modified March 25, 2020</em>.</p>
+<p><em>Last modified April 9, 2020</em>.</p>
 
 <p>The A permutation (A-perm) is an algorithm on the 3x3x3 Rubik’s cube that switches around 3 corner pieces.
 When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ B2 R2) on the solved Rubik’s cube, it changes three corner pieces as follows:<br />
-<img src="/img/A-perm.jpg" alt="A regular A-perm on a 3x3x3 Rubik's cube" width="400px" /></p>
+<img src="/img/aperm/A-perm.jpg" alt="A regular A-perm on a 3x3x3 Rubik's cube" width="350px" /></p>
 
 <p>(Note: the third corner piece affected is the ULB piece, or the one with the yellow sticker that is opposite to the one closest to the camera.)</p>
 
@@ -225,13 +225,13 @@ When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ 
 to perform N-dimensional “monoflips” and “corner twists”. When combined with the N-dimensional A-perm, these algorithms altogether allow for solving a <script type="math/tex">3^n</script> puzzle of
 arbitrary dimension <script type="math/tex">n</script>.</p>
 
-<h3 id="a-seven-dimensional-example">A seven-dimensional example</h3>
+<h3 id="a-seven-dimensional-example">A Seven-Dimensional Example</h3>
 
 <p>In particular, we demonstrate how the algorithm can be generalized to perform permutations of specific pieces on the seven-dimensional Rubik’s cube, or <script type="math/tex">3^7</script> for short.
 The software used in this article is written by the late Andrey Astrelin, and can be found <a href="http://superliminal.com/andrey/mc7d/">here</a>.</p>
 
 <p>Firstly, we translate the regular A-perm onto the <script type="math/tex">3^7</script> Rubik’s cube by turning it as a <script type="math/tex">3^4</script> Rubik’s cube, with B, F, and R replaced with BU, FU, and RU, respectively:<br />
-<img src="/img/37-A3-CW.png" alt="An A-perm that operates on 3c pieces desmontrated on the 3^7" width="600px" /></p>
+<img src="/img/aperm/37-A3-CW.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>(Note: for help on the “BU, FU, RU” notation, check the page on <a href="rkt.html">RKT</a>)</p>
 
@@ -239,35 +239,35 @@ The software used in this article is written by the late Andrey Astrelin, and ca
 each with a different amount of stickers. We say a piece is an <script type="math/tex">n</script>-c piece (e.g. a 3c piece) if it contains <script type="math/tex">n</script> stickers on it.</p>
 
 <p>It turns out that with the regular A-perm, only three 3c pieces have moved. We see this by isolating the 3c-and-below (meaning 3c, 2c, and 1c) pieces:<br />
-<img src="/img/37-A3-CW-3Conly-arrows.png" alt="An A-perm that operates on 3c pieces desmontrated on the 3^7, 3c pieces and below only" width="600px" /></p>
+<img src="/img/aperm/37-A3-CW-3Conly-arrows.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7, 3c pieces and below only" width="350px" /></p>
 
 <p>Thus, we call this A-perm the A3-CW, or clockwise 3c A-perm. In general, when it comes to solving N-dimensional Rubik’s cubes, a strategy is to solve all the 2c pieces first, followed by all the
 3c pieces, and so on. For reference, the 2c pieces can be solved intuitively with commutators such as the sledgehammer, sexy move, and sune, at most.
 We can then use these A-perms to solve the 3c-and-up pieces.</p>
 
-<p>Next, if we do the moves “y A3-CW UU A3-CW’ UU’ y’”, we end up with the A4-CW, or clockwise 4c A-perm, as follows:<br />
-<img src="/img/37-A4-CW.png" alt="An A-perm that operates on 4c pieces desmontrated on the 3^7" width="600px" /></p>
+<p>Next, if we do the moves “y A3-CW UK A3-CW’ UK’ y’”, we end up with the A4-CW, or clockwise 4c A-perm, as follows:<br />
+<img src="/img/aperm/37-A4-CW.jpg" alt="An A-perm that operates on 4c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>Fewer pieces moved this time. In fact, none of the 3c pieces moved. If we isolate the 4c-and-below pieces, we see that only three 4c pieces moved, as desired:<br />
-<img src="/img/37-A4-CW-4Conly-arrows.png" alt="An A-perm that operates on 4c pieces desmontrated on the 3^7, 4c pieces and below only" width="600px" /></p>
+<img src="/img/aperm/37-A4-CW-4Conly-arrows.jpg" alt="An A-perm that operates on 4c pieces demonstrated on the 3^7, 4c pieces and below only" width="350px" /></p>
 
-<p>For A5-CW, a UU move does not suffice, and we instead have to rotate the T cell out to a <a href="http://superliminal.com/andrey/mc7d/instr.html">secondary face</a> 
+<p>For A5-CW, a UK move does not suffice, and we instead have to rotate the T cell out to a <a href="http://superliminal.com/andrey/mc7d/instr.html">secondary face</a> 
 (which is possible in five dimensions and higher, using this program), do a “U turn”, and then rotate the T cell back in.
 The instructions are vague because we have six choices for rotating out the T cell in this case, each of which results in a variant of the A5-CW.
 Below is an example of one of the moves, which takes two clicks to execute:<br />
-<img src="/img/37-example-TD-move.png" alt="A move on the 3^7 that rotates out the T cell to the D secondary face" width="600px" /></p>
+<img src="/img/aperm/37-example-TD-move.jpg" alt="A move on the 3^7 that rotates out the T cell to the D secondary face" width="350px" /></p>
 
 <p>Because the second sticker clicked seems to be on the D face of that 3x3x3 block, we call the move T-&gt;D. Hence, there exist five more moves T-&gt;U, T-&gt;F, T-&gt;B, T-&gt;R, and T-&gt;L.
 We also note T-&gt;U’ = T-&gt;D, and so on. In fact, it is easier to execute T-&gt;D than T-&gt;U’, for the latter can only be executed in the program in 3-click mode.</p>
 
 <p>We will also need a move of the form XU-shallow, where X is a side face L, R, F, or B. For reference, RU-shallow on a solved 3^7 does the following:<br />
-<img src="/img/37-RU-shallow.png" alt="A shallow RU move on the 3^7 that rotates out the R secondary face of the R cell to the FR ridge" width="600px" /></p>
+<img src="/img/aperm/37-RU-shallow.jpg" alt="A shallow RU move on the 3^7 that rotates out the R secondary face of the R cell to the FR ridge" width="350px" /></p>
 
-<p>It then follows that instead of UU, we do the following algorithm U*, which we customize depending on which 3x1 face of pieces we want to influence with the A5-CW:</p>
+<p>It then follows that instead of UK, we do the following algorithm U*, which we customize depending on which 3x1 face of pieces we want to influence with the A5-CW:</p>
 
 <ul>
-  <li>U* = T-&gt;U UU T-&gt;D results in an A5-CW on the D blocks</li>
-  <li>U* = T-&gt;D UU T-&gt;U results in an A5-CW on the U blocks</li>
+  <li>U* = T-&gt;U UK T-&gt;D results in an A5-CW on the D blocks</li>
+  <li>U* = T-&gt;D UK T-&gt;U results in an A5-CW on the U blocks</li>
   <li>U* = T-&gt;R RU-shallow T-&gt;L results in an A5-CW on the F blocks</li>
   <li>U* = T-&gt;L RU-shallow T-&gt;R results in an A5-CW on the B blocks</li>
   <li>U* = T-&gt;F FU-shallow T-&gt;B results in an A5-CW on the L blocks</li>
@@ -276,25 +276,25 @@ We also note T-&gt;U’ = T-&gt;D, and so on. In fact, it is easier to execute T
 
 <p>Then, “y A4-CW U* A4-CW’ U*’ y’” gives us the A5-CW on a block that depends on the choice of U*.
 For example, if we choose U* = T-&gt;F FU-shallow T-&gt;B, then by the list above, we obtain an A5-CW on the L 3x1 blocks, as follows:<br />
-<img src="/img/37-A5-CW.png" alt="An A-perm that operates on 5c pieces desmontrated on the 3^7" width="600px" /></p>
+<img src="/img/aperm/37-A5-CW.jpg" alt="An A-perm that operates on 5c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>Note that technically, we do some 3-cycle on the B blocks, but due to the y’ rotation at the end, we consider this A5-CW to be one that moves around the L blocks, instead.</p>
 
 <p>In a similar fashion as the A5-CW, the A6-CW (on the LF edge) and A7-CW (on the URF corner) are attained, respectively:<br />
-<img src="/img/37-A6-CW.png" alt="An A-perm that operates on 6c pieces desmontrated on the 3^7" width="600px" /><br />
-<img src="/img/37-A7-CW.png" alt="An A-perm that operates on 7c pieces desmontrated on the 3^7" width="600px" /></p>
+<img src="/img/aperm/37-A6-CW.jpg" alt="An A-perm that operates on 6c pieces demonstrated on the 3^7" width="350px" /><br />
+<img src="/img/aperm/37-A7-CW.jpg" alt="An A-perm that operates on 7c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>And of course, here again are the A5-CW, A6-CW, and A7-CW, respectively, with arrows to indicate which 5c, 6c, and 7c pieces actually moved:<br />
-<img src="/img/37-A5-CW-5Conly-arrows.png" alt="An A-perm that operates on 5c pieces desmontrated on the 3^7, 5c pieces and below only" width="600px" /><br />
-<img src="/img/37-A6-CW-6Conly-arrows.png" alt="An A-perm that operates on 6c pieces desmontrated on the 3^7, 6c pieces and below only" width="600px" /><br />
-<img src="/img/37-A7-CW-7Conly-arrows.png" alt="An A-perm that operates on 7c pieces desmontrated on the 3^7, 7c pieces and below only" width="600px" /></p>
+<img src="/img/aperm/37-A5-CW-5Conly-arrows.jpg" alt="An A-perm that operates on 5c pieces demonstrated on the 3^7, 5c pieces and below only" width="350px" /><br />
+<img src="/img/aperm/37-A6-CW-6Conly-arrows.jpg" alt="An A-perm that operates on 6c pieces demonstrated on the 3^7, 6c pieces and below only" width="350px" /><br />
+<img src="/img/aperm/37-A7-CW-7Conly-arrows.jpg" alt="An A-perm that operates on 7c pieces demonstrated on the 3^7, 7c pieces and below only" width="350px" /></p>
 
 <p>Due to all the options of U*, there are 6 possible A5-CWs, 12 possible A6-CWs, and 8 possible A7-CWs based on varying the choices for U* alone.
 I have only shown one of each.
 Knowing which U* to use on each step to obtain a desired <script type="math/tex">A_n</script>-CW is important, for the N-dimensional monoflip and N-dimensional corner twists rely on executing <script type="math/tex">A_n</script>-CW’s on different
 blocks. However, considering how the algorithms all use y rotations, and are recursive, this task is non-trivial.</p>
 
-<h3 id="movecount-analysis">Movecount analysis</h3>
+<h3 id="movecount-analysis">Movecount Analysis</h3>
 
 <p>The regular A-perm takes 12 moves using a quarter-turn metric (QTM). The A4-CW then takes 12(2) + 1(2) = 26 turns, and the
 A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">5 \le n \le 7</script>. For <script type="math/tex">n \ge 8</script>, the recurrence holds if the setup moves between the <script type="math/tex">A_{n-1}</script>-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the <script type="math/tex">A_n</script>-CW is at least double of that required for the <script type="math/tex">A_{n-1}</script>-CW, and so the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Omega(2^n)</script>.</p>

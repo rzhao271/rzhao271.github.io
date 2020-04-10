@@ -111,14 +111,14 @@
         <section class="main-content">
           <h2 id="a-solution-to-the-4d-pyraminx">A Solution to the 4D Pyraminx</h2>
 
-<p><em>Last modified March 25, 2020.</em></p>
+<p><em>Last modified April 9, 2020.</em></p>
 
-<p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The 4D pyraminx is the four-dimensional analog of the regular WCA-approved 3D pyraminx.
  <em>This tutorial assumes you already know how to solve a 3D pyraminx.</em></p>
 
-<h3 id="the-strategy">The strategy</h3>
+<h3 id="the-strategy">The Strategy</h3>
 
 <p>The 4D pyraminx can be solved in a way similar to the 3D pyraminx:</p>
 
@@ -129,7 +129,7 @@
 
 <p>Using this approach, a solution of under 100 moves is easily achievable.</p>
 
-<h3 id="navigation-and-turning">Navigation and turning</h3>
+<h3 id="navigation-and-turning">Navigation and Turning</h3>
 
 <p>The puzzle is in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, and can be accessed under “Puzzle” » “{3,3,3} Simplex” » “3”.</p>
 
@@ -142,19 +142,19 @@ For this puzzle, every vertex is opposite to some cell. Thus, to turn a vertex, 
 <p>There are two views that we can use for this puzzle: vertex-first, and cell-first.
 The vertex-first view places a vertex in the middle, as follows:</p>
 
-<p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The cell-first view places a cell in the middle, as follows:</p>
 
-<p><img src="/img/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The cell-first view is more confusing, due to the outer cells being inverted. This view does not have to be used for the solve.</p>
 
-<h3 id="the-tips-and-centers">The tips and centers</h3>
+<h3 id="the-tips-and-centers">The Tips and Centers</h3>
 
 <p>To solve a tip or center, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center, the 4D pyraminx provides us with one “true center” per cell, which indicates the orientation of the tips and centers. The next picture highlights 4 of the 5 true centers:</p>
 
-<p><img src="/img/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
 
 <p>Note that all four outer tips can be solved in at most one turn, each. All four outer centers can also be solved in at most one turn, each.</p>
 
@@ -164,9 +164,9 @@ The vertex-first view places a vertex in the middle, as follows:</p>
 
 <p>When all the tips and centers are solved, the puzzle should look like the following:</p>
 
-<p><img src="/img/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
 
-<h3 id="the-edges">The edges</h3>
+<h3 id="the-edges">The Edges</h3>
 
 <p>To solve the edges, it turns out we can just use regular pyraminx algorithms such as the sledgehammer (R’ L R L’) or sexy move (R U R’ U’), along with their mirrors and inverses. There are 10 edges to solve in total, rather than 6.</p>
 
@@ -174,23 +174,21 @@ The vertex-first view places a vertex in the middle, as follows:</p>
 
 <p>However, we can opt to switch to a cell-first view for pieces that are already on a cell and oriented correctly, but permuted incorrectly:</p>
 
-<p><img src="/img/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
 
 <p>In this example, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly. Rather than resting between the green, red, and orange centers, the edge rests between the green, red, and yellow centers.</p>
 
 <p>An anti-sune algorithm will solve the edge, as demonstrated by the arrows:</p>
 
-<p><img src="/img/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
 
-<h3 id="the-last-edge">The last edge</h3>
+<h3 id="the-last-edge">The Last Edge</h3>
 
 <p>Unlike the 3D pyraminx, it is possible for one edge to remain unsolved.</p>
 
-<p><img src="/img/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
 
-<p>A hint is that doing the following algorithm: 1. sledgehammer, 2. edge twist, 3. inverse sledgehammer, 4. inverse edge twist, flips two edges. With commutator notation, we can express that algorithm as [sledgehammer, edge twist] or [[R’, L], edge twist].</p>
-
-<p>Thus, one can use this algorithm to first flip the twisted edge and a solved edge, resulting in a case where two edges are permuted correctly, but have only 1 of 3 stickers solved. Then, the puzzle can be solved using that algorithm again, along with some setup moves.</p>
+<p>A hint is that the commutator [sledgehammer, edge twist] flips two edges. Thus, one can use this algorithm to first flip the twisted edge and a solved edge, resulting in a case where two edges are permuted correctly, but have only 1 of 3 stickers solved. Then, the puzzle can be solved using that algorithm again, along with some setup moves.</p>
 
 <p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.
 If the wiki is down, feel free to make a post in the <a href="https://groups.google.com/forum/#!forum/hypercubing">hypercubing</a> Google group about your solve instead.</p>
@@ -205,14 +203,14 @@ If the wiki is down, feel free to make a post in the <a href="https://groups.goo
       <div class="columns small-12 medium-9 large-7" id="main">
         <h2 id="a-solution-to-the-4d-pyraminx">A Solution to the 4D Pyraminx</h2>
 
-<p><em>Last modified March 25, 2020.</em></p>
+<p><em>Last modified April 9, 2020.</em></p>
 
-<p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The 4D pyraminx is the four-dimensional analog of the regular WCA-approved 3D pyraminx.
  <em>This tutorial assumes you already know how to solve a 3D pyraminx.</em></p>
 
-<h3 id="the-strategy">The strategy</h3>
+<h3 id="the-strategy">The Strategy</h3>
 
 <p>The 4D pyraminx can be solved in a way similar to the 3D pyraminx:</p>
 
@@ -223,7 +221,7 @@ If the wiki is down, feel free to make a post in the <a href="https://groups.goo
 
 <p>Using this approach, a solution of under 100 moves is easily achievable.</p>
 
-<h3 id="navigation-and-turning">Navigation and turning</h3>
+<h3 id="navigation-and-turning">Navigation and Turning</h3>
 
 <p>The puzzle is in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, and can be accessed under “Puzzle” » “{3,3,3} Simplex” » “3”.</p>
 
@@ -236,19 +234,19 @@ For this puzzle, every vertex is opposite to some cell. Thus, to turn a vertex, 
 <p>There are two views that we can use for this puzzle: vertex-first, and cell-first.
 The vertex-first view places a vertex in the middle, as follows:</p>
 
-<p><img src="/img/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The cell-first view places a cell in the middle, as follows:</p>
 
-<p><img src="/img/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
 
 <p>The cell-first view is more confusing, due to the outer cells being inverted. This view does not have to be used for the solve.</p>
 
-<h3 id="the-tips-and-centers">The tips and centers</h3>
+<h3 id="the-tips-and-centers">The Tips and Centers</h3>
 
 <p>To solve a tip or center, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center, the 4D pyraminx provides us with one “true center” per cell, which indicates the orientation of the tips and centers. The next picture highlights 4 of the 5 true centers:</p>
 
-<p><img src="/img/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
 
 <p>Note that all four outer tips can be solved in at most one turn, each. All four outer centers can also be solved in at most one turn, each.</p>
 
@@ -258,9 +256,9 @@ The vertex-first view places a vertex in the middle, as follows:</p>
 
 <p>When all the tips and centers are solved, the puzzle should look like the following:</p>
 
-<p><img src="/img/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
 
-<h3 id="the-edges">The edges</h3>
+<h3 id="the-edges">The Edges</h3>
 
 <p>To solve the edges, it turns out we can just use regular pyraminx algorithms such as the sledgehammer (R’ L R L’) or sexy move (R U R’ U’), along with their mirrors and inverses. There are 10 edges to solve in total, rather than 6.</p>
 
@@ -268,23 +266,21 @@ The vertex-first view places a vertex in the middle, as follows:</p>
 
 <p>However, we can opt to switch to a cell-first view for pieces that are already on a cell and oriented correctly, but permuted incorrectly:</p>
 
-<p><img src="/img/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
 
 <p>In this example, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly. Rather than resting between the green, red, and orange centers, the edge rests between the green, red, and yellow centers.</p>
 
 <p>An anti-sune algorithm will solve the edge, as demonstrated by the arrows:</p>
 
-<p><img src="/img/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
 
-<h3 id="the-last-edge">The last edge</h3>
+<h3 id="the-last-edge">The Last Edge</h3>
 
 <p>Unlike the 3D pyraminx, it is possible for one edge to remain unsolved.</p>
 
-<p><img src="/img/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
+<p><img src="/img/4pyra/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
 
-<p>A hint is that doing the following algorithm: 1. sledgehammer, 2. edge twist, 3. inverse sledgehammer, 4. inverse edge twist, flips two edges. With commutator notation, we can express that algorithm as [sledgehammer, edge twist] or [[R’, L], edge twist].</p>
-
-<p>Thus, one can use this algorithm to first flip the twisted edge and a solved edge, resulting in a case where two edges are permuted correctly, but have only 1 of 3 stickers solved. Then, the puzzle can be solved using that algorithm again, along with some setup moves.</p>
+<p>A hint is that the commutator [sledgehammer, edge twist] flips two edges. Thus, one can use this algorithm to first flip the twisted edge and a solved edge, resulting in a case where two edges are permuted correctly, but have only 1 of 3 stickers solved. Then, the puzzle can be solved using that algorithm again, along with some setup moves.</p>
 
 <p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.
 If the wiki is down, feel free to make a post in the <a href="https://groups.google.com/forum/#!forum/hypercubing">hypercubing</a> Google group about your solve instead.</p>

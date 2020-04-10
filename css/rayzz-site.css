@@ -202,3 +202,7 @@ code {
   width: 100%;
   margin: 0 auto;
 }
+
+tbody {
+  border: none;
+}
