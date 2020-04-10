@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://www.rayzz.me" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me//articles/hypercubing/333like-mt.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="https://www.rayzz.me//feed.xml">
+  
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+  <script src="../../js/jquery.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="show-for-medium">
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns show-for-medium medium-2 large-7">
+    &nbsp;
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../index.html">About</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../resume.html">Resume</a>
+  </div>
+  <!--<div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../portfolio.html">Portfolio</a>
+  </div>-->
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../contact.html">
+      Contact
+    </a>
+  </div>
+  <div class="columns show-for-medium medium-2 large-1">
+    &nbsp;
+  </div>
+</nav>
+</div>
+<div class="show-for-small-only">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+  <ul class="menu vertical mobile-nav-menu">
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <li><a href="../../index.html">About</a></li>
+    <li><a href="../../resume.html">Resume</a></li>
+    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+  <header class="title-bar">
+    <div class="title-bar-left">
+      <div class="title-bar-title">
+        <h1>Raymond Zhao</h1>
+        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+      </div>
+    </div>
+    <div class="title-bar-right">
+      <button type="button" class="menu-icon" data-open="offCanvas"></button>
+    </div>
+  </header>
+  <div class="expanded row">
+    <div class="columns small-12 color-bar-1">&nbsp;</div>
+  </div>
+</div>
+
+
+    <div class="expanded row off-canvas-content" data-off-canvas-content>
+      <div class="columns small-12 content-wrapper">
+        <section class="main-content">
+          <h2 id="exploring-3x3x3-like-puzzles-part-i--orientability">Exploring 3x3x3-like Puzzles (Part I – Orientability)</h2>
+
+<p><em>Written April 10, 2020.</em></p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>In this article, we first define regular 3x3x3-like puzzles (regular 333LPs), which generalize the 3x3x3 and the <a href="https://en.wikipedia.org/wiki/Megaminx">Megaminx</a>. We then explore several 333LPs embedded on different surfaces using Roice Nelson’s <a href="http://roice3.org/magictile/">MagicTile</a> program. We note how the solving experience changes for the different puzzles depending on their orientability and their size, and in the end, list off regular 333LPs most similar to the 3x3x3 and the Megaminx.</p>
+
+<p><strong><em>TL;DR:</em></strong> The second paragraph of the Conclusion section at the end of this article lists out the puzzles that behave most similarly to the 3x3x3 and the Megaminx.</p>
+
+<h3 id="regular-3x3x3-like-puzzles">Regular 3x3x3-Like Puzzles</h3>
+
+<p>We define a regular 3x3x3-like puzzle (a regular 333LP) as any twisty puzzle similar enough to a 3x3x3 to be solved like a 3x3x3 using an edges-first corners-second approach, or in some cases, even CFOP. In other words, 333LPs generalize the 3x3x3 and the <a href="https://en.wikipedia.org/wiki/Megaminx">Megaminx</a>. Almost all the puzzles presented in this article can first be solved by intuitively placing the edges, and then using variations on [[R’, F], D] and/or [[R: U], D] to solve the corners.</p>
+
+<h3 id="surfaces-and-orientability">Surfaces and Orientability</h3>
+
+<p>We use Roice Nelson’s <a href="http://roice3.org/magictile/">MagicTile</a> program to try out 333LPs on various surfaces. In this article, we try regular 333LPs on the sphere, the projective plane, the torus, the Klein bottle, and the hyperbolic plane.</p>
+
+<p>A feature that comes up often when exploring these various surfaces is orientability. We say a surface is non-orientable if a 2D figure can be placed on it at some starting point, and then moved around the surface in such a way that the figure arrives back at the starting point mirror-reversed. Examples of non-orientable surfaces include the Möbius strip and Klein bottle. Orientable surfaces are thus the opposite of non-orientable surfaces. For orientable surfaces, 2D figures placed on some starting point cannot come back to that same point mirror-reversed.</p>
+
+<h4 id="twisting-single-corners-on-non-orientable-puzzles">Twisting Single Corners on Non-Orientable Puzzles</h4>
+<p>To twist a single corner on non-orientable puzzles, we can first twist two corners. Using a commutator such as [[R’, F]2, D] or [[R, U]2, D], one corner will be twisted clockwise, and the other counterclockwise. Then, we can bring one of the corners to the “opposite” side of the puzzle, which mirrors it due to non-orientability. We can then untwist the two corners with the same commutator, leaving only one of the corners twisted after undoing the setup moves.</p>
+
+<p>The image below shows a single corner twisted on the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle puzzle.</p>
+
+<p><img src="/img/333lp-mt/63-9c-klein-cornertwist.png" alt="A 9-coloured {6,3} Klein bottle puzzle with a single corner twisted due to non-orientability" width="350px" /></p>
+
+<p>Note that a single corner cannot be twisted on orientable 333LPs since the corner orientation of a single corner is dependent on that of all the other corners, meaning if all but the last corner is solved, then the last corner must be solved too (unless the puzzle is in an illegal/unsolvable permutation).</p>
+
+<h3 id="tilings-and-schläfli-symbols">Tilings and Schläfli Symbols</h3>
+
+<p>We use the <a href="https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol">Schläfli symbol</a> to denote the various tilings explored in this article. The Schläfli symbol <script type="math/tex">\{p, q\}</script> represents a tiling with <script type="math/tex">q</script> <script type="math/tex">p</script>-gons per vertex, where a <script type="math/tex">p</script>-gon is a <script type="math/tex">p</script>-sided polygon. It turns out that all 333LPs require <script type="math/tex">q=3</script> to obtain 3x3x3-like cuts, so we can focus merely on <script type="math/tex">\{p, 3\}</script> tilings instead.</p>
+
+<h3 id="examples-of-333lps">Examples of 333LPs</h3>
+<h4 id="the-sphere">The Sphere</h4>
+<p>The sphere is an orientable surface. We can tile the sphere with <script type="math/tex">\{p, 3\}</script> tilings for <script type="math/tex">p \in \{3,4,5\}</script>. When <script type="math/tex">p=3</script> we obtain a tetrahedron, when <script type="math/tex">p=4</script> we obtain a cube, and when <script type="math/tex">p=5</script> we obtain a dodecahedron. However, we can discard the <script type="math/tex">p=3</script> case since the face-turning tetrahedron is Jing’s Pyraminx, which is not solved in the same way as the 3x3x3 or the Megaminx.</p>
+
+<p>Therefore, the spherical regular 333LPs are exactly the 3x3x3 (shown below, left) and the Megaminx (shown below, right). However, they appear different in this program due to the use of <a href="https://en.wikipedia.org/wiki/Stereographic_projection">stereographic projection</a>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/43-6c-solved.png" alt="A 3x3x3 in MagicTile, based off a {4,3} stereographically projected onto a plane" /></td>
+      <td><img src="/img/333lp-mt/53-12c-solved.png" alt="A Megaminx in MagicTile, based off a {5,3} stereographically projected onto a plane" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Considering that these 333LPs are the only ones that can be physically produced, we can use these puzzles as a reference point for the other 333LPs below. For the purpose of this article, we claim a 333LP is “not limited in size” if both [[R’, F], D] and [[R: U], D] can be executed from all angles, and only cycle three corners each time. Otherwise, we claim that the 333LP is “limited in size”.</p>
+
+<p>Both the 3x3x3 and the Megaminx are not limited in size by the definition above.</p>
+
+<h4 id="the-projective-plane">The Projective Plane</h4>
+<p>The projective plane is a non-orientable surface that can be thought of as a sphere where opposite points are the exact same point. For example, whereas we can project a cube and dodecahedron onto a sphere, we can project a hemicube and a hemidodecahedron onto the projective plane. The hemicube is an abstract polyhedron with three faces, but we can represent it as a cube where opposite edges are the same edge, opposite vertices are the same vertex, and opposite faces are the same face. The hemidodecahedron and dodecahedron relate to each other in a similar way.</p>
+
+<p>Then, based on the hemicube and the hemidodecahedron, we can construct the 3x3x3 hemicube (shown below, left) and the Hemimegaminx (shown below, right). In MagicTile, these puzzles are represented as spherical puzzles where opposite faces are the same face. Thus, if one face is rotated clockwise, the opposite face rotates counterclockwise simultaneously. Shown below are the 3x3x3 hemicube and the Hemimegaminx.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/43-3c-hemi-solved.png" alt="A 3x3x3 hemicube in MagicTile" /></td>
+      <td><img src="/img/333lp-mt/53-6c-hemi-solved.png" alt="A Hemimegaminx in MagicTile" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The 3x3x3 hemicube is limited in size but trivial, for it can be boiled down into a three-colour slice-turning 3x3x3. Therefore, the corners are always solved, and a solving strategy becomes solving the centers after solving the edges, which makes this puzzle an outlier relative to the other 333LPs.</p>
+
+<p>Meanwhile, the Hemimegaminx is non-trivial. It can be solved with an edges-first approach, where the corners are afterwards solved using the commutator [[R’, F], D] but not [[R: U], D]; the latter does not work on the Hemimegaminx because it is limited in size. The Hemimegaminx can also be left with one twisted corner at the end of a solve because it is non-orientable.</p>
+
+<h4 id="the-torus">The Torus</h4>
+<p>On the torus, solving the regular 333LPs, which take the form of <script type="math/tex">\{6,3\}</script> tilings, is fairly straightforward for the most part. Note that we can represent puzzles on the torus by unfolding and stretching the torus into a <a href="https://pi.math.cornell.edu/~mec/Winter2009/Victor/part1(6).png">flat torus</a>.</p>
+
+<p>For the 7-coloured torus 333LP (shown below, left), after the edges are solved, the corners can be placed only using [[R’, F], D], because the puzzle is limited in size. The 16-coloured torus 333LP (shown below, right), however, is not limited in size, and can be solved in the same way as the Megaminx.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/63-7c-solved.png" alt="A 7-coloured {6,3} flat torus puzzle in MagicTile" /></td>
+      <td><img src="/img/333lp-mt/63-16c-solved.png" alt="A 16-coloured {6,3} flat torus puzzle in MagicTile" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The 6-coloured torus 333LP (shown below), meanwhile, is so limited in size that the only way to really place corners on such a puzzle after the edges are solved is to use careful applications of [[R: U], D].</p>
+
+<p><img src="/img/333lp-mt/63-6c-solved.png" alt="A 6-coloured {6,3} flat torus puzzle in MagicTile" width="350px" /></p>
+
+<h4 id="the-klein-bottle">The Klein Bottle</h4>
+<p>The Klein bottle is non-orientable, so once again it is possible to leave only one corner unsolved. We can represent it in a flat plane in a similar way to the flat torus above. On the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle, both [[R’, F], D] and [[R: U], D] can be used, although the latter cannot be used from all execution angles because the puzzle is limited in size.</p>
+
+<p><img src="/img/333lp-mt/63-9c-klein-solved.png" alt="A 9-coloured {6,3} flat Klein bottle puzzle in MagicTile" width="350px" /></p>
+
+<h4 id="the-hyperbolic-plane">The Hyperbolic Plane</h4>
+<p>The hyperbolic plane offers the most 333LPs, merely because its negative curvature allows for any <script type="math/tex">\{p,3\}</script> tiling where <script type="math/tex">p \ge 7</script>. Fortunately, the program offers a way to rotate the puzzle so that the solver is not forced to zoom in to inspect “distant” faces.</p>
+
+<p>We now list a few of the 333LPs that are not limited in size that are available on MagicTile: the 24-coloured <script type="math/tex">\{7,3\}</script>, the 24-coloured <script type="math/tex">\{8,3\}</script>, the 18-coloured <script type="math/tex">\{10,3\}</script>, and the 36-coloured <script type="math/tex">\{10,3\}</script>.</p>
+
+<p>The 24-coloured <script type="math/tex">\{7,3\}</script> has fewer cubies than the <a href="https://en.wikipedia.org/wiki/Tuttminx">Tuttminx</a>, and the 24-coloured <script type="math/tex">\{8,3\}</script> has more cubies than the Tuttminx. Meanwhile, the 12-coloured <script type="math/tex">\{8,3\}</script> is limited in size in a similar way as the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle.</p>
+
+<p>The 18-coloured <script type="math/tex">\{10,3\}</script> is non-orientable, and the 36-coloured <script type="math/tex">\{10,3\}</script> is orientable. The 36-coloured <script type="math/tex">\{10,3\}</script> also has the exact same number of cubies (excluding centers) as VeryPuzzle’s <a href="https://lifestyle.brando.com/prod_img/EEIQCU005500_2_640.jpg">truncated icosidodecahedron</a> puzzle. It also has more permutations than the truncated icosidodecahedron puzzle due to its regularity; whereas the former allows for single turns on all of its faces, the latter only admits double turns on all of its faces, and its cubies cannot be re-oriented either due to its non-regular <a href="https://en.wikipedia.org/wiki/Vertex_figure">vertex figure</a>.</p>
+
+<p>Shown below is the 24-coloured <script type="math/tex">\{7,3\}</script> (left) and the 36-coloured <script type="math/tex">\{10,3\}</script> (right):</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/73-24c-solved.png" alt="A 24-coloured {7,3} hyperbolic plane puzzle in MagicTile" /></td>
+      <td><img src="/img/333lp-mt/103-36c-solved.png" alt="A 36-coloured {10,3} hyperbolic plane puzzle in MagicTile" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A feature that immediately stands out is that for large <script type="math/tex">p</script>, the <script type="math/tex">p</script>-gons take up more apparent space in the projection used above, which is the <a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_disk_model">Poincaré disk model</a>. In turn, those <script type="math/tex">\{p,3\}</script> tilings are more cumbersome to navigate around in MagicTile.</p>
+
+<p>Another feature is that even though the hyperbolic plane admits an infinite number of 333LPs, as <script type="math/tex">p</script> increases, moving around the cubies becomes more tedious too. For example, what used to be a U2 on the 3x3x3 or Megaminx could now become a U5 on the 36-coloured <script type="math/tex">\{10,3\}</script>.</p>
+
+<p>Therefore, the 24-coloured <script type="math/tex">\{7,3\}</script> or <script type="math/tex">\{8,3\}</script> are probably the most comfortable examples of orientable 333LPs on MagicTile that are not limited in size.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>3x3x3-like puzzles (333LPs) change in solving properties depending on their orientability and puzzle size.</p>
+
+<p>The orientable 333LPs that are not limited in size and are viewable with MagicTile are: the 3x3x3, the Megaminx, the 16-coloured <script type="math/tex">\{6,3\}</script> torus, the 24-coloured <script type="math/tex">\{7,3\}</script>, the 24-coloured <script type="math/tex">\{8,3\}</script>, and the 36-coloured <script type="math/tex">\{10,3\}</script>. Since these puzzles are not limited in size, they can all be solved with the exact same edge-first corner-second method, i.e. solving the edges intuitively, and then applying either [[R’, F], D] or [[R: U], D] commutators to solve the corners.</p>
+
+<p>Other 333LPs mentioned were either limited in size, such as the 12-coloured <script type="math/tex">\{8,3\}</script>; non-orientable, such as the 18-coloured <script type="math/tex">\{10,3\}</script>; or both, such as the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle and the Hemimegaminx. We also looked at the 3x3x3 hemicube, which is both non-orientable and limited in size, yet trivial. Thus, we write the following statements without taking the 3x3x3 hemicube into account. Non-orientable 333LPs can have twisted or mirrored corners, which increases the difficulty of the solve. 333LPs that are limited in size do not allow execution of the [[R’, F], D] and [[R: U], D] commutators from all possible execution angles, which also increases the difficulty of the solve.</p>
+
+<h3 id="future-works">Future Works</h3>
+
+<p>In Part II of this series, we plan on using <a href="https://en.wikipedia.org/wiki/Coxeter%E2%80%93Dynkin_diagram">Coxeter-Dynkin diagrams</a> to examine the possibilities of 333LPs based on <a href="https://en.wikipedia.org/wiki/Archimedean_solid">Archimedean solids</a> and their higher-dimensional counterparts.</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="exploring-3x3x3-like-puzzles-part-i--orientability">Exploring 3x3x3-like Puzzles (Part I – Orientability)</h2>
+
+<p><em>Written April 10, 2020.</em></p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>In this article, we first define regular 3x3x3-like puzzles (regular 333LPs), which generalize the 3x3x3 and the <a href="https://en.wikipedia.org/wiki/Megaminx">Megaminx</a>. We then explore several 333LPs embedded on different surfaces using Roice Nelson’s <a href="http://roice3.org/magictile/">MagicTile</a> program. We note how the solving experience changes for the different puzzles depending on their orientability and their size, and in the end, list off regular 333LPs most similar to the 3x3x3 and the Megaminx.</p>
+
+<p><strong><em>TL;DR:</em></strong> The second paragraph of the Conclusion section at the end of this article lists out the puzzles that behave most similarly to the 3x3x3 and the Megaminx.</p>
+
+<h3 id="regular-3x3x3-like-puzzles">Regular 3x3x3-Like Puzzles</h3>
+
+<p>We define a regular 3x3x3-like puzzle (a regular 333LP) as any twisty puzzle similar enough to a 3x3x3 to be solved like a 3x3x3 using an edges-first corners-second approach, or in some cases, even CFOP. In other words, 333LPs generalize the 3x3x3 and the <a href="https://en.wikipedia.org/wiki/Megaminx">Megaminx</a>. Almost all the puzzles presented in this article can first be solved by intuitively placing the edges, and then using variations on [[R’, F], D] and/or [[R: U], D] to solve the corners.</p>
+
+<h3 id="surfaces-and-orientability">Surfaces and Orientability</h3>
+
+<p>We use Roice Nelson’s <a href="http://roice3.org/magictile/">MagicTile</a> program to try out 333LPs on various surfaces. In this article, we try regular 333LPs on the sphere, the projective plane, the torus, the Klein bottle, and the hyperbolic plane.</p>
+
+<p>A feature that comes up often when exploring these various surfaces is orientability. We say a surface is non-orientable if a 2D figure can be placed on it at some starting point, and then moved around the surface in such a way that the figure arrives back at the starting point mirror-reversed. Examples of non-orientable surfaces include the Möbius strip and Klein bottle. Orientable surfaces are thus the opposite of non-orientable surfaces. For orientable surfaces, 2D figures placed on some starting point cannot come back to that same point mirror-reversed.</p>
+
+<h4 id="twisting-single-corners-on-non-orientable-puzzles">Twisting Single Corners on Non-Orientable Puzzles</h4>
+<p>To twist a single corner on non-orientable puzzles, we can first twist two corners. Using a commutator such as [[R’, F]2, D] or [[R, U]2, D], one corner will be twisted clockwise, and the other counterclockwise. Then, we can bring one of the corners to the “opposite” side of the puzzle, which mirrors it due to non-orientability. We can then untwist the two corners with the same commutator, leaving only one of the corners twisted after undoing the setup moves.</p>
+
+<p>The image below shows a single corner twisted on the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle puzzle.</p>
+
+<p><img src="/img/333lp-mt/63-9c-klein-cornertwist.png" alt="A 9-coloured {6,3} Klein bottle puzzle with a single corner twisted due to non-orientability" width="350px" /></p>
+
+<p>Note that a single corner cannot be twisted on orientable 333LPs since the corner orientation of a single corner is dependent on that of all the other corners, meaning if all but the last corner is solved, then the last corner must be solved too (unless the puzzle is in an illegal/unsolvable permutation).</p>
+
+<h3 id="tilings-and-schläfli-symbols">Tilings and Schläfli Symbols</h3>
+
+<p>We use the <a href="https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol">Schläfli symbol</a> to denote the various tilings explored in this article. The Schläfli symbol <script type="math/tex">\{p, q\}</script> represents a tiling with <script type="math/tex">q</script> <script type="math/tex">p</script>-gons per vertex, where a <script type="math/tex">p</script>-gon is a <script type="math/tex">p</script>-sided polygon. It turns out that all 333LPs require <script type="math/tex">q=3</script> to obtain 3x3x3-like cuts, so we can focus merely on <script type="math/tex">\{p, 3\}</script> tilings instead.</p>
+
+<h3 id="examples-of-333lps">Examples of 333LPs</h3>
+<h4 id="the-sphere">The Sphere</h4>
+<p>The sphere is an orientable surface. We can tile the sphere with <script type="math/tex">\{p, 3\}</script> tilings for <script type="math/tex">p \in \{3,4,5\}</script>. When <script type="math/tex">p=3</script> we obtain a tetrahedron, when <script type="math/tex">p=4</script> we obtain a cube, and when <script type="math/tex">p=5</script> we obtain a dodecahedron. However, we can discard the <script type="math/tex">p=3</script> case since the face-turning tetrahedron is Jing’s Pyraminx, which is not solved in the same way as the 3x3x3 or the Megaminx.</p>
+
+<p>Therefore, the spherical regular 333LPs are exactly the 3x3x3 (shown below, left) and the Megaminx (shown below, right). However, they appear different in this program due to the use of <a href="https://en.wikipedia.org/wiki/Stereographic_projection">stereographic projection</a>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/43-6c-solved.png" alt="A 3x3x3 in MagicTile, based off a {4,3} stereographically projected onto a plane" /></td>
+      <td><img src="/img/333lp-mt/53-12c-solved.png" alt="A Megaminx in MagicTile, based off a {5,3} stereographically projected onto a plane" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Considering that these 333LPs are the only ones that can be physically produced, we can use these puzzles as a reference point for the other 333LPs below. For the purpose of this article, we claim a 333LP is “not limited in size” if both [[R’, F], D] and [[R: U], D] can be executed from all angles, and only cycle three corners each time. Otherwise, we claim that the 333LP is “limited in size”.</p>
+
+<p>Both the 3x3x3 and the Megaminx are not limited in size by the definition above.</p>
+
+<h4 id="the-projective-plane">The Projective Plane</h4>
+<p>The projective plane is a non-orientable surface that can be thought of as a sphere where opposite points are the exact same point. For example, whereas we can project a cube and dodecahedron onto a sphere, we can project a hemicube and a hemidodecahedron onto the projective plane. The hemicube is an abstract polyhedron with three faces, but we can represent it as a cube where opposite edges are the same edge, opposite vertices are the same vertex, and opposite faces are the same face. The hemidodecahedron and dodecahedron relate to each other in a similar way.</p>
+
+<p>Then, based on the hemicube and the hemidodecahedron, we can construct the 3x3x3 hemicube (shown below, left) and the Hemimegaminx (shown below, right). In MagicTile, these puzzles are represented as spherical puzzles where opposite faces are the same face. Thus, if one face is rotated clockwise, the opposite face rotates counterclockwise simultaneously. Shown below are the 3x3x3 hemicube and the Hemimegaminx.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/43-3c-hemi-solved.png" alt="A 3x3x3 hemicube in MagicTile" /></td>
+      <td><img src="/img/333lp-mt/53-6c-hemi-solved.png" alt="A Hemimegaminx in MagicTile" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The 3x3x3 hemicube is limited in size but trivial, for it can be boiled down into a three-colour slice-turning 3x3x3. Therefore, the corners are always solved, and a solving strategy becomes solving the centers after solving the edges, which makes this puzzle an outlier relative to the other 333LPs.</p>
+
+<p>Meanwhile, the Hemimegaminx is non-trivial. It can be solved with an edges-first approach, where the corners are afterwards solved using the commutator [[R’, F], D] but not [[R: U], D]; the latter does not work on the Hemimegaminx because it is limited in size. The Hemimegaminx can also be left with one twisted corner at the end of a solve because it is non-orientable.</p>
+
+<h4 id="the-torus">The Torus</h4>
+<p>On the torus, solving the regular 333LPs, which take the form of <script type="math/tex">\{6,3\}</script> tilings, is fairly straightforward for the most part. Note that we can represent puzzles on the torus by unfolding and stretching the torus into a <a href="https://pi.math.cornell.edu/~mec/Winter2009/Victor/part1(6).png">flat torus</a>.</p>
+
+<p>For the 7-coloured torus 333LP (shown below, left), after the edges are solved, the corners can be placed only using [[R’, F], D], because the puzzle is limited in size. The 16-coloured torus 333LP (shown below, right), however, is not limited in size, and can be solved in the same way as the Megaminx.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/63-7c-solved.png" alt="A 7-coloured {6,3} flat torus puzzle in MagicTile" /></td>
+      <td><img src="/img/333lp-mt/63-16c-solved.png" alt="A 16-coloured {6,3} flat torus puzzle in MagicTile" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The 6-coloured torus 333LP (shown below), meanwhile, is so limited in size that the only way to really place corners on such a puzzle after the edges are solved is to use careful applications of [[R: U], D].</p>
+
+<p><img src="/img/333lp-mt/63-6c-solved.png" alt="A 6-coloured {6,3} flat torus puzzle in MagicTile" width="350px" /></p>
+
+<h4 id="the-klein-bottle">The Klein Bottle</h4>
+<p>The Klein bottle is non-orientable, so once again it is possible to leave only one corner unsolved. We can represent it in a flat plane in a similar way to the flat torus above. On the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle, both [[R’, F], D] and [[R: U], D] can be used, although the latter cannot be used from all execution angles because the puzzle is limited in size.</p>
+
+<p><img src="/img/333lp-mt/63-9c-klein-solved.png" alt="A 9-coloured {6,3} flat Klein bottle puzzle in MagicTile" width="350px" /></p>
+
+<h4 id="the-hyperbolic-plane">The Hyperbolic Plane</h4>
+<p>The hyperbolic plane offers the most 333LPs, merely because its negative curvature allows for any <script type="math/tex">\{p,3\}</script> tiling where <script type="math/tex">p \ge 7</script>. Fortunately, the program offers a way to rotate the puzzle so that the solver is not forced to zoom in to inspect “distant” faces.</p>
+
+<p>We now list a few of the 333LPs that are not limited in size that are available on MagicTile: the 24-coloured <script type="math/tex">\{7,3\}</script>, the 24-coloured <script type="math/tex">\{8,3\}</script>, the 18-coloured <script type="math/tex">\{10,3\}</script>, and the 36-coloured <script type="math/tex">\{10,3\}</script>.</p>
+
+<p>The 24-coloured <script type="math/tex">\{7,3\}</script> has fewer cubies than the <a href="https://en.wikipedia.org/wiki/Tuttminx">Tuttminx</a>, and the 24-coloured <script type="math/tex">\{8,3\}</script> has more cubies than the Tuttminx. Meanwhile, the 12-coloured <script type="math/tex">\{8,3\}</script> is limited in size in a similar way as the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle.</p>
+
+<p>The 18-coloured <script type="math/tex">\{10,3\}</script> is non-orientable, and the 36-coloured <script type="math/tex">\{10,3\}</script> is orientable. The 36-coloured <script type="math/tex">\{10,3\}</script> also has the exact same number of cubies (excluding centers) as VeryPuzzle’s <a href="https://lifestyle.brando.com/prod_img/EEIQCU005500_2_640.jpg">truncated icosidodecahedron</a> puzzle. It also has more permutations than the truncated icosidodecahedron puzzle due to its regularity; whereas the former allows for single turns on all of its faces, the latter only admits double turns on all of its faces, and its cubies cannot be re-oriented either due to its non-regular <a href="https://en.wikipedia.org/wiki/Vertex_figure">vertex figure</a>.</p>
+
+<p>Shown below is the 24-coloured <script type="math/tex">\{7,3\}</script> (left) and the 36-coloured <script type="math/tex">\{10,3\}</script> (right):</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="/img/333lp-mt/73-24c-solved.png" alt="A 24-coloured {7,3} hyperbolic plane puzzle in MagicTile" /></td>
+      <td><img src="/img/333lp-mt/103-36c-solved.png" alt="A 36-coloured {10,3} hyperbolic plane puzzle in MagicTile" /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A feature that immediately stands out is that for large <script type="math/tex">p</script>, the <script type="math/tex">p</script>-gons take up more apparent space in the projection used above, which is the <a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_disk_model">Poincaré disk model</a>. In turn, those <script type="math/tex">\{p,3\}</script> tilings are more cumbersome to navigate around in MagicTile.</p>
+
+<p>Another feature is that even though the hyperbolic plane admits an infinite number of 333LPs, as <script type="math/tex">p</script> increases, moving around the cubies becomes more tedious too. For example, what used to be a U2 on the 3x3x3 or Megaminx could now become a U5 on the 36-coloured <script type="math/tex">\{10,3\}</script>.</p>
+
+<p>Therefore, the 24-coloured <script type="math/tex">\{7,3\}</script> or <script type="math/tex">\{8,3\}</script> are probably the most comfortable examples of orientable 333LPs on MagicTile that are not limited in size.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>3x3x3-like puzzles (333LPs) change in solving properties depending on their orientability and puzzle size.</p>
+
+<p>The orientable 333LPs that are not limited in size and are viewable with MagicTile are: the 3x3x3, the Megaminx, the 16-coloured <script type="math/tex">\{6,3\}</script> torus, the 24-coloured <script type="math/tex">\{7,3\}</script>, the 24-coloured <script type="math/tex">\{8,3\}</script>, and the 36-coloured <script type="math/tex">\{10,3\}</script>. Since these puzzles are not limited in size, they can all be solved with the exact same edge-first corner-second method, i.e. solving the edges intuitively, and then applying either [[R’, F], D] or [[R: U], D] commutators to solve the corners.</p>
+
+<p>Other 333LPs mentioned were either limited in size, such as the 12-coloured <script type="math/tex">\{8,3\}</script>; non-orientable, such as the 18-coloured <script type="math/tex">\{10,3\}</script>; or both, such as the 9-coloured <script type="math/tex">\{6,3\}</script> Klein bottle and the Hemimegaminx. We also looked at the 3x3x3 hemicube, which is both non-orientable and limited in size, yet trivial. Thus, we write the following statements without taking the 3x3x3 hemicube into account. Non-orientable 333LPs can have twisted or mirrored corners, which increases the difficulty of the solve. 333LPs that are limited in size do not allow execution of the [[R’, F], D] and [[R: U], D] commutators from all possible execution angles, which also increases the difficulty of the solve.</p>
+
+<h3 id="future-works">Future Works</h3>
+
+<p>In Part II of this series, we plan on using <a href="https://en.wikipedia.org/wiki/Coxeter%E2%80%93Dynkin_diagram">Coxeter-Dynkin diagrams</a> to examine the possibilities of 333LPs based on <a href="https://en.wikipedia.org/wiki/Archimedean_solid">Archimedean solids</a> and their higher-dimensional counterparts.</p>
+
+
+        <hr />
+        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+      </div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
+    </div>
+    
+    <footer class="site-footer">
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
+      <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/rzhao271"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Copyright &copy; Raymond Zhao, 2015&ndash;2020</span>
+      <br />
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      <br />
+      <small>Website preview picture sourced from <a href="https://commons.wikimedia.org/wiki/File:Schlegel_wireframe_24-cell.png">WikiCommons</a>, generated by <a href="http://www.software3d.com/Stella.php">Robert Webb's Stella software</a>.</small>
+    </div>
+  </div>
+  
+  <script src="../../js/foundation.min.js"></script>
+  <script src="../../js/rayzz-colors.js"></script>
+  <script src="../../js/app.js"></script>
+</footer>
+
+  </body>
+</html>
