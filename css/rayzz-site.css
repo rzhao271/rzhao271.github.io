@@ -33,7 +33,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.15em;
+  font-size: 1.25em;
 }
 
 p {
@@ -73,6 +73,9 @@ a:hover {
 
 figure.highlight {
   background-color: #202025;
+}
+figcaption {
+  font-size: 0.9em;
 }
 code {
   border: none;
