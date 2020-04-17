@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://www.rayzz.me" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me//articles/hypercubing/n-comms.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="https://www.rayzz.me//feed.xml">
+  
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+  <script src="../../js/jquery.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="show-for-medium">
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns show-for-medium medium-2 large-7">
+    &nbsp;
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../index.html">About</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../resume.html">Resume</a>
+  </div>
+  <!--<div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../portfolio.html">Portfolio</a>
+  </div>-->
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../contact.html">
+      Contact
+    </a>
+  </div>
+  <div class="columns show-for-medium medium-2 large-1">
+    &nbsp;
+  </div>
+</nav>
+</div>
+<div class="show-for-small-only">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+  <ul class="menu vertical mobile-nav-menu">
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <li><a href="../../index.html">About</a></li>
+    <li><a href="../../resume.html">Resume</a></li>
+    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+  <header class="title-bar">
+    <div class="title-bar-left">
+      <div class="title-bar-title">
+        <h1>Raymond Zhao</h1>
+        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+      </div>
+    </div>
+    <div class="title-bar-right">
+      <button type="button" class="menu-icon" data-open="offCanvas"></button>
+    </div>
+  </header>
+  <div class="expanded row">
+    <div class="columns small-12 color-bar-1">&nbsp;</div>
+  </div>
+</div>
+
+
+    <div class="expanded row off-canvas-content" data-off-canvas-content>
+      <div class="columns small-12 content-wrapper">
+        <section class="main-content">
+          <h2 id="higher-dimensional-sledgehammers-and-exponentially-growing-disincentives">Higher-Dimensional Sledgehammers and Exponentially-Growing Disincentives</h2>
+
+<p><em>Written April 17, 2020.</em></p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>In this article, we first generalize the Sledgehammer-based commutator [[R’, F], D] as a way to solve <script type="math/tex">n</script>-dimensional <script type="math/tex">s^n</script> Rubik’s cubes (where <script type="math/tex">s \ge 2, n \ge 3</script>). We then analyze the commutator movecount with respect to <script type="math/tex">s</script> and <script type="math/tex">n</script>, and derive asymptotic bounds for the expected solution length of an <script type="math/tex">s^n</script> Rubik’s cube. We consider two different solving approaches: one where we use generalized commutators for every piece type, and one where we use a modification of <a href="https://superliminal.com/cube/solution/solution.htm">Roice’s method</a> with reduction without freeslicing. We find that the growth rate of the solution length is exponential in both cases, greatly disincentivizing solving past three dimensions using these approaches without macros.</p>
+
+<p><strong><em>TL;DR:</em></strong> See the conclusion for a summary of our findings.</p>
+
+<h3 id="sledgehammers">Sledgehammers</h3>
+
+<p>The [R’, F] commutator is known as the Sledgehammer in speedcubing parlance. We can use the  Sledgehammer-based [[R’, F], D] to solve the corners (Figure 1), and the Sledgehammer-based [[R’, F], E] to solve the edges.</p>
+
+<div class="columns small-12">
+  <figure>
+    <p><img src="/img/n-comms/sledgeD-33.png" width="350px" /></p>
+    <figcaption>
+      <p>Figure 1: [[R’, F], D] performed on a 3x3x3, where the U face is green and the F face is white.</p>
+    </figcaption>
+  </figure>
+</div>
+
+<p>We can apply these Sledgehammer-based commutators to higher-order three-dimensional <script type="math/tex">s^3</script> Rubik’s cubes by generalizing the commutator to [[Jr’, F], Kd], where <script type="math/tex">J</script> and <script type="math/tex">K</script> refer to some slice depth, <script type="math/tex">1 \le J, K \le \lceil s/2 \rceil</script>. By varying <script type="math/tex">J</script> and <script type="math/tex">K</script>, we induce three-cycles on different sets of pieces.</p>
+
+<p>When we apply this approach to higher dimensions, the commutator generalizes to <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_n]</script>, where the effect of <script type="math/tex">S</script> is equivalent to that of the Sledgehammer, and <script type="math/tex">D_m</script> is some equivalent to the D move on a 3x3x3 for <script type="math/tex">3 \le m \le n</script>. In essence, each additional <script type="math/tex">D_m</script> causes the commutator to selectively cycle a smaller number of pieces, until only three are cycled.</p>
+
+<p>For example, in four dimensions, we can do [[[TF, RF’], DF], [LU: 3TU]] to cycle three 4-coloured pieces on a <script type="math/tex">3^4</script> Rubik’s cube (Figure 2), and generalize to [[[TF, RF’], 1/2DF], [LU: 2/3TU]] in order to cycle other piece types on the <script type="math/tex">3^4</script> Rubik’s cube, where 1/2 in this case means to turn either the first or second layer, and 2/3 in this case means to turn either the second or third layer. We can use similar logic to solve any <script type="math/tex">s^4</script> Rubik’s cube, where <script type="math/tex">s \ge 2</script>.</p>
+
+<div class="columns small-12">
+  <figure>
+    <p><img src="/img/n-comms/sledgeD-34.png" width="350px" /></p>
+    <figcaption>
+      <p>Figure 2: [[[TF, RF’], DF], [LU: 3TU]] performed on a 3x3x3x3.</p>
+    </figcaption>
+  </figure>
+</div>
+
+<p>However, every time we go up a dimension, we nest the commutator another layer deep, and the length of the commutator at least doubles in size. Thus, the commutator length grows at a rate of <script type="math/tex">\Omega(2^n)</script>, where <script type="math/tex">n</script> is the dimension number.</p>
+
+<h3 id="bounding-the-solution-lengths">Bounding the Solution Lengths</h3>
+
+<p>We now estimate asymptotic bounds for the expected solution lengths required to solve the <script type="math/tex">s^n</script> Rubik’s cube, assuming <script type="math/tex">s \ge 2</script> is fixed, and <script type="math/tex">n \ge 3</script>. These bounds do not give exact solution movecount numbers, but allow us to see the overall trend in expected solution lengths as <script type="math/tex">n</script> increases.</p>
+
+<p>We firstly assume that the puzzle is well-scrambled, meaning that all pieces are permuted incorrectly relative to their solved positions. In reality, there are often pieces that are permuted correctly, but we assume that:</p>
+
+<ol>
+  <li>There are not enough pieces that are both correctly oriented and permuted to significantly affect the estimate.</li>
+  <li>Pieces that are permuted correctly but oriented incorrectly require up to twice as much effort to solve as pieces that are permuted incorrectly. This constant factor is then discarded when using big-<script type="math/tex">O</script> notation and its variants.</li>
+</ol>
+
+<p>We then assume each commutator only solves a single piece. In three dimensions, it is easy to perform setup moves to place two pieces at a time with these commutators. However, the number of possible orientations an <script type="math/tex">m</script>-coloured piece can have is bounded by <script type="math/tex">\Theta(m!)</script>, so it takes much longer to correctly orient and set up pieces in higher dimensions.</p>
+
+<p>We also do not count setup moves, because the number of setup moves required to solve the puzzle varies depending on the given cycle and the commutators used. A rough estimate for the number of moves required to solve an <script type="math/tex">s^n</script> Rubik’s cube, including setup moves, can be made by doubling the initial left-hand-side expressions given in the equations below.</p>
+
+<p>Lastly, we do not take the fact that odd-length <script type="math/tex">s^n</script> Rubik’s cubes have fixed centers into consideration when doing the calculations, which overestimates the number of centers that need to be solved for these puzzles by <script type="math/tex">2n</script> (out of <script type="math/tex">2n(s-2)^{n-1}</script> centers in total). We assume this overestimation is negligible, because the total number of pieces grows exponentially as <script type="math/tex">n</script> increases, whereas <script type="math/tex">2n</script> grows linearly.</p>
+
+<h4 id="solving-using-pure-commutators">Solving using Pure Commutators</h4>
+
+<p>Firstly, we consider an approach where the solver uses pure commutators for the entire solve, meaning that <script type="math/tex">m</script>-coloured pieces are solved using commutators that only swap around <script type="math/tex">m</script>-coloured pieces. For this case, every commutator is of the form <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_n]</script>, and so it takes <script type="math/tex">\Omega(2^n)</script> moves to solve each <script type="math/tex">m</script>-coloured piece for all <script type="math/tex">1 \le m \le n</script>.</p>
+
+<p><strong>Theorem 1.1:</strong> Assume <script type="math/tex">s \ge 3</script> is fixed, and let <script type="math/tex">n \ge 3</script>. A bound for the expected solution length for the <script type="math/tex">s^n</script> Rubik’s cube using pure commutators is <script type="math/tex">\Omega((2s)^n)</script> moves.</p>
+
+<p><em>Proof:</em> For each <script type="math/tex">m</script>-coloured piece, we expect to use <script type="math/tex">\Omega(2^n)</script> moves. By Theorem 3.2 in [1], there are <script type="math/tex">2^m {n \choose m} (s - 2)^{n - m}</script> <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube. Therefore, we obtain the following bound:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\sum_{m = 1}^n \Omega(2^n) 2^m {n \choose m} (s - 2)^{n - m} 
+&= \Omega(2^n) (s - 2)^n \sum_{m = 1}^n \left({2 \over s - 2}\right)^m {n \choose m} \\
+&= \Omega(2^n) (s - 2)^n \left[\left({2 \over s - 2} + 1\right)^n - 1\right] \\
+&= \Omega(2^n) (s - 2)^n \left[\left({s \over s - 2}\right)^n - 1\right] \\
+&= \Omega(2^n)(s^n - (s - 2)^n) \\
+&= \Omega(2^n) \Theta(s^n) = \Omega((2s)^n)
+\end{align} %]]></script>
+
+<p>as desired. <script type="math/tex">\square</script></p>
+
+<p>For example, the expected number of moves to solve the <script type="math/tex">3^n</script> Rubik’s cube is bounded by
+<script type="math/tex">\Omega(6^n)</script>.</p>
+
+<p>We cannot use the equations above for <script type="math/tex">s = 2</script>, because that ends up dividing by zero. However, we can easily run a separate set of calculations for that case.</p>
+
+<p><strong>Theorem 1.2:</strong> Let <script type="math/tex">n \ge 3</script>. A bound for the expected solution length for the <script type="math/tex">2^n</script> Rubik’s cube using pure commutators is <script type="math/tex">\Omega(4^n)</script> moves.</p>
+
+<p><em>Proof:</em> The <script type="math/tex">2^n</script> Rubik’s cube has <script type="math/tex">2^n</script> <script type="math/tex">n</script>-coloured pieces, by Corollary 3.3 in [1]. For each piece, we expect to take <script type="math/tex">\Omega(2^n)</script> moves, so the expected solution length for the <script type="math/tex">2^n</script> Rubik’s cube is bounded by <script type="math/tex">\Omega(2^n)2^n = \Omega(4^n)</script>. <script type="math/tex">\square</script></p>
+
+<h4 id="solving-using-reduction-and-roices-method">Solving using Reduction and Roice’s Method</h4>
+
+<p>For the <script type="math/tex">3^n</script> Rubik’s cube in particular, we can consider using a variation of <a href="https://superliminal.com/cube/solution/solution.htm">Roice’s Method</a>, which is a higher-dimensional generalization of Marshall’s <a href="https://www.helm.lu/cube/MarshallPhilipp/">Ultimate Solution</a>.</p>
+
+<p>In this case, we solve the pieces in order from 1-coloured pieces to <script type="math/tex">n</script>-coloured pieces. In other words, while solving <script type="math/tex">m</script>-coloured pieces, we can alter any <script type="math/tex">p</script>-coloured piece where <script type="math/tex">m + 1 \le p \le n</script>. Due to this additional freedom, we can use commutators of the form <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_m]</script> to solve <script type="math/tex">m</script>-coloured pieces, and thus use <script type="math/tex">\Omega(2^m)</script> moves to solve each <script type="math/tex">m</script>-coloured piece.</p>
+
+<p>Note that this optimization does not change anything for the <script type="math/tex">2^n</script> Rubik’s cube – we are still stuck with <script type="math/tex">2^n</script> <script type="math/tex">n</script>-coloured pieces, and thus still obtain the bound of <script type="math/tex">\Omega(4^n)</script> from Theorem 1.2.</p>
+
+<p><strong>Theorem 2.1:</strong> A bound for the expected solution length for the <script type="math/tex">3^n</script> Rubik’s cube using Roice’s Method is <script type="math/tex">\Omega(5^n)</script> moves.</p>
+
+<p><em>Proof:</em> We have a bound of <script type="math/tex">\Omega(2^m)</script> moves per <script type="math/tex">m</script>-coloured piece. Combining this information with Corollary 3.4 in [1], we obtain the following bound:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\sum_{m = 1}^n \Omega(2^m) 2^m {n \choose m}
+&= \Omega\left(\sum_{m = 1}^n 4^m {n \choose m}\right) \\
+&= \Omega\left((4 + 1)^n - 1\right) \\
+&= \Omega(5^n)
+\end{align} %]]></script>
+
+<p>as desired. <script type="math/tex">\square</script></p>
+
+<p>Note that it is not possible to directly solve an <script type="math/tex">s^n</script> Rubik’s cube using Roice’s method for <script type="math/tex">s \ge 4</script>. For example, if we have a 3-coloured wing piece placed correctly on a <script type="math/tex">4^4</script> Rubik’s cube, then we must use a pure commutator to place its adjacent wing piece. Using just <script type="math/tex">[S, D_3]</script> <em>will</em> place this second wing piece successfully, but it will simultaneously kick out the first one.</p>
+
+<p>However, we can first reduce the puzzle to a <script type="math/tex">3^n</script> Rubik’s cube, and then solve the resulting <script type="math/tex">3^n</script> Rubik’s cube in <script type="math/tex">\Omega(5^n)</script> moves by Theorem 2.1. We assume the additional movecount required to resolve parity errors is negligible.</p>
+
+<p>While forming blocks (the higher-dimensional equivalent of pairs), we eventually have to use commutators of the form <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_n]</script>, or <script type="math/tex">n</script>-dimensional <a href="https://www.rayzz.me/articles/hypercubing/rkt.html">RKT</a> sequences, to pair up the last few pieces. In both cases, this results in <script type="math/tex">\Omega(2^n)</script> moves spent per pairing. However, a vast majority of the pairings, assuming we pair the 1-coloured pieces first, then the 2-coloured pieces, and so on, can be done in <script type="math/tex">\Omega(2^m)</script> moves, where <script type="math/tex">m</script> is the number of colours on the piece. Thus, we assume <script type="math/tex">\Omega(2^m)</script> moves are spent per <script type="math/tex">m</script>-coloured piece pairing.</p>
+
+<p><strong>Lemma 2.2:</strong> Fix <script type="math/tex">s \ge 1</script>, and let <script type="math/tex">n \ge 1</script>. Assume we form a block of size <script type="math/tex">s^n</script> as follows:</p>
+
+<p>We find <script type="math/tex">s</script> blocks of size <script type="math/tex">1</script>, and then join them together to form a block of size <script type="math/tex">s</script>. Then, for <script type="math/tex">1 \le m \le n-1</script>, we form <script type="math/tex">s-1</script> more blocks of size <script type="math/tex">s^m</script>, and then join the <script type="math/tex">s</script> blocks of size <script type="math/tex">s^m</script> together to form a block of size <script type="math/tex">s^{m+1}</script>. We end up with a block of size <script type="math/tex">s^n</script>.</p>
+
+<p>Using this approach, we claim there are <script type="math/tex">s^n - 1</script> pairings required to form a block of size <script type="math/tex">s^n</script>.</p>
+
+<p><em>Proof:</em> We use induction on <script type="math/tex">n \ge 1</script>. For <script type="math/tex">n = 1</script>, we have a line of <script type="math/tex">s</script> pieces to pair, which gives us <script type="math/tex">s - 1 = s^1 - 1</script> pairings in total, so the base case holds.</p>
+
+<p>Then, assume for some <script type="math/tex">k \ge 1</script> that we have a block of size <script type="math/tex">s^k</script> that is paired in <script type="math/tex">s^k - 1</script> pairings. To create a block of size <script type="math/tex">s^{k+1}</script>, we must first create <script type="math/tex">s</script> of these blocks, which takes <script type="math/tex">s(s^k - 1)</script> pairings in total. Pairing <script type="math/tex">s</script> of these <script type="math/tex">s^k</script> blocks together to form a block of size <script type="math/tex">s^{k+1}</script> then requires another <script type="math/tex">s - 1</script> pairings. Therefore, we have <script type="math/tex">s(s^k - 1) + (s - 1) = s^{k+1} - s + s - 1 = s^{k+1} - 1</script> pairings in total. <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 2.3:</strong> Let <script type="math/tex">s \ge 1, n \ge 1</script>. Given a block of <script type="math/tex">s^n</script> pieces, there are <script type="math/tex">\Theta(1)</script> pairings per piece.</p>
+
+<p><em>Proof:</em> By Lemma 2.2, we require <script type="math/tex">s^n-1 \in \Theta(s^n)</script> pairings to form a block of <script type="math/tex">s^n</script> pieces. Thus, we have <script type="math/tex">\Theta(s^n)/s^n = \Theta(1)</script> pairings per piece. <script type="math/tex">\square</script></p>
+
+<p><strong>Lemma 2.4</strong>: Let <script type="math/tex">n \ge 3, s \ge 4</script>, and <script type="math/tex">1 \le m \le n</script>. During reduction, we say the <script type="math/tex">m</script>-coloured pieces “need to be paired” on the <script type="math/tex">s^n</script> Rubik’s cube if more than one of them correspond to the same <script type="math/tex">m</script>-coloured piece on the <script type="math/tex">3^n</script> Rubik’s cube. We claim that the only values of <script type="math/tex">m</script> for which <script type="math/tex">m</script>-coloured pieces need to be paired on the <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">1 \le m \le n-1</script>.</p>
+
+<p><em>Proof:</em> Firstly, if <script type="math/tex">1 \le m \le n</script>, then <script type="math/tex">0 \le n-m \le n-1</script>. We note that there are <script type="math/tex">(n-m)</script>-facets on an <script type="math/tex">n</script>-cube <script type="math/tex">C_n</script> for all <script type="math/tex">0 \le n-m \le n-1</script>, so the inequality is well-defined.</p>
+
+<p>By Lemma 2.1 in [1], for <script type="math/tex">1 \le m \le n</script>, there are <script type="math/tex">(s-2)^{n-m}</script> <script type="math/tex">n</script>-cubes in <script type="math/tex">G_n</script> per <script type="math/tex">(n-m)</script>-facet in <script type="math/tex">C_n</script>. By Lemma 3.1 in [1], the previous statement translates to there being a block of <script type="math/tex">(s-2)^{n-m}</script> <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube per <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>.</p>
+
+<p>When <script type="math/tex">s = 3</script>, <script type="math/tex">(s-2)^{n-m} = 1^{n-m} = 1</script>, meaning a <script type="math/tex">3^n</script> Rubik’s cube only has one <script type="math/tex">m</script>-coloured piece per <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>. Therefore, on an <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 4</script> by hypothesis, if we have more than one <script type="math/tex">m</script>-coloured piece representing an <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>, then the <script type="math/tex">m</script>-coloured pieces need to be paired on that Rubik’s cube.</p>
+
+<p>But, because <script type="math/tex">s \ge 4</script>, for <script type="math/tex">1 \le m \le n-1</script> we have <script type="math/tex">(s-2)^{n-m} \ge 2^{n-(n-1)} = 2 > 1</script> <script type="math/tex">m</script>-coloured pieces per <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>. Therefore, <script type="math/tex">m</script>-coloured pieces need to be paired on the <script type="math/tex">s^n</script> Rubik’s cube for <script type="math/tex">1 \le m \le n-1</script>.</p>
+
+<p>However, for <script type="math/tex">m = n</script>, <script type="math/tex">(s-2)^{n-m} = (s-2)^0 = 1</script>, so <script type="math/tex">m</script>-coloured pieces do not need to be paired on the <script type="math/tex">s^n</script> Rubik’s cube for <script type="math/tex">m=n</script>. <script type="math/tex">\square</script></p>
+
+<p><strong>Lemma 2.5:</strong> Fix <script type="math/tex">s \ge 4</script>, and let <script type="math/tex">n \ge 3</script>. Assuming no freeslicing takes place, a bound on the number of moves spent on reduction for the <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">\Omega((s+2)^n)</script>.</p>
+
+<p><em>Proof:</em> By an earlier assumption, there are <script type="math/tex">\Omega(2^m)</script> moves per pairing. By Corollary 2.3, there are <script type="math/tex">\Theta(1)</script> pairings per piece. Thus, there are <script type="math/tex">\Theta(1)\Omega(2^m)</script> moves per piece.</p>
+
+<p>By Lemma 2.4, only <script type="math/tex">m</script>-coloured pieces for <script type="math/tex">1 \le m \le n-1</script> need to be paired during reduction.</p>
+
+<p>Combining this information with Theorem 3.2 in [1], we obtain the following bound:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\sum_{m = 1}^{n - 1} \Theta(1)\Omega(2^m)2^m{n \choose m}(s - 2)^{n-m}
+&= \Omega\left(\sum_{m=1}^{n-1} 4^m(s - 2)^{n-m}{n \choose m}\right) \\
+&= \Omega\left((s - 2)^n \sum_{m=1}^{n-1} \left({4 \over s-2}\right)^m{n \choose m}\right) \\
+&= \Omega\left((s - 2)^n \left[\left({4 \over s-2} + 1\right)^n - 1 - \left({4 \over s-2}\right)^n\right]\right) \\
+&= \Omega\left((s - 2)^n \left[\left({s + 2 \over s-2}\right)^n - 1 - \left({4 \over s-2}\right)^n\right]\right) \\
+&= \Omega\left((s+2)^n - (s-2)^n - 4^n\right) \\
+&= \Omega((s+2)^n)
+\end{align} %]]></script>
+
+<p>as desired. <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 2.6:</strong> Fix <script type="math/tex">s \ge 4</script>, and let <script type="math/tex">n \ge 3</script>. Assuming reduction without freeslicing is used, followed by Roice’s method, a bound on the expected solution length of the <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">\Omega((s+2)^n)</script> moves.</p>
+
+<p><em>Proof:</em> By Theorem 2.1 and Lemma 2.5 we obtain the bound <script type="math/tex">\Omega((s+2)^n) + \Omega(5^n) = \Omega(\max\{s+2, 5\}^n) = \Omega((s+2)^n)</script> moves, because <script type="math/tex">s \ge 4</script> implies <script type="math/tex">s + 2 > 5</script>. <script type="math/tex">\square</script></p>
+
+<h3 id="the-exponentially-growing-disincentive-to-attempt-macro-less-solves">The Exponentially-Growing Disincentive to Attempt Macro-Less Solves</h3>
+
+<p>Most higher-dimensional Rubik’s cube software has support for macros. Macros are a feature where the solver can record sequences ahead of time, and then during the solve, reapply those recorded sequences. This way, the solver does not even have to remember how to execute potentially long commutators. Instead, they can first record those commutators into macros, and then run those macros later in a few clicks or keystrokes per execution.</p>
+
+<p>Since the macro feature does not exist for physical puzzles (or if it did, the puzzle would still not be allowed in an official <a href="https://www.worldcubeassociation.org/">World Cube Association</a> competition), many solvers do not consider using macros to be a “legitimate” way to solve the puzzle, even though the developer chose to add in such a feature in the first place.</p>
+
+<p>However, due to the exponentially-growing expected solution lengths for <script type="math/tex">s^n</script> Rubik’s cubes using Sledgehammer-based approaches (relative to <script type="math/tex">n</script>), there is now an exponential amount of time required to solve these puzzles, especially if not using macros. Time, expressed as the expected solution length, thus serves as an exponentially-growing disincentive to solve these higher-dimensional twisty puzzles.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>Assume for this section that <script type="math/tex">n \ge 3</script>. We first came up with a Sledgehammer-based approach to solve the <script type="math/tex">s^n</script> Rubik’s cube, and concluded that Sledgehammer-based commutators for cycling <script type="math/tex">n</script>-coloured pieces have movecounts bounded by <script type="math/tex">\Omega(2^n)</script>.</p>
+
+<p>Afterwards, we estimated bounds for the expected solution lengths.
+Given an <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 3</script> is fixed, using the pure Sledgehammer-based commutators results in a bound of <script type="math/tex">\Omega((2s)^n)</script> moves for the expected solution length.
+We calculated separately that the expected solution length for solving the <script type="math/tex">2^n</script> Rubik’s cube using the same approach is <script type="math/tex">\Omega(4^n)</script> moves.</p>
+
+<p>By using Roice’s Method, along with reduction without freeslicing, we cut the expected solution lengths down to <script type="math/tex">\Omega(5^n)</script> moves for the <script type="math/tex">3^n</script> Rubik’s cube, and <script type="math/tex">\Omega((s+2)^n)</script> moves for the <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 4</script> is fixed.</p>
+
+<p>However, all of these bounds are exponential with respect to the dimension number <script type="math/tex">n</script>. Since movecount positively correlates with time required to solve the puzzle, time then acts as an exponentially-growing disincentive for solvers who wish to solve higher-dimensional Rubik’s cubes without the use of macros.</p>
+
+<h3 id="references">References</h3>
+
+<p><a href="/articles/hypercubing/prisms-and-pieces.html">[1]</a> Zhao, R. (2020). <em>Prisms, N-Cubes, and Counting pieces</em>.</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="higher-dimensional-sledgehammers-and-exponentially-growing-disincentives">Higher-Dimensional Sledgehammers and Exponentially-Growing Disincentives</h2>
+
+<p><em>Written April 17, 2020.</em></p>
+
+<h3 id="abstract">Abstract</h3>
+
+<p>In this article, we first generalize the Sledgehammer-based commutator [[R’, F], D] as a way to solve <script type="math/tex">n</script>-dimensional <script type="math/tex">s^n</script> Rubik’s cubes (where <script type="math/tex">s \ge 2, n \ge 3</script>). We then analyze the commutator movecount with respect to <script type="math/tex">s</script> and <script type="math/tex">n</script>, and derive asymptotic bounds for the expected solution length of an <script type="math/tex">s^n</script> Rubik’s cube. We consider two different solving approaches: one where we use generalized commutators for every piece type, and one where we use a modification of <a href="https://superliminal.com/cube/solution/solution.htm">Roice’s method</a> with reduction without freeslicing. We find that the growth rate of the solution length is exponential in both cases, greatly disincentivizing solving past three dimensions using these approaches without macros.</p>
+
+<p><strong><em>TL;DR:</em></strong> See the conclusion for a summary of our findings.</p>
+
+<h3 id="sledgehammers">Sledgehammers</h3>
+
+<p>The [R’, F] commutator is known as the Sledgehammer in speedcubing parlance. We can use the  Sledgehammer-based [[R’, F], D] to solve the corners (Figure 1), and the Sledgehammer-based [[R’, F], E] to solve the edges.</p>
+
+<div class="columns small-12">
+  <figure>
+    <p><img src="/img/n-comms/sledgeD-33.png" width="350px" /></p>
+    <figcaption>
+      <p>Figure 1: [[R’, F], D] performed on a 3x3x3, where the U face is green and the F face is white.</p>
+    </figcaption>
+  </figure>
+</div>
+
+<p>We can apply these Sledgehammer-based commutators to higher-order three-dimensional <script type="math/tex">s^3</script> Rubik’s cubes by generalizing the commutator to [[Jr’, F], Kd], where <script type="math/tex">J</script> and <script type="math/tex">K</script> refer to some slice depth, <script type="math/tex">1 \le J, K \le \lceil s/2 \rceil</script>. By varying <script type="math/tex">J</script> and <script type="math/tex">K</script>, we induce three-cycles on different sets of pieces.</p>
+
+<p>When we apply this approach to higher dimensions, the commutator generalizes to <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_n]</script>, where the effect of <script type="math/tex">S</script> is equivalent to that of the Sledgehammer, and <script type="math/tex">D_m</script> is some equivalent to the D move on a 3x3x3 for <script type="math/tex">3 \le m \le n</script>. In essence, each additional <script type="math/tex">D_m</script> causes the commutator to selectively cycle a smaller number of pieces, until only three are cycled.</p>
+
+<p>For example, in four dimensions, we can do [[[TF, RF’], DF], [LU: 3TU]] to cycle three 4-coloured pieces on a <script type="math/tex">3^4</script> Rubik’s cube (Figure 2), and generalize to [[[TF, RF’], 1/2DF], [LU: 2/3TU]] in order to cycle other piece types on the <script type="math/tex">3^4</script> Rubik’s cube, where 1/2 in this case means to turn either the first or second layer, and 2/3 in this case means to turn either the second or third layer. We can use similar logic to solve any <script type="math/tex">s^4</script> Rubik’s cube, where <script type="math/tex">s \ge 2</script>.</p>
+
+<div class="columns small-12">
+  <figure>
+    <p><img src="/img/n-comms/sledgeD-34.png" width="350px" /></p>
+    <figcaption>
+      <p>Figure 2: [[[TF, RF’], DF], [LU: 3TU]] performed on a 3x3x3x3.</p>
+    </figcaption>
+  </figure>
+</div>
+
+<p>However, every time we go up a dimension, we nest the commutator another layer deep, and the length of the commutator at least doubles in size. Thus, the commutator length grows at a rate of <script type="math/tex">\Omega(2^n)</script>, where <script type="math/tex">n</script> is the dimension number.</p>
+
+<h3 id="bounding-the-solution-lengths">Bounding the Solution Lengths</h3>
+
+<p>We now estimate asymptotic bounds for the expected solution lengths required to solve the <script type="math/tex">s^n</script> Rubik’s cube, assuming <script type="math/tex">s \ge 2</script> is fixed, and <script type="math/tex">n \ge 3</script>. These bounds do not give exact solution movecount numbers, but allow us to see the overall trend in expected solution lengths as <script type="math/tex">n</script> increases.</p>
+
+<p>We firstly assume that the puzzle is well-scrambled, meaning that all pieces are permuted incorrectly relative to their solved positions. In reality, there are often pieces that are permuted correctly, but we assume that:</p>
+
+<ol>
+  <li>There are not enough pieces that are both correctly oriented and permuted to significantly affect the estimate.</li>
+  <li>Pieces that are permuted correctly but oriented incorrectly require up to twice as much effort to solve as pieces that are permuted incorrectly. This constant factor is then discarded when using big-<script type="math/tex">O</script> notation and its variants.</li>
+</ol>
+
+<p>We then assume each commutator only solves a single piece. In three dimensions, it is easy to perform setup moves to place two pieces at a time with these commutators. However, the number of possible orientations an <script type="math/tex">m</script>-coloured piece can have is bounded by <script type="math/tex">\Theta(m!)</script>, so it takes much longer to correctly orient and set up pieces in higher dimensions.</p>
+
+<p>We also do not count setup moves, because the number of setup moves required to solve the puzzle varies depending on the given cycle and the commutators used. A rough estimate for the number of moves required to solve an <script type="math/tex">s^n</script> Rubik’s cube, including setup moves, can be made by doubling the initial left-hand-side expressions given in the equations below.</p>
+
+<p>Lastly, we do not take the fact that odd-length <script type="math/tex">s^n</script> Rubik’s cubes have fixed centers into consideration when doing the calculations, which overestimates the number of centers that need to be solved for these puzzles by <script type="math/tex">2n</script> (out of <script type="math/tex">2n(s-2)^{n-1}</script> centers in total). We assume this overestimation is negligible, because the total number of pieces grows exponentially as <script type="math/tex">n</script> increases, whereas <script type="math/tex">2n</script> grows linearly.</p>
+
+<h4 id="solving-using-pure-commutators">Solving using Pure Commutators</h4>
+
+<p>Firstly, we consider an approach where the solver uses pure commutators for the entire solve, meaning that <script type="math/tex">m</script>-coloured pieces are solved using commutators that only swap around <script type="math/tex">m</script>-coloured pieces. For this case, every commutator is of the form <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_n]</script>, and so it takes <script type="math/tex">\Omega(2^n)</script> moves to solve each <script type="math/tex">m</script>-coloured piece for all <script type="math/tex">1 \le m \le n</script>.</p>
+
+<p><strong>Theorem 1.1:</strong> Assume <script type="math/tex">s \ge 3</script> is fixed, and let <script type="math/tex">n \ge 3</script>. A bound for the expected solution length for the <script type="math/tex">s^n</script> Rubik’s cube using pure commutators is <script type="math/tex">\Omega((2s)^n)</script> moves.</p>
+
+<p><em>Proof:</em> For each <script type="math/tex">m</script>-coloured piece, we expect to use <script type="math/tex">\Omega(2^n)</script> moves. By Theorem 3.2 in [1], there are <script type="math/tex">2^m {n \choose m} (s - 2)^{n - m}</script> <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube. Therefore, we obtain the following bound:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\sum_{m = 1}^n \Omega(2^n) 2^m {n \choose m} (s - 2)^{n - m} 
+&= \Omega(2^n) (s - 2)^n \sum_{m = 1}^n \left({2 \over s - 2}\right)^m {n \choose m} \\
+&= \Omega(2^n) (s - 2)^n \left[\left({2 \over s - 2} + 1\right)^n - 1\right] \\
+&= \Omega(2^n) (s - 2)^n \left[\left({s \over s - 2}\right)^n - 1\right] \\
+&= \Omega(2^n)(s^n - (s - 2)^n) \\
+&= \Omega(2^n) \Theta(s^n) = \Omega((2s)^n)
+\end{align} %]]></script>
+
+<p>as desired. <script type="math/tex">\square</script></p>
+
+<p>For example, the expected number of moves to solve the <script type="math/tex">3^n</script> Rubik’s cube is bounded by
+<script type="math/tex">\Omega(6^n)</script>.</p>
+
+<p>We cannot use the equations above for <script type="math/tex">s = 2</script>, because that ends up dividing by zero. However, we can easily run a separate set of calculations for that case.</p>
+
+<p><strong>Theorem 1.2:</strong> Let <script type="math/tex">n \ge 3</script>. A bound for the expected solution length for the <script type="math/tex">2^n</script> Rubik’s cube using pure commutators is <script type="math/tex">\Omega(4^n)</script> moves.</p>
+
+<p><em>Proof:</em> The <script type="math/tex">2^n</script> Rubik’s cube has <script type="math/tex">2^n</script> <script type="math/tex">n</script>-coloured pieces, by Corollary 3.3 in [1]. For each piece, we expect to take <script type="math/tex">\Omega(2^n)</script> moves, so the expected solution length for the <script type="math/tex">2^n</script> Rubik’s cube is bounded by <script type="math/tex">\Omega(2^n)2^n = \Omega(4^n)</script>. <script type="math/tex">\square</script></p>
+
+<h4 id="solving-using-reduction-and-roices-method">Solving using Reduction and Roice’s Method</h4>
+
+<p>For the <script type="math/tex">3^n</script> Rubik’s cube in particular, we can consider using a variation of <a href="https://superliminal.com/cube/solution/solution.htm">Roice’s Method</a>, which is a higher-dimensional generalization of Marshall’s <a href="https://www.helm.lu/cube/MarshallPhilipp/">Ultimate Solution</a>.</p>
+
+<p>In this case, we solve the pieces in order from 1-coloured pieces to <script type="math/tex">n</script>-coloured pieces. In other words, while solving <script type="math/tex">m</script>-coloured pieces, we can alter any <script type="math/tex">p</script>-coloured piece where <script type="math/tex">m + 1 \le p \le n</script>. Due to this additional freedom, we can use commutators of the form <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_m]</script> to solve <script type="math/tex">m</script>-coloured pieces, and thus use <script type="math/tex">\Omega(2^m)</script> moves to solve each <script type="math/tex">m</script>-coloured piece.</p>
+
+<p>Note that this optimization does not change anything for the <script type="math/tex">2^n</script> Rubik’s cube – we are still stuck with <script type="math/tex">2^n</script> <script type="math/tex">n</script>-coloured pieces, and thus still obtain the bound of <script type="math/tex">\Omega(4^n)</script> from Theorem 1.2.</p>
+
+<p><strong>Theorem 2.1:</strong> A bound for the expected solution length for the <script type="math/tex">3^n</script> Rubik’s cube using Roice’s Method is <script type="math/tex">\Omega(5^n)</script> moves.</p>
+
+<p><em>Proof:</em> We have a bound of <script type="math/tex">\Omega(2^m)</script> moves per <script type="math/tex">m</script>-coloured piece. Combining this information with Corollary 3.4 in [1], we obtain the following bound:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\sum_{m = 1}^n \Omega(2^m) 2^m {n \choose m}
+&= \Omega\left(\sum_{m = 1}^n 4^m {n \choose m}\right) \\
+&= \Omega\left((4 + 1)^n - 1\right) \\
+&= \Omega(5^n)
+\end{align} %]]></script>
+
+<p>as desired. <script type="math/tex">\square</script></p>
+
+<p>Note that it is not possible to directly solve an <script type="math/tex">s^n</script> Rubik’s cube using Roice’s method for <script type="math/tex">s \ge 4</script>. For example, if we have a 3-coloured wing piece placed correctly on a <script type="math/tex">4^4</script> Rubik’s cube, then we must use a pure commutator to place its adjacent wing piece. Using just <script type="math/tex">[S, D_3]</script> <em>will</em> place this second wing piece successfully, but it will simultaneously kick out the first one.</p>
+
+<p>However, we can first reduce the puzzle to a <script type="math/tex">3^n</script> Rubik’s cube, and then solve the resulting <script type="math/tex">3^n</script> Rubik’s cube in <script type="math/tex">\Omega(5^n)</script> moves by Theorem 2.1. We assume the additional movecount required to resolve parity errors is negligible.</p>
+
+<p>While forming blocks (the higher-dimensional equivalent of pairs), we eventually have to use commutators of the form <script type="math/tex">[[[[S, D_3], D_4], \ldots], D_n]</script>, or <script type="math/tex">n</script>-dimensional <a href="https://www.rayzz.me/articles/hypercubing/rkt.html">RKT</a> sequences, to pair up the last few pieces. In both cases, this results in <script type="math/tex">\Omega(2^n)</script> moves spent per pairing. However, a vast majority of the pairings, assuming we pair the 1-coloured pieces first, then the 2-coloured pieces, and so on, can be done in <script type="math/tex">\Omega(2^m)</script> moves, where <script type="math/tex">m</script> is the number of colours on the piece. Thus, we assume <script type="math/tex">\Omega(2^m)</script> moves are spent per <script type="math/tex">m</script>-coloured piece pairing.</p>
+
+<p><strong>Lemma 2.2:</strong> Fix <script type="math/tex">s \ge 1</script>, and let <script type="math/tex">n \ge 1</script>. Assume we form a block of size <script type="math/tex">s^n</script> as follows:</p>
+
+<p>We find <script type="math/tex">s</script> blocks of size <script type="math/tex">1</script>, and then join them together to form a block of size <script type="math/tex">s</script>. Then, for <script type="math/tex">1 \le m \le n-1</script>, we form <script type="math/tex">s-1</script> more blocks of size <script type="math/tex">s^m</script>, and then join the <script type="math/tex">s</script> blocks of size <script type="math/tex">s^m</script> together to form a block of size <script type="math/tex">s^{m+1}</script>. We end up with a block of size <script type="math/tex">s^n</script>.</p>
+
+<p>Using this approach, we claim there are <script type="math/tex">s^n - 1</script> pairings required to form a block of size <script type="math/tex">s^n</script>.</p>
+
+<p><em>Proof:</em> We use induction on <script type="math/tex">n \ge 1</script>. For <script type="math/tex">n = 1</script>, we have a line of <script type="math/tex">s</script> pieces to pair, which gives us <script type="math/tex">s - 1 = s^1 - 1</script> pairings in total, so the base case holds.</p>
+
+<p>Then, assume for some <script type="math/tex">k \ge 1</script> that we have a block of size <script type="math/tex">s^k</script> that is paired in <script type="math/tex">s^k - 1</script> pairings. To create a block of size <script type="math/tex">s^{k+1}</script>, we must first create <script type="math/tex">s</script> of these blocks, which takes <script type="math/tex">s(s^k - 1)</script> pairings in total. Pairing <script type="math/tex">s</script> of these <script type="math/tex">s^k</script> blocks together to form a block of size <script type="math/tex">s^{k+1}</script> then requires another <script type="math/tex">s - 1</script> pairings. Therefore, we have <script type="math/tex">s(s^k - 1) + (s - 1) = s^{k+1} - s + s - 1 = s^{k+1} - 1</script> pairings in total. <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 2.3:</strong> Let <script type="math/tex">s \ge 1, n \ge 1</script>. Given a block of <script type="math/tex">s^n</script> pieces, there are <script type="math/tex">\Theta(1)</script> pairings per piece.</p>
+
+<p><em>Proof:</em> By Lemma 2.2, we require <script type="math/tex">s^n-1 \in \Theta(s^n)</script> pairings to form a block of <script type="math/tex">s^n</script> pieces. Thus, we have <script type="math/tex">\Theta(s^n)/s^n = \Theta(1)</script> pairings per piece. <script type="math/tex">\square</script></p>
+
+<p><strong>Lemma 2.4</strong>: Let <script type="math/tex">n \ge 3, s \ge 4</script>, and <script type="math/tex">1 \le m \le n</script>. During reduction, we say the <script type="math/tex">m</script>-coloured pieces “need to be paired” on the <script type="math/tex">s^n</script> Rubik’s cube if more than one of them correspond to the same <script type="math/tex">m</script>-coloured piece on the <script type="math/tex">3^n</script> Rubik’s cube. We claim that the only values of <script type="math/tex">m</script> for which <script type="math/tex">m</script>-coloured pieces need to be paired on the <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">1 \le m \le n-1</script>.</p>
+
+<p><em>Proof:</em> Firstly, if <script type="math/tex">1 \le m \le n</script>, then <script type="math/tex">0 \le n-m \le n-1</script>. We note that there are <script type="math/tex">(n-m)</script>-facets on an <script type="math/tex">n</script>-cube <script type="math/tex">C_n</script> for all <script type="math/tex">0 \le n-m \le n-1</script>, so the inequality is well-defined.</p>
+
+<p>By Lemma 2.1 in [1], for <script type="math/tex">1 \le m \le n</script>, there are <script type="math/tex">(s-2)^{n-m}</script> <script type="math/tex">n</script>-cubes in <script type="math/tex">G_n</script> per <script type="math/tex">(n-m)</script>-facet in <script type="math/tex">C_n</script>. By Lemma 3.1 in [1], the previous statement translates to there being a block of <script type="math/tex">(s-2)^{n-m}</script> <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube per <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>.</p>
+
+<p>When <script type="math/tex">s = 3</script>, <script type="math/tex">(s-2)^{n-m} = 1^{n-m} = 1</script>, meaning a <script type="math/tex">3^n</script> Rubik’s cube only has one <script type="math/tex">m</script>-coloured piece per <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>. Therefore, on an <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 4</script> by hypothesis, if we have more than one <script type="math/tex">m</script>-coloured piece representing an <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>, then the <script type="math/tex">m</script>-coloured pieces need to be paired on that Rubik’s cube.</p>
+
+<p>But, because <script type="math/tex">s \ge 4</script>, for <script type="math/tex">1 \le m \le n-1</script> we have <script type="math/tex">(s-2)^{n-m} \ge 2^{n-(n-1)} = 2 > 1</script> <script type="math/tex">m</script>-coloured pieces per <script type="math/tex">(n-m)</script>-facet in the corresponding <script type="math/tex">C_n</script>. Therefore, <script type="math/tex">m</script>-coloured pieces need to be paired on the <script type="math/tex">s^n</script> Rubik’s cube for <script type="math/tex">1 \le m \le n-1</script>.</p>
+
+<p>However, for <script type="math/tex">m = n</script>, <script type="math/tex">(s-2)^{n-m} = (s-2)^0 = 1</script>, so <script type="math/tex">m</script>-coloured pieces do not need to be paired on the <script type="math/tex">s^n</script> Rubik’s cube for <script type="math/tex">m=n</script>. <script type="math/tex">\square</script></p>
+
+<p><strong>Lemma 2.5:</strong> Fix <script type="math/tex">s \ge 4</script>, and let <script type="math/tex">n \ge 3</script>. Assuming no freeslicing takes place, a bound on the number of moves spent on reduction for the <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">\Omega((s+2)^n)</script>.</p>
+
+<p><em>Proof:</em> By an earlier assumption, there are <script type="math/tex">\Omega(2^m)</script> moves per pairing. By Corollary 2.3, there are <script type="math/tex">\Theta(1)</script> pairings per piece. Thus, there are <script type="math/tex">\Theta(1)\Omega(2^m)</script> moves per piece.</p>
+
+<p>By Lemma 2.4, only <script type="math/tex">m</script>-coloured pieces for <script type="math/tex">1 \le m \le n-1</script> need to be paired during reduction.</p>
+
+<p>Combining this information with Theorem 3.2 in [1], we obtain the following bound:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\sum_{m = 1}^{n - 1} \Theta(1)\Omega(2^m)2^m{n \choose m}(s - 2)^{n-m}
+&= \Omega\left(\sum_{m=1}^{n-1} 4^m(s - 2)^{n-m}{n \choose m}\right) \\
+&= \Omega\left((s - 2)^n \sum_{m=1}^{n-1} \left({4 \over s-2}\right)^m{n \choose m}\right) \\
+&= \Omega\left((s - 2)^n \left[\left({4 \over s-2} + 1\right)^n - 1 - \left({4 \over s-2}\right)^n\right]\right) \\
+&= \Omega\left((s - 2)^n \left[\left({s + 2 \over s-2}\right)^n - 1 - \left({4 \over s-2}\right)^n\right]\right) \\
+&= \Omega\left((s+2)^n - (s-2)^n - 4^n\right) \\
+&= \Omega((s+2)^n)
+\end{align} %]]></script>
+
+<p>as desired. <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 2.6:</strong> Fix <script type="math/tex">s \ge 4</script>, and let <script type="math/tex">n \ge 3</script>. Assuming reduction without freeslicing is used, followed by Roice’s method, a bound on the expected solution length of the <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">\Omega((s+2)^n)</script> moves.</p>
+
+<p><em>Proof:</em> By Theorem 2.1 and Lemma 2.5 we obtain the bound <script type="math/tex">\Omega((s+2)^n) + \Omega(5^n) = \Omega(\max\{s+2, 5\}^n) = \Omega((s+2)^n)</script> moves, because <script type="math/tex">s \ge 4</script> implies <script type="math/tex">s + 2 > 5</script>. <script type="math/tex">\square</script></p>
+
+<h3 id="the-exponentially-growing-disincentive-to-attempt-macro-less-solves">The Exponentially-Growing Disincentive to Attempt Macro-Less Solves</h3>
+
+<p>Most higher-dimensional Rubik’s cube software has support for macros. Macros are a feature where the solver can record sequences ahead of time, and then during the solve, reapply those recorded sequences. This way, the solver does not even have to remember how to execute potentially long commutators. Instead, they can first record those commutators into macros, and then run those macros later in a few clicks or keystrokes per execution.</p>
+
+<p>Since the macro feature does not exist for physical puzzles (or if it did, the puzzle would still not be allowed in an official <a href="https://www.worldcubeassociation.org/">World Cube Association</a> competition), many solvers do not consider using macros to be a “legitimate” way to solve the puzzle, even though the developer chose to add in such a feature in the first place.</p>
+
+<p>However, due to the exponentially-growing expected solution lengths for <script type="math/tex">s^n</script> Rubik’s cubes using Sledgehammer-based approaches (relative to <script type="math/tex">n</script>), there is now an exponential amount of time required to solve these puzzles, especially if not using macros. Time, expressed as the expected solution length, thus serves as an exponentially-growing disincentive to solve these higher-dimensional twisty puzzles.</p>
+
+<h3 id="conclusions">Conclusions</h3>
+
+<p>Assume for this section that <script type="math/tex">n \ge 3</script>. We first came up with a Sledgehammer-based approach to solve the <script type="math/tex">s^n</script> Rubik’s cube, and concluded that Sledgehammer-based commutators for cycling <script type="math/tex">n</script>-coloured pieces have movecounts bounded by <script type="math/tex">\Omega(2^n)</script>.</p>
+
+<p>Afterwards, we estimated bounds for the expected solution lengths.
+Given an <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 3</script> is fixed, using the pure Sledgehammer-based commutators results in a bound of <script type="math/tex">\Omega((2s)^n)</script> moves for the expected solution length.
+We calculated separately that the expected solution length for solving the <script type="math/tex">2^n</script> Rubik’s cube using the same approach is <script type="math/tex">\Omega(4^n)</script> moves.</p>
+
+<p>By using Roice’s Method, along with reduction without freeslicing, we cut the expected solution lengths down to <script type="math/tex">\Omega(5^n)</script> moves for the <script type="math/tex">3^n</script> Rubik’s cube, and <script type="math/tex">\Omega((s+2)^n)</script> moves for the <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 4</script> is fixed.</p>
+
+<p>However, all of these bounds are exponential with respect to the dimension number <script type="math/tex">n</script>. Since movecount positively correlates with time required to solve the puzzle, time then acts as an exponentially-growing disincentive for solvers who wish to solve higher-dimensional Rubik’s cubes without the use of macros.</p>
+
+<h3 id="references">References</h3>
+
+<p><a href="/articles/hypercubing/prisms-and-pieces.html">[1]</a> Zhao, R. (2020). <em>Prisms, N-Cubes, and Counting pieces</em>.</p>
+
+
+        <hr />
+        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+      </div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
+    </div>
+    
+    <footer class="site-footer">
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
+      <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/rzhao271"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Copyright &copy; Raymond Zhao, 2015&ndash;2020</span>
+      <br />
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      <br />
+      <small>Website preview picture sourced from <a href="https://commons.wikimedia.org/wiki/File:Schlegel_wireframe_24-cell.png">WikiCommons</a>, generated by <a href="http://www.software3d.com/Stella.php">Robert Webb's Stella software</a>.</small>
+    </div>
+  </div>
+  
+  <script src="../../js/foundation.min.js"></script>
+  <script src="../../js/rayzz-colors.js"></script>
+  <script src="../../js/app.js"></script>
+</footer>
+
+  </body>
+</html>
