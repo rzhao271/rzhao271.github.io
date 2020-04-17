@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://www.rayzz.me" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me//articles/hypercubing/prisms-and-cubies.html">
+  <link rel="alternate" type="application/rss+xml" title="Ray ZZ" href="https://www.rayzz.me//feed.xml">
+  
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+  <script src="../../js/jquery.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="show-for-medium">
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns show-for-medium medium-2 large-7">
+    &nbsp;
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../index.html">About</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../resume.html">Resume</a>
+  </div>
+  <!--<div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../portfolio.html">Portfolio</a>
+  </div>-->
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../contact.html">
+      Contact
+    </a>
+  </div>
+  <div class="columns show-for-medium medium-2 large-1">
+    &nbsp;
+  </div>
+</nav>
+</div>
+<div class="show-for-small-only">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+  <ul class="menu vertical mobile-nav-menu">
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <li><a href="../../index.html">About</a></li>
+    <li><a href="../../resume.html">Resume</a></li>
+    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+  <header class="title-bar">
+    <div class="title-bar-left">
+      <div class="title-bar-title">
+        <h1>Raymond Zhao</h1>
+        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+      </div>
+    </div>
+    <div class="title-bar-right">
+      <button type="button" class="menu-icon" data-open="offCanvas"></button>
+    </div>
+  </header>
+  <div class="expanded row">
+    <div class="columns small-12 color-bar-1">&nbsp;</div>
+  </div>
+</div>
+
+
+    <div class="expanded row off-canvas-content" data-off-canvas-content>
+      <div class="columns small-12 content-wrapper">
+        <section class="main-content">
+          <h2 id="prisms-n-cubes-and-counting-cubies">Prisms, N-Cubes, and Counting Cubies</h2>
+
+<p><em>Written April 17, 2020.</em></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>The purpose of this article is to record down a process of coming up with a formula that represents the number of <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">n</script>-dimensional <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 2</script> is the side length, and <script type="math/tex">1 \le m \le n</script>. We use a roundabout approach where we first look at prisms and <script type="math/tex">n</script>-cubes.</p>
+
+<h3 id="prisms">Prisms</h3>
+
+<p>Given a regular <script type="math/tex">p</script>-gonal prism, said prism is comprised of two regular <script type="math/tex">p</script>-gons, and <script type="math/tex">p</script> squares. For this polyhedron, three faces meet at a vertex, and two faces meet at an edge. Therefore, we can count up the number of edges by adding up the number of edges per face over all faces, and then dividing by two to avoid double-counting. We can repeat a similar process for the vertices, but divide by three instead.</p>
+
+<p>As a result, we have <script type="math/tex">(2p + 4p)/2 = 3p</script> edges, and <script type="math/tex">(2p + 4p)/3 = 2p</script> vertices for this <script type="math/tex">p</script>-gonal prism. We also have <script type="math/tex">p + 2</script> faces.</p>
+
+<p>We can generalize the process of forming prisms to higher dimensions. Given a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>, we can form a <script type="math/tex">(k+1)</script>-dimensional <script type="math/tex">P</script>-based prism.</p>
+
+<p>However, we need new names to generalize the edges, vertices, and faces. Given a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>, an <script type="math/tex">m</script>-facet of <script type="math/tex">P</script> is an <script type="math/tex">m</script>-dimensional element of <script type="math/tex">P</script>, for <script type="math/tex">0 \le m \le k</script>. For example, given a three-dimensional cube: a <script type="math/tex">3</script>-facet is the cube itself; a <script type="math/tex">2</script>-facet is a face of the cube, which is a square; a <script type="math/tex">1</script>-facet is an edge of the cube, which is a line segment; and a <script type="math/tex">0</script>-facet is a vertex of the cube, which is a point. If <script type="math/tex">m</script> is not specified, we assume that we are referring to the <script type="math/tex">(k-1)</script>-facets of polytope <script type="math/tex">P</script>. For example, the facets of a three-dimensional cube are squares.</p>
+
+<p>We call the process of forming a prism from a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script> prismatic extrusion. We call the original <script type="math/tex">P</script> polytope the original base, and the new <script type="math/tex">P</script>-shaped base the duplicated base, because one can see prismatic extrusion as duplicating the base, followed by translating the duplicated base away from the original base in a new dimension perpendicular to all current dimensional axes.</p>
+
+<p>Let <script type="math/tex">f(P)</script> represent the number of facets in a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>. Then, the <script type="math/tex">P</script>-based prism contains <script type="math/tex">2 + f(P)</script> facets. Two of the facets are the <script type="math/tex">P</script>-shaped bases. The rest of the <script type="math/tex">f(P)</script> facets are <script type="math/tex">k</script>-dimensional prisms built upon the facets of <script type="math/tex">P</script>.</p>
+
+<p>Let <script type="math/tex">v(P)</script> represent the number of vertices in a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>. Then, the <script type="math/tex">P</script>-based prism contains <script type="math/tex">2v(P)</script> vertices, because other than the base being duplicated during the extrusion, which forms <script type="math/tex">v(P)</script> additional vertices, there are no new vertices that form.</p>
+
+<h3 id="n-cubes">N-Cubes</h3>
+
+<p>An <script type="math/tex">n</script>-cube is an <script type="math/tex">n</script>-dimensional cube. A <script type="math/tex">0</script>-cube is a point, a <script type="math/tex">1</script>-cube is a line segment, and a <script type="math/tex">2</script>-cube is a square. For <script type="math/tex">n \ge 1</script>, we can interpret an <script type="math/tex">n</script>-cube as a regular <script type="math/tex">(n-1)</script>-cube-based prism. We also note that all <script type="math/tex">m</script>-facets of an <script type="math/tex">n</script>-cube are themselves <script type="math/tex">m</script>-cubes, for <script type="math/tex">0 \le m \le n</script>.</p>
+
+<p>Let <script type="math/tex">C_n</script> denote an <script type="math/tex">n</script>-cube. Then by the section above, <script type="math/tex">f(C_n) = 2 + f(C_{n-1})</script>, and <script type="math/tex">f(C_0) = 0</script>, for a <script type="math/tex">0</script>-cube has no facets. Therefore, <script type="math/tex">f(C_n) = 2n</script>, so an <script type="math/tex">n</script>-cube has <script type="math/tex">2n</script> facets. Similarly, <script type="math/tex">v(C_n) = 2v(C_{n-1})</script> and <script type="math/tex">v(C_0) = 1</script>, so an <script type="math/tex">n</script>-cube has <script type="math/tex">2^n</script> vertices.</p>
+
+<p>Let <script type="math/tex">f_m(P)</script> denote the number of <script type="math/tex">m</script>-facets in a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>. Since <script type="math/tex">m</script>-facets of an <script type="math/tex">n</script>-cube are <script type="math/tex">m</script>-cubes, <script type="math/tex">f_m(C_n)</script> represents the number of <script type="math/tex">m</script>-cubes within <script type="math/tex">C_n</script>. By the previous section, we also have <script type="math/tex">f(P) := f_{k-1}(P)</script>.</p>
+
+<p><strong>Lemma 1.1:</strong> Let <script type="math/tex">n \ge 2, 0 \le m \le n-2</script>. Then, within an <script type="math/tex">n</script>-cube, <script type="math/tex">n-m</script> facets meet per <script type="math/tex">m</script>-facet.</p>
+
+<p><em>Proof:</em> We use induction on <script type="math/tex">n \ge 2</script>. For <script type="math/tex">n = 2</script>, we only need to consider <script type="math/tex">m = 0</script>. Facets in this case are edges, and two of these facets meet per vertex, which is a 0-facet. Since <script type="math/tex">n - m = 2 - 0 = 2</script>, the base case holds.</p>
+
+<p>Assume for some <script type="math/tex">k \ge 2</script> that <script type="math/tex">k-m</script> <script type="math/tex">(k-1)</script>-facets meet per <script type="math/tex">m</script>-facet within a <script type="math/tex">k</script>-cube, where <script type="math/tex">0 \le m \le k-2</script>. We need to show that <script type="math/tex">(k+1)-m</script> <script type="math/tex">k</script>-facets meet per <script type="math/tex">m</script>-facet within a <script type="math/tex">(k+1)</script>-cube, where <script type="math/tex">0 \le m \le k-1</script>.</p>
+
+<p>We extrude the <script type="math/tex">k</script>-cube to form a regular <script type="math/tex">k</script>-cube-based prism, which is exactly the <script type="math/tex">(k+1)</script>-cube. During this process, we form <script type="math/tex">f_{k-1}(C_k)</script> new <script type="math/tex">k</script>-cubes to join the original <script type="math/tex">k</script>-cube base with its duplicate <script type="math/tex">k</script>-cube base. These new <script type="math/tex">k</script>-cubes within the <script type="math/tex">(k+1)</script>-cube join with the bases at their <script type="math/tex">(k-1)</script>-facets, with two <script type="math/tex">k</script>-cubes per <script type="math/tex">(k-1)</script>-facet. These <script type="math/tex">k</script>-cubes are also now <script type="math/tex">k</script>-facets of the <script type="math/tex">(k+1)</script>-cube. By symmetry, we thus have two <script type="math/tex">k</script>-facets meeting per <script type="math/tex">(k-1)</script>-facet over the entire <script type="math/tex">(k+1)</script>-cube. This result proves the <script type="math/tex">m = k-1</script> case.</p>
+
+<p>For <script type="math/tex">0 \le m \le k-2</script>, we consider that the <script type="math/tex">(k-1)</script>-facets of the original <script type="math/tex">k</script>-cube are extruded into <script type="math/tex">k</script>-facets on the <script type="math/tex">(k+1)</script>-cube. However, the original <script type="math/tex">k</script>-cube becomes yet another <script type="math/tex">k</script>-facet on the <script type="math/tex">(k+1)</script>-cube. Therefore, since there were <script type="math/tex">k-m</script> <script type="math/tex">(k-1)</script>-facets meeting per <script type="math/tex">m</script>-facet within a <script type="math/tex">k</script>-cube, there are now <script type="math/tex">(k-m)+1 = (k+1)-m</script> <script type="math/tex">k</script>-facets meeting per same <script type="math/tex">m</script>-facet within a <script type="math/tex">(k+1)</script>-cube. By symmetry, this argument applies to all <script type="math/tex">m</script>-facets within the <script type="math/tex">(k+1)</script>-cube. Therefore, for all <script type="math/tex">0 \le m \le k-1</script>, there are <script type="math/tex">(k+1)-m</script> <script type="math/tex">k</script>-facets meeting per <script type="math/tex">m</script>-facet within the <script type="math/tex">(k+1)</script>-cube, so the theorem holds by induction. <script type="math/tex">\square</script></p>
+
+<p><strong>Theorem 1.2:</strong> For all <script type="math/tex">n \ge 0, 0 \le m \le n</script>, <script type="math/tex">f_m(C_n) = 2^{n-m}{n \choose m}</script>.</p>
+
+<p><em>Proof</em>: We use induction on <script type="math/tex">n \ge 0</script>. Firstly, <script type="math/tex">f_0(C_0) = 1 = 1(1) = 2^{0-0}{0 \choose 0}</script>, since there is a single 0-cube within a 0-cube, which is the 0-cube itself.</p>
+
+<p>Then, assume for some <script type="math/tex">k \ge 0</script> that <script type="math/tex">f_m(C_k) = 2^{k-m}{k \choose m}</script> for all <script type="math/tex">0 \le m \le k</script>.
+For <script type="math/tex">m = k+1</script>, we have that <script type="math/tex">f_{k+1}(C_{k+1}) = 1 = 2^{(k+1)-(k+1)}{k+1 \choose k+1}</script> because there is only one <script type="math/tex">(k+1)</script>-cube within a <script type="math/tex">(k+1)</script>-cube, which is the <script type="math/tex">(k+1)</script>-cube itself.
+From an earlier result, we also know for <script type="math/tex">m=k</script> that <script type="math/tex">f_k(C_{k+1}) = f(C_{k+1}) = 2(k+1) = 2^{(k+1)-k}{k+1 \choose k}</script>.</p>
+
+<p>Lastly, for <script type="math/tex">0 \le m \le k-1</script>, we multiply the number of <script type="math/tex">k</script>-facets within the <script type="math/tex">(k+1)</script>-cube by the number of <script type="math/tex">m</script>-facets within each <script type="math/tex">k</script>-facet. By Lemma 1.1, <script type="math/tex">(k+1)-m</script> <script type="math/tex">k</script>-facets meet per <script type="math/tex">m</script>-facet, so we have to divide by <script type="math/tex">(k+1)-m</script> to avoid counting duplicates, 
+Therefore, for <script type="math/tex">0 \le m \le k - 1</script>, we have</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+f_m(C_{k+1}) &= {f_k(C_{k+1})f_m(C_k) \over (k+1)-m} \\
+&= {2(k+1) 2^{k-m}{k \choose m} \over (k+1)-m} \\
+&= 2 {(k+1) \over (k+1)-m} 2^{k-m} {k! \over m!(k-m)!} \\
+&= 2^{(k+1)-m} {(k+1)! \over m!((k+1)-m)!} \\
+&= 2^{(k+1)-m} {k+1 \choose m}
+\end{align} %]]></script>
+
+<p>Therefore, for all <script type="math/tex">0 \le m \le k+1</script>, <script type="math/tex">f_m(C_{k+1}) = 2^{(k+1)-m} {k+1 \choose m}</script>, so the theorem holds by induction. <script type="math/tex">\square</script></p>
+
+<h3 id="counting-facets-in-grids">Counting Facets in Grids</h3>
+
+<p>Let <script type="math/tex">s \ge 1, n \ge 0</script>. Then, we can partition a single <script type="math/tex">n</script>-cube into an <script type="math/tex">s^n</script> grid of <script type="math/tex">n</script>-cubes. Let <script type="math/tex">C_n</script> represent the original <script type="math/tex">n</script>-cube, and <script type="math/tex">G_n</script> represent the corresponding <script type="math/tex">s^n</script> grid.
+For <script type="math/tex">n = 0</script>, nothing happens; <script type="math/tex">C_0 = G_0</script>. For <script type="math/tex">n = 1</script>, <script type="math/tex">G_1</script> is a line segment (<script type="math/tex">C_1</script>) partitioned into <script type="math/tex">s</script> line segments. When <script type="math/tex">s=1</script>, <script type="math/tex">C_n = G_n</script>, so we can ignore this case. We set <script type="math/tex">s \ge 2</script>.</p>
+
+<p><strong>Lemma 2.1</strong>: Let <script type="math/tex">n \ge 0, 0 \le m \le n, s \ge 2</script>. Then, there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">n</script>-cubes in <script type="math/tex">G_n</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_n</script>.</p>
+
+<p><em>Proof:</em> Let <script type="math/tex">s \ge 2</script>. We use induction on <script type="math/tex">n \ge 0</script>. For <script type="math/tex">n = 0</script>, we only consider <script type="math/tex">m = 0</script>. There is <script type="math/tex">1 = (s-2)^0</script> <script type="math/tex">0</script>-cube in <script type="math/tex">G_0</script> per <script type="math/tex">0</script>-facet in <script type="math/tex">C_0</script>, so the base case holds.</p>
+
+<p>Assume for some <script type="math/tex">k \ge 0</script> that there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">k</script>-cubes in <script type="math/tex">G_k</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_k</script>, where <script type="math/tex">0 \le m \le k</script>. We want to show that there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_{k+1}</script>, where <script type="math/tex">0 \le m \le k+1</script>.</p>
+
+<p>For any <script type="math/tex">m</script> where <script type="math/tex">0 \le m \le k</script>, there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">k</script>-cubes in <script type="math/tex">G_k</script> corresponding to an <script type="math/tex">m</script>-facet in <script type="math/tex">C_k</script>. When <script type="math/tex">G_k</script> is extruded, and partitioned along the new axis, to form <script type="math/tex">G_{k+1}</script>, those <script type="math/tex">(s-2)^m</script> <script type="math/tex">k</script>-cubes become <script type="math/tex">(s-2)^m</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script>, representing an <script type="math/tex">m</script>-facet in <script type="math/tex">C_{k+1}</script>. By symmetry, this applies to all <script type="math/tex">m</script>-facets in <script type="math/tex">C_{k+1}</script>, so there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_{k+1}</script> for <script type="math/tex">0 \le m \le k</script>. We still have to show the statement holds for <script type="math/tex">m = k+1</script>.</p>
+
+<p>By the inductive hypothesis, there are <script type="math/tex">(s-2)^k</script> <script type="math/tex">k</script>-cubes in <script type="math/tex">G_k</script> corresponding to the one <script type="math/tex">k</script>-facet in <script type="math/tex">C_k</script>. Let <script type="math/tex">B_k</script> represent those <script type="math/tex">(s-2)^k</script> <script type="math/tex">k</script>-cubes. When <script type="math/tex">G_k</script> is extruded, and partitioned along the new axis, to form <script type="math/tex">G_{k+1}</script>, the total hypervolume of the <script type="math/tex">B_k</script>-based prism within <script type="math/tex">G_{k+1}</script> is now <script type="math/tex">(s-2)^ks</script> <script type="math/tex">(k+1)</script>-cubes. Because both the original <script type="math/tex">B_k</script> base and the duplicated <script type="math/tex">B_k</script> base now represent <script type="math/tex">k</script>-facets of <script type="math/tex">C_{k+1}</script>, we subtract 2 from the height of the <script type="math/tex">B_k</script>-based prism to obtain a final total of <script type="math/tex">(s-2)^k(s-2) = (s-2)^{k+1}</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script> that correspond to the one <script type="math/tex">(k+1)</script>-facet in <script type="math/tex">C_{k+1}</script>. <script type="math/tex">\square</script></p>
+
+<h3 id="counting-cubies-in-rubiks-cubes">Counting Cubies in Rubik’s Cubes</h3>
+
+<p>We only consider <script type="math/tex">n \ge 3</script> in this section, because Rubik’s cubes require at least three dimensions to turn. We also force <script type="math/tex">s \ge 2</script> to eliminate <script type="math/tex">0^n</script> and <script type="math/tex">1^n</script> Rubik’s cubes from the scope of this article. For reference, pieces of Rubik’s cubes are called cubies. We assume that for these <script type="math/tex">s^n</script> Rubik’s cubes, each <script type="math/tex">(n-1)</script>-facet is assigned a unique colour.</p>
+
+<p><strong>Lemma 3.1:</strong> Let <script type="math/tex">n \ge 3, s \ge 2</script>. Let <script type="math/tex">H_n</script> represent a <script type="math/tex">G_n</script> with the <script type="math/tex">n</script>-cubes representing the <script type="math/tex">n</script>-facet of the <script type="math/tex">C_n</script> removed. There is a bijection between <script type="math/tex">m</script>-coloured cubies on an <script type="math/tex">s^n</script> Rubik’s cube, and <script type="math/tex">n</script>-cubes in <script type="math/tex">H_n</script> representing <script type="math/tex">(n-m)</script>-facets in <script type="math/tex">C_n</script>, for <script type="math/tex">1 \le m \le n</script>.</p>
+
+<p><em>Proof:</em> Firstly, <script type="math/tex">(n-m)</script>-facets in a <script type="math/tex">C_n</script> are well-defined in this case since <script type="math/tex">1 \le m \le n</script> implies <script type="math/tex">0 \le n-m \le n-1</script>.</p>
+
+<p>We note that the cubies of an <script type="math/tex">s^n</script> Rubik’s cube are essentially a coloured version of <script type="math/tex">H_n</script>, meaning the cubies map one-to-one and onto the <script type="math/tex">n</script>-cubes within <script type="math/tex">H_n</script>.</p>
+
+<p>By Lemma 1.1, there are <script type="math/tex">n-m</script> facets meeting per <script type="math/tex">m</script>-facet in <script type="math/tex">C_n</script>. Therefore, a cubie <script type="math/tex">c</script> that maps to an <script type="math/tex">n</script>-cube in <script type="math/tex">H_n</script> representing an <script type="math/tex">m</script>-facet in <script type="math/tex">C_n</script> has <script type="math/tex">n-m</script> colours, because each facet of the <script type="math/tex">C_n</script> meeting at that <script type="math/tex">m</script>-facet is equivalent to adding a colour onto cubie <script type="math/tex">c</script>. By symmetry, a cubie on the <script type="math/tex">s^n</script> Rubik’s cube that maps to an <script type="math/tex">n</script>-cube in <script type="math/tex">H_n</script> representing an <script type="math/tex">(n-m)</script>-facet in <script type="math/tex">C_n</script> has <script type="math/tex">n-(n-m) = m</script> colours. <script type="math/tex">\square</script></p>
+
+<p><strong>Theorem 3.2:</strong> Let <script type="math/tex">n \ge 3, 1 \le m \le n, s \ge 2</script>. The number of <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">2^m{n \choose m}(s-2)^{n - m}</script>.</p>
+
+<p><em>Proof:</em> By Theorem 1.2, <script type="math/tex">f_{n-m}(C_n) = 2^{n-(n-m)}{n \choose n-m} = 2^m{n \choose m}</script>. By Lemma 2.1, there are <script type="math/tex">(s-2)^{n-m}</script> <script type="math/tex">n</script>-cubes in <script type="math/tex">G_n</script> per <script type="math/tex">(n-m)</script>-facet in <script type="math/tex">C_n</script>. Thus, there are <script type="math/tex">f_{n-m}(C_n)(s-2)^{n-m}</script> <script type="math/tex">n</script>-cubes in total in <script type="math/tex">G_n</script> that represent the <script type="math/tex">(n-m)</script>-facets in <script type="math/tex">C_n</script>.</p>
+
+<p>Since <script type="math/tex">1 \le m \le n</script>, we are only considering <script type="math/tex">0 \le n-m \le n-1</script>. Thus, we can substitute <script type="math/tex">G_n</script> with <script type="math/tex">H_n</script>, and not lose any <script type="math/tex">n</script>-cubes in the process. By Lemma 3.1, <script type="math/tex">n</script>-cubes in <script type="math/tex">H_n</script> that represent <script type="math/tex">(n-m)</script>-facets in <script type="math/tex">C_n</script> then map to <script type="math/tex">m</script>-coloured pieces on the <script type="math/tex">s^n</script> Rubik’s cube, so the number of <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">f_{n-m}(C_n)(s-2)^{n-m} = 2^m{n \choose m}(s-2)^{n-m}</script>. <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 3.3:</strong> Let <script type="math/tex">n \ge 3</script>. The number of cubies in a <script type="math/tex">2^n</script> Rubik’s cube is <script type="math/tex">2^n</script>, and they are all <script type="math/tex">n</script>-coloured pieces.</p>
+
+<p><em>Proof:</em> <script type="math/tex">s = 2</script> in this case. By Theorem 3.2, only for <script type="math/tex">m = n</script> does <script type="math/tex">(s - 2)^{n-m} = 0^0 = 1 \ne 0</script>, meaning the <script type="math/tex">2^n</script> Rubik’s cube consists solely of <script type="math/tex">2^n{n \choose n}(s-2)^{n-n} = 2^n(1)(1) = 2^n</script> <script type="math/tex">n</script>-coloured pieces.  <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 3.4:</strong> Let <script type="math/tex">n \ge 3, 1 \le m \le n</script>. The number of <script type="math/tex">m</script>-coloured pieces in a <script type="math/tex">3^n</script> Rubik’s cube is <script type="math/tex">2^m{n \choose m}</script>.</p>
+
+<p><em>Proof:</em> <script type="math/tex">s = 3</script> in this case, so <script type="math/tex">s - 2 = 1</script>. By Theorem 3.2, we thus obtain <script type="math/tex">2^m{n \choose m}(1)^{n - m} = 2^m{n \choose m}</script> <script type="math/tex">m</script>-coloured pieces in a <script type="math/tex">3^n</script> Rubik’s cube. <script type="math/tex">\square</script></p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="prisms-n-cubes-and-counting-cubies">Prisms, N-Cubes, and Counting Cubies</h2>
+
+<p><em>Written April 17, 2020.</em></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>The purpose of this article is to record down a process of coming up with a formula that represents the number of <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">n</script>-dimensional <script type="math/tex">s^n</script> Rubik’s cube, where <script type="math/tex">s \ge 2</script> is the side length, and <script type="math/tex">1 \le m \le n</script>. We use a roundabout approach where we first look at prisms and <script type="math/tex">n</script>-cubes.</p>
+
+<h3 id="prisms">Prisms</h3>
+
+<p>Given a regular <script type="math/tex">p</script>-gonal prism, said prism is comprised of two regular <script type="math/tex">p</script>-gons, and <script type="math/tex">p</script> squares. For this polyhedron, three faces meet at a vertex, and two faces meet at an edge. Therefore, we can count up the number of edges by adding up the number of edges per face over all faces, and then dividing by two to avoid double-counting. We can repeat a similar process for the vertices, but divide by three instead.</p>
+
+<p>As a result, we have <script type="math/tex">(2p + 4p)/2 = 3p</script> edges, and <script type="math/tex">(2p + 4p)/3 = 2p</script> vertices for this <script type="math/tex">p</script>-gonal prism. We also have <script type="math/tex">p + 2</script> faces.</p>
+
+<p>We can generalize the process of forming prisms to higher dimensions. Given a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>, we can form a <script type="math/tex">(k+1)</script>-dimensional <script type="math/tex">P</script>-based prism.</p>
+
+<p>However, we need new names to generalize the edges, vertices, and faces. Given a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>, an <script type="math/tex">m</script>-facet of <script type="math/tex">P</script> is an <script type="math/tex">m</script>-dimensional element of <script type="math/tex">P</script>, for <script type="math/tex">0 \le m \le k</script>. For example, given a three-dimensional cube: a <script type="math/tex">3</script>-facet is the cube itself; a <script type="math/tex">2</script>-facet is a face of the cube, which is a square; a <script type="math/tex">1</script>-facet is an edge of the cube, which is a line segment; and a <script type="math/tex">0</script>-facet is a vertex of the cube, which is a point. If <script type="math/tex">m</script> is not specified, we assume that we are referring to the <script type="math/tex">(k-1)</script>-facets of polytope <script type="math/tex">P</script>. For example, the facets of a three-dimensional cube are squares.</p>
+
+<p>We call the process of forming a prism from a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script> prismatic extrusion. We call the original <script type="math/tex">P</script> polytope the original base, and the new <script type="math/tex">P</script>-shaped base the duplicated base, because one can see prismatic extrusion as duplicating the base, followed by translating the duplicated base away from the original base in a new dimension perpendicular to all current dimensional axes.</p>
+
+<p>Let <script type="math/tex">f(P)</script> represent the number of facets in a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>. Then, the <script type="math/tex">P</script>-based prism contains <script type="math/tex">2 + f(P)</script> facets. Two of the facets are the <script type="math/tex">P</script>-shaped bases. The rest of the <script type="math/tex">f(P)</script> facets are <script type="math/tex">k</script>-dimensional prisms built upon the facets of <script type="math/tex">P</script>.</p>
+
+<p>Let <script type="math/tex">v(P)</script> represent the number of vertices in a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>. Then, the <script type="math/tex">P</script>-based prism contains <script type="math/tex">2v(P)</script> vertices, because other than the base being duplicated during the extrusion, which forms <script type="math/tex">v(P)</script> additional vertices, there are no new vertices that form.</p>
+
+<h3 id="n-cubes">N-Cubes</h3>
+
+<p>An <script type="math/tex">n</script>-cube is an <script type="math/tex">n</script>-dimensional cube. A <script type="math/tex">0</script>-cube is a point, a <script type="math/tex">1</script>-cube is a line segment, and a <script type="math/tex">2</script>-cube is a square. For <script type="math/tex">n \ge 1</script>, we can interpret an <script type="math/tex">n</script>-cube as a regular <script type="math/tex">(n-1)</script>-cube-based prism. We also note that all <script type="math/tex">m</script>-facets of an <script type="math/tex">n</script>-cube are themselves <script type="math/tex">m</script>-cubes, for <script type="math/tex">0 \le m \le n</script>.</p>
+
+<p>Let <script type="math/tex">C_n</script> denote an <script type="math/tex">n</script>-cube. Then by the section above, <script type="math/tex">f(C_n) = 2 + f(C_{n-1})</script>, and <script type="math/tex">f(C_0) = 0</script>, for a <script type="math/tex">0</script>-cube has no facets. Therefore, <script type="math/tex">f(C_n) = 2n</script>, so an <script type="math/tex">n</script>-cube has <script type="math/tex">2n</script> facets. Similarly, <script type="math/tex">v(C_n) = 2v(C_{n-1})</script> and <script type="math/tex">v(C_0) = 1</script>, so an <script type="math/tex">n</script>-cube has <script type="math/tex">2^n</script> vertices.</p>
+
+<p>Let <script type="math/tex">f_m(P)</script> denote the number of <script type="math/tex">m</script>-facets in a <script type="math/tex">k</script>-dimensional polytope <script type="math/tex">P</script>. Since <script type="math/tex">m</script>-facets of an <script type="math/tex">n</script>-cube are <script type="math/tex">m</script>-cubes, <script type="math/tex">f_m(C_n)</script> represents the number of <script type="math/tex">m</script>-cubes within <script type="math/tex">C_n</script>. By the previous section, we also have <script type="math/tex">f(P) := f_{k-1}(P)</script>.</p>
+
+<p><strong>Lemma 1.1:</strong> Let <script type="math/tex">n \ge 2, 0 \le m \le n-2</script>. Then, within an <script type="math/tex">n</script>-cube, <script type="math/tex">n-m</script> facets meet per <script type="math/tex">m</script>-facet.</p>
+
+<p><em>Proof:</em> We use induction on <script type="math/tex">n \ge 2</script>. For <script type="math/tex">n = 2</script>, we only need to consider <script type="math/tex">m = 0</script>. Facets in this case are edges, and two of these facets meet per vertex, which is a 0-facet. Since <script type="math/tex">n - m = 2 - 0 = 2</script>, the base case holds.</p>
+
+<p>Assume for some <script type="math/tex">k \ge 2</script> that <script type="math/tex">k-m</script> <script type="math/tex">(k-1)</script>-facets meet per <script type="math/tex">m</script>-facet within a <script type="math/tex">k</script>-cube, where <script type="math/tex">0 \le m \le k-2</script>. We need to show that <script type="math/tex">(k+1)-m</script> <script type="math/tex">k</script>-facets meet per <script type="math/tex">m</script>-facet within a <script type="math/tex">(k+1)</script>-cube, where <script type="math/tex">0 \le m \le k-1</script>.</p>
+
+<p>We extrude the <script type="math/tex">k</script>-cube to form a regular <script type="math/tex">k</script>-cube-based prism, which is exactly the <script type="math/tex">(k+1)</script>-cube. During this process, we form <script type="math/tex">f_{k-1}(C_k)</script> new <script type="math/tex">k</script>-cubes to join the original <script type="math/tex">k</script>-cube base with its duplicate <script type="math/tex">k</script>-cube base. These new <script type="math/tex">k</script>-cubes within the <script type="math/tex">(k+1)</script>-cube join with the bases at their <script type="math/tex">(k-1)</script>-facets, with two <script type="math/tex">k</script>-cubes per <script type="math/tex">(k-1)</script>-facet. These <script type="math/tex">k</script>-cubes are also now <script type="math/tex">k</script>-facets of the <script type="math/tex">(k+1)</script>-cube. By symmetry, we thus have two <script type="math/tex">k</script>-facets meeting per <script type="math/tex">(k-1)</script>-facet over the entire <script type="math/tex">(k+1)</script>-cube. This result proves the <script type="math/tex">m = k-1</script> case.</p>
+
+<p>For <script type="math/tex">0 \le m \le k-2</script>, we consider that the <script type="math/tex">(k-1)</script>-facets of the original <script type="math/tex">k</script>-cube are extruded into <script type="math/tex">k</script>-facets on the <script type="math/tex">(k+1)</script>-cube. However, the original <script type="math/tex">k</script>-cube becomes yet another <script type="math/tex">k</script>-facet on the <script type="math/tex">(k+1)</script>-cube. Therefore, since there were <script type="math/tex">k-m</script> <script type="math/tex">(k-1)</script>-facets meeting per <script type="math/tex">m</script>-facet within a <script type="math/tex">k</script>-cube, there are now <script type="math/tex">(k-m)+1 = (k+1)-m</script> <script type="math/tex">k</script>-facets meeting per same <script type="math/tex">m</script>-facet within a <script type="math/tex">(k+1)</script>-cube. By symmetry, this argument applies to all <script type="math/tex">m</script>-facets within the <script type="math/tex">(k+1)</script>-cube. Therefore, for all <script type="math/tex">0 \le m \le k-1</script>, there are <script type="math/tex">(k+1)-m</script> <script type="math/tex">k</script>-facets meeting per <script type="math/tex">m</script>-facet within the <script type="math/tex">(k+1)</script>-cube, so the theorem holds by induction. <script type="math/tex">\square</script></p>
+
+<p><strong>Theorem 1.2:</strong> For all <script type="math/tex">n \ge 0, 0 \le m \le n</script>, <script type="math/tex">f_m(C_n) = 2^{n-m}{n \choose m}</script>.</p>
+
+<p><em>Proof</em>: We use induction on <script type="math/tex">n \ge 0</script>. Firstly, <script type="math/tex">f_0(C_0) = 1 = 1(1) = 2^{0-0}{0 \choose 0}</script>, since there is a single 0-cube within a 0-cube, which is the 0-cube itself.</p>
+
+<p>Then, assume for some <script type="math/tex">k \ge 0</script> that <script type="math/tex">f_m(C_k) = 2^{k-m}{k \choose m}</script> for all <script type="math/tex">0 \le m \le k</script>.
+For <script type="math/tex">m = k+1</script>, we have that <script type="math/tex">f_{k+1}(C_{k+1}) = 1 = 2^{(k+1)-(k+1)}{k+1 \choose k+1}</script> because there is only one <script type="math/tex">(k+1)</script>-cube within a <script type="math/tex">(k+1)</script>-cube, which is the <script type="math/tex">(k+1)</script>-cube itself.
+From an earlier result, we also know for <script type="math/tex">m=k</script> that <script type="math/tex">f_k(C_{k+1}) = f(C_{k+1}) = 2(k+1) = 2^{(k+1)-k}{k+1 \choose k}</script>.</p>
+
+<p>Lastly, for <script type="math/tex">0 \le m \le k-1</script>, we multiply the number of <script type="math/tex">k</script>-facets within the <script type="math/tex">(k+1)</script>-cube by the number of <script type="math/tex">m</script>-facets within each <script type="math/tex">k</script>-facet. By Lemma 1.1, <script type="math/tex">(k+1)-m</script> <script type="math/tex">k</script>-facets meet per <script type="math/tex">m</script>-facet, so we have to divide by <script type="math/tex">(k+1)-m</script> to avoid counting duplicates, 
+Therefore, for <script type="math/tex">0 \le m \le k - 1</script>, we have</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+f_m(C_{k+1}) &= {f_k(C_{k+1})f_m(C_k) \over (k+1)-m} \\
+&= {2(k+1) 2^{k-m}{k \choose m} \over (k+1)-m} \\
+&= 2 {(k+1) \over (k+1)-m} 2^{k-m} {k! \over m!(k-m)!} \\
+&= 2^{(k+1)-m} {(k+1)! \over m!((k+1)-m)!} \\
+&= 2^{(k+1)-m} {k+1 \choose m}
+\end{align} %]]></script>
+
+<p>Therefore, for all <script type="math/tex">0 \le m \le k+1</script>, <script type="math/tex">f_m(C_{k+1}) = 2^{(k+1)-m} {k+1 \choose m}</script>, so the theorem holds by induction. <script type="math/tex">\square</script></p>
+
+<h3 id="counting-facets-in-grids">Counting Facets in Grids</h3>
+
+<p>Let <script type="math/tex">s \ge 1, n \ge 0</script>. Then, we can partition a single <script type="math/tex">n</script>-cube into an <script type="math/tex">s^n</script> grid of <script type="math/tex">n</script>-cubes. Let <script type="math/tex">C_n</script> represent the original <script type="math/tex">n</script>-cube, and <script type="math/tex">G_n</script> represent the corresponding <script type="math/tex">s^n</script> grid.
+For <script type="math/tex">n = 0</script>, nothing happens; <script type="math/tex">C_0 = G_0</script>. For <script type="math/tex">n = 1</script>, <script type="math/tex">G_1</script> is a line segment (<script type="math/tex">C_1</script>) partitioned into <script type="math/tex">s</script> line segments. When <script type="math/tex">s=1</script>, <script type="math/tex">C_n = G_n</script>, so we can ignore this case. We set <script type="math/tex">s \ge 2</script>.</p>
+
+<p><strong>Lemma 2.1</strong>: Let <script type="math/tex">n \ge 0, 0 \le m \le n, s \ge 2</script>. Then, there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">n</script>-cubes in <script type="math/tex">G_n</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_n</script>.</p>
+
+<p><em>Proof:</em> Let <script type="math/tex">s \ge 2</script>. We use induction on <script type="math/tex">n \ge 0</script>. For <script type="math/tex">n = 0</script>, we only consider <script type="math/tex">m = 0</script>. There is <script type="math/tex">1 = (s-2)^0</script> <script type="math/tex">0</script>-cube in <script type="math/tex">G_0</script> per <script type="math/tex">0</script>-facet in <script type="math/tex">C_0</script>, so the base case holds.</p>
+
+<p>Assume for some <script type="math/tex">k \ge 0</script> that there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">k</script>-cubes in <script type="math/tex">G_k</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_k</script>, where <script type="math/tex">0 \le m \le k</script>. We want to show that there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_{k+1}</script>, where <script type="math/tex">0 \le m \le k+1</script>.</p>
+
+<p>For any <script type="math/tex">m</script> where <script type="math/tex">0 \le m \le k</script>, there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">k</script>-cubes in <script type="math/tex">G_k</script> corresponding to an <script type="math/tex">m</script>-facet in <script type="math/tex">C_k</script>. When <script type="math/tex">G_k</script> is extruded, and partitioned along the new axis, to form <script type="math/tex">G_{k+1}</script>, those <script type="math/tex">(s-2)^m</script> <script type="math/tex">k</script>-cubes become <script type="math/tex">(s-2)^m</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script>, representing an <script type="math/tex">m</script>-facet in <script type="math/tex">C_{k+1}</script>. By symmetry, this applies to all <script type="math/tex">m</script>-facets in <script type="math/tex">C_{k+1}</script>, so there are <script type="math/tex">(s-2)^m</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script> per <script type="math/tex">m</script>-facet in <script type="math/tex">C_{k+1}</script> for <script type="math/tex">0 \le m \le k</script>. We still have to show the statement holds for <script type="math/tex">m = k+1</script>.</p>
+
+<p>By the inductive hypothesis, there are <script type="math/tex">(s-2)^k</script> <script type="math/tex">k</script>-cubes in <script type="math/tex">G_k</script> corresponding to the one <script type="math/tex">k</script>-facet in <script type="math/tex">C_k</script>. Let <script type="math/tex">B_k</script> represent those <script type="math/tex">(s-2)^k</script> <script type="math/tex">k</script>-cubes. When <script type="math/tex">G_k</script> is extruded, and partitioned along the new axis, to form <script type="math/tex">G_{k+1}</script>, the total hypervolume of the <script type="math/tex">B_k</script>-based prism within <script type="math/tex">G_{k+1}</script> is now <script type="math/tex">(s-2)^ks</script> <script type="math/tex">(k+1)</script>-cubes. Because both the original <script type="math/tex">B_k</script> base and the duplicated <script type="math/tex">B_k</script> base now represent <script type="math/tex">k</script>-facets of <script type="math/tex">C_{k+1}</script>, we subtract 2 from the height of the <script type="math/tex">B_k</script>-based prism to obtain a final total of <script type="math/tex">(s-2)^k(s-2) = (s-2)^{k+1}</script> <script type="math/tex">(k+1)</script>-cubes in <script type="math/tex">G_{k+1}</script> that correspond to the one <script type="math/tex">(k+1)</script>-facet in <script type="math/tex">C_{k+1}</script>. <script type="math/tex">\square</script></p>
+
+<h3 id="counting-cubies-in-rubiks-cubes">Counting Cubies in Rubik’s Cubes</h3>
+
+<p>We only consider <script type="math/tex">n \ge 3</script> in this section, because Rubik’s cubes require at least three dimensions to turn. We also force <script type="math/tex">s \ge 2</script> to eliminate <script type="math/tex">0^n</script> and <script type="math/tex">1^n</script> Rubik’s cubes from the scope of this article. For reference, pieces of Rubik’s cubes are called cubies. We assume that for these <script type="math/tex">s^n</script> Rubik’s cubes, each <script type="math/tex">(n-1)</script>-facet is assigned a unique colour.</p>
+
+<p><strong>Lemma 3.1:</strong> Let <script type="math/tex">n \ge 3, s \ge 2</script>. Let <script type="math/tex">H_n</script> represent a <script type="math/tex">G_n</script> with the <script type="math/tex">n</script>-cubes representing the <script type="math/tex">n</script>-facet of the <script type="math/tex">C_n</script> removed. There is a bijection between <script type="math/tex">m</script>-coloured cubies on an <script type="math/tex">s^n</script> Rubik’s cube, and <script type="math/tex">n</script>-cubes in <script type="math/tex">H_n</script> representing <script type="math/tex">(n-m)</script>-facets in <script type="math/tex">C_n</script>, for <script type="math/tex">1 \le m \le n</script>.</p>
+
+<p><em>Proof:</em> Firstly, <script type="math/tex">(n-m)</script>-facets in a <script type="math/tex">C_n</script> are well-defined in this case since <script type="math/tex">1 \le m \le n</script> implies <script type="math/tex">0 \le n-m \le n-1</script>.</p>
+
+<p>We note that the cubies of an <script type="math/tex">s^n</script> Rubik’s cube are essentially a coloured version of <script type="math/tex">H_n</script>, meaning the cubies map one-to-one and onto the <script type="math/tex">n</script>-cubes within <script type="math/tex">H_n</script>.</p>
+
+<p>By Lemma 1.1, there are <script type="math/tex">n-m</script> facets meeting per <script type="math/tex">m</script>-facet in <script type="math/tex">C_n</script>. Therefore, a cubie <script type="math/tex">c</script> that maps to an <script type="math/tex">n</script>-cube in <script type="math/tex">H_n</script> representing an <script type="math/tex">m</script>-facet in <script type="math/tex">C_n</script> has <script type="math/tex">n-m</script> colours, because each facet of the <script type="math/tex">C_n</script> meeting at that <script type="math/tex">m</script>-facet is equivalent to adding a colour onto cubie <script type="math/tex">c</script>. By symmetry, a cubie on the <script type="math/tex">s^n</script> Rubik’s cube that maps to an <script type="math/tex">n</script>-cube in <script type="math/tex">H_n</script> representing an <script type="math/tex">(n-m)</script>-facet in <script type="math/tex">C_n</script> has <script type="math/tex">n-(n-m) = m</script> colours. <script type="math/tex">\square</script></p>
+
+<p><strong>Theorem 3.2:</strong> Let <script type="math/tex">n \ge 3, 1 \le m \le n, s \ge 2</script>. The number of <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">2^m{n \choose m}(s-2)^{n - m}</script>.</p>
+
+<p><em>Proof:</em> By Theorem 1.2, <script type="math/tex">f_{n-m}(C_n) = 2^{n-(n-m)}{n \choose n-m} = 2^m{n \choose m}</script>. By Lemma 2.1, there are <script type="math/tex">(s-2)^{n-m}</script> <script type="math/tex">n</script>-cubes in <script type="math/tex">G_n</script> per <script type="math/tex">(n-m)</script>-facet in <script type="math/tex">C_n</script>. Thus, there are <script type="math/tex">f_{n-m}(C_n)(s-2)^{n-m}</script> <script type="math/tex">n</script>-cubes in total in <script type="math/tex">G_n</script> that represent the <script type="math/tex">(n-m)</script>-facets in <script type="math/tex">C_n</script>.</p>
+
+<p>Since <script type="math/tex">1 \le m \le n</script>, we are only considering <script type="math/tex">0 \le n-m \le n-1</script>. Thus, we can substitute <script type="math/tex">G_n</script> with <script type="math/tex">H_n</script>, and not lose any <script type="math/tex">n</script>-cubes in the process. By Lemma 3.1, <script type="math/tex">n</script>-cubes in <script type="math/tex">H_n</script> that represent <script type="math/tex">(n-m)</script>-facets in <script type="math/tex">C_n</script> then map to <script type="math/tex">m</script>-coloured pieces on the <script type="math/tex">s^n</script> Rubik’s cube, so the number of <script type="math/tex">m</script>-coloured pieces in an <script type="math/tex">s^n</script> Rubik’s cube is <script type="math/tex">f_{n-m}(C_n)(s-2)^{n-m} = 2^m{n \choose m}(s-2)^{n-m}</script>. <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 3.3:</strong> Let <script type="math/tex">n \ge 3</script>. The number of cubies in a <script type="math/tex">2^n</script> Rubik’s cube is <script type="math/tex">2^n</script>, and they are all <script type="math/tex">n</script>-coloured pieces.</p>
+
+<p><em>Proof:</em> <script type="math/tex">s = 2</script> in this case. By Theorem 3.2, only for <script type="math/tex">m = n</script> does <script type="math/tex">(s - 2)^{n-m} = 0^0 = 1 \ne 0</script>, meaning the <script type="math/tex">2^n</script> Rubik’s cube consists solely of <script type="math/tex">2^n{n \choose n}(s-2)^{n-n} = 2^n(1)(1) = 2^n</script> <script type="math/tex">n</script>-coloured pieces.  <script type="math/tex">\square</script></p>
+
+<p><strong>Corollary 3.4:</strong> Let <script type="math/tex">n \ge 3, 1 \le m \le n</script>. The number of <script type="math/tex">m</script>-coloured pieces in a <script type="math/tex">3^n</script> Rubik’s cube is <script type="math/tex">2^m{n \choose m}</script>.</p>
+
+<p><em>Proof:</em> <script type="math/tex">s = 3</script> in this case, so <script type="math/tex">s - 2 = 1</script>. By Theorem 3.2, we thus obtain <script type="math/tex">2^m{n \choose m}(1)^{n - m} = 2^m{n \choose m}</script> <script type="math/tex">m</script>-coloured pieces in a <script type="math/tex">3^n</script> Rubik’s cube. <script type="math/tex">\square</script></p>
+
+
+        <hr />
+        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+      </div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
+    </div>
+    
+    <footer class="site-footer">
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
+      <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/rzhao271"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Copyright &copy; Raymond Zhao, 2015&ndash;2020</span>
+      <br />
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      <br />
+      <small>Website preview picture sourced from <a href="https://commons.wikimedia.org/wiki/File:Schlegel_wireframe_24-cell.png">WikiCommons</a>, generated by <a href="http://www.software3d.com/Stella.php">Robert Webb's Stella software</a>.</small>
+    </div>
+  </div>
+  
+  <script src="../../js/foundation.min.js"></script>
+  <script src="../../js/rayzz-colors.js"></script>
+  <script src="../../js/app.js"></script>
+</footer>
+
+  </body>
+</html>
