@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cartesian Products, Duoprisms, and Tesseractic Checkerboards - Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cartesian Products, Duoprisms, and Tesseractic Checkerboards - Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://www.rayzz.me" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/24-cell.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me//articles/hypercubing/tesseractic-checkerboards.html">
+  
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+  <script src="../../js/jquery.js"></script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+
+  <body>
+    <!-- Header, then another div with expanded row class for the sidebar-->
+    <div class="show-for-medium">
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns show-for-medium medium-2 large-7">
+    &nbsp;
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../index.html">About</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../resume.html">Resume</a>
+  </div>
+  <!--<div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../portfolio.html">Portfolio</a>
+  </div>-->
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-12 medium-2 large-1 nav-option">
+    <a href="../../contact.html">
+      Contact
+    </a>
+  </div>
+  <div class="columns show-for-medium medium-2 large-1">
+    &nbsp;
+  </div>
+</nav>
+</div>
+<div class="show-for-small-only">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
+  <ul class="menu vertical mobile-nav-menu">
+    <!-- Close button -->
+    <button class="close-button" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <li><a href="../../index.html">About</a></li>
+    <li><a href="../../resume.html">Resume</a></li>
+    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
+</div>
+
+  </div>
+  <header class="title-bar">
+    <div class="title-bar-left">
+      <div class="title-bar-title">
+        <h1>Raymond Zhao</h1>
+        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
+      </div>
+    </div>
+    <div class="title-bar-right">
+      <button type="button" class="menu-icon" data-open="offCanvas"></button>
+    </div>
+  </header>
+  <div class="expanded row">
+    <div class="columns small-12 color-bar-1">&nbsp;</div>
+  </div>
+</div>
+
+
+    <div class="expanded row off-canvas-content" data-off-canvas-content>
+      <div class="columns small-12 content-wrapper">
+        <section class="main-content">
+          <h2 id="cartesian-products-duoprisms-and-tesseractic-checkerboards">Cartesian Products, Duoprisms, and Tesseractic Checkerboards</h2>
+
+<p><em>Written June 18, 2020.</em></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>In this article, we first introduce Cartesian products. We then mention duoprisms, which are the Cartesian product of two polygons, and end with an application to producing checkerboard patterns on four-dimensional n^4 (tesseractic) twisty puzzles.</p>
+
+<h3 id="cartesian-products">Cartesian Products</h3>
+
+<p>A Cartesian product is an operation on two sets. Given two sets <script type="math/tex">A</script> and <script type="math/tex">B</script>, the Cartesian product is defined as follows:</p>
+
+<script type="math/tex; mode=display">A \times B = \{(a, b) : a \in A, b \in B\}</script>
+
+<p>In other words, the Cartesian product of two sets <script type="math/tex">A</script> and <script type="math/tex">B</script> is a set containing all 2-tuple elements of the form <script type="math/tex">(a, b)</script>, where <script type="math/tex">a</script> is an element in <script type="math/tex">A</script> and <script type="math/tex">b</script> is an element in <script type="math/tex">B</script>.</p>
+
+<p>Thus, the Cartesian product of two finite sets <script type="math/tex">A</script> and <script type="math/tex">B</script>, of sizes <script type="math/tex">S_A</script> and <script type="math/tex">S_B</script> respectively, is a new set <script type="math/tex">A \times B</script> of size <script type="math/tex">S_AS_B</script>.</p>
+
+<p>A geometric way of interpreting a Cartesian product of two polytopes <script type="math/tex">A</script> and <script type="math/tex">B</script> is to imagine the following: hold a pen, but imagine the nib is in the shape of <script type="math/tex">A</script>. That is, as soon as the nib touches the paper, polytope <script type="math/tex">A</script> is drawn on. Then, imagine drawing polytope <script type="math/tex">B</script> using this nib, but in directions perpendicular to the nib. The end result represents <script type="math/tex">A \times B</script>. If <script type="math/tex">A</script> is of dimension <script type="math/tex">d_A</script>, and <script type="math/tex">B</script> is of dimension <script type="math/tex">d_B</script>, then the dimension of the new polytope is <script type="math/tex">d_A + d_B</script>.</p>
+
+<p>For example, if <script type="math/tex">A</script> represents a square with side length <script type="math/tex">s</script>, and <script type="math/tex">B</script> represents a line segment of length <script type="math/tex">s</script>, then we can imagine <script type="math/tex">A \times B</script> as holding a pen with square <script type="math/tex">A</script> as its nib, and then drawing out line segment <script type="math/tex">B</script>, such that the line segment drawn is perpendicular to the square that makes up the nib. We end up with a cube of side length <script type="math/tex">s</script>. Thus, a cube can be seen as the Cartesian product of a square and a line segment, where all edge lengths are equal.</p>
+
+<h3 id="duoprisms">Duoprisms</h3>
+
+<p>Duoprisms are the Cartesian product of two polygons. An <script type="math/tex">n</script>-gon can be represented using the <a href="https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol">Schläfli symbol</a> <script type="math/tex">\{n\}</script>. Thus, given a <script type="math/tex">p</script>-gon and a <script type="math/tex">q</script>-gon, the <script type="math/tex">p</script>-<script type="math/tex">q</script> duoprism is defined as <script type="math/tex">\{p\}\times\{q\}</script>. The duoprism comprises two perpendicular rings: one of <script type="math/tex">p</script> <script type="math/tex">q</script>-gonal prisms, and another of <script type="math/tex">q</script> <script type="math/tex">p</script>-gonal prisms. As <script type="math/tex">p</script> and <script type="math/tex">q</script> approach infinity, the duoprism becomes more and more similar to a duocylinder, the latter comprising two perpendicular tori.</p>
+
+<p>Figures 1.a and 1.b show a 3-4 duoprism and a 4-3 duoprism, respectively.</p>
+
+<div class="expanded row">
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/3-4_duoprism.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 1.a: A 3-4 duoprism</p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/4-3_duoprism.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 1.b: A 4-3 duoprism</p>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<p><small>Both of these images were produced using Robert Webb’s Stella software, which can be found at <a href="http://www.software3d.com/Stella.php">http://www.software3d.com/Stella.php</a>. The images themselves can be found on <a href="https://commons.wikimedia.org/wiki/Category:3-4_duoprism">Wikimedia</a>.</small></p>
+
+<p>Note that <script type="math/tex">p</script>-<script type="math/tex">q</script> duoprisms are equivalent to <script type="math/tex">q</script>-<script type="math/tex">p</script> duoprisms because Cartesian products are commutative, meaning <script type="math/tex">A \times B = B \times A</script>. The difference in the images is due to the duoprisms being projected down into three dimensions from different viewpoints.</p>
+
+<h3 id="tesseractic-checkerboards">Tesseractic Checkerboards</h3>
+
+<p>Tesseracts can be thought of as regular {4}x{4} duoprisms. Thus, a tesseract can be disassembled into two perpendicular rings of four cubes each. If we can generate a checkerboard pattern on a single ring of cubes within a tesseractic n^4 twisty puzzle, then we can simply rotate the puzzle into a perpendicular position, and generate the second checkerboard pattern. In this way, we generate a checkerboard pattern over the entire twisty puzzle.</p>
+
+<p>For instance, on the 2x2x2x2 Rubik’s cube, performing RK2 FK2 RK2 UK2 TU2 results in a checkerboard pattern on one ring of the cubes (Figure 2.a). Then, rotating the tesseract, and performing the same sequence of moves results in a checkerboard pattern on all facets (Figure 2.b).</p>
+
+<div class="expanded row">
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/22checker-1ring.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 2.a: A 2x2x2x2 with one of two rings checkered</p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/22checker-2ring.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 2.b: A 2x2x2x2 with both rings checkered</p>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<p>Note that this configuration is not possible for three-dimensional even-layered cubic puzzles. For those puzzles, we can make at most four of the six faces have a full checkerboard.</p>
+
+<p>Meanwhile, odd-layered tesseractic checkerboards are also possible, albeit harder – they require knowing the 3x3x3 four-sided checkerboard pattern (e.g. M2 E2 S2 (M2 F2)2 (S2 R2)2).</p>
+
+<h3 id="future-works">Future Works</h3>
+
+<p>Something that can be looked into would be whether or not this pattern continues in every even dimension. For example, can one parse a six-dimensional 3^6 twisty puzzle as a regular {4}x{4}x{4} in order to generate a checkerboard pattern on it by repeating some pattern three times on three mutually perpendicular rings of four 5-cubes?</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
+      
+      <div class="columns small-12 medium-9 large-7" id="main">
+        <h2 id="cartesian-products-duoprisms-and-tesseractic-checkerboards">Cartesian Products, Duoprisms, and Tesseractic Checkerboards</h2>
+
+<p><em>Written June 18, 2020.</em></p>
+
+<h3 id="summary">Summary</h3>
+
+<p>In this article, we first introduce Cartesian products. We then mention duoprisms, which are the Cartesian product of two polygons, and end with an application to producing checkerboard patterns on four-dimensional n^4 (tesseractic) twisty puzzles.</p>
+
+<h3 id="cartesian-products">Cartesian Products</h3>
+
+<p>A Cartesian product is an operation on two sets. Given two sets <script type="math/tex">A</script> and <script type="math/tex">B</script>, the Cartesian product is defined as follows:</p>
+
+<script type="math/tex; mode=display">A \times B = \{(a, b) : a \in A, b \in B\}</script>
+
+<p>In other words, the Cartesian product of two sets <script type="math/tex">A</script> and <script type="math/tex">B</script> is a set containing all 2-tuple elements of the form <script type="math/tex">(a, b)</script>, where <script type="math/tex">a</script> is an element in <script type="math/tex">A</script> and <script type="math/tex">b</script> is an element in <script type="math/tex">B</script>.</p>
+
+<p>Thus, the Cartesian product of two finite sets <script type="math/tex">A</script> and <script type="math/tex">B</script>, of sizes <script type="math/tex">S_A</script> and <script type="math/tex">S_B</script> respectively, is a new set <script type="math/tex">A \times B</script> of size <script type="math/tex">S_AS_B</script>.</p>
+
+<p>A geometric way of interpreting a Cartesian product of two polytopes <script type="math/tex">A</script> and <script type="math/tex">B</script> is to imagine the following: hold a pen, but imagine the nib is in the shape of <script type="math/tex">A</script>. That is, as soon as the nib touches the paper, polytope <script type="math/tex">A</script> is drawn on. Then, imagine drawing polytope <script type="math/tex">B</script> using this nib, but in directions perpendicular to the nib. The end result represents <script type="math/tex">A \times B</script>. If <script type="math/tex">A</script> is of dimension <script type="math/tex">d_A</script>, and <script type="math/tex">B</script> is of dimension <script type="math/tex">d_B</script>, then the dimension of the new polytope is <script type="math/tex">d_A + d_B</script>.</p>
+
+<p>For example, if <script type="math/tex">A</script> represents a square with side length <script type="math/tex">s</script>, and <script type="math/tex">B</script> represents a line segment of length <script type="math/tex">s</script>, then we can imagine <script type="math/tex">A \times B</script> as holding a pen with square <script type="math/tex">A</script> as its nib, and then drawing out line segment <script type="math/tex">B</script>, such that the line segment drawn is perpendicular to the square that makes up the nib. We end up with a cube of side length <script type="math/tex">s</script>. Thus, a cube can be seen as the Cartesian product of a square and a line segment, where all edge lengths are equal.</p>
+
+<h3 id="duoprisms">Duoprisms</h3>
+
+<p>Duoprisms are the Cartesian product of two polygons. An <script type="math/tex">n</script>-gon can be represented using the <a href="https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol">Schläfli symbol</a> <script type="math/tex">\{n\}</script>. Thus, given a <script type="math/tex">p</script>-gon and a <script type="math/tex">q</script>-gon, the <script type="math/tex">p</script>-<script type="math/tex">q</script> duoprism is defined as <script type="math/tex">\{p\}\times\{q\}</script>. The duoprism comprises two perpendicular rings: one of <script type="math/tex">p</script> <script type="math/tex">q</script>-gonal prisms, and another of <script type="math/tex">q</script> <script type="math/tex">p</script>-gonal prisms. As <script type="math/tex">p</script> and <script type="math/tex">q</script> approach infinity, the duoprism becomes more and more similar to a duocylinder, the latter comprising two perpendicular tori.</p>
+
+<p>Figures 1.a and 1.b show a 3-4 duoprism and a 4-3 duoprism, respectively.</p>
+
+<div class="expanded row">
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/3-4_duoprism.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 1.a: A 3-4 duoprism</p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/4-3_duoprism.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 1.b: A 4-3 duoprism</p>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<p><small>Both of these images were produced using Robert Webb’s Stella software, which can be found at <a href="http://www.software3d.com/Stella.php">http://www.software3d.com/Stella.php</a>. The images themselves can be found on <a href="https://commons.wikimedia.org/wiki/Category:3-4_duoprism">Wikimedia</a>.</small></p>
+
+<p>Note that <script type="math/tex">p</script>-<script type="math/tex">q</script> duoprisms are equivalent to <script type="math/tex">q</script>-<script type="math/tex">p</script> duoprisms because Cartesian products are commutative, meaning <script type="math/tex">A \times B = B \times A</script>. The difference in the images is due to the duoprisms being projected down into three dimensions from different viewpoints.</p>
+
+<h3 id="tesseractic-checkerboards">Tesseractic Checkerboards</h3>
+
+<p>Tesseracts can be thought of as regular {4}x{4} duoprisms. Thus, a tesseract can be disassembled into two perpendicular rings of four cubes each. If we can generate a checkerboard pattern on a single ring of cubes within a tesseractic n^4 twisty puzzle, then we can simply rotate the puzzle into a perpendicular position, and generate the second checkerboard pattern. In this way, we generate a checkerboard pattern over the entire twisty puzzle.</p>
+
+<p>For instance, on the 2x2x2x2 Rubik’s cube, performing RK2 FK2 RK2 UK2 TU2 results in a checkerboard pattern on one ring of the cubes (Figure 2.a). Then, rotating the tesseract, and performing the same sequence of moves results in a checkerboard pattern on all facets (Figure 2.b).</p>
+
+<div class="expanded row">
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/22checker-1ring.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 2.a: A 2x2x2x2 with one of two rings checkered</p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="columns small-12 medium-6">
+    <figure>
+      <p><img src="/img/22checker/22checker-2ring.png" width="300px" /></p>
+      <figcaption>
+        <p>Figure 2.b: A 2x2x2x2 with both rings checkered</p>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<p>Note that this configuration is not possible for three-dimensional even-layered cubic puzzles. For those puzzles, we can make at most four of the six faces have a full checkerboard.</p>
+
+<p>Meanwhile, odd-layered tesseractic checkerboards are also possible, albeit harder – they require knowing the 3x3x3 four-sided checkerboard pattern (e.g. M2 E2 S2 (M2 F2)2 (S2 R2)2).</p>
+
+<h3 id="future-works">Future Works</h3>
+
+<p>Something that can be looked into would be whether or not this pattern continues in every even dimension. For example, can one parse a six-dimensional 3^6 twisty puzzle as a regular {4}x{4}x{4} in order to generate a checkerboard pattern on it by repeating some pattern three times on three mutually perpendicular rings of four 5-cubes?</p>
+
+
+        <hr />
+        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+      </div>
+      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
+    </div>
+    
+    <footer class="site-footer">
+  <!-- COLOURS FOR DAYS! -->
+  <div class="expanded row">
+      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
+      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
+      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
+      <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
+  </div>
+
+  <div class="expanded row" style="margin-top: 10px;">
+    <div class="column small-12">
+      <a href="https://github.com/rzhao271"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="48px" height="48px"/></a>
+      <span style="margin-right: 22px;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
+    </div>
+  </div>
+  <div class="expanded row">
+    <div class="column small-12">
+      <span style="text-align:right;">Copyright &copy; Raymond Zhao, 2015&ndash;2020</span>
+      <br />
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      <br />
+      <small>Website preview picture sourced from <a href="https://commons.wikimedia.org/wiki/File:Schlegel_wireframe_24-cell.png">WikiCommons</a>, generated by <a href="http://www.software3d.com/Stella.php">Robert Webb's Stella software</a>.</small>
+    </div>
+  </div>
+  
+  <script src="../../js/foundation.min.js"></script>
+  <script src="../../js/rayzz-colors.js"></script>
+  <script src="../../js/app.js"></script>
+</footer>
+
+  </body>
+</html>
