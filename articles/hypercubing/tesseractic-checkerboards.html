@@ -110,11 +110,11 @@
         <section class="main-content">
           <h2 id="cartesian-products-duoprisms-and-tesseractic-checkerboards">Cartesian Products, Duoprisms, and Tesseractic Checkerboards</h2>
 
-<p><em>Written June 18, 2020.</em></p>
+<p><em>Written June 17, 2020.</em></p>
 
 <h3 id="summary">Summary</h3>
 
-<p>In this article, we first introduce Cartesian products. We then mention duoprisms, which are the Cartesian product of two polygons, and end with an application to producing checkerboard patterns on four-dimensional n^4 (tesseractic) twisty puzzles.</p>
+<p>In this article, we first introduce Cartesian products. We then mention duoprisms, which are the Cartesian product of two polygons, and end with an application to producing full opposite checkerboard patterns on four-dimensional n^4 (tesseractic) twisty puzzles.</p>
 
 <h3 id="cartesian-products">Cartesian Products</h3>
 
@@ -126,7 +126,7 @@
 
 <p>Thus, the Cartesian product of two finite sets <script type="math/tex">A</script> and <script type="math/tex">B</script>, of sizes <script type="math/tex">S_A</script> and <script type="math/tex">S_B</script> respectively, is a new set <script type="math/tex">A \times B</script> of size <script type="math/tex">S_AS_B</script>.</p>
 
-<p>A geometric way of interpreting a Cartesian product of two polytopes <script type="math/tex">A</script> and <script type="math/tex">B</script> is to imagine the following: hold a pen, but imagine the nib is in the shape of <script type="math/tex">A</script>. That is, as soon as the nib touches the paper, polytope <script type="math/tex">A</script> is drawn on. Then, imagine drawing polytope <script type="math/tex">B</script> using this nib, but in directions perpendicular to the nib. The end result represents <script type="math/tex">A \times B</script>. If <script type="math/tex">A</script> is of dimension <script type="math/tex">d_A</script>, and <script type="math/tex">B</script> is of dimension <script type="math/tex">d_B</script>, then the dimension of the new polytope is <script type="math/tex">d_A + d_B</script>.</p>
+<p>A geometric way of interpreting a Cartesian product of two polytopes <script type="math/tex">A</script> and <script type="math/tex">B</script> is to imagine the following: hold a pen, but imagine the nib is in the shape of <script type="math/tex">A</script>. That is, as soon as the nib touches the paper, a copy of polytope <script type="math/tex">A</script> appears. Then, imagine drawing polytope <script type="math/tex">B</script> using this nib, but in directions perpendicular to those of the nib. The end result represents <script type="math/tex">A \times B</script>. If <script type="math/tex">A</script> is of dimension <script type="math/tex">d_A</script>, and <script type="math/tex">B</script> is of dimension <script type="math/tex">d_B</script>, then the dimension of the new polytope is <script type="math/tex">d_A + d_B</script>.</p>
 
 <p>For example, if <script type="math/tex">A</script> represents a square with side length <script type="math/tex">s</script>, and <script type="math/tex">B</script> represents a line segment of length <script type="math/tex">s</script>, then we can imagine <script type="math/tex">A \times B</script> as holding a pen with square <script type="math/tex">A</script> as its nib, and then drawing out line segment <script type="math/tex">B</script>, such that the line segment drawn is perpendicular to the square that makes up the nib. We end up with a cube of side length <script type="math/tex">s</script>. Thus, a cube can be seen as the Cartesian product of a square and a line segment, where all edge lengths are equal.</p>
 
@@ -161,16 +161,16 @@
 
 <h3 id="tesseractic-checkerboards">Tesseractic Checkerboards</h3>
 
-<p>Tesseracts can be thought of as regular {4}x{4} duoprisms. Thus, a tesseract can be disassembled into two perpendicular rings of four cubes each. If we can generate a checkerboard pattern on a single ring of cubes within a tesseractic n^4 twisty puzzle, then we can simply rotate the puzzle into a perpendicular position, and generate the second checkerboard pattern. In this way, we generate a checkerboard pattern over the entire twisty puzzle.</p>
+<p>Tesseracts can be thought of as regular {4}x{4} duoprisms. Thus, a tesseract can be disassembled into two perpendicular rings of four cubes each. If we can generate an opposite checkerboard pattern on a single ring of cubes within a tesseractic n^4 twisty puzzle, then we can simply rotate the puzzle into a perpendicular position, and generate a second opposite checkerboard pattern on the remaining ring of cubes. In this way, we generate a full opposite checkerboard pattern over the entire twisty puzzle.</p>
 
-<p>For instance, on the 2x2x2x2 Rubik’s cube, performing RK2 FK2 RK2 UK2 TU2 results in a checkerboard pattern on one ring of the cubes (Figure 2.a). Then, rotating the tesseract, and performing the same sequence of moves results in a checkerboard pattern on all facets (Figure 2.b).</p>
+<p>For instance, on the 2x2x2x2 Rubik’s cube, performing RK2 FK2 RK2 UK2 TU2 results in a checkerboard pattern on one ring of the cubes (Figure 2.a). Then, rotating the tesseract and performing the same sequence of moves results in a checkerboard pattern on all facets (Figure 2.b).</p>
 
 <div class="expanded row">
   <div class="columns small-12 medium-6">
     <figure>
       <p><img src="/img/22checker/22checker-1ring.png" width="300px" /></p>
       <figcaption>
-        <p>Figure 2.a: A 2x2x2x2 with one of two rings checkered</p>
+        <p>Figure 2.a: A 2x2x2x2 with one of two rings checkered.</p>
       </figcaption>
     </figure>
   </div>
@@ -178,19 +178,19 @@
     <figure>
       <p><img src="/img/22checker/22checker-2ring.png" width="300px" /></p>
       <figcaption>
-        <p>Figure 2.b: A 2x2x2x2 with both rings checkered</p>
+        <p>Figure 2.b: A 2x2x2x2 with both rings checkered.</p>
       </figcaption>
     </figure>
   </div>
 </div>
 
-<p>Note that this configuration is not possible for three-dimensional even-layered cubic puzzles. For those puzzles, we can make at most four of the six faces have a full checkerboard.</p>
+<p>Note that the full opposite checkerboard pattern is not possible for three-dimensional even-layered cubic twisty puzzles. For those puzzles, we can give at most four of the six faces a full opposite checkerboard pattern.</p>
 
-<p>Meanwhile, odd-layered tesseractic checkerboards are also possible, albeit harder – they require knowing the 3x3x3 four-sided checkerboard pattern (e.g. M2 E2 S2 (M2 F2)2 (S2 R2)2).</p>
+<p>Meanwhile, full opposite checkerboards for odd-layered tesseractic twisty puzzles are also possible, albeit harder – they require knowing the 3x3x3 four-sided opposite checkerboard pattern (e.g. M2 E2 S2 (M2 F2)2 (S2 R2)2).</p>
 
 <h3 id="future-works">Future Works</h3>
 
-<p>Something that can be looked into would be whether or not this pattern continues in every even dimension. For example, can one parse a six-dimensional 3^6 twisty puzzle as a regular {4}x{4}x{4} in order to generate a checkerboard pattern on it by repeating some pattern three times on three mutually perpendicular rings of four 5-cubes?</p>
+<p>Something that can be looked into would be whether or not the full opposite checkerboard pattern can be made on every <script type="math/tex">n^{2m}</script> twisty puzzle, for <script type="math/tex">n \ge 2, m \ge 2</script>, in a way similar to that described above. For example, can one parse a six-dimensional 3^6 twisty puzzle as a regular {4}x{4}x{4} in order to generate a full opposite checkerboard pattern on it, by repeating some pattern over three mutually perpendicular rings of four 5-cubes?</p>
 
           <hr />
           <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
@@ -201,11 +201,11 @@
       <div class="columns small-12 medium-9 large-7" id="main">
         <h2 id="cartesian-products-duoprisms-and-tesseractic-checkerboards">Cartesian Products, Duoprisms, and Tesseractic Checkerboards</h2>
 
-<p><em>Written June 18, 2020.</em></p>
+<p><em>Written June 17, 2020.</em></p>
 
 <h3 id="summary">Summary</h3>
 
-<p>In this article, we first introduce Cartesian products. We then mention duoprisms, which are the Cartesian product of two polygons, and end with an application to producing checkerboard patterns on four-dimensional n^4 (tesseractic) twisty puzzles.</p>
+<p>In this article, we first introduce Cartesian products. We then mention duoprisms, which are the Cartesian product of two polygons, and end with an application to producing full opposite checkerboard patterns on four-dimensional n^4 (tesseractic) twisty puzzles.</p>
 
 <h3 id="cartesian-products">Cartesian Products</h3>
 
@@ -217,7 +217,7 @@
 
 <p>Thus, the Cartesian product of two finite sets <script type="math/tex">A</script> and <script type="math/tex">B</script>, of sizes <script type="math/tex">S_A</script> and <script type="math/tex">S_B</script> respectively, is a new set <script type="math/tex">A \times B</script> of size <script type="math/tex">S_AS_B</script>.</p>
 
-<p>A geometric way of interpreting a Cartesian product of two polytopes <script type="math/tex">A</script> and <script type="math/tex">B</script> is to imagine the following: hold a pen, but imagine the nib is in the shape of <script type="math/tex">A</script>. That is, as soon as the nib touches the paper, polytope <script type="math/tex">A</script> is drawn on. Then, imagine drawing polytope <script type="math/tex">B</script> using this nib, but in directions perpendicular to the nib. The end result represents <script type="math/tex">A \times B</script>. If <script type="math/tex">A</script> is of dimension <script type="math/tex">d_A</script>, and <script type="math/tex">B</script> is of dimension <script type="math/tex">d_B</script>, then the dimension of the new polytope is <script type="math/tex">d_A + d_B</script>.</p>
+<p>A geometric way of interpreting a Cartesian product of two polytopes <script type="math/tex">A</script> and <script type="math/tex">B</script> is to imagine the following: hold a pen, but imagine the nib is in the shape of <script type="math/tex">A</script>. That is, as soon as the nib touches the paper, a copy of polytope <script type="math/tex">A</script> appears. Then, imagine drawing polytope <script type="math/tex">B</script> using this nib, but in directions perpendicular to those of the nib. The end result represents <script type="math/tex">A \times B</script>. If <script type="math/tex">A</script> is of dimension <script type="math/tex">d_A</script>, and <script type="math/tex">B</script> is of dimension <script type="math/tex">d_B</script>, then the dimension of the new polytope is <script type="math/tex">d_A + d_B</script>.</p>
 
 <p>For example, if <script type="math/tex">A</script> represents a square with side length <script type="math/tex">s</script>, and <script type="math/tex">B</script> represents a line segment of length <script type="math/tex">s</script>, then we can imagine <script type="math/tex">A \times B</script> as holding a pen with square <script type="math/tex">A</script> as its nib, and then drawing out line segment <script type="math/tex">B</script>, such that the line segment drawn is perpendicular to the square that makes up the nib. We end up with a cube of side length <script type="math/tex">s</script>. Thus, a cube can be seen as the Cartesian product of a square and a line segment, where all edge lengths are equal.</p>
 
@@ -252,16 +252,16 @@
 
 <h3 id="tesseractic-checkerboards">Tesseractic Checkerboards</h3>
 
-<p>Tesseracts can be thought of as regular {4}x{4} duoprisms. Thus, a tesseract can be disassembled into two perpendicular rings of four cubes each. If we can generate a checkerboard pattern on a single ring of cubes within a tesseractic n^4 twisty puzzle, then we can simply rotate the puzzle into a perpendicular position, and generate the second checkerboard pattern. In this way, we generate a checkerboard pattern over the entire twisty puzzle.</p>
+<p>Tesseracts can be thought of as regular {4}x{4} duoprisms. Thus, a tesseract can be disassembled into two perpendicular rings of four cubes each. If we can generate an opposite checkerboard pattern on a single ring of cubes within a tesseractic n^4 twisty puzzle, then we can simply rotate the puzzle into a perpendicular position, and generate a second opposite checkerboard pattern on the remaining ring of cubes. In this way, we generate a full opposite checkerboard pattern over the entire twisty puzzle.</p>
 
-<p>For instance, on the 2x2x2x2 Rubik’s cube, performing RK2 FK2 RK2 UK2 TU2 results in a checkerboard pattern on one ring of the cubes (Figure 2.a). Then, rotating the tesseract, and performing the same sequence of moves results in a checkerboard pattern on all facets (Figure 2.b).</p>
+<p>For instance, on the 2x2x2x2 Rubik’s cube, performing RK2 FK2 RK2 UK2 TU2 results in a checkerboard pattern on one ring of the cubes (Figure 2.a). Then, rotating the tesseract and performing the same sequence of moves results in a checkerboard pattern on all facets (Figure 2.b).</p>
 
 <div class="expanded row">
   <div class="columns small-12 medium-6">
     <figure>
       <p><img src="/img/22checker/22checker-1ring.png" width="300px" /></p>
       <figcaption>
-        <p>Figure 2.a: A 2x2x2x2 with one of two rings checkered</p>
+        <p>Figure 2.a: A 2x2x2x2 with one of two rings checkered.</p>
       </figcaption>
     </figure>
   </div>
@@ -269,19 +269,19 @@
     <figure>
       <p><img src="/img/22checker/22checker-2ring.png" width="300px" /></p>
       <figcaption>
-        <p>Figure 2.b: A 2x2x2x2 with both rings checkered</p>
+        <p>Figure 2.b: A 2x2x2x2 with both rings checkered.</p>
       </figcaption>
     </figure>
   </div>
 </div>
 
-<p>Note that this configuration is not possible for three-dimensional even-layered cubic puzzles. For those puzzles, we can make at most four of the six faces have a full checkerboard.</p>
+<p>Note that the full opposite checkerboard pattern is not possible for three-dimensional even-layered cubic twisty puzzles. For those puzzles, we can give at most four of the six faces a full opposite checkerboard pattern.</p>
 
-<p>Meanwhile, odd-layered tesseractic checkerboards are also possible, albeit harder – they require knowing the 3x3x3 four-sided checkerboard pattern (e.g. M2 E2 S2 (M2 F2)2 (S2 R2)2).</p>
+<p>Meanwhile, full opposite checkerboards for odd-layered tesseractic twisty puzzles are also possible, albeit harder – they require knowing the 3x3x3 four-sided opposite checkerboard pattern (e.g. M2 E2 S2 (M2 F2)2 (S2 R2)2).</p>
 
 <h3 id="future-works">Future Works</h3>
 
-<p>Something that can be looked into would be whether or not this pattern continues in every even dimension. For example, can one parse a six-dimensional 3^6 twisty puzzle as a regular {4}x{4}x{4} in order to generate a checkerboard pattern on it by repeating some pattern three times on three mutually perpendicular rings of four 5-cubes?</p>
+<p>Something that can be looked into would be whether or not the full opposite checkerboard pattern can be made on every <script type="math/tex">n^{2m}</script> twisty puzzle, for <script type="math/tex">n \ge 2, m \ge 2</script>, in a way similar to that described above. For example, can one parse a six-dimensional 3^6 twisty puzzle as a regular {4}x{4}x{4} in order to generate a full opposite checkerboard pattern on it, by repeating some pattern over three mutually perpendicular rings of four 5-cubes?</p>
 
 
         <hr />
