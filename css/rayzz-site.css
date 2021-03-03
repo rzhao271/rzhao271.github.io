@@ -153,47 +153,15 @@ ul li ul li:before {
 .site-footer {
   clear: both;
   position: relative;
-  height: 8em;
-  margin-top: -8em;
+  height: 6em;
+  margin-top: -6em;
 }
 
 .site-footer, .site-footer > div {
   background: #EEE;
 }
 
-.resume-section {
-  border-bottom: 1px solid;
-  width: 100%;
-  display: block;
-}
-
-.resume-subsection div p, .resume-project-name p {
-  margin-bottom: 0px;
-}
-
-.resume-subsection div {
-  padding: 0px;
-}
-
-.resume-company-location-dates p, .resume-project-date p {
-  margin-bottom: 0.3em;
-}
-
-.resume-left, .resume-right, .resume-project-name, .resume-project-date {
-  padding-left: 0px;
-}
-
-.resume-project-name, .resume-company-name {
-  font-weight: bold;
-}
-
 .main-content {
-  max-width: 700px;
-  width: 100%;
-  margin: 5px auto 0 auto;
-}
-
-.main-content-resume {
   max-width: 700px;
   width: 100%;
   margin: 5px auto 0 auto;
