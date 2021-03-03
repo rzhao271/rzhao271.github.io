@@ -17,7 +17,7 @@
   <meta property="og:title" content="N-dimensional A Permutations&#58; A Generalized Solution to N-dimensional Rubik’s Cubes - Ray ZZ" />
   <meta property="og:site_name" content="Ray ZZ" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.rayzz.me//articles/hypercubing/a-perms.html" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/hypercubing/a-perms.html" />
   <meta property="og:image" content="https://rzhao271.github.io/img/24-cell.png" />
   <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/24-cell.png" />
   <meta property="og:image:type" content="image/png" />
@@ -27,85 +27,45 @@
 " />
   <meta name="theme-color" content="#283593">
 
-  <link rel="canonical" href="https://www.rayzz.me//articles/hypercubing/a-perms.html">
-  
+  <link rel="canonical" href="https://www.rayzz.me/articles/hypercubing/a-perms.html">
+
   <!-- Import the CSS from here now since we want legacy flex support... -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/pygments/default.css">
   <link rel="stylesheet" href="../../css/rayzz-site.css">
-  <script src="../../js/jquery.js"></script>
-  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 
+
   <body>
-    <!-- Header, then another div with expanded row class for the sidebar-->
-    <div class="show-for-medium">
+    <div>
   <header class="top-bar">
     <h1>Raymond Zhao</h1>
-    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
   </header>
   <nav class="expanded row topnav" data-topbar role="navigation">
-  <div class="columns show-for-medium medium-2 large-7">
+  <div class="columns small-3 medium-5">
     &nbsp;
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../index.html">About</a>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../resume.html">Resume</a>
-  </div>
-  <!--<div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../portfolio.html">Portfolio</a>
-  </div>-->
-  <div class="columns small-12 medium-2 large-1 nav-option">
+  <div class="columns small-3 medium-2 nav-option">
     <a href="../../articles.html">Articles</a>
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../contact.html">
-      Contact
-    </a>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
   </div>
-  <div class="columns show-for-medium medium-2 large-1">
+  <div class="columns show-for-medium medium-1">
     &nbsp;
   </div>
 </nav>
-</div>
-<div class="show-for-small-only">
-  <div class="off-canvas-wrapper">
-    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
-  <ul class="menu vertical mobile-nav-menu">
-    <!-- Close button -->
-    <button class="close-button" aria-label="Close menu" type="button" data-close>
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <li><a href="../../index.html">About</a></li>
-    <li><a href="../../resume.html">Resume</a></li>
-    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
-    <li><a href="../../articles.html">Articles</a></li>
-    <li><a href="../../contact.html">Contact</a></li>
-  </ul>
-</div>
 
-  </div>
-  <header class="title-bar">
-    <div class="title-bar-left">
-      <div class="title-bar-title">
-        <h1>Raymond Zhao</h1>
-        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
-      </div>
-    </div>
-    <div class="title-bar-right">
-      <button type="button" class="menu-icon" data-open="offCanvas"></button>
-    </div>
-  </header>
-  <div class="expanded row">
-    <div class="columns small-12 color-bar-1">&nbsp;</div>
-  </div>
 </div>
 
 
-    <div class="expanded row off-canvas-content" data-off-canvas-content>
-      <div class="columns small-12 content-wrapper">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
         <section class="main-content">
           <h2 id="n-dimensional-a-permutations-a-generalized-solution-to-n-dimensional-rubiks-cubes">N-dimensional A Permutations: A Generalized Solution to N-dimensional Rubik’s Cubes</h2>
 
@@ -117,22 +77,22 @@ When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ 
 
 <p>(Note: the third corner piece affected is the ULB piece, or the one with the yellow sticker that is opposite to the one closest to the camera.)</p>
 
-<p>It turns out that this algorithm can be generalized to any dimension <script type="math/tex">n \ge 3</script>. In turn, we can use variants of this algorithm
-to perform N-dimensional “monoflips” and “corner twists”. When combined with the N-dimensional A-perm, these algorithms altogether allow for solving a <script type="math/tex">3^n</script> puzzle of
-arbitrary dimension <script type="math/tex">n</script>.</p>
+<p>It turns out that this algorithm can be generalized to any dimension \(n \ge 3\). In turn, we can use variants of this algorithm
+to perform N-dimensional “monoflips” and “corner twists”. When combined with the N-dimensional A-perm, these algorithms altogether allow for solving a \(3^n\) puzzle of
+arbitrary dimension \(n\).</p>
 
 <h3 id="a-seven-dimensional-example">A Seven-Dimensional Example</h3>
 
-<p>In particular, we demonstrate how the algorithm can be generalized to perform permutations of specific pieces on the seven-dimensional Rubik’s cube, or <script type="math/tex">3^7</script> for short.
+<p>In particular, we demonstrate how the algorithm can be generalized to perform permutations of specific pieces on the seven-dimensional Rubik’s cube, or \(3^7\) for short.
 The software used in this article is written by the late Andrey Astrelin, and can be found <a href="http://superliminal.com/andrey/mc7d/">here</a>.</p>
 
-<p>Firstly, we translate the regular A-perm onto the <script type="math/tex">3^7</script> Rubik’s cube by turning it as a <script type="math/tex">3^4</script> Rubik’s cube, with B, F, and R replaced with BU, FU, and RU, respectively:<br />
+<p>Firstly, we translate the regular A-perm onto the \(3^7\) Rubik’s cube by turning it as a \(3^4\) Rubik’s cube, with B, F, and R replaced with BU, FU, and RU, respectively:<br />
 <img src="/img/aperm/37-A3-CW.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7" width="350px" /></p>
 
 <p>(Note: for help on the “BU, FU, RU” notation, check the page on <a href="rkt.html">RKT</a>)</p>
 
 <p>Many of the pieces moved, and it seems the algorithm has moved too many pieces to be effective. However, there are different types of pieces on the puzzle,
-each with a different amount of stickers. We say a piece is an <script type="math/tex">n</script>-c piece (e.g. a 3c piece) if it contains <script type="math/tex">n</script> stickers on it.</p>
+each with a different amount of stickers. We say a piece is an \(n\)-c piece (e.g. a 3c piece) if it contains \(n\) stickers on it.</p>
 
 <p>It turns out that with the regular A-perm, only three 3c pieces have moved. We see this by isolating the 3c-and-below (meaning 3c, 2c, and 1c) pieces:<br />
 <img src="/img/aperm/37-A3-CW-3Conly-arrows.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7, 3c pieces and below only" width="350px" /></p>
@@ -187,159 +147,45 @@ For example, if we choose U* = T-&gt;F FU-shallow T-&gt;B, then by the list abov
 
 <p>Due to all the options of U*, there are 6 possible A5-CWs, 12 possible A6-CWs, and 8 possible A7-CWs based on varying the choices for U* alone.
 I have only shown one of each.
-Knowing which U* to use on each step to obtain a desired <script type="math/tex">A_n</script>-CW is important, for the N-dimensional monoflip and N-dimensional corner twists rely on executing <script type="math/tex">A_n</script>-CW’s on different
+Knowing which U* to use on each step to obtain a desired \(A_n\)-CW is important, for the N-dimensional monoflip and N-dimensional corner twists rely on executing \(A_n\)-CW’s on different
 blocks. However, considering how the algorithms all use y rotations, and are recursive, this task is non-trivial.</p>
 
 <h3 id="movecount-analysis">Movecount Analysis</h3>
 
 <p>The regular A-perm takes 12 moves using a quarter-turn metric (QTM). The A4-CW then takes 12(2) + 1(2) = 26 turns, and the
-A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">5 \le n \le 7</script>. For <script type="math/tex">n \ge 8</script>, the recurrence holds if the setup moves between the <script type="math/tex">A_{n-1}</script>-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the <script type="math/tex">A_n</script>-CW is at least double of that required for the <script type="math/tex">A_{n-1}</script>-CW, and so the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Omega(2^n)</script>.</p>
+A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the \(A_n\)-CW takes \(2A_{n-1} + 6\) turns, for \(5 \le n \le 7\). For \(n \ge 8\), the recurrence holds if the setup moves between the \(A_{n-1}\)-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the \(A_n\)-CW is at least double of that required for the \(A_{n-1}\)-CW, and so the movecount of the \(A_n\)-CW is of order \(\Omega(2^n)\).</p>
 
-<p>In other words, the move count of the <script type="math/tex">A_n</script>-CW grows (at best) exponentially with respect to <script type="math/tex">n</script>. In particular, the A6-CW takes 122 moves, and the A7-CW takes exactly 250 moves!</p>
+<p>In other words, the move count of the \(A_n\)-CW grows (at best) exponentially with respect to \(n\). In particular, the A6-CW takes 122 moves, and the A7-CW takes exactly 250 moves!</p>
 
-<p>Recall a piece is an <script type="math/tex">n</script>-c piece (e.g. a 3c piece) if it contains <script type="math/tex">n</script> stickers on it. Considering that the number of <script type="math/tex">n</script>-c pieces in an <script type="math/tex">n</script>-dimensional Rubik’s cube is exactly <script type="math/tex">2^n</script>, the number of moves needed to solve the <script type="math/tex">n</script>-dimensional Rubik’s cube using commutators likely grows at best exponentially, too.</p>
+<p>Recall a piece is an \(n\)-c piece (e.g. a 3c piece) if it contains \(n\) stickers on it. Considering that the number of \(n\)-c pieces in an \(n\)-dimensional Rubik’s cube is exactly \(2^n\), the number of moves needed to solve the \(n\)-dimensional Rubik’s cube using commutators likely grows at best exponentially, too.</p>
 
-<p>Therefore, though the <script type="math/tex">n</script>-dimensional A-perms do provide a solution to the <script type="math/tex">N</script>-dimensional Rubik’s cube by slowly permuting <script type="math/tex">n</script>-c pieces of increasing <script type="math/tex">n</script> where <script type="math/tex">3 \le n \le N</script>, the solution becomes exponentially more tedious as <script type="math/tex">N</script> increases, serving as a disincentive to those wanting to attempt these higher-dimensional puzzles.</p>
+<p>Therefore, though the \(n\)-dimensional A-perms do provide a solution to the \(N\)-dimensional Rubik’s cube by slowly permuting \(n\)-c pieces of increasing \(n\) where \(3 \le n \le N\), the solution becomes exponentially more tedious as \(N\) increases, serving as a disincentive to those wanting to attempt these higher-dimensional puzzles.</p>
 
 
           <hr />
           <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
         </section>
       </div>
-      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
-      
-      <div class="columns small-12 medium-9 large-7" id="main">
-        <h2 id="n-dimensional-a-permutations-a-generalized-solution-to-n-dimensional-rubiks-cubes">N-dimensional A Permutations: A Generalized Solution to N-dimensional Rubik’s Cubes</h2>
-
-<p><em>Last modified April 9, 2020</em>.</p>
-
-<p>The A permutation (A-perm) is an algorithm on the 3x3x3 Rubik’s cube that switches around 3 corner pieces.
-When performing the clockwise variant (in this case: R’ F R’ B2 R F’ R’ B2 R2) on the solved Rubik’s cube, it changes three corner pieces as follows:<br />
-<img src="/img/aperm/A-perm.jpg" alt="A regular A-perm on a 3x3x3 Rubik's cube" width="350px" /></p>
-
-<p>(Note: the third corner piece affected is the ULB piece, or the one with the yellow sticker that is opposite to the one closest to the camera.)</p>
-
-<p>It turns out that this algorithm can be generalized to any dimension <script type="math/tex">n \ge 3</script>. In turn, we can use variants of this algorithm
-to perform N-dimensional “monoflips” and “corner twists”. When combined with the N-dimensional A-perm, these algorithms altogether allow for solving a <script type="math/tex">3^n</script> puzzle of
-arbitrary dimension <script type="math/tex">n</script>.</p>
-
-<h3 id="a-seven-dimensional-example">A Seven-Dimensional Example</h3>
-
-<p>In particular, we demonstrate how the algorithm can be generalized to perform permutations of specific pieces on the seven-dimensional Rubik’s cube, or <script type="math/tex">3^7</script> for short.
-The software used in this article is written by the late Andrey Astrelin, and can be found <a href="http://superliminal.com/andrey/mc7d/">here</a>.</p>
-
-<p>Firstly, we translate the regular A-perm onto the <script type="math/tex">3^7</script> Rubik’s cube by turning it as a <script type="math/tex">3^4</script> Rubik’s cube, with B, F, and R replaced with BU, FU, and RU, respectively:<br />
-<img src="/img/aperm/37-A3-CW.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7" width="350px" /></p>
-
-<p>(Note: for help on the “BU, FU, RU” notation, check the page on <a href="rkt.html">RKT</a>)</p>
-
-<p>Many of the pieces moved, and it seems the algorithm has moved too many pieces to be effective. However, there are different types of pieces on the puzzle,
-each with a different amount of stickers. We say a piece is an <script type="math/tex">n</script>-c piece (e.g. a 3c piece) if it contains <script type="math/tex">n</script> stickers on it.</p>
-
-<p>It turns out that with the regular A-perm, only three 3c pieces have moved. We see this by isolating the 3c-and-below (meaning 3c, 2c, and 1c) pieces:<br />
-<img src="/img/aperm/37-A3-CW-3Conly-arrows.jpg" alt="An A-perm that operates on 3c pieces demonstrated on the 3^7, 3c pieces and below only" width="350px" /></p>
-
-<p>Thus, we call this A-perm the A3-CW, or clockwise 3c A-perm. In general, when it comes to solving N-dimensional Rubik’s cubes, a strategy is to solve all the 2c pieces first, followed by all the
-3c pieces, and so on. For reference, the 2c pieces can be solved intuitively with commutators such as the sledgehammer, sexy move, and sune, at most.
-We can then use these A-perms to solve the 3c-and-up pieces.</p>
-
-<p>Next, if we do the moves “y A3-CW UK A3-CW’ UK’ y’”, we end up with the A4-CW, or clockwise 4c A-perm, as follows:<br />
-<img src="/img/aperm/37-A4-CW.jpg" alt="An A-perm that operates on 4c pieces demonstrated on the 3^7" width="350px" /></p>
-
-<p>Fewer pieces moved this time. In fact, none of the 3c pieces moved. If we isolate the 4c-and-below pieces, we see that only three 4c pieces moved, as desired:<br />
-<img src="/img/aperm/37-A4-CW-4Conly-arrows.jpg" alt="An A-perm that operates on 4c pieces demonstrated on the 3^7, 4c pieces and below only" width="350px" /></p>
-
-<p>For A5-CW, a UK move does not suffice, and we instead have to rotate the T cell out to a <a href="http://superliminal.com/andrey/mc7d/instr.html">secondary face</a> 
-(which is possible in five dimensions and higher, using this program), do a “U turn”, and then rotate the T cell back in.
-The instructions are vague because we have six choices for rotating out the T cell in this case, each of which results in a variant of the A5-CW.
-Below is an example of one of the moves, which takes two clicks to execute:<br />
-<img src="/img/aperm/37-example-TD-move.jpg" alt="A move on the 3^7 that rotates out the T cell to the D secondary face" width="350px" /></p>
-
-<p>Because the second sticker clicked seems to be on the D face of that 3x3x3 block, we call the move T-&gt;D. Hence, there exist five more moves T-&gt;U, T-&gt;F, T-&gt;B, T-&gt;R, and T-&gt;L.
-We also note T-&gt;U’ = T-&gt;D, and so on. In fact, it is easier to execute T-&gt;D than T-&gt;U’, for the latter can only be executed in the program in 3-click mode.</p>
-
-<p>We will also need a move of the form XU-shallow, where X is a side face L, R, F, or B. For reference, RU-shallow on a solved 3^7 does the following:<br />
-<img src="/img/aperm/37-RU-shallow.jpg" alt="A shallow RU move on the 3^7 that rotates out the R secondary face of the R cell to the FR ridge" width="350px" /></p>
-
-<p>It then follows that instead of UK, we do the following algorithm U*, which we customize depending on which 3x1 face of pieces we want to influence with the A5-CW:</p>
-
-<ul>
-  <li>U* = T-&gt;U UK T-&gt;D results in an A5-CW on the D blocks</li>
-  <li>U* = T-&gt;D UK T-&gt;U results in an A5-CW on the U blocks</li>
-  <li>U* = T-&gt;R RU-shallow T-&gt;L results in an A5-CW on the F blocks</li>
-  <li>U* = T-&gt;L RU-shallow T-&gt;R results in an A5-CW on the B blocks</li>
-  <li>U* = T-&gt;F FU-shallow T-&gt;B results in an A5-CW on the L blocks</li>
-  <li>U* = T-&gt;B FU-shallow T-&gt;F results in an A5-CW on the R blocks</li>
-</ul>
-
-<p>Then, “y A4-CW U* A4-CW’ U*’ y’” gives us the A5-CW on a block that depends on the choice of U*.
-For example, if we choose U* = T-&gt;F FU-shallow T-&gt;B, then by the list above, we obtain an A5-CW on the L 3x1 blocks, as follows:<br />
-<img src="/img/aperm/37-A5-CW.jpg" alt="An A-perm that operates on 5c pieces demonstrated on the 3^7" width="350px" /></p>
-
-<p>Note that technically, we do some 3-cycle on the B blocks, but due to the y’ rotation at the end, we consider this A5-CW to be one that moves around the L blocks, instead.</p>
-
-<p>In a similar fashion as the A5-CW, the A6-CW (on the LF edge) and A7-CW (on the URF corner) are attained, respectively:<br />
-<img src="/img/aperm/37-A6-CW.jpg" alt="An A-perm that operates on 6c pieces demonstrated on the 3^7" width="350px" /><br />
-<img src="/img/aperm/37-A7-CW.jpg" alt="An A-perm that operates on 7c pieces demonstrated on the 3^7" width="350px" /></p>
-
-<p>And of course, here again are the A5-CW, A6-CW, and A7-CW, respectively, with arrows to indicate which 5c, 6c, and 7c pieces actually moved:<br />
-<img src="/img/aperm/37-A5-CW-5Conly-arrows.jpg" alt="An A-perm that operates on 5c pieces demonstrated on the 3^7, 5c pieces and below only" width="350px" /><br />
-<img src="/img/aperm/37-A6-CW-6Conly-arrows.jpg" alt="An A-perm that operates on 6c pieces demonstrated on the 3^7, 6c pieces and below only" width="350px" /><br />
-<img src="/img/aperm/37-A7-CW-7Conly-arrows.jpg" alt="An A-perm that operates on 7c pieces demonstrated on the 3^7, 7c pieces and below only" width="350px" /></p>
-
-<p>Due to all the options of U*, there are 6 possible A5-CWs, 12 possible A6-CWs, and 8 possible A7-CWs based on varying the choices for U* alone.
-I have only shown one of each.
-Knowing which U* to use on each step to obtain a desired <script type="math/tex">A_n</script>-CW is important, for the N-dimensional monoflip and N-dimensional corner twists rely on executing <script type="math/tex">A_n</script>-CW’s on different
-blocks. However, considering how the algorithms all use y rotations, and are recursive, this task is non-trivial.</p>
-
-<h3 id="movecount-analysis">Movecount Analysis</h3>
-
-<p>The regular A-perm takes 12 moves using a quarter-turn metric (QTM). The A4-CW then takes 12(2) + 1(2) = 26 turns, and the
-A5-CW takes 26(2) + 3(2) = 58 turns. It follows that the <script type="math/tex">A_n</script>-CW takes <script type="math/tex">2A_{n-1} + 6</script> turns, for <script type="math/tex">5 \le n \le 7</script>. For <script type="math/tex">n \ge 8</script>, the recurrence holds if the setup moves between the <script type="math/tex">A_{n-1}</script>-CW/CCWs are still only three moves long, and more work is needed here to firmly establish whether that is the case. Nevertheless, we still have that the number of moves required for the <script type="math/tex">A_n</script>-CW is at least double of that required for the <script type="math/tex">A_{n-1}</script>-CW, and so the movecount of the <script type="math/tex">A_n</script>-CW is of order <script type="math/tex">\Omega(2^n)</script>.</p>
-
-<p>In other words, the move count of the <script type="math/tex">A_n</script>-CW grows (at best) exponentially with respect to <script type="math/tex">n</script>. In particular, the A6-CW takes 122 moves, and the A7-CW takes exactly 250 moves!</p>
-
-<p>Recall a piece is an <script type="math/tex">n</script>-c piece (e.g. a 3c piece) if it contains <script type="math/tex">n</script> stickers on it. Considering that the number of <script type="math/tex">n</script>-c pieces in an <script type="math/tex">n</script>-dimensional Rubik’s cube is exactly <script type="math/tex">2^n</script>, the number of moves needed to solve the <script type="math/tex">n</script>-dimensional Rubik’s cube using commutators likely grows at best exponentially, too.</p>
-
-<p>Therefore, though the <script type="math/tex">n</script>-dimensional A-perms do provide a solution to the <script type="math/tex">N</script>-dimensional Rubik’s cube by slowly permuting <script type="math/tex">n</script>-c pieces of increasing <script type="math/tex">n</script> where <script type="math/tex">3 \le n \le N</script>, the solution becomes exponentially more tedious as <script type="math/tex">N</script> increases, serving as a disincentive to those wanting to attempt these higher-dimensional puzzles.</p>
-
-
-
-        <hr />
-        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
-      </div>
-      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
     </div>
-    
     <footer class="site-footer">
-  <!-- COLOURS FOR DAYS! -->
   <div class="expanded row">
-      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
-      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
-      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
       <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
   </div>
 
   <div class="expanded row" style="margin-top: 10px;">
-    <div class="column small-12">
+    <div class="column small-3" style="text-align: left;">
       <a href="https://github.com/rzhao271"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="48px" height="48px"/></a>
-      <span style="margin-right: 22px;"></span>
+      <span style="margin-right: 1em;"></span>
       <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
     </div>
-  </div>
-  <div class="expanded row">
-    <div class="column small-12">
-      <span style="text-align:right;">Copyright &copy; Raymond Zhao, 2015&ndash;2020</span>
+    <div class="column small-9" style="text-align: right;">
+      Copyright &copy; Raymond Zhao, 2015&ndash;2021
       <br />
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      This work is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>.
       <br />
       <small>Website preview picture sourced from <a href="https://commons.wikimedia.org/wiki/File:Schlegel_wireframe_24-cell.png">WikiCommons</a>, generated by <a href="http://www.software3d.com/Stella.php">Robert Webb's Stella software</a>.</small>
     </div>
   </div>
-  
-  <script src="../../js/foundation.min.js"></script>
-  <script src="../../js/rayzz-colors.js"></script>
-  <script src="../../js/app.js"></script>
 </footer>
 
   </body>

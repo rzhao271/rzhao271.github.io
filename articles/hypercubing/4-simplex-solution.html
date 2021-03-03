@@ -17,7 +17,7 @@
   <meta property="og:title" content="A Solution to the 4D Pyraminx - Ray ZZ" />
   <meta property="og:site_name" content="Ray ZZ" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.rayzz.me//articles/hypercubing/4-simplex-solution.html" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/hypercubing/4-simplex-solution.html" />
   <meta property="og:image" content="https://rzhao271.github.io/img/24-cell.png" />
   <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/24-cell.png" />
   <meta property="og:image:type" content="image/png" />
@@ -27,85 +27,45 @@
 " />
   <meta name="theme-color" content="#283593">
 
-  <link rel="canonical" href="https://www.rayzz.me//articles/hypercubing/4-simplex-solution.html">
-  
+  <link rel="canonical" href="https://www.rayzz.me/articles/hypercubing/4-simplex-solution.html">
+
   <!-- Import the CSS from here now since we want legacy flex support... -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/pygments/default.css">
   <link rel="stylesheet" href="../../css/rayzz-site.css">
-  <script src="../../js/jquery.js"></script>
-  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 
+
   <body>
-    <!-- Header, then another div with expanded row class for the sidebar-->
-    <div class="show-for-medium">
+    <div>
   <header class="top-bar">
     <h1>Raymond Zhao</h1>
-    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
   </header>
   <nav class="expanded row topnav" data-topbar role="navigation">
-  <div class="columns show-for-medium medium-2 large-7">
+  <div class="columns small-3 medium-5">
     &nbsp;
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../index.html">About</a>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../resume.html">Resume</a>
-  </div>
-  <!--<div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../portfolio.html">Portfolio</a>
-  </div>-->
-  <div class="columns small-12 medium-2 large-1 nav-option">
+  <div class="columns small-3 medium-2 nav-option">
     <a href="../../articles.html">Articles</a>
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../contact.html">
-      Contact
-    </a>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
   </div>
-  <div class="columns show-for-medium medium-2 large-1">
+  <div class="columns show-for-medium medium-1">
     &nbsp;
   </div>
 </nav>
-</div>
-<div class="show-for-small-only">
-  <div class="off-canvas-wrapper">
-    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
-  <ul class="menu vertical mobile-nav-menu">
-    <!-- Close button -->
-    <button class="close-button" aria-label="Close menu" type="button" data-close>
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <li><a href="../../index.html">About</a></li>
-    <li><a href="../../resume.html">Resume</a></li>
-    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
-    <li><a href="../../articles.html">Articles</a></li>
-    <li><a href="../../contact.html">Contact</a></li>
-  </ul>
-</div>
 
-  </div>
-  <header class="title-bar">
-    <div class="title-bar-left">
-      <div class="title-bar-title">
-        <h1>Raymond Zhao</h1>
-        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
-      </div>
-    </div>
-    <div class="title-bar-right">
-      <button type="button" class="menu-icon" data-open="offCanvas"></button>
-    </div>
-  </header>
-  <div class="expanded row">
-    <div class="columns small-12 color-bar-1">&nbsp;</div>
-  </div>
 </div>
 
 
-    <div class="expanded row off-canvas-content" data-off-canvas-content>
-      <div class="columns small-12 content-wrapper">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
         <section class="main-content">
           <h2 id="a-solution-to-the-4d-pyraminx">A Solution to the 4D Pyraminx</h2>
 
@@ -196,130 +156,26 @@ If the wiki is down, feel free to make a post in the <a href="https://groups.goo
           <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
         </section>
       </div>
-      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
-      
-      <div class="columns small-12 medium-9 large-7" id="main">
-        <h2 id="a-solution-to-the-4d-pyraminx">A Solution to the 4D Pyraminx</h2>
-
-<p><em>Last modified April 9, 2020.</em></p>
-
-<p><img src="/img/4pyra/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
-
-<p>The 4D pyraminx is the four-dimensional analog of the regular WCA-approved 3D pyraminx.
- <em>This tutorial assumes you already know how to solve a 3D pyraminx.</em></p>
-
-<h3 id="the-strategy">The Strategy</h3>
-
-<p>The 4D pyraminx can be solved in a way similar to the 3D pyraminx:</p>
-
-<ol>
-  <li>Solve the trivial tips and centers</li>
-  <li>Solve the edges</li>
-</ol>
-
-<p>Using this approach, a solution of under 100 moves is easily achievable.</p>
-
-<h3 id="navigation-and-turning">Navigation and Turning</h3>
-
-<p>The puzzle is in <a href="http://superliminal.com/cube/cube.htm">MC4D</a>, and can be accessed under “Puzzle” » “{3,3,3} Simplex” » “3”.</p>
-
-<p>To rotate the puzzle in 4D, change the rotation style to “rotate by cubie”, and then control-click a cubie to rotate that cubie to the center.
-Also, drag the “Eye W Scale” slider all the way to the left. With this setting, centering the puzzle on a cell will reveal all five cells.</p>
-
-<p>To turn a cell, left-click or right-click a cell’s sticker. 
-For this puzzle, every vertex is opposite to some cell. Thus, to turn a vertex, we can click on a sticker on the opposite cell while holding down the “2” and/or “3” keys on the keyboard.</p>
-
-<p>There are two views that we can use for this puzzle: vertex-first, and cell-first.
-The vertex-first view places a vertex in the middle, as follows:</p>
-
-<p><img src="/img/4pyra/4d-pyra-vert-first.png" alt="A vertex-centered view of the 4D pyraminx" width="300px" /></p>
-
-<p>The cell-first view places a cell in the middle, as follows:</p>
-
-<p><img src="/img/4pyra/4d-pyra-cell-first.png" alt="A cell-centered view of the 4D pyraminx" width="300px" /></p>
-
-<p>The cell-first view is more confusing, due to the outer cells being inverted. This view does not have to be used for the solve.</p>
-
-<h3 id="the-tips-and-centers">The Tips and Centers</h3>
-
-<p>To solve a tip or center, we first have to see where it belongs relative to the true centers. Unlike a regular pyraminx, where there is no fixed center, the 4D pyraminx provides us with one “true center” per cell, which indicates the orientation of the tips and centers. The next picture highlights 4 of the 5 true centers:</p>
-
-<p><img src="/img/4pyra/4d-pyra-true-centers.png" alt="A 4D pyraminx with its true centers highlighted" width="300px" /></p>
-
-<p>Note that all four outer tips can be solved in at most one turn, each. All four outer centers can also be solved in at most one turn, each.</p>
-
-<p>For any outer vertex, any clickable sticker on the cell opposite to that vertex can be clicked while holding down the “3” and/or “2” keys, in order to turn the tip and/or center, respectively.</p>
-
-<p>Since there are five vertices, after solving the outer four vertices, we can rotate the puzzle in 4D to displace the central vertex. Control-clicking any outer vertex works, since that vertex goes to the center of the puzzle, displacing the central vertex. The central vertex then displaces a former outer vertex, and can now be solved.</p>
-
-<p>When all the tips and centers are solved, the puzzle should look like the following:</p>
-
-<p><img src="/img/4pyra/4d-pyra-corners-solved.png" alt="A 4D pyraminx with its corners solved" width="300px" /></p>
-
-<h3 id="the-edges">The Edges</h3>
-
-<p>To solve the edges, it turns out we can just use regular pyraminx algorithms such as the sledgehammer (R’ L R L’) or sexy move (R U R’ U’), along with their mirrors and inverses. There are 10 edges to solve in total, rather than 6.</p>
-
-<p>To help speed up this step, setup moves and/or rotations can be used to place pieces more efficiently. The first layer does <em>not</em> have to be solved first. This step can be completed using just the vertex-first view.</p>
-
-<p>However, we can opt to switch to a cell-first view for pieces that are already on a cell and oriented correctly, but permuted incorrectly:</p>
-
-<p><img src="/img/4pyra/4d-pyra-cellfirst-insert.png" alt="A 4D pyraminx with the green-red-orange oriented on the green layer but permuted incorrectly" width="300px" /></p>
-
-<p>In this example, the green-red-orange edge is oriented correctly on the green layer, but permuted incorrectly. Rather than resting between the green, red, and orange centers, the edge rests between the green, red, and yellow centers.</p>
-
-<p>An anti-sune algorithm will solve the edge, as demonstrated by the arrows:</p>
-
-<p><img src="/img/4pyra/4d-pyra-cellfirst-insert-arrows.png" alt="Arrows that indicate how applying an antisune will solve the aforementioned edge" width="300px" /></p>
-
-<h3 id="the-last-edge">The Last Edge</h3>
-
-<p>Unlike the 3D pyraminx, it is possible for one edge to remain unsolved.</p>
-
-<p><img src="/img/4pyra/4d-pyra-single-edge-twist.png" alt="A 4D pyraminx with a single edge twisted" width="300px" /></p>
-
-<p>A hint is that the commutator [sledgehammer, edge twist] flips two edges. Thus, one can use this algorithm to first flip the twisted edge and a solved edge, resulting in a case where two edges are permuted correctly, but have only 1 of 3 stickers solved. Then, the puzzle can be solved using that algorithm again, along with some setup moves.</p>
-
-<p>Once you solve the puzzle, make an account on the Superliminal Wiki and note down your name on the solver’s list <a href="http://wiki.superliminal.com/wiki/Simplex">here</a>, if you wish.
-If the wiki is down, feel free to make a post in the <a href="https://groups.google.com/forum/#!forum/hypercubing">hypercubing</a> Google group about your solve instead.</p>
-
-
-
-        <hr />
-        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
-      </div>
-      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
     </div>
-    
     <footer class="site-footer">
-  <!-- COLOURS FOR DAYS! -->
   <div class="expanded row">
-      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
-      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
-      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
       <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
   </div>
 
   <div class="expanded row" style="margin-top: 10px;">
-    <div class="column small-12">
+    <div class="column small-3" style="text-align: left;">
       <a href="https://github.com/rzhao271"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="48px" height="48px"/></a>
-      <span style="margin-right: 22px;"></span>
+      <span style="margin-right: 1em;"></span>
       <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
     </div>
-  </div>
-  <div class="expanded row">
-    <div class="column small-12">
-      <span style="text-align:right;">Copyright &copy; Raymond Zhao, 2015&ndash;2020</span>
+    <div class="column small-9" style="text-align: right;">
+      Copyright &copy; Raymond Zhao, 2015&ndash;2021
       <br />
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      This work is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>.
       <br />
       <small>Website preview picture sourced from <a href="https://commons.wikimedia.org/wiki/File:Schlegel_wireframe_24-cell.png">WikiCommons</a>, generated by <a href="http://www.software3d.com/Stella.php">Robert Webb's Stella software</a>.</small>
     </div>
   </div>
-  
-  <script src="../../js/foundation.min.js"></script>
-  <script src="../../js/rayzz-colors.js"></script>
-  <script src="../../js/app.js"></script>
 </footer>
 
   </body>

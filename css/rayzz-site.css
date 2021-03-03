@@ -21,7 +21,9 @@ h2, h3, h4, h5 {
 }
 
 h1 {
-  font-size: 2.2em;
+  font-size: 2.1em;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 h2 {
@@ -33,7 +35,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.25em;
+  font-size: 1.2em;
 }
 
 p {
@@ -86,12 +88,6 @@ code {
   font-style: italic;
 }
 
-.off-canvas-content ::-moz-selection, .off-canvas-content ::selection {
-  /* Indigo 50 */
-  color: #000000;
-  background: #E8EAF6;
-}
-
 .nav-option {
   background: #283593;
   text-align: center;
@@ -110,17 +106,17 @@ code {
   padding: 1px 0px;
 }
 
-.topnav, .off-canvas {
+.topnav {
   background: #283593;
 }
-.topnav a, .off-canvas a {
+.topnav a {
   color: #F5F5FF;
 }
 
 .top-bar {
   background: #000000;
   color: #F5F5FF;
-  text-align: center;
+  text-align: left;
 }
 
 .title-bar {
@@ -130,18 +126,18 @@ code {
 }
 
 /* https://stackoverflow.com/a/39509165 */
-.off-canvas-content ul {
+ul {
 	position: relative;
 	list-style: none;
 	margin-left: 0;
-	padding-left: 1.2em;
+	padding-left: 1em;
 }
-.off-canvas-content ul li:before {
+ul li:before {
 	content: "‣";
 	position: absolute;
 	left: 0;
 }
-.off-canvas-content ul li ul li:before {
+ul li ul li:before {
 	content: "•";
 	position: absolute;
 	left: 0;
@@ -157,15 +153,12 @@ code {
 .site-footer {
   clear: both;
   position: relative;
-  height: 13em;
-  margin-top: -13em;
+  height: 8em;
+  margin-top: -8em;
 }
 
 .site-footer, .site-footer > div {
   background: #EEE;
-}
-
-.resume-heading {
 }
 
 .resume-section {
@@ -197,13 +190,13 @@ code {
 .main-content {
   max-width: 700px;
   width: 100%;
-  margin: 0 auto;
+  margin: 5px auto 0 auto;
 }
 
 .main-content-resume {
   max-width: 700px;
   width: 100%;
-  margin: 0 auto;
+  margin: 5px auto 0 auto;
 }
 
 tbody {

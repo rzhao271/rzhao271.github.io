@@ -17,7 +17,7 @@
   <meta property="og:title" content="Exploring 3x3x3-Like Puzzles (Part II &ndash; Fixing the Definition) - Ray ZZ" />
   <meta property="og:site_name" content="Ray ZZ" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.rayzz.me//articles/hypercubing/333like-part-ii.html" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/hypercubing/333like-part-ii.html" />
   <meta property="og:image" content="https://rzhao271.github.io/img/24-cell.png" />
   <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/24-cell.png" />
   <meta property="og:image:type" content="image/png" />
@@ -27,85 +27,45 @@
 " />
   <meta name="theme-color" content="#283593">
 
-  <link rel="canonical" href="https://www.rayzz.me//articles/hypercubing/333like-part-ii.html">
-  
+  <link rel="canonical" href="https://www.rayzz.me/articles/hypercubing/333like-part-ii.html">
+
   <!-- Import the CSS from here now since we want legacy flex support... -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/pygments/default.css">
   <link rel="stylesheet" href="../../css/rayzz-site.css">
-  <script src="../../js/jquery.js"></script>
-  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 
+
   <body>
-    <!-- Header, then another div with expanded row class for the sidebar-->
-    <div class="show-for-medium">
+    <div>
   <header class="top-bar">
     <h1>Raymond Zhao</h1>
-    <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
   </header>
   <nav class="expanded row topnav" data-topbar role="navigation">
-  <div class="columns show-for-medium medium-2 large-7">
+  <div class="columns small-3 medium-5">
     &nbsp;
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../index.html">About</a>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../resume.html">Resume</a>
-  </div>
-  <!--<div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../portfolio.html">Portfolio</a>
-  </div>-->
-  <div class="columns small-12 medium-2 large-1 nav-option">
+  <div class="columns small-3 medium-2 nav-option">
     <a href="../../articles.html">Articles</a>
   </div>
-  <div class="columns small-12 medium-2 large-1 nav-option">
-    <a href="../../contact.html">
-      Contact
-    </a>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
   </div>
-  <div class="columns show-for-medium medium-2 large-1">
+  <div class="columns show-for-medium medium-1">
     &nbsp;
   </div>
 </nav>
-</div>
-<div class="show-for-small-only">
-  <div class="off-canvas-wrapper">
-    <div class="off-canvas position-right" id="offCanvas" data-off-canvas>
-  <ul class="menu vertical mobile-nav-menu">
-    <!-- Close button -->
-    <button class="close-button" aria-label="Close menu" type="button" data-close>
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <li><a href="../../index.html">About</a></li>
-    <li><a href="../../resume.html">Resume</a></li>
-    <!--<li><a href="../../portfolio.html">Portfolio</a></li>-->
-    <li><a href="../../articles.html">Articles</a></li>
-    <li><a href="../../contact.html">Contact</a></li>
-  </ul>
-</div>
 
-  </div>
-  <header class="title-bar">
-    <div class="title-bar-left">
-      <div class="title-bar-title">
-        <h1>Raymond Zhao</h1>
-        <div id="subtitle">Developer &#9830; Mathematician &#9830; Minimalist</div>
-      </div>
-    </div>
-    <div class="title-bar-right">
-      <button type="button" class="menu-icon" data-open="offCanvas"></button>
-    </div>
-  </header>
-  <div class="expanded row">
-    <div class="columns small-12 color-bar-1">&nbsp;</div>
-  </div>
 </div>
 
 
-    <div class="expanded row off-canvas-content" data-off-canvas-content>
-      <div class="columns small-12 content-wrapper">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
         <section class="main-content">
           <h2 id="exploring-3x3x3-like-puzzles-part-ii--fixing-the-definition">Exploring 3x3x3-Like Puzzles (Part II – Fixing the Definition)</h2>
 
@@ -144,20 +104,20 @@
 
 <p>Requirement 3 ensures that each face has exactly one center, which is a 1-coloured piece. In turn, the solver does not have to infer which colour a face has. Secondly, it prevents higher-order puzzles such as the 4x4x4 from being counted as a 333LP, as well as puzzles such as the 2x2x2 and <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1600">Kilominx</a>. It also prevents the <a href="https://en.wikipedia.org/wiki/Pyraminx">Pyraminx</a> and the <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=4637">Prizmix</a> from being counted as 333LPs. Again, to generalize this requirement to higher dimensions, we use the term facet instead of face. We also use the term “1-coloured piece” instead of “center” to make it clear that we do not count puzzles such as the <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=3187">Babyface 3x3x3</a> as 333LPs.</p>
 
-<p>Requirement 4 is not immediately obvious. Its purpose is to exclude puzzles such as the <a href="https://www.twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1578">Jing’s Pyraminx</a> or the 3x3x3 Hemicube, where the corners are always solved relative to each other. The method given above of solving the edges first, followed by the corners, generalizes to <a href="https://superliminal.com/cube/solution/solution.htm">Roice’s method</a>. In this method, we solve the 2-coloured pieces first, followed by the 3-coloured pieces, and so on, using three-cycles. The algorithm to induce a three-cycle on <script type="math/tex">(n+1)</script>-coloured pieces depends on the algorithm to induce a three-cycle on <script type="math/tex">n</script>-coloured pieces, for <script type="math/tex">n \ge 3</script>.</p>
+<p>Requirement 4 is not immediately obvious. Its purpose is to exclude puzzles such as the <a href="https://www.twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1578">Jing’s Pyraminx</a> or the 3x3x3 Hemicube, where the corners are always solved relative to each other. The method given above of solving the edges first, followed by the corners, generalizes to <a href="https://superliminal.com/cube/solution/solution.htm">Roice’s method</a>. In this method, we solve the 2-coloured pieces first, followed by the 3-coloured pieces, and so on, using three-cycles. The algorithm to induce a three-cycle on \((n+1)\)-coloured pieces depends on the algorithm to induce a three-cycle on \(n\)-coloured pieces, for \(n \ge 3\).</p>
 
-<p>Another requirement not yet listed is that the vertex figures of polytopes or honeycombs admitting 333LPs must be <a href="https://en.wikipedia.org/wiki/Simplex">simplectic</a>, and the polytope/honeycomb itself must be vertex-transitive and convex. This requirement allows for a 333LP on an <script type="math/tex">n</script>-manifold to have 1-coloured pieces to <script type="math/tex">(n+1)</script>-coloured pieces, but no pieces with more colours than that. This restriction, in turn, allows for Roice’s method to easily map onto the twisty puzzle, meaning we can solve it like a <script type="math/tex">3^{n+1}</script>. This requirement, which we will refer to as requirement 5, is very powerful. All we need to do is find a polytope or a honeycomb that is vertex-transitive and has a simplectic vertex figure, and then we are almost always guaranteed to have a 333LP, for we can create a puzzle that immediately satisfies requirements 1 to 3 by applying a single layer of shallow facet-centered cuts onto the puzzle, and colouring the facets appropriately. The only requirement we have left to check is then requirement 4.</p>
+<p>Another requirement not yet listed is that the vertex figures of polytopes or honeycombs admitting 333LPs must be <a href="https://en.wikipedia.org/wiki/Simplex">simplectic</a>, and the polytope/honeycomb itself must be vertex-transitive and convex. This requirement allows for a 333LP on an \(n\)-manifold to have 1-coloured pieces to \((n+1)\)-coloured pieces, but no pieces with more colours than that. This restriction, in turn, allows for Roice’s method to easily map onto the twisty puzzle, meaning we can solve it like a \(3^{n+1}\). This requirement, which we will refer to as requirement 5, is very powerful. All we need to do is find a polytope or a honeycomb that is vertex-transitive and has a simplectic vertex figure, and then we are almost always guaranteed to have a 333LP, for we can create a puzzle that immediately satisfies requirements 1 to 3 by applying a single layer of shallow facet-centered cuts onto the puzzle, and colouring the facets appropriately. The only requirement we have left to check is then requirement 4.</p>
 
 <p>Thus, our new definition for a 333LP is as follows:</p>
 
-<p><strong>Definition</strong>: A 3x3x3-like puzzle (333LP) on an <script type="math/tex">n</script>-manifold is a twisty puzzle such that:</p>
+<p><strong>Definition</strong>: A 3x3x3-like puzzle (333LP) on an \(n\)-manifold is a twisty puzzle such that:</p>
 
 <ol>
   <li>The puzzle is shallow-cut.</li>
   <li>The puzzle is facet-turning and doctrinaire. If the puzzle contains a finite number of facets, then we require that each facet receive a unique colour. Otherwise, the puzzle contains countably infinite facets, and the facets must be coloured using a finite number of colours such that the coloration is periodic, with no two adjacent facets sharing the same colour, and such that the puzzle is not “limited in size”.</li>
   <li>There is exactly one 1-coloured piece per facet.</li>
-  <li>The puzzle can be solved using Roice’s method. The puzzle does not have corners (<script type="math/tex">(n+1)</script>-coloured pieces) with fixed permutations relative to each other.</li>
-  <li>Let <script type="math/tex">P</script> represent the polytope, tiling, or honeycomb that admits the 333LP. Then, the vertex figure of <script type="math/tex">P</script> is a (potentially irregular) <script type="math/tex">n</script>-simplex, and <script type="math/tex">P</script> itself is vertex-transitive and convex.</li>
+  <li>The puzzle can be solved using Roice’s method. The puzzle does not have corners (\((n+1)\)-coloured pieces) with fixed permutations relative to each other.</li>
+  <li>Let \(P\) represent the polytope, tiling, or honeycomb that admits the 333LP. Then, the vertex figure of \(P\) is a (potentially irregular) \(n\)-simplex, and \(P\) itself is vertex-transitive and convex.</li>
 </ol>
 
 <p>Note that instead of grouping 333LPs by their physical dimension number, we group them by the dimension of the manifold they are embedded on, since that leads to more generalizations[2]. For example, the sphere is three-dimensional, whereas the Euclidean plane and hyperbolic plane are two-dimensional. However, all three of those surfaces are 2-manifolds.</p>
@@ -166,27 +126,27 @@
 
 <p>By the previous section, we first look for tilings that satisfy requirement 5, and then check whether the 333LP admitted by each tiling satisfies requirement 4.</p>
 
-<p>The regular tilings that admit 333LPs are exactly the <script type="math/tex">\{p, 3\}</script> family, for integers <script type="math/tex">p \ge 4</script>. Here, <script type="math/tex">\{p, 3\}</script> refers to the <a href="https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol">Schläfli symbol</a> that represents three <script type="math/tex">p</script>-gons meeting per vertex. Note that when <script type="math/tex">p \ge 7</script>, the tiling can be embedded on the hyperbolic plane, and when <script type="math/tex">p = 6</script>, the tiling can be embedded on the Euclidean plane. For <script type="math/tex">3 \le p \le 5</script>, the tiling can be embedded on the sphere, which forms a polyhedron.</p>
+<p>The regular tilings that admit 333LPs are exactly the \(\{p, 3\}\) family, for integers \(p \ge 4\). Here, \(\{p, 3\}\) refers to the <a href="https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol">Schläfli symbol</a> that represents three \(p\)-gons meeting per vertex. Note that when \(p \ge 7\), the tiling can be embedded on the hyperbolic plane, and when \(p = 6\), the tiling can be embedded on the Euclidean plane. For \(3 \le p \le 5\), the tiling can be embedded on the sphere, which forms a polyhedron.</p>
 
-<p>In particular, when <script type="math/tex">p = 3</script>, we obtain the tetrahedron, which admits the Jing’s Pyraminx, which fails requirement 4 and is thus not a 333LP. When <script type="math/tex">p=4</script>, we obtain the cube, which admits the 3x3x3, and when <script type="math/tex">p=5</script>, we obtain the dodecahedron, which admits the Megaminx. Both the 3x3x3 and the Megaminx are 333LPs.</p>
+<p>In particular, when \(p = 3\), we obtain the tetrahedron, which admits the Jing’s Pyraminx, which fails requirement 4 and is thus not a 333LP. When \(p=4\), we obtain the cube, which admits the 3x3x3, and when \(p=5\), we obtain the dodecahedron, which admits the Megaminx. Both the 3x3x3 and the Megaminx are 333LPs.</p>
 
-<p>The <a href="(https://en.wikipedia.org/wiki/Wythoff_construction)">Wythoffian</a> tilings that admit 333LPs are those of the truncated and bitruncated <script type="math/tex">\{p, q\}</script> families, for integers <script type="math/tex">p, q \ge 3</script>, along with the omnitruncated <script type="math/tex">(p, q, r)</script> family, for integers <script type="math/tex">p, q \ge 3, r \ge 2</script>, where <script type="math/tex">(p, q, r)</script> refers to a <a href="https://en.wikipedia.org/wiki/Triangle_group">triangle group</a>*. Another Wythoffian family that admits 333LPs are the prisms**, <script type="math/tex">\{p\}\times\{\}</script>, for integers <script type="math/tex">p \ge 3</script>.</p>
+<p>The <a href="(https://en.wikipedia.org/wiki/Wythoff_construction)">Wythoffian</a> tilings that admit 333LPs are those of the truncated and bitruncated \(\{p, q\}\) families, for integers \(p, q \ge 3\), along with the omnitruncated \((p, q, r)\) family, for integers \(p, q \ge 3, r \ge 2\), where \((p, q, r)\) refers to a <a href="https://en.wikipedia.org/wiki/Triangle_group">triangle group</a>*. Another Wythoffian family that admits 333LPs are the prisms**, \(\{p\}\times\{\}\), for integers \(p \ge 3\).</p>
 
-<p>For example, a spherical Wythoffian tiling that admits a 333LP is the truncated tetrahedron, <script type="math/tex">t\{3,3\}</script>, which admits a 333LP called <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=5279">Concept 5</a>.</p>
+<p>For example, a spherical Wythoffian tiling that admits a 333LP is the truncated tetrahedron, \(t\{3,3\}\), which admits a 333LP called <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=5279">Concept 5</a>.</p>
 
 <p>We can determine, using the Gauss-Bonnet theorem, which tilings reside on which surfaces[2].
-Let <script type="math/tex">T</script> represent a tiling generated from a triangle group <script type="math/tex">(p,q,r)</script>, or from <script type="math/tex">\{p, q\}</script>, where <script type="math/tex">p, q, r \ge 2</script> are integers. In the latter case, we can map without loss of generality <script type="math/tex">\{p,q\}</script> to <script type="math/tex">(p,q,2)</script>, and obtain <script type="math/tex">r=2</script>. Let <script type="math/tex">\Gamma = 1/p + 1/q + 1/r</script>. Then:</p>
+Let \(T\) represent a tiling generated from a triangle group \((p,q,r)\), or from \(\{p, q\}\), where \(p, q, r \ge 2\) are integers. In the latter case, we can map without loss of generality \(\{p,q\}\) to \((p,q,2)\), and obtain \(r=2\). Let \(\Gamma = 1/p + 1/q + 1/r\). Then:</p>
 
 <ul>
-  <li>If <script type="math/tex">\Gamma = 1</script>, <script type="math/tex">T</script> resides on the Euclidean plane.</li>
-  <li>If <script type="math/tex">\Gamma \gt 1</script>, <script type="math/tex">T</script> resides on the sphere.</li>
-  <li>If <script type="math/tex">\Gamma \lt 1</script>, <script type="math/tex">T</script> resides on the hyperbolic plane.</li>
+  <li>If \(\Gamma = 1\), \(T\) resides on the Euclidean plane.</li>
+  <li>If \(\Gamma \gt 1\), \(T\) resides on the sphere.</li>
+  <li>If \(\Gamma \lt 1\), \(T\) resides on the hyperbolic plane.</li>
 </ul>
 
-<p>We note that applying Wythoffian operations onto <script type="math/tex">T</script> to create a new tiling <script type="math/tex">w(T)</script> does not change <script type="math/tex">\Gamma</script>, and so <script type="math/tex">w(T)</script> remains on the same surface as that of <script type="math/tex">T</script>. We also note that any large triplet <script type="math/tex">(p, q, r)</script> results in <script type="math/tex">T</script> residing on the hyperbolic plane. Thus, the hyperbolic plane yields the most tilings, and is in fact the only surface which yields an infinite number of non-prismatic Wythoffian tilings.</p>
+<p>We note that applying Wythoffian operations onto \(T\) to create a new tiling \(w(T)\) does not change \(\Gamma\), and so \(w(T)\) remains on the same surface as that of \(T\). We also note that any large triplet \((p, q, r)\) results in \(T\) residing on the hyperbolic plane. Thus, the hyperbolic plane yields the most tilings, and is in fact the only surface which yields an infinite number of non-prismatic Wythoffian tilings.</p>
 
-<p>*<small><script type="math/tex">(p, q, r)</script> is equivalent to any permutation of itself, and <script type="math/tex">(p, q, 2)</script> represents both <script type="math/tex">\{p, q\}</script> as well as its dual, <script type="math/tex">\{q, p\}</script>. However, the omnitruncation of the former is equivalent to that of the latter.</small><br />
-**<small>A <script type="math/tex">p</script>-prism can be seen as a truncated <script type="math/tex">\{2,p\} = (p,2,2)</script>, and is therefore Wythoffian.</small></p>
+<p>*<small>\((p, q, r)\) is equivalent to any permutation of itself, and \((p, q, 2)\) represents both \(\{p, q\}\) as well as its dual, \(\{q, p\}\). However, the omnitruncation of the former is equivalent to that of the latter.</small><br />
+**<small>A \(p\)-prism can be seen as a truncated \(\{2,p\} = (p,2,2)\), and is therefore Wythoffian.</small></p>
 
 <h3 id="future-works">Future Works</h3>
 
@@ -214,148 +174,26 @@ Let <script type="math/tex">T</script> represent a tiling generated from a trian
           <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
         </section>
       </div>
-      <!--<div class="columns show-for-medium-up medium-1 large-2">&nbsp;</div>
-      
-      <div class="columns small-12 medium-9 large-7" id="main">
-        <h2 id="exploring-3x3x3-like-puzzles-part-ii--fixing-the-definition">Exploring 3x3x3-Like Puzzles (Part II – Fixing the Definition)</h2>
-
-<p><em>Written June 3, 2020.</em></p>
-
-<h3 id="abstract">Abstract</h3>
-
-<p>In this article, we revisit the definition of a 3x3x3-like puzzle (333LP). We then find all 333LPs that can be embedded on the sphere, the Euclidean plane, and the hyperbolic plane.</p>
-
-<h3 id="a-brief-authors-note">A Brief Author’s Note</h3>
-
-<p>In Part I, I claimed that Part II (this article) will talk about Coxeter-Dynkin diagrams. However, it seems that such diagrams do not restrict which puzzles count as 333LPs, though they do allow us to find triangleless polytopes and honeycombs. Moreover, there are more important properties to look at when it comes to finding polytopes and tilings that admit 333LPs. Thus, I will not go over Coxeter-Dynkin diagrams in this article.</p>
-
-<h3 id="3x3x3-like-puzzles-333lps">3x3x3-Like Puzzles (333LPs)</h3>
-
-<p>In Part I, we looked at regular 333LPs, or R333LPs, which were face-transitive. In this article, we relax the face-transitivity condition to a vertex-transitivity one, resulting in non-regular 333LPs.</p>
-
-<p>Incidentally, these 333LPs also end up generalizing puzzles such as the <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=21">2x3x3</a> due to their turning restrictions. For example, on a <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1557">Tuttminx</a>, there are both hexagon-hexagon and hexagon-pentagon edges. Due to the geometry of the puzzle, the hexagon-hexagon edge cannot take the place of a hexagon-pentagon edge, and thus, the hexagonal faces are limited to 120-degree turns. On the Tuttminx, the algorithm required to cycle three corners becomes [[R2’, F2], D], where the R and F faces are hexagons and the D face is a pentagon.</p>
-
-<h3 id="fixing-the-definition">Fixing the Definition</h3>
-
-<p>We review the definition of a 3x3x3-like puzzle from a previous article[3], and look for ways to improve it and generalize it to higher dimensions.</p>
-
-<p>We previously established that a 3x3x3-like puzzle (333LP) is a twisty puzzle such that:</p>
-
-<ol>
-  <li>The puzzle has exactly three piece types: edges, corners, and centers.</li>
-  <li>The puzzle is face-turning.</li>
-  <li>There is only one center piece per face.</li>
-  <li>The puzzle can be solved using exactly an edges-first corners-second approach. The puzzle does not have corners with fixed permutations relative to each other.</li>
-</ol>
-
-<p>Requirement 1 could place too much of a restriction on non-regular 333LPs, depending on the interpretation. For example, it could count hexagon-hexagon edges as separate from hexagon-pentagon edges on a Tuttminx. Thus, this requirement can be revised to the more general statement that the puzzle should be shallow-cut like a 3x3x3 or <a href="https://en.wikipedia.org/wiki/Megaminx">Megaminx</a>.</p>
-
-<p>Requirement 2 ensures that the puzzle is face-turning like a 3x3x3 or a Megaminx, though we should use the term facet-turning instead, to generalize the requirement to higher dimensions. Yet, this generalization still allows shape and/or sticker mods to pass through, as well as jumbling puzzles such as the <a href="https://www.twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=6455">Dayan Shuang FeiYan</a>. Thus, we require that the puzzle be <a href="https://twistypedia.oskarvandeventer.nl/index.php/Doctrinaire">doctrinaire</a>. If the puzzle is admitted by a (finite) polytope, then we assign each facet a unique colour. Otherwise, it is admitted by an (infinite) honeycomb, and we assign a finite number of colours to the facets, but in a periodic pattern such that no two adjacent facets have the same colour, and such that the puzzle is not “limited in size”[3].</p>
-
-<p>Requirement 3 ensures that each face has exactly one center, which is a 1-coloured piece. In turn, the solver does not have to infer which colour a face has. Secondly, it prevents higher-order puzzles such as the 4x4x4 from being counted as a 333LP, as well as puzzles such as the 2x2x2 and <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1600">Kilominx</a>. It also prevents the <a href="https://en.wikipedia.org/wiki/Pyraminx">Pyraminx</a> and the <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=4637">Prizmix</a> from being counted as 333LPs. Again, to generalize this requirement to higher dimensions, we use the term facet instead of face. We also use the term “1-coloured piece” instead of “center” to make it clear that we do not count puzzles such as the <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=3187">Babyface 3x3x3</a> as 333LPs.</p>
-
-<p>Requirement 4 is not immediately obvious. Its purpose is to exclude puzzles such as the <a href="https://www.twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=1578">Jing’s Pyraminx</a> or the 3x3x3 Hemicube, where the corners are always solved relative to each other. The method given above of solving the edges first, followed by the corners, generalizes to <a href="https://superliminal.com/cube/solution/solution.htm">Roice’s method</a>. In this method, we solve the 2-coloured pieces first, followed by the 3-coloured pieces, and so on, using three-cycles. The algorithm to induce a three-cycle on <script type="math/tex">(n+1)</script>-coloured pieces depends on the algorithm to induce a three-cycle on <script type="math/tex">n</script>-coloured pieces, for <script type="math/tex">n \ge 3</script>.</p>
-
-<p>Another requirement not yet listed is that the vertex figures of polytopes or honeycombs admitting 333LPs must be <a href="https://en.wikipedia.org/wiki/Simplex">simplectic</a>, and the polytope/honeycomb itself must be vertex-transitive and convex. This requirement allows for a 333LP on an <script type="math/tex">n</script>-manifold to have 1-coloured pieces to <script type="math/tex">(n+1)</script>-coloured pieces, but no pieces with more colours than that. This restriction, in turn, allows for Roice’s method to easily map onto the twisty puzzle, meaning we can solve it like a <script type="math/tex">3^{n+1}</script>. This requirement, which we will refer to as requirement 5, is very powerful. All we need to do is find a polytope or a honeycomb that is vertex-transitive and has a simplectic vertex figure, and then we are almost always guaranteed to have a 333LP, for we can create a puzzle that immediately satisfies requirements 1 to 3 by applying a single layer of shallow facet-centered cuts onto the puzzle, and colouring the facets appropriately. The only requirement we have left to check is then requirement 4.</p>
-
-<p>Thus, our new definition for a 333LP is as follows:</p>
-
-<p><strong>Definition</strong>: A 3x3x3-like puzzle (333LP) on an <script type="math/tex">n</script>-manifold is a twisty puzzle such that:</p>
-
-<ol>
-  <li>The puzzle is shallow-cut.</li>
-  <li>The puzzle is facet-turning and doctrinaire. If the puzzle contains a finite number of facets, then we require that each facet receive a unique colour. Otherwise, the puzzle contains countably infinite facets, and the facets must be coloured using a finite number of colours such that the coloration is periodic, with no two adjacent facets sharing the same colour, and such that the puzzle is not “limited in size”.</li>
-  <li>There is exactly one 1-coloured piece per facet.</li>
-  <li>The puzzle can be solved using Roice’s method. The puzzle does not have corners (<script type="math/tex">(n+1)</script>-coloured pieces) with fixed permutations relative to each other.</li>
-  <li>Let <script type="math/tex">P</script> represent the polytope, tiling, or honeycomb that admits the 333LP. Then, the vertex figure of <script type="math/tex">P</script> is a (potentially irregular) <script type="math/tex">n</script>-simplex, and <script type="math/tex">P</script> itself is vertex-transitive and convex.</li>
-</ol>
-
-<p>Note that instead of grouping 333LPs by their physical dimension number, we group them by the dimension of the manifold they are embedded on, since that leads to more generalizations[2]. For example, the sphere is three-dimensional, whereas the Euclidean plane and hyperbolic plane are two-dimensional. However, all three of those surfaces are 2-manifolds.</p>
-
-<h3 id="finding-333lps-on-the-sphere-euclidean-plane-and-hyperbolic-plane">Finding 333LPs on the Sphere, Euclidean Plane, and Hyperbolic Plane</h3>
-
-<p>By the previous section, we first look for tilings that satisfy requirement 5, and then check whether the 333LP admitted by each tiling satisfies requirement 4.</p>
-
-<p>The regular tilings that admit 333LPs are exactly the <script type="math/tex">\{p, 3\}</script> family, for integers <script type="math/tex">p \ge 4</script>. Here, <script type="math/tex">\{p, 3\}</script> refers to the <a href="https://en.wikipedia.org/wiki/Schl%C3%A4fli_symbol">Schläfli symbol</a> that represents three <script type="math/tex">p</script>-gons meeting per vertex. Note that when <script type="math/tex">p \ge 7</script>, the tiling can be embedded on the hyperbolic plane, and when <script type="math/tex">p = 6</script>, the tiling can be embedded on the Euclidean plane. For <script type="math/tex">3 \le p \le 5</script>, the tiling can be embedded on the sphere, which forms a polyhedron.</p>
-
-<p>In particular, when <script type="math/tex">p = 3</script>, we obtain the tetrahedron, which admits the Jing’s Pyraminx, which fails requirement 4 and is thus not a 333LP. When <script type="math/tex">p=4</script>, we obtain the cube, which admits the 3x3x3, and when <script type="math/tex">p=5</script>, we obtain the dodecahedron, which admits the Megaminx. Both the 3x3x3 and the Megaminx are 333LPs.</p>
-
-<p>The <a href="(https://en.wikipedia.org/wiki/Wythoff_construction)">Wythoffian</a> tilings that admit 333LPs are those of the truncated and bitruncated <script type="math/tex">\{p, q\}</script> families, for integers <script type="math/tex">p, q \ge 3</script>, along with the omnitruncated <script type="math/tex">(p, q, r)</script> family, for integers <script type="math/tex">p, q \ge 3, r \ge 2</script>, where <script type="math/tex">(p, q, r)</script> refers to a <a href="https://en.wikipedia.org/wiki/Triangle_group">triangle group</a>*. Another Wythoffian family that admits 333LPs are the prisms**, <script type="math/tex">\{p\}\times\{\}</script>, for integers <script type="math/tex">p \ge 3</script>.</p>
-
-<p>For example, a spherical Wythoffian tiling that admits a 333LP is the truncated tetrahedron, <script type="math/tex">t\{3,3\}</script>, which admits a 333LP called <a href="https://twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=5279">Concept 5</a>.</p>
-
-<p>We can determine, using the Gauss-Bonnet theorem, which tilings reside on which surfaces[2].
-Let <script type="math/tex">T</script> represent a tiling generated from a triangle group <script type="math/tex">(p,q,r)</script>, or from <script type="math/tex">\{p, q\}</script>, where <script type="math/tex">p, q, r \ge 2</script> are integers. In the latter case, we can map without loss of generality <script type="math/tex">\{p,q\}</script> to <script type="math/tex">(p,q,2)</script>, and obtain <script type="math/tex">r=2</script>. Let <script type="math/tex">\Gamma = 1/p + 1/q + 1/r</script>. Then:</p>
-
-<ul>
-  <li>If <script type="math/tex">\Gamma = 1</script>, <script type="math/tex">T</script> resides on the Euclidean plane.</li>
-  <li>If <script type="math/tex">\Gamma \gt 1</script>, <script type="math/tex">T</script> resides on the sphere.</li>
-  <li>If <script type="math/tex">\Gamma \lt 1</script>, <script type="math/tex">T</script> resides on the hyperbolic plane.</li>
-</ul>
-
-<p>We note that applying Wythoffian operations onto <script type="math/tex">T</script> to create a new tiling <script type="math/tex">w(T)</script> does not change <script type="math/tex">\Gamma</script>, and so <script type="math/tex">w(T)</script> remains on the same surface as that of <script type="math/tex">T</script>. We also note that any large triplet <script type="math/tex">(p, q, r)</script> results in <script type="math/tex">T</script> residing on the hyperbolic plane. Thus, the hyperbolic plane yields the most tilings, and is in fact the only surface which yields an infinite number of non-prismatic Wythoffian tilings.</p>
-
-<p>*<small><script type="math/tex">(p, q, r)</script> is equivalent to any permutation of itself, and <script type="math/tex">(p, q, 2)</script> represents both <script type="math/tex">\{p, q\}</script> as well as its dual, <script type="math/tex">\{q, p\}</script>. However, the omnitruncation of the former is equivalent to that of the latter.</small><br />
-**<small>A <script type="math/tex">p</script>-prism can be seen as a truncated <script type="math/tex">\{2,p\} = (p,2,2)</script>, and is therefore Wythoffian.</small></p>
-
-<h3 id="future-works">Future Works</h3>
-
-<p>This article provides many directions to look into for future articles.</p>
-
-<p>For example, we can investigate whether Cartesian products of 333LPs always produce (valid) higher-dimensional 333LPs. If they do, then we can use Cartesian products to generate a countably infinite set of 333LPs.</p>
-
-<p>We can also look into both the finite and infinite Coxeter groups, which generate Euclidean polytopes and tilings/honeycombs, and see how many 333LP-admitting Wythoffian polytopes we can gather from there.</p>
-
-<p>Lastly, we can find a way to generalize the triangle groups into higher dimensions. In turn, we can find more omnitruncated hyperbolic honeycombs, leading to more 333LPs. It would also be worth looking into which of those honeycombs are compact and paracompact, for such honeycombs appear much more rarely than noncompact honeycombs[1].</p>
-
-<h3 id="conclusions">Conclusions</h3>
-
-<p>In this article, we improved the definition of 3x3x3-like puzzles (333LPs), restricting a number of false positives. At the same time, we generalized the definition to apply to higher dimensions.</p>
-
-<p>We also listed out all the Wythoffian 333LPs for the sphere, Euclidean plane, and hyperbolic plane, which are 2-manifolds. Yet, we still have several paths to explore to find Wythoffian 333LPs for higher-dimensional manifolds.</p>
-
-<h3 id="references">References</h3>
-
-<p>[1] Nelson, R., Segerman, H. (2016). <em>Visualizing Hyperbolic Honeycombs</em>. Retrieved from <a href="https://arxiv.org/abs/1511.02851">https://arxiv.org/abs/1511.02851</a><br />
-[2] Weeks, J. R. (Second Edition). (2002). <em>The Shape of Space.</em> CRC Press.<br />
-[3] Zhao, R. (2020). <em>Exploring 3x3x3-Like Puzzles (Part I – Orientability)</em>. Retrieved from <a href="333like-mt.html">https://www.rayzz.me/articles/hypercubing/333like-mt.html</a></p>
-
-
-        <hr />
-        <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
-      </div>
-      <div class="columns show-for-medium-up medium-2 large-3">&nbsp;</div>-->
     </div>
-    
     <footer class="site-footer">
-  <!-- COLOURS FOR DAYS! -->
   <div class="expanded row">
-      <!--<div class="columns show-for-medium medium-10 medium-push-2 large-2 large-push-0 color-bar-3 footer-bar">&nbsp;</div>
-      <div class="columns show-for-medium medium-2 medium-pull-10 large-1 large-push-0 color-bar-2 footer-bar">&nbsp;</div>
-      <div class="columns show-for-large large-9 color-bar-1 footer-bar">&nbsp;</div>-->
       <div class="columns small-12 color-bar-1 footer-bar">&nbsp;</div>
   </div>
 
   <div class="expanded row" style="margin-top: 10px;">
-    <div class="column small-12">
+    <div class="column small-3" style="text-align: left;">
       <a href="https://github.com/rzhao271"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="48px" height="48px"/></a>
-      <span style="margin-right: 22px;"></span>
+      <span style="margin-right: 1em;"></span>
       <a href="https://ca.linkedin.com/in/rzhao271"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="48px" height="48px" /></a>
     </div>
-  </div>
-  <div class="expanded row">
-    <div class="column small-12">
-      <span style="text-align:right;">Copyright &copy; Raymond Zhao, 2015&ndash;2020</span>
+    <div class="column small-9" style="text-align: right;">
+      Copyright &copy; Raymond Zhao, 2015&ndash;2021
       <br />
-      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      This work is licensed under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 license</a>.
       <br />
       <small>Website preview picture sourced from <a href="https://commons.wikimedia.org/wiki/File:Schlegel_wireframe_24-cell.png">WikiCommons</a>, generated by <a href="http://www.software3d.com/Stella.php">Robert Webb's Stella software</a>.</small>
     </div>
   </div>
-  
-  <script src="../../js/foundation.min.js"></script>
-  <script src="../../js/rayzz-colors.js"></script>
-  <script src="../../js/app.js"></script>
 </footer>
 
   </body>
