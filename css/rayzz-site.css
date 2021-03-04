@@ -47,30 +47,17 @@ p {
   text-align: center;
 }
 
-.color-bar-1 {
-  /* Indigo 800 */
-  background: #283593;
-}
-
-.color-bar-2 {
-  /* Indigo 500 */
-  background: #3F51B5;
-}
-
-.color-bar-3 {
-  /* Indigo 200 */
-  background: #9FA8DA;
-}
-
 a {
   /* Indigo 500 */
   color: #3F51B5;
 }
-a:visited, a:focus {
-  color: #B53F8C;
+a:visited {
+  /* Red triad to Indigo 500 */
+  color: #B53F51;
 }
-a:hover {
-  color: #3FB568;
+a:hover, a:focus {
+  /* Green triad to Indigo 500 */
+  color: #51B53F;
 }
 
 figure.highlight {
@@ -89,7 +76,8 @@ code {
 }
 
 .nav-option {
-  background: #283593;
+  /* Indigo 900 */
+  background: #1A237E;
   text-align: center;
   padding: 0px;
 }
@@ -98,8 +86,9 @@ code {
   padding: 2px 0px 3px 0px;
 }
 
-.nav-option a:hover, .mobile-nav-menu a:hover {
-  background: #289350;
+.nav-option a:hover, .nav-option a:focus {
+  /* Green triad to Indigo 900 */
+  background: #227C1A;
 }
 
 .footer-bar {
@@ -107,40 +96,34 @@ code {
 }
 
 .topnav {
-  background: #283593;
+  background: #1A237E;
 }
 .topnav a {
   color: #F5F5FF;
 }
 
 .top-bar {
-  background: #000000;
-  color: #F5F5FF;
-  text-align: left;
-}
-
-.title-bar {
-  background: #000000;
+  background: #080A26;
   color: #F5F5FF;
   text-align: left;
 }
 
 /* https://stackoverflow.com/a/39509165 */
 ul {
-	position: relative;
-	list-style: none;
-	margin-left: 0;
-	padding-left: 1em;
+  position: relative;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
 }
 ul li:before {
-	content: "‣";
-	position: absolute;
-	left: 0;
+  content: "‣";
+  position: absolute;
+  left: 0;
 }
 ul li ul li:before {
-	content: "•";
-	position: absolute;
-	left: 0;
+  content: "•";
+  position: absolute;
+  left: 0;
 }
 
 /* Referenced from https://stackoverflow.com/a/12856368 */
@@ -153,11 +136,11 @@ ul li ul li:before {
 .site-footer {
   clear: both;
   position: relative;
-  height: 6em;
-  margin-top: -6em;
+  height: 4.5em;
+  margin-top: -4.5em;
 }
 
-.site-footer, .site-footer > div {
+.site-footer, .site-footer div {
   background: #EEE;
 }
 
