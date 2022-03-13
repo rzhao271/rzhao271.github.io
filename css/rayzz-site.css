@@ -59,6 +59,17 @@ a:hover, a:focus {
   /* Green triad to Indigo 500 */
   color: #51B53F;
 }
+a:focus {
+  outline: 2px black solid;
+  outline-offset: 1px;
+  border-radius: 2px;
+}
+.nav-option a:focus {
+  outline-offset: -2px;
+}
+.square-link {
+  padding: 6px 1px 10px 1px;
+}
 
 figure.highlight {
   background-color: #202025;
