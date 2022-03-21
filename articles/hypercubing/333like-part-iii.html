@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Exploring 3x3x3-Like Puzzles (Part III &ndash; Part II is still wrong) - Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:title" content="Exploring 3x3x3-Like Puzzles (Part III &ndash; Part II is still wrong) - Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/hypercubing/333like-part-iii.html" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me/articles/hypercubing/333like-part-iii.html">
+
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+</head>
+
+
+  <body>
+    <div>
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns small-2 medium-5">
+    &nbsp;
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
+  </div>
+  <div class="columns small-1">
+    &nbsp;
+  </div>
+</nav>
+
+</div>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
+        <section class="main-content">
+          <h2 id="exploring-3x3x3-like-puzzles-part-iii--part-ii-is-still-wrong">Exploring 3x3x3-Like Puzzles (Part III – Part II is still wrong)</h2>
+
+<p><em>Last modified March 20, 2022.</em></p>
+
+<p>In this article, we refine yet again the definition of 3x3x3-like puzzles (333LPs), and touch upon the value of self-honesty.</p>
+
+<h3 id="a-recap-of-parts-i-and-ii">A recap of parts I and II</h3>
+
+<p>In <a href="./333like-mt.html">part I</a>, we stated</p>
+
+<blockquote>
+  <p>We define a 3x3x3-like puzzle (333LP) as a twisty puzzle that is “similar enough” to the 3x3x3 and the Megaminx.</p>
+</blockquote>
+
+<p>For reference, the <a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=650">Megaminx</a> is a dodecahedral variant of the 3x3x3.</p>
+
+<p>We then described what “similar enough” meant using a vague set of requirements. In <a href="./333like-part-ii.html">part II</a>, those requirements became the following:</p>
+
+<p><strong>Definition 1</strong>: A 3x3x3-like puzzle (333LP) on an \(n\)-manifold is a twisty puzzle such that:</p>
+
+<ol>
+  <li>The puzzle is shallow-cut.</li>
+  <li>The puzzle is facet-turning and doctrinaire. If the puzzle contains a finite number of facets, then we require that each facet receive a unique colour. Otherwise, the puzzle contains countably infinite facets, and the facets must be coloured using a finite number of colours such that the coloration is periodic, with no two adjacent facets sharing the same colour, and such that the puzzle is not “limited in size”.</li>
+  <li>There is exactly one 1-coloured piece per facet.</li>
+  <li>The puzzle can be solved using Roice’s method. The puzzle does not have corners (\((n+1)\)-coloured pieces) with fixed permutations relative to each other.</li>
+  <li>Let \(P\) represent the polytope, tiling, or honeycomb that admits the 333LP. Then, the vertex figure of \(P\) is a (potentially irregular) \(n\)-simplex, and \(P\) itself is vertex-transitive and convex.</li>
+</ol>
+
+<h3 id="whats-wrong-with-the-definition-above">What’s wrong with the definition above?</h3>
+
+<p>Firstly, the definition above unnecessarily restricts shape modifications or sticker modifications from being 333LPs. Therefore, by the definition above, the <a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=1078">Ultimate Cube</a> would not be a 333LP, even though one can solve it just like a regular 3x3x3.</p>
+
+<p>Definition 1 also restricts the <a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=8368">Kite Trap</a> from being a 333LP, even though it actually solves quite well using Roice’s method, which in this case specifically means an edges-first corners-second method. The restriction occurs because the Kite Trap is a <a href="https://www.twistypuzzles.com/articles/other-twistypuzzlesthatjumble/">jumbling puzzle</a>, and because jumbling puzzles are non-doctrinaire by definition, they fail requirement 2 of the definition.
+Note that I only found out about the Kite Trap puzzle last December (2021), whereas part II was written in 2020.</p>
+
+<h3 id="refining-the-requirements-for-a-333lp">Refining the requirements for a 333LP</h3>
+
+<p>What I wanted all along was a label for puzzles that were like a 3x3x3 that can also be solved edges-first. But, knowing that my intent was to label puzzles with similar solutions, I could have stated the requirements more directly as follows:</p>
+
+<p><strong>Definition 2</strong>: A three-dimensional 3x3x3-like puzzle (333LP) is a twisty puzzle that either satisfies the following conditions, or is a sticker or shape modification of another twisty puzzle that satisfies the following conditions:</p>
+
+<ol>
+  <li>The twisty puzzle is face-turning and has at most one center per face. The centers must also be fixed.</li>
+  <li>The twisty puzzle lends itself to an edges-first corners-second solution.</li>
+  <li>The twisty puzzle has exactly one type of edge piece and exactly one type of corner piece.</li>
+  <li>All corners of the puzzle must be solvable using [R U R’, D] and/or [[R’, F], D] commutators and/or variants thereof (such as how for the <a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=1752">Latch Cube</a>, one might need to do an R3 instead of an R’, or how for the <a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=1557">Tuttminx</a>, some turns must be double turns).</li>
+</ol>
+
+<p>Definition 2 allows puzzles such as the following to be counted as 333LPs:</p>
+<ul>
+  <li>3x3x3</li>
+  <li>Megaminx</li>
+  <li>2x2x2</li>
+  <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=1078">Ultimate Cube</a></li>
+  <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=8368">Kite Trap</a></li>
+</ul>
+
+<p>Requirement 4 of Definition 2 rejects the following puzzles that would otherwise be counted as 333LPs:</p>
+<ul>
+  <li>3x3x2</li>
+  <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=547">Halpern-Meier Tetrahedron</a></li>
+  <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=621">Skewb</a>, which is a shape modification of the Halpern-Meier Tetrahedron</li>
+  <li><a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=5793">4-Corners Cube</a></li>
+</ul>
+
+<p>We can call those puzzles quasi-333LPs.</p>
+
+<p>Definition 2 also disallows puzzles such as the following to be counted as 333LPs:</p>
+<ul>
+  <li>4x4x4</li>
+  <li><a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=1663">Face-Turning Octahedron</a></li>
+  <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=7377">Hexadecagon</a></li>
+</ul>
+
+<p>The Hexadecagon might seem like a 16-sided Megaminx, but in reality,
+it is a jumbling puzzle that contains two edge types and two corner types.
+One set of corners and edges solves like the <a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=7747">LanLan Star Pyraminx</a>, and the other set solves like a 3x3x2, both of which are quasi-333LPs.</p>
+
+<p>Lastly, we can generalize the definitions above to 333LPs in higher dimensions. This process results in a definition that is similar to Definition 1, but is more direct in its intention. It also correctly labels more puzzles as 333LPs, including all puzzles accepted by Definition 2.</p>
+
+<p><strong>Definition 3</strong>: A 3x3x3-like puzzle (333LP) on an \(n\)-manifold, where \(n \ge 2\), is a twisty puzzle that either satisfies the following conditions, or is a sticker or shape modification of another twisty puzzle that satisfies the following conditions:</p>
+
+<ol>
+  <li>The twisty puzzle is facet-turning, with at most one 1-coloured piece per facet. The 1-coloured pieces must also be fixed.</li>
+  <li>The twisty puzzle lends itself to a solution where one solves the 2-coloured pieces first, followed by the 3-coloured pieces, and so on, until they end the solve by solving the \((n+1)\)-coloured pieces.</li>
+  <li>The twisty puzzle has exactly one type of \(m\)-coloured piece for \(m \in \{2, \ldots, n + 1\}\).</li>
+  <li>All \(m\)-coloured pieces for \(m \in \{3, \ldots, n + 1\}\) must be solvable with the nested commutators given in a <a href="./n-comms.html">previous article</a>, or variants thereof.</li>
+</ol>
+
+<p>Definition 3 allows more puzzles such as the following to be counted as 333LPs:</p>
+<ul>
+  <li><a href="https://superliminal.com/andrey/mc7d/">7-dimensional 3x3x3x3x3x3x3</a></li>
+  <li><a href="https://www.youtube.com/watch?v=DvZnh7-nslo">Klein bottle Rubik’s cube</a></li>
+  <li><a href="https://superliminal.com/andrey/mht633/">Magic Hyperbolic Tile {6,3,3} (12 colours)</a></li>
+</ul>
+
+<p>Definition 3 disallows puzzles such as the following from being counted as 333LPs:</p>
+<ul>
+  <li><a href="https://superliminal.com/cube/cube.htm">MagicCube4D</a> triangular duoprisms</li>
+  <li><a href="https://superliminal.com/andrey/mpu/">Magic Puzzle Ultimate</a> cell-turning 24-cell</li>
+</ul>
+
+<p>In summary, I wanted a term to describe a subset of twisty puzzles, including the 3x3x3 and Megaminx, that I particularly enjoy solving. Defining that term precisely meant I had to be honest with myself, and state what I actually wanted in the first place.</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+    </div>
+    <footer class="site-footer">
+  <div class="expanded row" style="padding-top: 7px;">
+    <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
+      <a href="https://github.com/rzhao271" class="square-link"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="36px" height="36px"/></a>
+      <span style="margin-right: .3em;"></span>
+      <span class="show-for-medium" style="margin-right: .7em;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271" class="square-link"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
+    </div>
+    <div class="column small-8 medium-7" style="text-align: right;">
+      &copy; 2015&ndash;2022, Raymond Zhao
+      <br />
+      Under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
