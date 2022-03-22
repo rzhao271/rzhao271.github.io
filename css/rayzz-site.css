@@ -42,6 +42,10 @@ p {
   font-size: 1em;
 }
 
+blockquote, blockquote p {
+  color: #5a5a5a;
+}
+
 .site-footer {
   font-size: 0.8em;
   text-align: center;
