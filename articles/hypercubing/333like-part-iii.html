@@ -11,10 +11,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Exploring 3x3x3-Like Puzzles (Part III &ndash; Part II is still wrong) - Ray ZZ</title>
+  <title>Exploring 3x3x3-Like Puzzles (Part III&mdash;Part II is still wrong) - Ray ZZ</title>
   <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
 " />
-  <meta property="og:title" content="Exploring 3x3x3-Like Puzzles (Part III &ndash; Part II is still wrong) - Ray ZZ" />
+  <meta property="og:title" content="Exploring 3x3x3-Like Puzzles (Part III&mdash;Part II is still wrong) - Ray ZZ" />
   <meta property="og:site_name" content="Ray ZZ" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.rayzz.me/articles/hypercubing/333like-part-iii.html" />
@@ -67,9 +67,9 @@
     <div class="expanded row">
       <div class="columns small-12">
         <section class="main-content">
-          <h2 id="exploring-3x3x3-like-puzzles-part-iii--part-ii-is-still-wrong">Exploring 3x3x3-Like Puzzles (Part III – Part II is still wrong)</h2>
+          <h2 id="exploring-3x3x3-like-puzzles-part-iiipart-ii-is-still-wrong">Exploring 3x3x3-Like Puzzles (Part III—Part II is still wrong)</h2>
 
-<p><em>Last modified March 20, 2022.</em></p>
+<p><em>Last modified March 21, 2022.</em></p>
 
 <p>In this article, we refine yet again the definition of 3x3x3-like puzzles (333LPs), and touch upon the value of self-honesty.</p>
 
@@ -83,7 +83,7 @@
 
 <p>For reference, the <a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=650">Megaminx</a> is a dodecahedral variant of the 3x3x3.</p>
 
-<p>We then described what “similar enough” meant using a vague set of requirements. In <a href="./333like-part-ii.html">part II</a>, those requirements became the following:</p>
+<p>We then described what “similar enough” meant using a somewhat simple set of requirements. In <a href="./333like-part-ii.html">part II</a>, those requirements became the following:</p>
 
 <p><strong>Definition 1</strong>: A 3x3x3-like puzzle (333LP) on an \(n\)-manifold is a twisty puzzle such that:</p>
 
@@ -100,36 +100,40 @@
 <p>Firstly, the definition above unnecessarily restricts shape modifications or sticker modifications from being 333LPs. Therefore, by the definition above, the <a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=1078">Ultimate Cube</a> would not be a 333LP, even though one can solve it just like a regular 3x3x3.</p>
 
 <p>Definition 1 also restricts the <a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=8368">Kite Trap</a> from being a 333LP, even though it actually solves quite well using Roice’s method, which in this case specifically means an edges-first corners-second method. The restriction occurs because the Kite Trap is a <a href="https://www.twistypuzzles.com/articles/other-twistypuzzlesthatjumble/">jumbling puzzle</a>, and because jumbling puzzles are non-doctrinaire by definition, they fail requirement 2 of the definition.
-Note that I only found out about the Kite Trap puzzle last December (2021), whereas part II was written in 2020.</p>
+Note that I only found out about the Kite Trap puzzle last December (2021), whereas part II was written in mid-2020.</p>
 
 <h3 id="refining-the-requirements-for-a-333lp">Refining the requirements for a 333LP</h3>
 
-<p>What I wanted all along was a label for puzzles that were like a 3x3x3 that can also be solved edges-first. But, knowing that my intent was to label puzzles with similar solutions, I could have stated the requirements more directly as follows:</p>
+<p>What I wanted all along was a label for puzzles that were like a 3x3x3 that can also be solved edges-first. But, knowing that my intent was to label puzzles with similar solutions, I could have stated the requirements more directly. For example, instead of requiring the puzzle not be “limited in size” (Definition 1, requirement 2), I could have written that the puzzle must be solved with a certain family of algorithms, and let that requirement do the heavy work.</p>
 
-<p><strong>Definition 2</strong>: A three-dimensional 3x3x3-like puzzle (333LP) is a twisty puzzle that either satisfies the following conditions, or is a sticker or shape modification of another twisty puzzle that satisfies the following conditions:</p>
+<p><strong>Definition 2</strong>: Let * after a turn represent doing a turn by any amount. A three-dimensional 3x3x3-like puzzle (333LP) is a twisty puzzle that either satisfies the following conditions, or is a sticker and/or shape modification of another twisty puzzle that satisfies the following conditions:</p>
 
 <ol>
   <li>The twisty puzzle is face-turning and has at most one center per face. The centers must also be fixed.</li>
   <li>The twisty puzzle lends itself to an edges-first corners-second solution.</li>
-  <li>The twisty puzzle has exactly one type of edge piece and exactly one type of corner piece.</li>
-  <li>All corners of the puzzle must be solvable using [R U R’, D] and/or [[R’, F], D] commutators and/or variants thereof (such as how for the <a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=1752">Latch Cube</a>, one might need to do an R3 instead of an R’, or how for the <a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=1557">Tuttminx</a>, some turns must be double turns).</li>
+  <li>For the solution in requirement 2, all edges of the puzzle must be solvable using the commutators [R*, U*] and/or [R’*, F*], and all corners of the puzzle must be solvable using the commutators [[R*, U*], D*] and/or [[R’*, F*], D*].</li>
 </ol>
+
+<p>We assume for requirement 3 that the puzzle has faces that can be labelled U, R, F, D, and be mapped onto the standard U, R, F, and D faces of the 3x3x3, respectively, with the same adjacency rules.</p>
 
 <p>Definition 2 allows puzzles such as the following to be counted as 333LPs:</p>
 <ul>
   <li>3x3x3</li>
   <li>Megaminx</li>
   <li>2x2x2</li>
+  <li>3x3x2</li>
   <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=1078">Ultimate Cube</a></li>
+  <li><a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=1752">Latch Cube</a></li>
+  <li><a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=1557">Tuttminx</a></li>
   <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=8368">Kite Trap</a></li>
 </ul>
 
-<p>Requirement 4 of Definition 2 rejects the following puzzles that would otherwise be counted as 333LPs:</p>
+<p>Requirement 3 of Definition 2 rejects the following puzzles that would otherwise be counted as 333LPs:</p>
 <ul>
-  <li>3x3x2</li>
   <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=547">Halpern-Meier Tetrahedron</a></li>
   <li><a href="https://twistypuzzles.com/museum/museum_showitem.php?pkey=621">Skewb</a>, which is a shape modification of the Halpern-Meier Tetrahedron</li>
-  <li><a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=5793">4-Corners Cube</a></li>
+  <li><a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=7747">LanLan Star Pyraminx</a></li>
+  <li><a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=5793">4-Corners Cube</a>, which is a shape modification of the LanLan Star Pyraminx</li>
 </ul>
 
 <p>We can call those puzzles quasi-333LPs.</p>
@@ -142,8 +146,8 @@ Note that I only found out about the Kite Trap puzzle last December (2021), wher
 </ul>
 
 <p>The Hexadecagon might seem like a 16-sided Megaminx, but in reality,
-it is a jumbling puzzle that contains two edge types and two corner types.
-One set of corners and edges solves like the <a href="https://twistypuzzles.com/app/museum/museum_showitem.php?pkey=7747">LanLan Star Pyraminx</a>, and the other set solves like a 3x3x2, both of which are quasi-333LPs.</p>
+it is a jumbling puzzle that contains two sets of edges and two sets of corners.
+One set of corners and edges solves like the LanLan Star Pyraminx, and the other set solves like a 3x3x2.</p>
 
 <p>Lastly, we can generalize the definitions above to 333LPs in higher dimensions. This process results in a definition that is similar to Definition 1, but is more direct in its intention. It also correctly labels more puzzles as 333LPs, including all puzzles accepted by Definition 2.</p>
 
@@ -152,8 +156,7 @@ One set of corners and edges solves like the <a href="https://twistypuzzles.com/
 <ol>
   <li>The twisty puzzle is facet-turning, with at most one 1-coloured piece per facet. The 1-coloured pieces must also be fixed.</li>
   <li>The twisty puzzle lends itself to a solution where one solves the 2-coloured pieces first, followed by the 3-coloured pieces, and so on, until they end the solve by solving the \((n+1)\)-coloured pieces.</li>
-  <li>The twisty puzzle has exactly one type of \(m\)-coloured piece for \(m \in \{2, \ldots, n + 1\}\).</li>
-  <li>All \(m\)-coloured pieces for \(m \in \{3, \ldots, n + 1\}\) must be solvable with the nested commutators given in a <a href="./n-comms.html">previous article</a>, or variants thereof.</li>
+  <li>For the solution in requirement 2, all pieces must be solvable using <a href="./n-comms.html">higher-dimensional sledgehammers</a>. In particular, \(m\)-coloured pieces for \(2 \le m \le n+1\) must be solvable using a commutator of the form \(\alpha_m = [[[[S, D_3], D_4], \ldots], D_m]\). Note that \(\alpha_2 = S\).</li>
 </ol>
 
 <p>Definition 3 allows more puzzles such as the following to be counted as 333LPs:</p>
@@ -168,6 +171,8 @@ One set of corners and edges solves like the <a href="https://twistypuzzles.com/
   <li><a href="https://superliminal.com/cube/cube.htm">MagicCube4D</a> triangular duoprisms</li>
   <li><a href="https://superliminal.com/andrey/mpu/">Magic Puzzle Ultimate</a> cell-turning 24-cell</li>
 </ul>
+
+<p>We can also call puzzles that satisfy all but the third requirement of Definition 3 quasi-333LPs.</p>
 
 <p>In summary, I wanted a term to describe a subset of twisty puzzles, including the 3x3x3 and Megaminx, that I particularly enjoy solving. Defining that term precisely meant I had to be honest with myself, and state what I actually wanted in the first place.</p>
 
