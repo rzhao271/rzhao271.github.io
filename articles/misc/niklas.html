@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reconceptualizing the Niklas Commutator - Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:title" content="Reconceptualizing the Niklas Commutator - Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/misc/niklas.html" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me/articles/misc/niklas.html">
+
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+</head>
+
+
+  <body>
+    <div>
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns small-2 medium-5">
+    &nbsp;
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
+  </div>
+  <div class="columns small-1">
+    &nbsp;
+  </div>
+</nav>
+
+</div>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
+        <section class="main-content">
+          <h2 id="reconceptualizing-the-niklas-commutator">Reconceptualizing the Niklas Commutator</h2>
+
+<p><em>Written April 15, 2022.</em></p>
+
+<p>The Niklas commutator isn’t as special as I thought. I used to see it as a black box algorithm, but now I see it as a more intuitive commutator.</p>
+
+<p><strong>Note</strong>: The end of this article contains demos of several of the algorithms I mention below.</p>
+
+<h3 id="backstory">Backstory</h3>
+
+<p>When I first learned to solve the 3x3x3, I learned about the algorithm
+U R U’ L’ U R’ U’ L. The algorithm permutes three corners on the top layer, though one can see it as orienting three corners on the top layer as well.</p>
+
+<p>Then, I learned about commutators. Commutators are algorithms of the form [X, Y] = X Y X’ Y’, where X and Y themselves can be algorithms, and X’ (pronounced “X prime”) means to do the inverse of X (cubers usually use X’ rather than X<sup>-1</sup> or inv(X) to denote “the inverse of X”). Cubers (aka twisty puzzle solvers) can use commutators to move around pieces in a more controlled manner. In other words, they can move pieces to where they want them to go, without messing up other pieces in the process.</p>
+
+<p>When I first learned about commutators, I relied heavily on the commutator [R U R’, D’], or R U R’ D’ R U’ R’ D in full. I knew this commutator moved the RFU sticker to DFR, the DFR sticker to DRB, and the DRB sticker back to RFU. I relied on that sticker movement pattern (Figure 1) to understand how the commutator worked.</p>
+
+<figure>
+  <p><img src="/img/niklas/cycle-rurd.png" width="350px" /></p>
+  <figcaption>
+    <p>Figure 1: R U R’ D’ R U’ R’ D applied to the solved state. The RFU-&gt;DFR-&gt;DRB sticker movement pattern is shown in purple.</p>
+  </figcaption>
+</figure>
+
+<p>I saw the [R U R’, D’] commutator as very different from the Niklas commutator, which I learned as [R, U’ L’ U]. It turns out the Niklas commutator I learned is the mirror inverse of U R U’ L’ U R’ U’ L. That is, the inverse of [R, U’ L’ U] is [U’ L’ U, R], and the mirror of [U’ L’ U, R] along the left-right (L-R) axis is [U R U’, L’], or U R U’ L’ U R’ U’ L in full.</p>
+
+<h3 id="equivalent-algorithms">Equivalent algorithms</h3>
+
+<p>One can relate an algorithm to its inverse, mirrors, and conjugations by rotations. To formalize this concept, we can talk about two algorithms being equivalent, along with the concept of equivalence classes.</p>
+
+<p>An algorithm C is <em>equivalent</em> to an algorithm D (we denote this by C ~ D) if and only if at least one of the following holds:</p>
+<ul>
+  <li>C is a mirror of D (i.e. C is the same as D but reflected along a plane cutting through the middle of the puzzle)</li>
+  <li>C is an inverse of D (i.e. C = D’)</li>
+  <li>C is a conjugation by rotation of D (e.g. if C = [z: D] = z D z’)</li>
+  <li>C is a composition of the operations above on D (e.g. if C is the mirror inverse of D)</li>
+</ul>
+
+<p>We then call ~ an <em>equivalence relation</em> because it satisfies the following properties:</p>
+<ul>
+  <li>Reflexivity: A ~ A for any algorithm A.</li>
+  <li>Symmetry: If A ~ B, then B ~ A for any algorithms A and B.</li>
+  <li>Transitivity: If A ~ B and B ~ C, then A ~ C for any algorithms A, B, and C.</li>
+</ul>
+
+<p>Then, given a set of algorithms that are equivalent under the equivalence relation ~, we can say that those algorithms belong to the same <em>equivalence class</em>. It also turns out that we can replace the word “algorithm” with “commutator” for the definitions above, and produce a valid definition for the equivalence of two commutators, as well as an equivalence relation between commutators.</p>
+
+<h3 id="the-realization">The realization</h3>
+
+<p>When I learned about commutators, I already saw [R, U’ L’ U] and [U’ L’ U, R] as being in the same equivalence class (they are inverses of each other). But, I didn’t see [R, U’ L’ U] and [R U R’, D’] as being in the same equivalence class. Additionally, whereas I understood [R U R’, D’] intuitively, I treated [R, U’ L’ U] like a black box.</p>
+
+<p>Yet, the two commutators are actually equivalent by the equivalence relation above. In particular, the inverse of [R, U’ L’ U] is [U’ L’ U, R]. Then, [z’: [U’ L’ U, R]] = [R’ U’ R, D]. Reflecting that commutator along the F-B (front-back) axis gives [R U R’, D’], so [R, U’ L’ U] is equivalent to [R U R’, D’] by the equivalence relation ~ above (Figure 2).</p>
+
+<figure>
+  <div class="columns small-12 medium-6">
+    <p><img src="/img/niklas/cycle-rurd.png" /></p>
+  </div>
+  <div class="columns small-12 medium-6">
+    <p><img src="/img/niklas/cycle-niklas.png" /></p>
+  </div>
+  <figcaption>
+    <p>Figure 2: [R U R’, D’] and [R, U’ L’ U] side by side. The two commutators are equivalent.<br />Left: [R U R’, D’] applied to the solved state. The RFU-&gt;DFR-&gt;DRB sticker movement pattern is shown in purple.<br />Right: [R, U’ L’ U] applied to the solved state. The ULB-&gt;RFU-&gt;RUB sticker movement pattern is shown in purple.</p>
+  </figcaption>
+</figure>
+
+<p>Knowing that the two commutators are equivalent is helpful. For example, I now see [R, U’ L’ U] in a much more intuitive way, and can use it more often while solving the 3x3x3. Another example is that I knew about [R U2 R’, D2] for a long time, but I never thought to use [R2, U’ L2 U], an equivalent commutator, until recently. It also turns out [D2, R’ U2 R] = [z’: [R2, U’ L2 U]] is yet another equivalent commutator, which gave me a way to solve the 3x3x2 edges-first from a different angle.</p>
+
+<h3 id="demos">Demos</h3>
+
+<p>A site that one can use to showcase algorithms and commutators is <a href="https://alpha.twizzle.net/">Twizzle</a>.</p>
+
+<p>Here are some links demonstrating algorithms in the same equivalence class as [R, U’ L’ U]:</p>
+<ul>
+  <li><a href="https://alpha.twizzle.net/edit/?alg=U+R+U%27+L%27+U+R%27+U%27+L">U R U’ L’ U R’ U’ L</a></li>
+  <li><a href="https://alpha.twizzle.net/edit/?alg=%5BR%2C+U%27+L%27+U%5D">[R, U’ L’ U]</a></li>
+  <li><a href="https://alpha.twizzle.net/edit/?alg=%5BR+U+R%27%2C+D%27%5D">[R U R’, D’]</a></li>
+  <li><a href="https://alpha.twizzle.net/edit/?alg=%5Bz%27%3A+%28%5BR%2C+U%27+L%27+U%5D%29%27%5D">[z’: ([R, U’ L’ U])’]</a> = <a href="https://alpha.twizzle.net/edit/?alg=%5BR%27+U%27+R%2C+D%5D">[R’ U’ R, D]</a></li>
+</ul>
+
+<p>Here are some links demonstrating algorithms in the same equivalence class as [R2, U’ L2 U]:</p>
+<ul>
+  <li><a href="https://alpha.twizzle.net/edit/?alg=%5BR+U2+R%27%2C+D2%5D">[R U2 R’, D2]</a></li>
+  <li><a href="https://alpha.twizzle.net/edit/?alg=%5BR2%2C+U%27+L2+U%5D">[R2, U’ L2 U]</a></li>
+  <li><a href="https://alpha.twizzle.net/edit/?alg=%5BD2%2C+R%27+U2+R%5D">[D2, R’ U2 R]</a></li>
+</ul>
+
+<p>Also, I do not work on or contribute to Twizzle. I’m simply an end user.</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+    </div>
+    <footer class="site-footer">
+  <div class="expanded row" style="padding-top: 7px;">
+    <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
+      <a href="https://github.com/rzhao271" class="square-link"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="36px" height="36px"/></a>
+      <span style="margin-right: .3em;"></span>
+      <span class="show-for-medium" style="margin-right: .7em;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271" class="square-link"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
+    </div>
+    <div class="column small-8 medium-7" style="text-align: right;">
+      &copy; 2015&ndash;2022, Raymond Zhao
+      <br />
+      Under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
