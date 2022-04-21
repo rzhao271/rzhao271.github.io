@@ -168,3 +168,8 @@ ul li ul li:before {
 tbody {
   border: none;
 }
+
+.chicago {
+  text-indent: -3em;
+  padding-left: 3em;
+}

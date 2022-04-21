@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My Past Fear of Vacuum Cleaners - Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:title" content="My Past Fear of Vacuum Cleaners - Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/misc/noise-levels.html" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me/articles/misc/noise-levels.html">
+
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+</head>
+
+
+  <body>
+    <div>
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns small-2 medium-5">
+    &nbsp;
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
+  </div>
+  <div class="columns small-1">
+    &nbsp;
+  </div>
+</nav>
+
+</div>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
+        <section class="main-content">
+          <h2 id="my-past-fear-of-vacuum-cleaners">My Past Fear of Vacuum Cleaners</h2>
+
+<p><em>Written April 20, 2022.</em></p>
+
+<p>Growing up, I was taught that loud music through my headphones would ruin my hearing. I was never told how loud that music had to be, or for how long I had to listen to it for it to become a hazard. I ended up instead interpreting the advice to mean that any loud sound for even several seconds was a risk to my hearing. Therefore, I would cover my ears around lawn mowers and vacuum cleaners. This article explores some math behind noise exposure levels, and puts the risk of some exposure levels into more perspective.</p>
+
+<h3 id="units-and-formulae">Units and Formulae</h3>
+
+<p>Sound is a pressure wave (Penn 2010). A listener hears sound at some intensity that can be measured in Watts per metres squared (Wm<sup>-2</sup>). Note that sound intensity is not the same as sound pressure. The latter is measured in Pascals (Wikipedia n.d.b), though one can convert between the two (Wikipedia n.d.a, cite ref 3).</p>
+
+<p>Another way to measure noise exposure levels is dB SPL (decibels of some sound pressure level). Instead of having to use small numbers like \(10^{-12} Wm^{-2}\), we can say 0 dB SPL. Decibel units (dB) need a reference level, and 0 dB SPL represents the noise level threshold, which is approximately the quietist noise someone with undamaged hearing can hear (Wikipedia n.d.a).</p>
+
+<p>We can convert between dB and Wm<sup>-2</sup> to reason about noise exposure levels more easily. The conversion formula is as follows:</p>
+
+\[I(x) = I_0 10^{x/10}\]
+
+<p>where \(x\) is in dB, and \(I(x)\) is in Wm<sup>-2</sup>. \(I_0\) is a reference sound intensity level, which for dB SPL is approximately 10<sup>-12</sup> Wm<sup>-2</sup> (Gibbs n.d., Wikipedia n.d.a).</p>
+
+<p>The inverse formula is as follows:</p>
+
+\[I^{-1}(x) = 10 log_{10}(x/I_0)\]
+
+<p>where \(x\) is in Wm<sup>-2</sup>, and \(I^{-1}(x)\) is in dB (Gibbs n.d.). For dB SPL, \(I_0\) is once again approximately 10<sup>-12</sup> Wm<sup>-2</sup>.</p>
+
+<p>Sound intensity follows an inverse square law. As an equation, 
+\(\frac{L_I(a)}{L_I(b)} = \frac{b^2}{a^2}\), where \(a\) and \(b\) are in distance units, and \(L_I(a)\) and \(L_I(b)\), which represent the sound intensity of a source at \(a\) and \(b\) units away from the source, respectively, are in Wm<sup>-2</sup> (Gibbs n.d.). We can use a reference distance of 1 distance unit for \(b\), and with some rearrangement obtain</p>
+
+<p>\(L_I(a) = L_I(1)\frac{1}{a^2}\). We can then combine this formula with the conversion formulae above to find \(L_D(a)\), the exposure level in dB when we are \(a\) units away from a source that is \(L_D(1)\) dB from 1 unit away:</p>
+
+\[\begin{align}
+L_D(a)  
+&amp;= I^{-1}(L_I(a)) \\
+&amp;= I^{-1}\left(L_I(1)\frac{1}{a^2}\right) \\
+&amp;= I^{-1}\left(I(L_D(1))\frac{1}{a^2}\right) \\
+&amp;= 10 log_{10}\left(I(L_D(1))\frac{1}{a^2}/I_0\right) \\
+&amp;= 10 log_{10}\left(I_0 10^{L_D(1)/10}\frac{1}{a^2}/I_0\right) \\
+&amp;= 10 log_{10}\left(10^{L_D(1)/10}\frac{1}{a^2}\right) \\
+&amp;= 10 \left[ \frac{L_D(1)}{10} + log_{10}\left(\frac{1}{a^2}\right) \right] \\
+&amp;= L_D(1) + 10log_{10}\left(\frac{1}{a^2}\right) \\
+&amp;= L_D(1) - 20log_{10}(a) \\
+\end{align}\]
+
+<h3 id="standards">Standards</h3>
+
+<p>The National Institute for Occupational Safety and Health (NIOSH) defines criteria for recommended noise exposure limits at the workplace. One measurement the institute defines is a recommended exposure limit (REL), expressed as a time-weighted average of 85 A-weighted decibels over 8 hours (8-hr TWA of 85 dBA). A-weighted decibels are similar to dB SPL, except they are frequency-dependent to match how the human ear emphasizes or de-emphasizes certain frequencies (The Engineering Toolbox 2003).</p>
+
+<p>We can write \(T(L) = 480/2^{(L-85)/3}\), where \(T(L)\) represents the exposure duration in minutes at or after which noise at \(L\) dBA becomes hazardous (NIOSH 1998, 1-2). I will call these T-durations for short.</p>
+
+<p>The T-durations are defined such that it is 8 hours at 85 dBA, and for  every 3 dBA increase, the T-duration is halved. This halving makes sense; the dBA scale is logarithmic, meaning an increase from 110 dBA to 113 dBA is much more substantial than an increase from 50 dBA to 53 dBA, for example.</p>
+
+<p>For 79 dBA, the T-duration is 32 hours, which is longer than the number of hours in a single day. Therefore, I assume this means one can be exposed to exposure levels below 80 dBA for an entire day “safely”, though from my experience, even 70 dB SPL for extended periods of time is annoying, especially because it makes it harder to have regular conversations, which occur at around 60 dB SPL.</p>
+
+<h3 id="applications">Applications</h3>
+
+<p>According to <a href="https://play.google.com/store/apps/details?id=com.gamebasic.decibel&amp;gl=US">Sound Meter</a>, an Android phone app, everything indoors, including my vacuum cleaner, is below 80 dB SPL. Based on The Engineering Toolbox (2003), exposure levels measured in dBA are almost always below those measured in dB SPL, so I will assume everything indoors is below 80 dBA, which means I do not exceed any T-duration while staying indoors.</p>
+
+<p>A similar argument follows for outdoor appliances, though outdoor appliances can get louder. For example, leaf blowers can reach 115 dB (Johnson n.d.). Therefore, it is much easier to reach the T-duration by standing right next to a leaf blower, but in reality, I am walking past them at a distance. Assume the leaf blower is 115 dBA from 1 metre away.</p>
+
+<p>Let’s calculate the T-duration from 1 metre away:
+\(T(115) = 480/2^{(115-85)/3} = 0.46875\) minutes, or approximately 28 seconds.</p>
+
+<p>Let’s calculate the exposure level at 3 metres away, along with the respective T-duration:<br />
+\(L_D(3) = L_D(1) - 20log_{10}(3) = 115 - 20log_{10}(3) \approx 105\) dBA.<br />
+\(T(105) = 480/2^{(105-85)/3} \approx 4.72\) minutes.</p>
+
+<p>The leaf blower is at most 105 dBA at 3 metres away, and at that exposure level, the T-duration is between 4 and 5 minutes. Consider the following:</p>
+
+<ol>
+  <li>It takes me at most several seconds to walk past a leaf blower.</li>
+  <li>I likely wouldn’t be walking past leaf blowers every day.</li>
+  <li>I’m pretty sure the vast majority of people using leaf blowers are using them to clear leaves rather than purposely try to ruin someone’s hearing.</li>
+  <li>I can plug my ears and reduce the exposure level by at least 20 dBs already (Bergman 2013).</li>
+</ol>
+
+<p>Therefore, the risk of reaching even the T-duration above from hearing the leaf blower is very low, and so the risk of me facing noise-induced hearing loss due to occasionally walking past leaf blowers is also low, assuming no malicious actors.</p>
+
+<p>In closing, I do not need to worry about the loudness of the majority of sounds that I encounter in my daily life.</p>
+
+<h3 id="interactive-demo">Interactive Demo</h3>
+
+<p>To try out different \(L_D(1)\) and \(a\) values, and find the respective \(L_D(a)\) values and T-durations, I have created <a href="https://www.desmos.com/calculator/l7maqgy8xl">an interactive Desmos graph</a>.</p>
+
+<h3 id="references">References</h3>
+
+<div class="chicago">
+  <p>Bergman, Sarah. 2013. “How Much Hearing Protection do You Get From Putting Your Fingers in Your Ears?” Ear Plug Superstore. Accessed on April 19, 2022. https://earplugstore.typepad.com/got_ears_get_informed/2013/06/how-much-hearing-protection-do-you-get-from-putting-your-fingers-in-your-ears.html</p>
+
+  <p>The Engineering Toolbox. 2003. “Decibel A, B and C.” Accessed on April 20, 2022. https://www.engineeringtoolbox.com/decibel-d_59.html</p>
+
+  <p>Gibbs, Keith. n.d. “Sound levels – decibels, intensity and distance.” schoolphysics. Accessed on April 18, 2022. https://www.schoolphysics.co.uk/age16-19/Sound/text/Sound_levels_and_distance/index.html</p>
+
+  <p>Johnson, Brad. n.d. “Why Are Leaf Blowers So Loud? Can You Silence Them?” Soundproofcamp. Accessed on April 20, 2022. https://soundproofcamp.com/why-are-leaf-blowers-so-loud/#How_Many_Decibels_are_Leaf_Blowers</p>
+
+  <p>National Institute for Occupational Safety and Health (NIOSH). 1998. “Occupational Noise Exposure.” Accessed on April 18, 2022. https://www.cdc.gov/niosh/docs/98-126/pdfs/98-126.pdf?id=10.26616/NIOSHPUB98126.</p>
+
+  <p>Penn, Gerald. 2010. “What Is Sound?” Accessed on April 18, 2022. https://www.cs.toronto.edu/~gpenn/csc401/soundASR.pdf.</p>
+
+  <p>Wikipedia. n.d.a. “Absolute Threshold of Hearing.” Accessed on April 20, 2022. https://en.wikipedia.org/wiki/Absolute_threshold_of_hearing</p>
+
+  <p>Wikipedia. n.d.b. “Sound Intensity.” Accessed on April 18, 2022. https://en.wikipedia.org/wiki/Sound_intensity.</p>
+</div>
+
+<p><span style="color: white;">P.S. You may think this from the article title, but I am not a cat.</span></p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+    </div>
+    <footer class="site-footer">
+  <div class="expanded row" style="padding-top: 7px;">
+    <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
+      <a href="https://github.com/rzhao271" class="square-link"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="36px" height="36px"/></a>
+      <span style="margin-right: .3em;"></span>
+      <span class="show-for-medium" style="margin-right: .7em;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271" class="square-link"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
+    </div>
+    <div class="column small-8 medium-7" style="text-align: right;">
+      &copy; 2015&ndash;2022, Raymond Zhao
+      <br />
+      Under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
