@@ -170,6 +170,7 @@ ul li ul li:before {
   max-width: 700px;
   width: 100%;
   margin: 5px auto 0 auto;
+  word-break: break-word;
 }
 
 tbody {
@@ -180,3 +181,12 @@ tbody {
   text-indent: -3em;
   padding-left: 3em;
 }
+
+/* https://stackoverflow.com/questions/65321568/mathjax-3-inline-math-and-overflow-x */
+mjx-container {
+  display: inline-grid;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
