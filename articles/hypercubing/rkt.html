@@ -36,7 +36,7 @@
 
   <!-- Import the CSS from here now since we want legacy flex support... -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../css/pygments/default.css">
+  <link rel="stylesheet" href="../../css/syntax.css">
   <link rel="stylesheet" href="../../css/rayzz-site.css">
 </head>
 
@@ -103,14 +103,14 @@ Similarly, -T stands for the set of all turns of the form XT.</p>
 Thus, for the 4D Rubik’s cube, RKT allows the solver to treat the T cell like a 3D Rubik’s cube.</p>
 
 <p>Consider a clockwise A-perm. On the 3D Rubik’s cube, an algorithm for that case is<br />
-<code>x' R' D R' U2 R D' R' U2 R2 x</code>. 
+<code class="language-plaintext highlighter-rouge">x' R' D R' U2 R D' R' U2 R2 x</code>. 
 We want to transform this algorithm into its RKT equivalent. However, we can only use RK and T- turns.
 The trick is to first consider how the A-perm would be executed if only the move R, along with any rotation, could be used.
-<code>x' R' D R' U2 R D' R' U2 R2 x</code> then becomes <code>x' R' z' R z R' z R2 z' R z' R' z R' z R2 z' R2 x</code>.</p>
+<code class="language-plaintext highlighter-rouge">x' R' D R' U2 R D' R' U2 R2 x</code> then becomes <code class="language-plaintext highlighter-rouge">x' R' z' R z R' z R2 z' R z' R' z R' z R2 z' R2 x</code>.</p>
 
 <p>Now, to translate this into RKT, replace R with RK, and z with TF, since z is equivalent to rotating the entire cube in the same direction as an F turn.
 The x rotations can technically be replaced with TRs, too, though in this case, they can also be left unchanged.
-Thus, the RKT A-perm is <code>x' RK' TF' RK TF RK' TF RK2 TF' RK TF' RK' TF RK' TF RK2 TF' RK2 x</code>.</p>
+Thus, the RKT A-perm is <code class="language-plaintext highlighter-rouge">x' RK' TF' RK TF RK' TF RK2 TF' RK TF' RK' TF RK' TF RK2 TF' RK2 x</code>.</p>
 
 <p>A picture of executing the regular A-perm on a 4D Rubik’s cube is as follows, where R=RK, D=DK, and U=UK:</p>
 

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Notes on developing Electron - Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:title" content="Notes on developing Electron - Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/programming/developing-electron-notes.html" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me/articles/programming/developing-electron-notes.html">
+
+  <!-- Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400&display=swap');
+  </style>
+
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+</head>
+
+
+  <body>
+    <div>
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns small-2 medium-5">
+    &nbsp;
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
+  </div>
+  <div class="columns small-1">
+    &nbsp;
+  </div>
+</nav>
+
+</div>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
+        <section class="main-content">
+          <h2 id="notes-on-developing-electron">Notes on developing Electron</h2>
+
+<p>Written September 1, 2022.</p>
+
+<p>I work with the Electron codebase on Windows, and have run into some problems in the past
+that took me a while to figure out. I don’t use <a href="https://github.com/electron/build-tools">Build Tools</a>.
+These notes assume that one has set up their Electron checkout using the <a href="https://www.electronjs.org/docs/latest/development/build-instructions-gn">official guide on building Electron</a> and that they are running commands in pwsh.</p>
+
+<h3 id="fixing-sync-failures">Fixing sync failures</h3>
+
+<p>The patches can sometimes fail to apply during a sync. In that case,
+one can first look in the <code class="language-plaintext highlighter-rouge">src/electron/DEPS</code> file to see what Chromium tag (version number) to use, 
+and then run in the <code class="language-plaintext highlighter-rouge">src</code> directory</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout <span class="nt">-f</span> <span class="nt">--detach</span> &lt;tag-number&gt;
+</code></pre></div></div>
+<p>Then, one can run <code class="language-plaintext highlighter-rouge">gclient sync -f</code> in <code class="language-plaintext highlighter-rouge">src/electron</code> again.</p>
+
+<h3 id="setting-up-goma">Setting up Goma</h3>
+
+<p>Goma is a distributed compiler service that can compile Electron in a few hours rather than
+half a day. Goma is only needed for building, and is not used during <code class="language-plaintext highlighter-rouge">gclient sync</code>.</p>
+
+<p>One can obtain the Goma archive file by looking through <a href="https://github.com/electron/build-tools/blob/main/src/utils/goma.js#L82">the Build Tools goma script implementation</a> and piecing together various parts of the link, and then pasting the link into a new browser tab.</p>
+
+<p>To authenticate into Goma, I prefer using <code class="language-plaintext highlighter-rouge">vpython</code> from <code class="language-plaintext highlighter-rouge">depot_tools</code> directly.
+Place <code class="language-plaintext highlighter-rouge">depot_tools</code> into your <code class="language-plaintext highlighter-rouge">PATH</code> and then run the following within the <code class="language-plaintext highlighter-rouge">goma</code> directory:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vpython goma_auth.py login
+vpython goma_ctl.py ensure_start
+</code></pre></div></div>
+
+<p>Make sure the <code class="language-plaintext highlighter-rouge">args.gn</code> file contains the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>use_goma=true
+goma_dir=&lt;absolute-path-to-goma-dir&gt;
+</code></pre></div></div>
+
+<p>Then, add the <code class="language-plaintext highlighter-rouge">-j</code> parameter while compiling:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ninja <span class="nt">-C</span> out/Testing <span class="nt">-j</span> 200 electron:electron_app
+</code></pre></div></div>
+
+<p>For more information on the <code class="language-plaintext highlighter-rouge">-j</code> parameter, see <a href="https://www.electronjs.org/docs/latest/development/goma#building-with-goma">the Electron documentation on building with Goma</a>.</p>
+
+<h3 id="disabling-goma">Disabling Goma</h3>
+
+<p>Even though my <code class="language-plaintext highlighter-rouge">args.gn</code> has Goma enabled, there are times when I make a small change and don’t feel like authenticating into Goma
+just to compile it. In that case, one can type <code class="language-plaintext highlighter-rouge">$env:GOMA_DISABLED=1</code> and then compile without the <code class="language-plaintext highlighter-rouge">-j</code> parameter.</p>
+
+<h3 id="cleaning-the-output-directory">Cleaning the output directory</h3>
+
+<p>The TypeScript files can sometimes fail to transpile even after syncing, 
+such as when switching from a nightly v21 build to the 14-x-y branch 
+without cleaning the output directory in between. 
+In this case, running <code class="language-plaintext highlighter-rouge">gn clean out/Testing</code> can fix the issue.</p>
+
+<h3 id="enabling-logging-and-writing-debug-logs">Enabling logging and writing debug logs</h3>
+
+<p>In the case that logging is not enabled, one can write <code class="language-plaintext highlighter-rouge">$env:ELECTRON_ENABLE_LOGGING=1</code> and run the program.</p>
+
+<p>To add debug logs to a file, include <code class="language-plaintext highlighter-rouge">base/logging.h</code> and write</p>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DLOG</span><span class="p">(</span><span class="n">ERROR</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">variable_to_log_here</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">DLOG(ERROR)</code> is an output stream and from what I’ve seen, it works like <code class="language-plaintext highlighter-rouge">std::cout</code> 
+but outputs some additional data as well. There are <a href="https://source.chromium.org/chromium/chromium/src/+/main:base/logging.h">other logging macros</a> as well.</p>
+
+<p>When I want to purposely crash the program, such as to get a stack trace, I write a <code class="language-plaintext highlighter-rouge">DCHECK(false);</code> line
+into the code. One can also use WinDBG to understand the program flow better, but these days, I’ve been
+mostly using <code class="language-plaintext highlighter-rouge">DLOG</code> along with <a href="https://source.chromium.org/chromium">Chromium Code Search</a> instead.</p>
+
+<p>To write logs in <a href="https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/README.md">Blink</a>,
+running Electron with <code class="language-plaintext highlighter-rouge">--enable-logging=file --log-file=&lt;absolute-path-for-log-file&gt;</code> works.</p>
+
+<h3 id="working-with-callbacks">Working with callbacks</h3>
+
+<p><code class="language-plaintext highlighter-rouge">BindRepeating()</code> and <code class="language-plaintext highlighter-rouge">BindOnce()</code> confused me when I saw them for the first time in the Electron codebase.
+The Chromium repository has an excellent <a href="https://source.chromium.org/chromium/chromium/src/+/main:docs/callback.md;l=1">explanation of various callback functions</a> that they use. What’s cool about them is that the bind functions
+actually represent partial function application, making it easier to pass around functions and arguments without having to use function pointers everywhere.</p>
+
+<p>One important thing to remember with the bind functions is that the <code class="language-plaintext highlighter-rouge">this</code> argument must be passed in as the first argument
+if the function to be run is an instance function rather than a class function. Also worth looking into is the <a href="https://source.chromium.org/chromium/chromium/src/+/main:base/bind.h;l=138">documentation on <code class="language-plaintext highlighter-rouge">Unretained()</code></a>, which often gets used with <code class="language-plaintext highlighter-rouge">this</code>.</p>
+
+<h3 id="exporting-chromium-patches">Exporting Chromium patches</h3>
+
+<p>I don’t think pwsh can figure out that the patch export script is a Python file, 
+so I run from the <code class="language-plaintext highlighter-rouge">src</code> directory</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python electron/script/git-export-patches <span class="nt">-o</span> electron/patches/chromium
+</code></pre></div></div>
+
+<p>Sometimes, creating a commit fails due to patches being out of sync even after an export.
+In that case, re-syncing and re-exporting should fix the issue.</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+    </div>
+    <footer class="site-footer">
+  <div class="expanded row" style="padding-top: 7px;">
+    <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
+      <a href="https://github.com/rzhao271" class="square-link"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="36px" height="36px"/></a>
+      <span style="margin-right: .3em;"></span>
+      <span class="show-for-medium" style="margin-right: .7em;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271" class="square-link"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
+    </div>
+    <div class="column small-8 medium-7" style="text-align: right;">
+      &copy; 2015&ndash;2022, Raymond Zhao
+      <br />
+      Under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

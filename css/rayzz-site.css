@@ -89,7 +89,7 @@ figcaption {
   font-size: 0.9em;
 }
 code {
-  border: none;
+  /* border: none; */
   background-color: transparent;
 }
 .focus {
@@ -190,3 +190,12 @@ mjx-container {
   max-width: 100%;
 }
 
+pre {
+  margin-bottom: 16px;
+  padding: 8px 16px;
+}
+
+pre > code {
+  border: none;
+  padding: 0;
+}
