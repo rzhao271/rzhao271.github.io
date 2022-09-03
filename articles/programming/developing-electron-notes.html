@@ -74,7 +74,7 @@
         <section class="main-content">
           <h2 id="notes-on-developing-electron">Notes on developing Electron</h2>
 
-<p>Written September 1, 2022.</p>
+<p><em>Last modified September 2, 2022.</em></p>
 
 <p>I work with the Electron codebase on Windows, and have run into some problems in the past
 that took me a while to figure out. I don’t use <a href="https://github.com/electron/build-tools">Build Tools</a>.
@@ -133,11 +133,12 @@ In this case, running <code class="language-plaintext highlighter-rouge">gn clea
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">DLOG</span><span class="p">(</span><span class="n">ERROR</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">variable_to_log_here</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p><code class="language-plaintext highlighter-rouge">DLOG(ERROR)</code> is an output stream and from what I’ve seen, it works like <code class="language-plaintext highlighter-rouge">std::cout</code> 
-but outputs some additional data as well. There are <a href="https://source.chromium.org/chromium/chromium/src/+/main:base/logging.h">other logging macros</a> as well.</p>
+<p><code class="language-plaintext highlighter-rouge">DLOG(ERROR)</code> is an output stream and from what I’ve seen, it works like <code class="language-plaintext highlighter-rouge">std::cout</code>,
+but prepends some additional data and appends a newline to the logged contents.
+There are other <a href="https://source.chromium.org/chromium/chromium/src/+/main:base/logging.h">Chromium logging macros</a> as well.</p>
 
 <p>When I want to purposely crash the program, such as to get a stack trace, I write a <code class="language-plaintext highlighter-rouge">DCHECK(false);</code> line
-into the code. One can also use WinDBG to understand the program flow better, but these days, I’ve been
+into the code. One can also use WinDbg to understand the program flow better, but these days, I’ve been
 mostly using <code class="language-plaintext highlighter-rouge">DLOG</code> along with <a href="https://source.chromium.org/chromium">Chromium Code Search</a> instead.</p>
 
 <p>To write logs in <a href="https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/README.md">Blink</a>,
@@ -150,17 +151,24 @@ The Chromium repository has an excellent <a href="https://source.chromium.org/ch
 actually represent partial function application, making it easier to pass around functions and arguments without having to use function pointers everywhere.</p>
 
 <p>One important thing to remember with the bind functions is that the <code class="language-plaintext highlighter-rouge">this</code> argument must be passed in as the first argument
-if the function to be run is an instance function rather than a class function. Also worth looking into is the <a href="https://source.chromium.org/chromium/chromium/src/+/main:base/bind.h;l=138">documentation on <code class="language-plaintext highlighter-rouge">Unretained()</code></a>, which often gets used with <code class="language-plaintext highlighter-rouge">this</code>.</p>
+if the function to be run is an instance function rather than a class function. Also worth looking into is the <a href="https://source.chromium.org/chromium/chromium/src/+/main:base/bind.h;l=138"><code class="language-plaintext highlighter-rouge">Unretained()</code> function</a>, which often shows up with the bind calls.</p>
 
 <h3 id="exporting-chromium-patches">Exporting Chromium patches</h3>
 
 <p>I don’t think pwsh can figure out that the patch export script is a Python file, 
-so I run from the <code class="language-plaintext highlighter-rouge">src</code> directory</p>
+so to export Chromium patches, I run from the <code class="language-plaintext highlighter-rouge">src</code> directory</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python electron/script/git-export-patches <span class="nt">-o</span> electron/patches/chromium
 </code></pre></div></div>
 
 <p>Sometimes, creating a commit fails due to patches being out of sync even after an export.
 In that case, re-syncing and re-exporting should fix the issue.</p>
+
+<h3 id="more-references">More references</h3>
+
+<ul>
+  <li><a href="https://www.electronjs.org/docs/latest/api/command-line-switches/">Electron command-line switches</a></li>
+  <li><a href="https://www.electronjs.org/docs/latest/api/environment-variables/">Electron environment variables</a></li>
+</ul>
 
           <hr />
           <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
