@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
+
+
+
+<!-- end of include -->
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Notes on developing VS Code - Ray ZZ</title>
+  <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta property="og:title" content="Notes on developing VS Code - Ray ZZ" />
+  <meta property="og:site_name" content="Ray ZZ" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.rayzz.me/articles/programming/developing-vscode-notes.html" />
+  <meta property="og:image" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:secure_url" content="https://rzhao271.github.io/img/intersection.jpg" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="431" />
+  <meta property="og:image:height" content="408" />
+  <meta property="og:description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
+" />
+  <meta name="theme-color" content="#283593">
+
+  <link rel="canonical" href="https://www.rayzz.me/articles/programming/developing-vscode-notes.html">
+
+  <!-- Font -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400&display=swap');
+  </style>
+
+  <!-- Import the CSS from here now since we want legacy flex support... -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="../../css/rayzz-site.css">
+</head>
+
+
+  <body>
+    <div>
+  <header class="top-bar">
+    <h1>Raymond Zhao</h1>
+  </header>
+  <nav class="expanded row topnav" data-topbar role="navigation">
+  <div class="columns small-2 medium-5">
+    &nbsp;
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../index.html">Home</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../articles.html">Articles</a>
+  </div>
+  <div class="columns small-3 medium-2 nav-option">
+    <a href="../../contact.html">Contact</a>
+  </div>
+  <div class="columns small-1">
+    &nbsp;
+  </div>
+</nav>
+
+</div>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <div class="expanded row">
+      <div class="columns small-12">
+        <section class="main-content">
+          <h2 id="notes-on-developing-vs-code">Notes on developing VS Code</h2>
+
+<p><em>Written September 2, 2022.</em></p>
+
+<p>While developing VS Code, I’ve ran into some snippets and links that I often refer to or refer others to.
+I’ll likely add to this list as new things come up, though this list is personalized to my experiences.</p>
+
+<h3 id="running-with-disable-gpu">Running with disable-gpu</h3>
+
+<p>Many rendering glitches can be mitigated by running VS Code in the terminal with the <code class="language-plaintext highlighter-rouge">--disable-gpu</code> flag:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>code --disable-gpu [file-or-workspace]
+</code></pre></div></div>
+
+<h3 id="extension-bisect">Extension bisect</h3>
+
+<p><a href="https://code.visualstudio.com/blogs/2021/02/16/extension-bisect">Extension bisect</a> is a cool feature in VS Code that does a binary search through sets of installed extensions to help the user figure out which extension could be contributing to an issue that they are seeing. I highly recommend using this feature when it appears that an extension is causing buggy behaviour, but it isn’t clear which extension is doing so.</p>
+
+<h3 id="yarn-fails-with-a-node-gyp-issue">Yarn fails with a node-gyp issue</h3>
+
+<p>Yarn at times fails with a node-gyp issue while fetching and building native modules. In this case,
+<a href="https://github.com/microsoft/vscode/wiki/How-to-Contribute#troubleshooting">deleting some node-gyp directories</a> and running <code class="language-plaintext highlighter-rouge">yarn cache clean</code> before running <code class="language-plaintext highlighter-rouge">yarn</code> again could help.</p>
+
+<h3 id="oss-freezes-after-an-electron-update">OSS freezes after an Electron update</h3>
+
+<p>Sometimes after an Electron update, the OSS build (the build that one gets by manually compiling the repository files) freezes moments after being launched. In that case, I do a full clean build by running <code class="language-plaintext highlighter-rouge">git clean -xfd &amp;&amp; yarn cache clean</code> before running <code class="language-plaintext highlighter-rouge">yarn</code> and <code class="language-plaintext highlighter-rouge">yarn watch</code> again.</p>
+
+<h3 id="clean-uninstallclearing-out-user-data-dir-files">Clean uninstall/Clearing out user data dir files</h3>
+
+<ul>
+  <li><a href="https://code.visualstudio.com/docs/setup/uninstall#_clean-uninstall">Clean uninstall documentation</a></li>
+</ul>
+
+<p>I once encountered a situation where the <a href="https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github">GitHub Pull Requests and Issues (GHPRI) extension</a> seemed to be corrupted to the point where even reinstalling it didn’t work. But, I wasn’t able to reproduce the problem with a fresh user data directory (which one can obtain by launching VS Code with <code class="language-plaintext highlighter-rouge">--user-data-dir</code> pointing to an empty directory). I didn’t mind reconfiguring my instance from scratch, considering a lot of it was filled with one-off modifications from previous <a href="https://github.com/microsoft/vscode/wiki/Endgame-Recovery-Template">endgames</a>, and deleting the folders indicated in the linked documentation above resolved my issue. I haven’t broke the GHPRI extension in the same way since then, so I don’t have a reproducible bug to file.</p>
+
+<h3 id="running-files-from-an-unsigned-archive-on-macos">Running files from an unsigned archive on macOS</h3>
+
+<p>After downloading an unsigned file from the internal builds page, one needs to run the command</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xattr <span class="nt">-d</span> com.apple.quarantine &lt;path-to-unsigned-file&gt;
+</code></pre></div></div>
+<p>on the file, and then manually extract it. Otherwise, directly extracting the file leads to security errors showing up when attempting to launch the program.</p>
+
+<h3 id="linux-archive-build-fails-upon-launch">Linux archive build fails upon launch</h3>
+
+<p>To run the Linux archive build in a VM, one either needs to disable the sandbox by launching the code binary with <code class="language-plaintext highlighter-rouge">--no-sandbox</code>, or needs to modify permissions on the <code class="language-plaintext highlighter-rouge">chrome-sandbox</code> file:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>root &lt;path-to-vscode&gt;/chrome-sandbox
+<span class="nb">sudo chmod </span>4755 &lt;path-to-vscode&gt;/chrome-sandbox
+</code></pre></div></div>
+
+<p>Source: <a href="https://code.visualstudio.com/updates/v1_59#_progress-for-electron-sandbox-support">v1.59 release notes</a></p>
+
+<h3 id="smoke-test-notes">Smoke test notes</h3>
+
+<p>The best notes I have found on manually running VS Code smoke tests are in the repository’s <a href="https://github.com/Microsoft/vscode/blob/main/test/smoke/README.md">Smoke test README</a>.</p>
+
+<h3 id="github-rate-limiting-issues-or-errors-when-fetching-packages-or-pushing">GitHub rate-limiting issues, or errors when fetching packages or pushing</h3>
+
+<ul>
+  <li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">Documentation on creating a new GitHub personal access token (PAT)</a></li>
+</ul>
+
+<p>There’s been a few times now when I was rate-limited while running <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks">GitHub Issue Notebooks</a>, unable to fetch packages (I’d get 401 errors), or unable to push changes. It turns out that every time, either I forgot to log in to GitHub, or my GitHub personal access token (PAT) expired and I needed to create a new one.</p>
+
+<p>I noticed that the GitHub PAT format has changed a few times over the last year, though I’m not sure whether that explains the tokens expiring; it’s more likely that the tokens reached an expiration date that I forgot I set.</p>
+
+          <hr />
+          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+        </section>
+      </div>
+    </div>
+    <footer class="site-footer">
+  <div class="expanded row" style="padding-top: 7px;">
+    <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
+      <a href="https://github.com/rzhao271" class="square-link"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="36px" height="36px"/></a>
+      <span style="margin-right: .3em;"></span>
+      <span class="show-for-medium" style="margin-right: .7em;"></span>
+      <a href="https://ca.linkedin.com/in/rzhao271" class="square-link"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
+    </div>
+    <div class="column small-8 medium-7" style="text-align: right;">
+      &copy; 2015&ndash;2022, Raymond Zhao
+      <br />
+      Under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
