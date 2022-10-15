@@ -74,11 +74,11 @@
         <section class="main-content">
           <h2 id="notes-on-developing-electron">Notes on developing Electron</h2>
 
-<p><em>Last modified September 2, 2022.</em></p>
+<p><em>Last modified October 14, 2022.</em></p>
 
-<p>I work with the Electron codebase on Windows, and have run into some problems in the past
+<p>I work with the Electron codebase on Windows and macOS, and have run into some problems in the past
 that took me a while to figure out. I don’t use <a href="https://github.com/electron/build-tools">Build Tools</a>.
-These notes assume that one has set up their Electron checkout using the <a href="https://www.electronjs.org/docs/latest/development/build-instructions-gn">official guide on building Electron</a> and that they are running commands in pwsh.</p>
+These notes assume that one has set up their Electron checkout using the <a href="https://www.electronjs.org/docs/latest/development/build-instructions-gn">official guide on building Electron</a>.</p>
 
 <h3 id="fixing-sync-failures">Fixing sync failures</h3>
 
@@ -162,6 +162,18 @@ so to export Chromium patches, I run from the <code class="language-plaintext hi
 
 <p>Sometimes, creating a commit fails due to patches being out of sync even after an export.
 In that case, re-syncing and re-exporting should fix the issue.</p>
+
+<h3 id="reinstalling-xcode-command-line-tools">Reinstalling XCode command-line tools</h3>
+
+<p>When updating from Big Sur to Monterey, my build broke completely.
+Running a clean build didn’t completely resolve the issue, and the remaining issues seemed to be caused by XCode.</p>
+
+<p>It turns out one can <a href="https://apple.stackexchange.com/a/375535">reinstall the XCode command-line tools</a> by running the following in a terminal:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo rm</span> <span class="nt">-rf</span> /Library/Developer/CommandLineTools
+xcode-select <span class="nt">--install</span>
+xcodebuild <span class="nt">-runFirstLaunch</span>
+</code></pre></div></div>
 
 <h3 id="more-references">More references</h3>
 
