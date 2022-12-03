@@ -67,8 +67,11 @@
 </div>
 
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
     <div class="expanded row">
       <div class="columns small-12">
         <section class="main-content">
@@ -137,14 +140,14 @@
 
 <p><em>Proof:</em> For each \(m\)-coloured piece, we expect to use \(\Omega(2^n)\) moves. By Theorem 3.2 in [1], there are \(2^m {n \choose m} (s - 2)^{n - m}\) \(m\)-coloured pieces in an \(s^n\) Rubik’s cube. Therefore, we obtain the following bound:</p>
 
-\[\begin{align}
+\[\begin{align*}
 \sum_{m = 1}^n \Omega(2^n) 2^m {n \choose m} (s - 2)^{n - m} 
 &amp;= \Omega(2^n) (s - 2)^n \sum_{m = 1}^n \left({2 \over s - 2}\right)^m {n \choose m} \\
 &amp;= \Omega(2^n) (s - 2)^n \left[\left({2 \over s - 2} + 1\right)^n - 1\right] \\
 &amp;= \Omega(2^n) (s - 2)^n \left[\left({s \over s - 2}\right)^n - 1\right] \\
 &amp;= \Omega(2^n)(s^n - (s - 2)^n) \\
 &amp;= \Omega(2^n) \Theta(s^n) = \Omega((2s)^n)
-\end{align}\]
+\end{align*}\]
 
 <p>as desired. \(\square\)</p>
 
@@ -169,12 +172,12 @@
 
 <p><em>Proof:</em> We have a bound of \(\Omega(2^m)\) moves per \(m\)-coloured piece. Combining this information with Corollary 3.4 in [1], we obtain the following bound:</p>
 
-\[\begin{align}
+\[\begin{align*}
 \sum_{m = 1}^n \Omega(2^m) 2^m {n \choose m}
 &amp;= \Omega\left(\sum_{m = 1}^n 4^m {n \choose m}\right) \\
 &amp;= \Omega\left((4 + 1)^n - 1\right) \\
 &amp;= \Omega(5^n)
-\end{align}\]
+\end{align*}\]
 
 <p>as desired. \(\square\)</p>
 
@@ -218,7 +221,7 @@
 
 <p>Combining this information with Theorem 3.2 in [1], we obtain the following bound:</p>
 
-\[\begin{align}
+\[\begin{align*}
 \sum_{m = 1}^{n - 1} \Theta(1)\Omega(2^m)2^m{n \choose m}(s - 2)^{n-m}
 &amp;= \Omega\left(\sum_{m=1}^{n-1} 4^m(s - 2)^{n-m}{n \choose m}\right) \\
 &amp;= \Omega\left((s - 2)^n \sum_{m=1}^{n-1} \left({4 \over s-2}\right)^m{n \choose m}\right) \\
@@ -226,7 +229,7 @@
 &amp;= \Omega\left((s - 2)^n \left[\left({s + 2 \over s-2}\right)^n - 1 - \left({4 \over s-2}\right)^n\right]\right) \\
 &amp;= \Omega\left((s+2)^n - (s-2)^n - 4^n\right) \\
 &amp;= \Omega((s+2)^n)
-\end{align}\]
+\end{align*}\]
 
 <p>as desired. \(\square\)</p>
 

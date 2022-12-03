@@ -182,12 +182,8 @@ tbody {
   padding-left: 3em;
 }
 
-/* https://stackoverflow.com/questions/65321568/mathjax-3-inline-math-and-overflow-x */
-mjx-container {
-  display: inline-grid;
+.katex-display {
   overflow-x: auto;
-  overflow-y: hidden;
-  max-width: 100%;
 }
 
 pre {

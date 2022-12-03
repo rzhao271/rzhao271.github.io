@@ -67,8 +67,11 @@
 </div>
 
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
     <div class="expanded row">
       <div class="columns small-12">
         <section class="main-content">
@@ -125,13 +128,13 @@ From an earlier result, we also know for \(m=k\) that \(f_k(C_{k+1}) = f(C_{k+1}
 <p>Lastly, for \(0 \le m \le k-1\), we multiply the number of \(k\)-facets within the \((k+1)\)-cube by the number of \(m\)-facets within each \(k\)-facet. By Lemma 1.1, \((k+1)-m\) \(k\)-facets meet per \(m\)-facet, so we have to divide by \((k+1)-m\) to avoid counting duplicates, 
 Therefore, for \(0 \le m \le k - 1\), we have</p>
 
-\[\begin{align}
+\[\begin{align*}
 f_m(C_{k+1}) &amp;= {f_k(C_{k+1})f_m(C_k) \over (k+1)-m} \\
 &amp;= {2(k+1) 2^{k-m}{k \choose m} \over (k+1)-m} \\
 &amp;= 2 {(k+1) \over (k+1)-m} 2^{k-m} {k! \over m!(k-m)!} \\
 &amp;= 2^{(k+1)-m} {(k+1)! \over m!((k+1)-m)!} \\
 &amp;= 2^{(k+1)-m} {k+1 \choose m}
-\end{align}\]
+\end{align*}\]
 
 <p>Therefore, for all \(0 \le m \le k+1\), \(f_m(C_{k+1}) = 2^{(k+1)-m} {k+1 \choose m}\), so the theorem holds by induction. \(\square\)</p>
 
