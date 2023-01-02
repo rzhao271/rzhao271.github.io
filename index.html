@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en">
   <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
 
 
@@ -35,43 +35,57 @@
   </style>
 
   <!-- Import the CSS from here now since we want legacy flex support... -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation-float.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="./css/syntax.css">
   <link rel="stylesheet" href="./css/rayzz-site.css">
 </head>
 
   <body>
     <div class="site-entire-body">
-      <div class="site-pre-footer">
-        <div>
-  <header class="top-bar">
-    <h1>Raymond Zhao</h1>
-  </header>
-  <nav class="expanded row topnav" data-topbar role="navigation">
-  <div class="columns small-2 medium-5">
-    &nbsp;
-  </div>
-  <div class="columns small-3 medium-2 nav-option">
-    <a href="./index.html">Home</a>
-  </div>
-  <div class="columns small-3 medium-2 nav-option">
-    <a href="./articles.html">Articles</a>
-  </div>
-  <div class="columns small-3 medium-2 nav-option">
-    <a href="./contact.html">Contact</a>
-  </div>
-  <div class="columns small-1">
-    &nbsp;
-  </div>
-</nav>
-
+      <div id="offCanvas" class="off-canvas position-right" 
+     data-off-canvas data-transition="overlay">
+  <span id="focus-trap-begin" tabIndex="0"></span>
+  <button id="off-canvas-close-button" class="close-button" type="button"
+          aria-label="Close menu" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <ul class="off-canvas-list">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./articles.html">Articles</a></li>
+    <li><a href="./contact.html">Contact</a></li>
+  </ul>
+  <span id="focus-trap-end" tabIndex="0"></span>
 </div>
 
+      <div class="off-canvas-content" data-off-canvas-content>
+        <div class="site-pre-footer">
+          <div>
+  <header class="top-bar">
+    <h1 class="site-title">
+      <a href="./index.html">Raymond Zhao</a>
+    </h1>
+    <div class="topnav-wrapper">
+      <nav class="topnav" data-topbar role="navigation">
+        <div class="nav-option">
+          <a href="./index.html">Home</a>
+        </div>
+        <div class="nav-option">
+          <a href="./articles.html">Articles</a>
+        </div>
+        <div class="nav-option">
+          <a href="./contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <button type="button" class="menu-icon topnav-burger"
+            data-toggle="offCanvas"></button>
+  </header>
+</div>
 
-        <div class="expanded row">
-          <div class="columns small-12">
-            <section class="main-content">
-              <h2 id="about-me">About Me</h2>
+          <div class="expanded row">
+            <div class="columns small-12">
+              <section class="main-content main-section">
+                <h2 id="about-me">About Me</h2>
 
 <p>I currently work full-time on <a href="https://code.visualstudio.com/">Visual Studio Code</a> at Microsoft as a SWE.</p>
 
@@ -83,11 +97,11 @@ I also solve <a href="https://superliminal.com/cube/halloffame.htm">higher-dimen
 
 <p>Additionally, the environment matters to me. For example, I eat plant-based food, and purchase green power.</p>
 
-            </section>
+              </section>
+            </div>
           </div>
         </div>
-      </div>
-      <footer class="site-footer">
+        <footer class="site-footer">
   <div class="expanded row" style="padding-top: 7px;">
     <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
       <a href="https://github.com/rzhao271" class="square-link"><img src="./img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="36px" height="36px"/></a>
@@ -96,13 +110,27 @@ I also solve <a href="https://superliminal.com/cube/halloffame.htm">higher-dimen
       <a href="https://ca.linkedin.com/in/rzhao271" class="square-link"><img src="./img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
     </div>
     <div class="column small-8 medium-7" style="text-align: right;">
-      &copy; 2015&ndash;2022, Raymond Zhao
+      &copy; 2015&ndash;2023, Raymond Zhao
       <br />
       Under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
     </div>
   </div>
 </footer>
 
+      </div>
     </div>
+
+    <script src="./js/jquery.js"></script>
+<script src="./js/what-input.js"></script>
+<script src="./js/foundation.min.js"></script>
+<script src="./js/offCanvasFocusTrap.js"></script>
+<script>
+  $(document).foundation();
+  $(document).ready(function() {
+    addOffCanvasFocusTrap();
+    addLinkSpaceHandlers();
+  });
+</script>
+
   </body>
 </html>

@@ -14,6 +14,13 @@ h1, h2, h3, h4 {
   body {
     font-size: 16px;
   }
+  .main-content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .topnav-wrapper {
+    display: none;
+  }
 }
 
 /* Medium and up */
@@ -21,36 +28,92 @@ h1, h2, h3, h4 {
   body {
     font-size: 18px;
   }
+  .topnav-wrapper {
+    margin-top: 3px;
+    margin-right: 12px;
+  }
+  .topnav-burger {
+    display: none;
+  }
 }
 
 h2, h3, h4 {
   margin-bottom: 5px;
 }
-
-h1 {
-  font-size: 2.1em;
-  margin-bottom: 0;
-  text-align: left;
-}
-
 h2 {
   font-size: 1.75em;
 }
-
 h3 {
   font-size: 1.55em;
 }
-
 h4 {
   font-size: 1.45em;
 }
-
 p {
   font-size: 1em;
 }
 
+h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.site-title {
+  flex: auto;
+  margin-bottom: 0;
+  text-align: left;
+}
+.nav-option {
+  flex: none;
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.topnav-burger {
+  margin: 8px;
+  margin-top: 6px;
+  transition: none;
+  -webkit-transition: none;
+}
+.topnav-burger:hover {
+  color: #B7B8CC;
+}
+.topnav-burger:focus {
+  outline: 1.5px solid white;
+  outline-offset: 8px;
+  border-radius: 1px;
+}
+.off-canvas-title {
+  background: #0A0D33;
+  color: #E6E6F2;
+}
+ul.off-canvas-list {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  list-style-type: none;
+}
+ul.off-canvas-list li {
+  margin-bottom: 8px;
+}
+.off-canvas {
+  background: #0A0D33;
+}
+.close-button {
+  color: #E6E6F2;
+}
+.close-button:hover, .close-button:focus {
+  color: #B7B8CC;
+}
+.close-button:focus {
+  outline: 1.5px solid #B7B8CC;
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
 blockquote, blockquote p {
-  color: #5a5a5a;
+  /* Used in articles such as 333LP part iii */
+  color: #444;
 }
 
 .site-footer {
@@ -71,14 +134,13 @@ a:hover, a:focus {
   color: #51B53F;
 }
 a:focus {
-  outline: 2px black solid;
+  outline: 1.5px black solid;
   outline-offset: 1px;
-  border-radius: 2px;
+  border-radius: 1px;
 }
-.nav-option a:focus {
-  outline-offset: -2px;
-}
+
 .square-link {
+  /* Used for the footer icons */
   padding: 6px 1px 10px 1px;
 }
 
@@ -86,7 +148,7 @@ figure.highlight {
   background-color: #202025;
 }
 figcaption {
-  font-size: 0.9em;
+  font-size: 0.92em;
 }
 code {
   /* border: none; */
@@ -97,52 +159,42 @@ code {
   font-style: italic;
 }
 
-.nav-option {
-  /* Indigo 900 */
-  background: #1A237E;
-  text-align: center;
-  padding: 0px;
-}
-.nav-option a {
-  display: block;
-  padding: 2px 0px 3px 0px;
-}
-
-.nav-option a:hover, .nav-option a:focus {
-  /* Green triad to Indigo 900 */
-  background: #227C1A;
-}
-
 .footer-bar {
   padding: 1px 0px;
 }
 
-.topnav {
-  background: #1A237E;
-}
-.topnav a {
-  color: #F5F5FF;
-}
-
 .top-bar {
-  background: #080A26;
-  color: #F5F5FF;
+  background: #0A0D33;
+  color: #E6E6F2;
   text-align: left;
+  display: flex;
+}
+.top-bar a, .off-canvas-list a {
+  color: #E6E6F2;
+}
+.top-bar a:hover, .top-bar a:focus,
+.off-canvas-list a:hover, .off-canvas-list a:focus {
+  color: #B7B8CC;
+}
+.top-bar a:focus, .off-canvas-list a:focus {
+  outline: 1.5px solid white;
+  outline-offset: 3px;
+  border-radius: 1px;
 }
 
 /* https://stackoverflow.com/a/39509165 */
-ul {
+.off-canvas-content ul {
   position: relative;
   list-style: none;
   margin-left: 0;
   padding-left: 1em;
 }
-ul li:before {
+.off-canvas-content ul li:before {
   content: "‣";
   position: absolute;
   left: 0;
 }
-ul li ul li:before {
+.off-canvas-content ul li ul li:before {
   content: "•";
   position: absolute;
   left: 0;
@@ -154,23 +206,29 @@ ul li ul li:before {
   height: 100%;
   height: 100vh;
 }
-
 .site-footer {
   clear: both;
   position: relative;
-  height: 4.5em;
-  margin-top: -4.5em;
+  height: 4.2em;
+  margin-top: -4.2em;
 }
-
 .site-footer, .site-footer div {
   background: #EEE;
 }
 
 .main-content {
-  max-width: 700px;
   width: 100%;
-  margin: 5px auto 0 auto;
+  margin-top: 5px;
+  padding-left: 20%;
+  padding-right: 20%;
   word-break: break-word;
+}
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+  .main-content {
+    padding: 0;
+  }
 }
 
 tbody {
@@ -190,7 +248,6 @@ pre {
   margin-bottom: 16px;
   padding: 8px 16px;
 }
-
 pre > code {
   border: none;
   padding: 0;

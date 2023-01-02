@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js" lang="en">
   <!-- from http://ricostacruz.com/til/relative-paths-in-jekyll.html -->
 
 
@@ -35,47 +35,62 @@
   </style>
 
   <!-- Import the CSS from here now since we want legacy flex support... -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/css/foundation-float.min.css" integrity="sha256-G4aYgUXr4BBL+Jq0iD/76u5e/4+BU5W/V+/g4QcCM3Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation-float.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/syntax.css">
   <link rel="stylesheet" href="../../css/rayzz-site.css">
 </head>
 
-
   <body>
-    <div>
-  <header class="top-bar">
-    <h1>Raymond Zhao</h1>
-  </header>
-  <nav class="expanded row topnav" data-topbar role="navigation">
-  <div class="columns small-2 medium-5">
-    &nbsp;
-  </div>
-  <div class="columns small-3 medium-2 nav-option">
-    <a href="../../index.html">Home</a>
-  </div>
-  <div class="columns small-3 medium-2 nav-option">
-    <a href="../../articles.html">Articles</a>
-  </div>
-  <div class="columns small-3 medium-2 nav-option">
-    <a href="../../contact.html">Contact</a>
-  </div>
-  <div class="columns small-1">
-    &nbsp;
-  </div>
-</nav>
+    <div class="site-entire-body">
+      <div id="offCanvas" class="off-canvas position-right" 
+     data-off-canvas data-transition="overlay">
+  <span id="focus-trap-begin" tabIndex="0"></span>
+  <button id="off-canvas-close-button" class="close-button" type="button"
+          aria-label="Close menu" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <ul class="off-canvas-list">
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../articles.html">Articles</a></li>
+    <li><a href="../../contact.html">Contact</a></li>
+  </ul>
+  <span id="focus-trap-end" tabIndex="0"></span>
+</div>
 
+      <div class="off-canvas-content" data-off-canvas-content>
+        <div class="site-pre-footer">
+          <div>
+  <header class="top-bar">
+    <h1 class="site-title">
+      <a href="../../index.html">Raymond Zhao</a>
+    </h1>
+    <div class="topnav-wrapper">
+      <nav class="topnav" data-topbar role="navigation">
+        <div class="nav-option">
+          <a href="../../index.html">Home</a>
+        </div>
+        <div class="nav-option">
+          <a href="../../articles.html">Articles</a>
+        </div>
+        <div class="nav-option">
+          <a href="../../contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <button type="button" class="menu-icon topnav-burger"
+            data-toggle="offCanvas"></button>
+  </header>
 </div>
 
 
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-            onload="renderMathInElement(document.body);"></script>
-    <div class="expanded row">
-      <div class="columns small-12">
-        <section class="main-content">
-          <div class="row">
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css" integrity="sha384-Juol1FqnotbkyZUT5Z7gUPjQ9gzlwCENvUZTpQBAPxtusdwFLRy382PSDx5UUJ4/" crossorigin="anonymous">
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js" integrity="sha384-97gW6UIJxnlKemYavrqDHSX3SiygeOwIZhwyOKRfSaf0JWKRVj9hLASHgFTzT+0O" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+          <div class="expanded row">
+            <div class="columns small-12">
+              <section class="main-content">
+                <div class="row">
   <h2 id="course-plans">Course Plans</h2>
 
   <p><em>Last modified July 2, 2020</em>.</p>
@@ -281,12 +296,12 @@
   </div>
 </div>
 
-          <hr />
-          <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
-        </section>
-      </div>
-    </div>
-    <footer class="site-footer">
+                <hr />
+                <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
+              </section>
+            </div>
+          </div>
+          <footer class="site-footer">
   <div class="expanded row" style="padding-top: 7px;">
     <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
       <a href="https://github.com/rzhao271" class="square-link"><img src="../../img/GitHub-Mark-64px.png" alt="My GitHub: rzhao271" width="36px" height="36px"/></a>
@@ -295,12 +310,27 @@
       <a href="https://ca.linkedin.com/in/rzhao271" class="square-link"><img src="../../img/square-linkedin-512.png" alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
     </div>
     <div class="column small-8 medium-7" style="text-align: right;">
-      &copy; 2015&ndash;2022, Raymond Zhao
+      &copy; 2015&ndash;2023, Raymond Zhao
       <br />
       Under the <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
     </div>
   </div>
 </footer>
+
+        </div>
+    </div>
+
+    <script src="../../js/jquery.js"></script>
+<script src="../../js/what-input.js"></script>
+<script src="../../js/foundation.min.js"></script>
+<script src="../../js/offCanvasFocusTrap.js"></script>
+<script>
+  $(document).foundation();
+  $(document).ready(function() {
+    addOffCanvasFocusTrap();
+    addLinkSpaceHandlers();
+  });
+</script>
 
   </body>
 </html>
