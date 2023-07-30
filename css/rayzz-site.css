@@ -121,10 +121,18 @@ blockquote, blockquote p {
   text-align: center;
 }
 
-a {
+.site-footer a {
+  text-decoration: underline;
+
   /* Indigo 500 */
   color: #3F51B5;
 }
+
+a {
+  /* Indigo 400 */
+  color: #5C6BC0;
+}
+
 a:visited {
   /* Red triad to Indigo 500 */
   color: #B53F51;
@@ -251,4 +259,9 @@ pre {
 pre > code {
   border: none;
   padding: 0;
+}
+
+/* Override low-contrast colours */
+.highlight .nb {
+  color: #000080;
 }
