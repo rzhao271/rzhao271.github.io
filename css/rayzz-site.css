@@ -37,13 +37,13 @@ h1, h2, h3, h4 {
   }
 }
 
-h2, h3, h4 {
+h2, h3, h4, .license h1, .license h2 {
   margin-bottom: 5px;
 }
-h2 {
+h2, .license h1 {
   font-size: 1.75em;
 }
-h3 {
+h3, .license h2 {
   font-size: 1.55em;
 }
 h4 {
