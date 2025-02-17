@@ -92,7 +92,7 @@
               <main class="main-content">
                 <h2 id="notes-on-developing-vs-code">Notes on Developing VS Code</h2>
 
-<p><em>Written September 2, 2022.</em></p>
+<p><em>Last modified February 16, 2025.</em></p>
 
 <p>While developing VS Code, I’ve ran into some snippets and links that I often refer to or refer others to.
 I’ll likely add to this list as new things come up, though this list is personalized to my experiences.</p>
@@ -107,14 +107,9 @@ I’ll likely add to this list as new things come up, though this list is person
 
 <p><a href="https://code.visualstudio.com/blogs/2021/02/16/extension-bisect">Extension bisect</a> is a cool feature in VS Code that does a binary search through sets of installed extensions to help the user figure out which extension could be contributing to an issue that they are seeing. I highly recommend using this feature when it appears that an extension is causing buggy behaviour, but it isn’t clear which extension is doing so.</p>
 
-<h3 id="yarn-fails-with-a-node-gyp-issue">Yarn fails with a node-gyp issue</h3>
-
-<p>Yarn at times fails with a node-gyp issue while fetching and building native modules. In this case,
-<a href="https://github.com/microsoft/vscode/wiki/How-to-Contribute#troubleshooting">deleting some node-gyp directories</a> and running <code class="language-plaintext highlighter-rouge">yarn cache clean</code> before running <code class="language-plaintext highlighter-rouge">yarn</code> again could help.</p>
-
 <h3 id="oss-freezes-after-an-electron-update">OSS freezes after an Electron update</h3>
 
-<p>Sometimes after an Electron update, the OSS build (the build that one gets by manually compiling the repository files) freezes moments after being launched. In that case, I do a full clean build by running <code class="language-plaintext highlighter-rouge">git clean -xfd &amp;&amp; yarn cache clean</code> before running <code class="language-plaintext highlighter-rouge">yarn</code> and <code class="language-plaintext highlighter-rouge">yarn watch</code> again.</p>
+<p>Sometimes after an Electron update, the OSS build (the build that one gets by manually compiling the repository files) freezes moments after being launched. In that case, I do a full clean build by running <code class="language-plaintext highlighter-rouge">git clean -xfd</code> before running <code class="language-plaintext highlighter-rouge">npm i</code> and <code class="language-plaintext highlighter-rouge">npm run watch</code> again.</p>
 
 <h3 id="clean-uninstallclearing-out-user-data-dir-files">Clean uninstall/Clearing out user data dir files</h3>
 
@@ -131,16 +126,6 @@ I’ll likely add to this list as new things come up, though this list is person
 </code></pre></div></div>
 <p>on the file, and then manually extract it. Otherwise, directly extracting the file leads to security errors showing up when attempting to launch the program.</p>
 
-<h3 id="linux-archive-build-fails-upon-launch">Linux archive build fails upon launch</h3>
-
-<p>To run the Linux archive build in a VM, one either needs to disable the sandbox by launching the code binary with <code class="language-plaintext highlighter-rouge">--no-sandbox</code>, or needs to modify permissions on the <code class="language-plaintext highlighter-rouge">chrome-sandbox</code> file:</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>root &lt;path-to-vscode&gt;/chrome-sandbox
-<span class="nb">sudo chmod </span>4755 &lt;path-to-vscode&gt;/chrome-sandbox
-</code></pre></div></div>
-
-<p>Source: <a href="https://code.visualstudio.com/updates/v1_59#_progress-for-electron-sandbox-support">v1.59 release notes</a></p>
-
 <h3 id="smoke-test-notes">Smoke test notes</h3>
 
 <p>The best notes I have found on manually running VS Code smoke tests are in the repository’s <a href="https://github.com/Microsoft/vscode/blob/main/test/smoke/README.md">Smoke test README</a>.</p>
@@ -153,7 +138,7 @@ I’ll likely add to this list as new things come up, though this list is person
 
 <p>There’s been a few times now when I was rate-limited while running <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-github-issue-notebooks">GitHub Issue Notebooks</a>, unable to fetch packages (I’d get 401 errors), or unable to push changes. It turns out that every time, either I forgot to log in to GitHub, or my GitHub personal access token (PAT) expired and I needed to create a new one.</p>
 
-<p>I noticed that the GitHub PAT format has changed a few times over the last year, though I’m not sure whether that explains the tokens expiring; it’s more likely that the tokens reached an expiration date that I forgot I set.</p>
+<p>I noticed that the GitHub PAT format has changed a few times over the last year, though I’m not sure whether that explains the tokens expiring.</p>
 
                 <hr />
                 <a href="../../articles.html">Go back to <i>Articles</i></a><br /><br />
