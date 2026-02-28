@@ -12,7 +12,8 @@
   <title>Cartesian Products, Duoprisms, and Tesseractic Checkerboards - Ray ZZ</title>
   <meta name="description" content="Software developer, mathematician, minimalist. Featuring articles on hypercubing and microtonality.
 " />
-  <meta property="og:title" content="Cartesian Products, Duoprisms, and Tesseractic Checkerboards - Ray ZZ" />
+  <meta property="og:title"
+    content="Cartesian Products, Duoprisms, and Tesseractic Checkerboards - Ray ZZ" />
   <meta property="og:site_name" content="Ray ZZ" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.rayzz.me/articles/hypercubing/tesseractic-checkerboards.html" />
@@ -29,15 +30,14 @@
 
   <!-- Font -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@400&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400&display=swap');
   </style>
 
   <!-- Import the CSS from here now since we want legacy flex support... -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation-float.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../css/syntax.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.9.0/dist/css/foundation-float.min.css"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="../../css/rayzz-site.css">
 </head>
-
   <body>
     <div class="site-entire-body">
       <aside id="offCanvas" class="off-canvas position-right" data-off-canvas data-transition="overlay">
@@ -171,12 +171,19 @@
           <footer class="site-footer">
   <div class="expanded row" style="padding-top: 7px;">
     <div class="column small-4 medium-5" style="text-align: left; margin-top: 5px;">
-      <a href="https://github.com/rzhao271" class="square-link"><img src="../../img/GitHub-Mark-64px.png"
-          alt="My GitHub: rzhao271" width="36px" height="36px" /></a>
-      <span style="margin-right: .3em;"></span>
-      <span class="show-for-medium" style="margin-right: .7em;"></span>
-      <a href="https://linkedin.com/in/rzhao271" class="square-link"><img src="../../img/square-linkedin-512.png"
-          alt="My LinkedIn: Raymond Zhao" width="36px" height="36px" /></a>
+      <div class="footer-icon">
+        <a href="https://github.com/rzhao271" class="hide-for-dark-mode">
+          <img src="../../img/logos/GitHub_Invertocat_Black_Clearspace.png" alt="GitHub: rzhao271" />
+        </a>
+        <a href="https://github.com/rzhao271" class="show-for-dark-mode">
+          <img src="../../img/logos/GitHub_Invertocat_White_Clearspace.png" alt="GitHub: rzhao271" />
+        </a>
+      </div>
+      <div class="footer-icon">
+        <a href="https://linkedin.com/in/rzhao271">
+          <img src="../../img/logos/LI-In-Bug.png" alt="LinkedIn: rzhao271" />
+        </a>
+      </div>
     </div>
     <div class="column small-8 medium-7" style="text-align: right;">
       &copy; 2015&ndash;2026, Raymond Zhao
@@ -190,8 +197,8 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script src="../../js/what-input.js"></script>
-<script src="../../js/foundation.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.9.0/dist/js/foundation.min.js"
+  crossorigin="anonymous"></script>
 <script src="../../js/offCanvasFocusTrap.js"></script>
 <script>
   $(document).foundation();
