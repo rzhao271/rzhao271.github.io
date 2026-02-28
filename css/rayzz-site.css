@@ -212,24 +212,6 @@ a:focus {
   border-radius: 4px;
 }
 
-.footer-icon {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  margin-right: .5rem;
-}
-
-.footer-icon a {
-  display: inline-block;
-  text-decoration: none;
-  outline-offset: 2px;
-}
-
-.footer-icon img {
-  width: 36px;
-  height: 36px;
-}
-
 figcaption {
   font-size: 0.92em;
 }
@@ -303,13 +285,50 @@ code {
 .site-footer {
   clear: both;
   position: relative;
-  height: 4.2em;
-  margin-top: -4.2em;
+  height: 5.5em;
+  margin-top: -5.5em;
 }
 
 .site-footer,
 .site-footer div {
   background: var(--footer-background);
+}
+
+.site-footer .footer-row {
+  padding-top: 0.3em;
+  display: flex;
+}
+
+.site-footer .icon-column {
+  display: flex;
+  gap: 1em;
+  padding: 1em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.site-footer .footer-icon {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+
+.site-footer .footer-icon a {
+  display: inline-block;
+  text-decoration: none;
+  outline-offset: 2px;
+}
+
+.site-footer .footer-icon img {
+  width: 36px;
+  height: 36px;
+}
+
+.site-footer .license-column {
+  flex: auto;
+  text-align: right;
+  padding-right: 1em;
+  padding-top: 0.15em;
 }
 
 .main-content {
